@@ -70,10 +70,14 @@ nav.toc a:hover { text-decoration: underline; }
   <li><a href="#5-application-architecture-togaf-a">5. Application Architecture (TOGAF &ldquo;A&rdquo;)</a>
     <ul>
       <li><a href="#54-component-overview">5.4 Component Overview</a></li>
-      <li><a href="#55-ricefw-inventory">5.5 RICEFW Inventory</a>
+      <li><a href="#55-development-object-inventory">5.5 Development Object Inventory</a>
         <ul>
-          <li><a href="#551-eca-dependencies">5.5.1 ECA Dependencies</a></li>
-          <li><a href="#552-boundary-application-dependencies">5.5.2 Boundary Application Dependencies</a></li>
+          <li><a href="#551-sap-development-objects">5.5.1 SAP Development Objects</a></li>
+          <li><a href="#552-eca-development-objects">5.5.2 ECA Development Objects</a></li>
+          <li><a href="#553-interface-objects">5.5.3 Interface Objects</a></li>
+          <li><a href="#554-middleware-objects">5.5.4 Middleware Objects</a></li>
+          <li><a href="#555-scheduling-batch-objects">5.5.5 Scheduling &amp; Batch Objects</a></li>
+          <li><a href="#556-boundary-application-dependencies">5.5.6 Boundary Application Dependencies</a></li>
         </ul>
       </li>
       <li><a href="#56-integration-patterns">5.6 Integration Patterns</a></li>
@@ -85,6 +89,7 @@ nav.toc a:hover { text-decoration: underline; }
       <li><a href="#62-sap-development-object-status">6.2 SAP Development Object Status</a></li>
       <li><a href="#63-nfrs-design-principles">6.3 NFRs &amp; Design Principles</a></li>
       <li><a href="#64-security-governance">6.4 Security &amp; Governance</a></li>
+      <li><a href="#65-eca-development-object-status">6.5 ECA Development Object Status</a></li>
     </ul>
   </li>
   <li><a href="#7-project-context">7. Project Context</a>
@@ -1439,46 +1444,79 @@ Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
 | System | IAPM ID | Status |
 |--------|---------|--------|
 
-### 5.5 RICEFW Inventory
+### 5.5 Development Object Inventory
 
-| Object ID | Type | Description | Status | Source → Target | Boundary App | Complexity |
-|-----------|------|-------------|--------|----------------|-------------|----------|
-| FPRI1704 | Interface | Automated Tool MUP Excess Capacity calculation and associated PCOS/OCOS Split... | 10. Object Complete |  | NA | 03.Medium |
-| FPRI1439 | Interface | Receive planned production quantities per production version from ECA to S/4 ... | 10. Object Complete |  | NA | 03.Medium |
-| FPRI1288 | Interface | Activity Inbound interface from ECA to S4 IP | 10. Object Complete | ECA → S/4 | NA | 03.Medium |
-| FPRI1287 | Interface | Production quantity update in WAC custom table from ECA to S4 IF | 10. Object Complete | ECA → S/4 | NA | 03.Medium |
-| FPRI1273 | Interface | Activity Quantity Inbound interface from ECA to S4 IF | 10. Object Complete | ECA → S/4 | NA | 03.Medium |
-| FPRI0704 | Interface | IF-IP Integration Actual Cost - Inbound Interface | 10. Object Complete | OpenText → S/4 | NA | 02.High |
-| FPRI0703 | Interface | IF-IP Integration Actual Cost - Outbound Interface | 10. Object Complete | S/4 → OpenText | NA | 02.High |
-| FPRI0554 | Interface | SKF Interface to get file from ECA and send to S4 via BODS - IF | 10. Object Complete | ECA → S/4 | Wafer Starts Per Week; ISA-VS2012 US (MAPPS); ISA-VS2008 Asia (ATMPS CR and D... | 02.High |
-| FPRI0545 | Interface | IF-IP Integration - Interface to send Cost Idoc from S4 If to S4 IP | 10. Object Complete | S/4 → S/4 | NA | 03.Medium |
-| FPRI0544 | Interface | IF-IP Integration - Interface to receive Cost Idoc from S4 If to S4 IP | 10. Object Complete | S/4 → S/4 | NA | 03.Medium |
-| FPRE1620_IP | Enhancement | Implement OSS Note 2358961 to allow COGS split based on Aux CCS at time of de... | 99. Rejected/Cancelled/On Hold |  |  | 03.Medium |
-| FPRE1620_IF | Enhancement | Implement OSS Note 2358961 to allow COGS split based on Aux CCS at time of de... | 99. Rejected/Cancelled/On Hold |  |  | 04.Low |
-| FPRE1438 | Enhancement | Update mixing ratio for Procurement alternative for Cross site transfer based... | 10. Object Complete |  |  | 03.Medium |
-| FPRE1419 | Enhancement | Update Procurement alternatives based on production version & PIR for cross s... | 10. Object Complete |  |  | 03.Medium |
-| FPRE1328 | Enhancement | Legal Valuation standard cost calculation enhancement | 99. Rejected/Cancelled/On Hold |  |  | 03.Medium |
-| FPRE0702 | Enhancement | Calculation of variance to be loaded for Group Actual Costing | 10. Object Complete |  |  | 03.Medium |
-| FPRE0701_IP | Enhancement | Mixed Costing ratio auto update | 10. Object Complete |  |  | 03.Medium |
-| FPRE0701_IF | Enhancement | Mixed Costing ratio auto update | 10. Object Complete |  |  | 04.Low |
-| FPRE0700_IP | Enhancement | Representative material ID – Q2-Q8 Forecast | 10. Object Complete |  |  | 03.Medium |
-| FPRE0700_IF | Enhancement | Representative material ID – Q2-Q8 Forecast | 10. Object Complete |  |  | 04.Low |
-| FPRE0699 | Enhancement | Enhancement for Excess Capacity – Fixed Spending Adjustment | 10. Object Complete |  |  | 02.High |
-| FPRE0698 | Enhancement | Legal Valuation standard cost calculation enhancement | 10. Object Complete |  |  | 04.Low |
-| FPRE0551 | Enhancement | SKF Actual Driver volume update from actual activity confirmation Automation | 10. Object Complete |  |  | 03.Medium |
-| FPRE0550 | Enhancement | Enhancement to update additive cost in IP based on Idoc of IF cost | 10. Object Complete |  |  | 03.Medium |
-| FPRE0549 | Enhancement | Enhancement to a) update Cost and Production volume in custom table, b) calcu... | 10. Object Complete |  | BY-PDH | 03.Medium |
-| FPRC1493 | Conversion | Conversion of WIP values as per Component structure in S/4 - IP | 10. Object Complete |  |  | 02.High |
-| FPRC1491 | Conversion | Conversion of WIP values as per Component structure in S/4 - Back End IF | 10. Object Complete |  |  | 02.High |
-
-**Summary**: 10 Interfaces, 2 Conversions, 15 Enhancements
+**Summary**: 23 SAP, 4 ECA, 10 Interfaces | RICEFW: 10 Interfaces, 2 Conversions, 15 Enhancements
 
 
-#### 5.5.2 Boundary Application Dependencies
+#### 5.5.1 SAP Development Objects
 
-The following RICEFW objects integrate with **boundary applications** (external systems outside the S/4 HANA core):
+SAP platform objects (Reports, Interfaces, Conversions, Enhancements, Forms, Workflows) developed on S/4, MDG, or S/4 BOT:
 
-| RICEFW ID | Description | Boundary Application | Source → Target |
+| Object ID | Type | Description | Status | Dev System | Complexity |
+|-----------|------|-------------|--------|-----------|----------|
+| FPRI1704 | Interface | Automated Tool MUP Excess Capacity calculation and associated PCOS/OCOS Split... | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRI1439 | Interface | Receive planned production quantities per production version from ECA to S/4 ... | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRI0704 | Interface | IF-IP Integration Actual Cost - Inbound Interface | 10. Object Complete | 01.S4 | 02.High |
+| FPRI0703 | Interface | IF-IP Integration Actual Cost - Outbound Interface | 10. Object Complete | 01.S4 | 02.High |
+| FPRI0545 | Interface | IF-IP Integration - Interface to send Cost Idoc from S4 If to S4 IP | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRI0544 | Interface | IF-IP Integration - Interface to receive Cost Idoc from S4 If to S4 IP | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE1620_IP | Enhancement | Implement OSS Note 2358961 to allow COGS split based on Aux CCS at time of de... | 99. Rejected/Cancelled/On Hold | 01.S4 | 03.Medium |
+| FPRE1620_IF | Enhancement | Implement OSS Note 2358961 to allow COGS split based on Aux CCS at time of de... | 99. Rejected/Cancelled/On Hold | 01.S4 | 04.Low |
+| FPRE1438 | Enhancement | Update mixing ratio for Procurement alternative for Cross site transfer based... | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE1419 | Enhancement | Update Procurement alternatives based on production version & PIR for cross s... | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE1328 | Enhancement | Legal Valuation standard cost calculation enhancement | 99. Rejected/Cancelled/On Hold | 01.S4 | 03.Medium |
+| FPRE0702 | Enhancement | Calculation of variance to be loaded for Group Actual Costing | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE0701_IP | Enhancement | Mixed Costing ratio auto update | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE0701_IF | Enhancement | Mixed Costing ratio auto update | 10. Object Complete | 01.S4 | 04.Low |
+| FPRE0700_IP | Enhancement | Representative material ID – Q2-Q8 Forecast | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE0700_IF | Enhancement | Representative material ID – Q2-Q8 Forecast | 10. Object Complete | 01.S4 | 04.Low |
+| FPRE0699 | Enhancement | Enhancement for Excess Capacity – Fixed Spending Adjustment | 10. Object Complete | 01.S4 | 02.High |
+| FPRE0698 | Enhancement | Legal Valuation standard cost calculation enhancement | 10. Object Complete | 01.S4 | 04.Low |
+| FPRE0551 | Enhancement | SKF Actual Driver volume update from actual activity confirmation Automation | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE0550 | Enhancement | Enhancement to update additive cost in IP based on Idoc of IF cost | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE0549 | Enhancement | Enhancement to a) update Cost and Production volume in custom table, b) calcu... | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRC1493 | Conversion | Conversion of WIP values as per Component structure in S/4 - IP | 10. Object Complete | 01.S4 | 02.High |
+| FPRC1491 | Conversion | Conversion of WIP values as per Component structure in S/4 - Back End IF | 10. Object Complete | 01.S4 | 02.High |
+
+#### 5.5.2 ECA Development Objects
+
+**Enterprise Cloud Analytics (ECA)** platform objects (Databricks/Snowflake) — views, tables, and ETL jobs with Source or Target System = ECA:
+
+| Object ID | Type | Description | Status | Source → Target | Complexity |
+|-----------|------|-------------|--------|----------------|----------|
+| FPRI1288 | Interface | Activity Inbound interface from ECA to S4 IP | 10. Object Complete | ECA → S/4 | 03.Medium |
+| FPRI1287 | Interface | Production quantity update in WAC custom table from ECA to S4 IF | 10. Object Complete | ECA → S/4 | 03.Medium |
+| FPRI1273 | Interface | Activity Quantity Inbound interface from ECA to S4 IF | 10. Object Complete | ECA → S/4 | 03.Medium |
+| FPRI0554 | Interface | SKF Interface to get file from ECA and send to S4 via BODS - IF | 10. Object Complete | ECA → S/4 | 02.High |
+
+#### 5.5.3 Interface Objects
+
+Holistic view of all interface objects by L2 capability — includes ECA → S/4, S/4 → ECA, boundary system, and inter-platform interfaces with middleware and integration approach:
+
+| Object ID | Description | Source → Target | Middleware | Approach | Status |
+|-----------|-------------|----------------|-----------|----------|--------|
+| FPRI1704 | Automated Tool MUP Excess Capacity calculation and associated PCOS/OCOS Split... |  | BODS |  | 10. Object Complete |
+| FPRI1439 | Receive planned production quantities per production version from ECA to S/4 ... |  | APIGEE |  | 10. Object Complete |
+| FPRI1288 | Activity Inbound interface from ECA to S4 IP | ECA → S/4 | MuleSoft |  | 10. Object Complete |
+| FPRI1287 | Production quantity update in WAC custom table from ECA to S4 IF | ECA → S/4 | MuleSoft |  | 10. Object Complete |
+| FPRI1273 | Activity Quantity Inbound interface from ECA to S4 IF | ECA → S/4 | MuleSoft |  | 10. Object Complete |
+| FPRI0704 | IF-IP Integration Actual Cost - Inbound Interface | OpenText → S/4 | SFT |  | 10. Object Complete |
+| FPRI0703 | IF-IP Integration Actual Cost - Outbound Interface | S/4 → OpenText | SFT |  | 10. Object Complete |
+| FPRI0554 | SKF Interface to get file from ECA and send to S4 via BODS - IF | ECA → S/4 | MuleSoft |  | 10. Object Complete |
+| FPRI0545 | IF-IP Integration - Interface to send Cost Idoc from S4 If to S4 IP | S/4 → S/4 | SFT |  | 10. Object Complete |
+| FPRI0544 | IF-IP Integration - Interface to receive Cost Idoc from S4 If to S4 IP | S/4 → S/4 | SFT |  | 10. Object Complete |
+
+
+#### 5.5.5 Scheduling & Batch Objects
+
+*Scheduling and batch job objects (AutoSys, CWA) will be populated when job scheduler metadata is available. This section will map batch dependencies to RICEFW and ECA objects.*
+
+#### 5.5.6 Boundary Application Dependencies
+
+The following development objects integrate with **boundary applications** (external systems outside the S/4 HANA core):
+
+| Object ID | Description | Boundary Application | Source → Target |
 |-----------|------------|---------------------|----------------|
 | FPRI0554 | SKF Interface to get file from ECA and send to S4 via BODS - IF | Wafer Starts Per Week; ISA-VS2012 US (MAPPS); ISA-VS2008 Asia (ATMPS CR and D... | ECA → S/4 |
 | FPRE0549 | Enhancement to a) update Cost and Production volume in custom table, b) calcu... | BY-PDH |  |
@@ -1539,6 +1577,14 @@ The following RICEFW objects integrate with **boundary applications** (external 
 | Audit Logging | Comprehensive audit trail for all data changes and user actions (SAP Security Audit Log) | SOX Compliance / Intel Audit Policy | Internal Audit |
 | Certificate Management | Automated certificate lifecycle management for system-to-system trust | Intel PKI Standard | Certificate Authority Team |
 | Compliance | SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR) | Intel Corporate Compliance Framework | Compliance Office |
+
+### 6.5 ECA Development Object Status
+
+| Metric | Count |
+|--------|-------|
+| ECA Objects (this capability) | 4 |
+| ECA Interfaces | 4 |
+| Total ECA + SAP Interface Dependencies | 10 |
 
 
 <div class="page-footer"><span>Page 23</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-020 — Perform Product Costing and Inventory Valuation</span></div>

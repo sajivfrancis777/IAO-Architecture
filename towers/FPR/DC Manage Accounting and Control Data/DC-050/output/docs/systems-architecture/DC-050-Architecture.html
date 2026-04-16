@@ -477,10 +477,14 @@ nav.toc a:hover { text-decoration: underline; }
   <li><a href="#5-application-architecture-togaf-a">5. Application Architecture (TOGAF &ldquo;A&rdquo;)</a>
     <ul>
       <li><a href="#54-component-overview">5.4 Component Overview</a></li>
-      <li><a href="#55-ricefw-inventory">5.5 RICEFW Inventory</a>
+      <li><a href="#55-development-object-inventory">5.5 Development Object Inventory</a>
         <ul>
-          <li><a href="#551-eca-dependencies">5.5.1 ECA Dependencies</a></li>
-          <li><a href="#552-boundary-application-dependencies">5.5.2 Boundary Application Dependencies</a></li>
+          <li><a href="#551-sap-development-objects">5.5.1 SAP Development Objects</a></li>
+          <li><a href="#552-eca-development-objects">5.5.2 ECA Development Objects</a></li>
+          <li><a href="#553-interface-objects">5.5.3 Interface Objects</a></li>
+          <li><a href="#554-middleware-objects">5.5.4 Middleware Objects</a></li>
+          <li><a href="#555-scheduling-batch-objects">5.5.5 Scheduling &amp; Batch Objects</a></li>
+          <li><a href="#556-boundary-application-dependencies">5.5.6 Boundary Application Dependencies</a></li>
         </ul>
       </li>
       <li><a href="#56-integration-patterns">5.6 Integration Patterns</a></li>
@@ -492,6 +496,7 @@ nav.toc a:hover { text-decoration: underline; }
       <li><a href="#62-sap-development-object-status">6.2 SAP Development Object Status</a></li>
       <li><a href="#63-nfrs-design-principles">6.3 NFRs &amp; Design Principles</a></li>
       <li><a href="#64-security-governance">6.4 Security &amp; Governance</a></li>
+      <li><a href="#65-eca-development-object-status">6.5 ECA Development Object Status</a></li>
     </ul>
   </li>
   <li><a href="#7-project-context">7. Project Context</a>
@@ -2995,7 +3000,10 @@ flowchart LR
 </tr>
 </tbody>
 </table>
-<h3 id="55-ricefw-inventory">5.5 RICEFW Inventory</h3>
+<h3 id="55-development-object-inventory">5.5 Development Object Inventory</h3>
+<p><strong>Summary</strong>: 83 SAP, 4 ECA, 9 Interfaces | RICEFW: 4 Reports, 9 Interfaces, 12 Conversions, 52 Enhancements, 10 Workflows</p>
+<h4 id="551-sap-development-objects">5.5.1 SAP Development Objects</h4>
+<p>SAP platform objects (Reports, Interfaces, Conversions, Enhancements, Forms, Workflows) developed on S/4, MDG, or S/4 BOT:</p>
 <table>
 <thead>
 <tr>
@@ -3003,8 +3011,7 @@ flowchart LR
 <th>Type</th>
 <th>Description</th>
 <th>Status</th>
-<th>Source → Target</th>
-<th>Boundary App</th>
+<th>Dev System</th>
 <th>Complexity</th>
 </tr>
 </thead>
@@ -3014,8 +3021,7 @@ flowchart LR
 <td>Workflow</td>
 <td>Custom Workflow will also be created with some predefined process/rules for a&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>01.Very High</td>
 </tr>
 <tr>
@@ -3023,8 +3029,7 @@ flowchart LR
 <td>Workflow</td>
 <td>Custom Workflow will also be created with some predefined process/rules for a&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -3032,8 +3037,7 @@ flowchart LR
 <td>Workflow</td>
 <td>Custom workflow: Change Order Create and Change Approval</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3041,8 +3045,7 @@ flowchart LR
 <td>Workflow</td>
 <td>Custom workflow: Change Order Create and Change Approval</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3050,8 +3053,7 @@ flowchart LR
 <td>Workflow</td>
 <td>Custom Workflow - WBS Element Request approval with WBS Element creation</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3059,8 +3061,7 @@ flowchart LR
 <td>Workflow</td>
 <td>Custom Workflow - WBS Element Request approval with WBS Element creation</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3068,8 +3069,7 @@ flowchart LR
 <td>Workflow</td>
 <td>Custom Workflow: Approval for Project creation and create a Project def and l&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3077,8 +3077,7 @@ flowchart LR
 <td>Workflow</td>
 <td>Custom Workflow: Approval for Project creation and create a Project def and l&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3086,8 +3085,7 @@ flowchart LR
 <td>Workflow</td>
 <td>Project budget approval workflow (Capex)​</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3095,8 +3093,7 @@ flowchart LR
 <td>Workflow</td>
 <td>Project budget approval workflow (Capex)​</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3104,8 +3101,7 @@ flowchart LR
 <td>Report</td>
 <td>Report for searching on and viewing government contract timesheets for Intel &hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3113,8 +3109,7 @@ flowchart LR
 <td>Report</td>
 <td>Report for searching on and viewing government contract timesheet changes for&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3122,8 +3117,7 @@ flowchart LR
 <td>Report</td>
 <td>Workflow Status Report ( Order Request / Approval Request / Others )</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3131,8 +3125,7 @@ flowchart LR
 <td>Report</td>
 <td>Workflow Status Report ( Order Request / Approval Request / Others )</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3140,8 +3133,7 @@ flowchart LR
 <td>Interface</td>
 <td>Import Dot process/stage details from MDG into S4. ​</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3149,8 +3141,7 @@ flowchart LR
 <td>Interface</td>
 <td>Import Xeus/Mars volumes from ECA into S4.​</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3158,8 +3149,7 @@ flowchart LR
 <td>Interface</td>
 <td>Interface to upload payroll data from Workday to S/4 IP for legal entity 199 &hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>Workday</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3167,17 +3157,551 @@ flowchart LR
 <td>Interface</td>
 <td>Pull Foundry WBS from HAT and create in LE 199 in IP S/4 for Foundry Employee&hellip;</td>
 <td>10. Object Complete</td>
-<td>Head Count Assignment Tool → S/4</td>
-<td>Head Count Assignment Tool</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
+<tr>
+<td>FPRI0188</td>
+<td>Interface</td>
+<td>Inbound Interface from EMS to S/4 to create WBS element and Update WBS elemen&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FPRE1695</td>
+<td>Enhancement</td>
+<td>Custom Fiori app - Change WBS Element Request Form with ALV Input​</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE1671_IP</td>
+<td>Enhancement</td>
+<td>S4, Perform required calculations, summarizations, mappings and post the allo&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE1671_IF</td>
+<td>Enhancement</td>
+<td>S4, Perform required calculations, summarizations, mappings and post the allo&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE1661_IP</td>
+<td>Enhancement</td>
+<td>WBS transfer tool</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FPRE1661_IF</td>
+<td>Enhancement</td>
+<td>WBS transfer tool</td>
+<td>09. FUT Overdue</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE1600</td>
+<td>Enhancement</td>
+<td>Custom Fiori app - Create WBS Element Request Form with ALV Input​</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE1564</td>
+<td>Enhancement</td>
+<td>Employee Notification for timesheet entry</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE1563</td>
+<td>Enhancement</td>
+<td>Manager notification for timesheet approval</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE1562</td>
+<td>Enhancement</td>
+<td>Manage Delegates for approval</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE1561</td>
+<td>Enhancement</td>
+<td>Timesheet approval</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FPRE1560</td>
+<td>Enhancement</td>
+<td>Timesheet entry for Intel Federal employees</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>01.Very High</td>
+</tr>
+<tr>
+<td>FPRE1553</td>
+<td>Enhancement</td>
+<td>Custom Fiori app - Change WBS Element Request Form with ALV Input​</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE1519_IP</td>
+<td>Enhancement</td>
+<td>Project Change Order - Edit and Submit of draft request with change functiona&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FPRE1519_IF</td>
+<td>Enhancement</td>
+<td>Project Change Order - Edit and Submit of draft request with change functiona&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE1518_IP</td>
+<td>Enhancement</td>
+<td>Project Change Order - Change existing Purchase Orders during creation of Pro&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FPRE1518_IF</td>
+<td>Enhancement</td>
+<td>Project Change Order - Change existing Purchase Orders during creation of Pro&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE1517_IP</td>
+<td>Enhancement</td>
+<td>Project Change Order - Create Purchase Orders during creation of Project Chan&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FPRE1517_IF</td>
+<td>Enhancement</td>
+<td>Project Change Order - Create Purchase Orders during creation of Project Chan&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE1516_IP</td>
+<td>Enhancement</td>
+<td>Enhancement to enable user decision action to be taken from email directly fo&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE1516_IF</td>
+<td>Enhancement</td>
+<td>Enhancement to enable user decision action to be taken from email directly fo&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE1515_IP</td>
+<td>Enhancement</td>
+<td>Enhancement to display popup screen to trigger project creation workflow</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE1515_IF</td>
+<td>Enhancement</td>
+<td>Enhancement to display popup screen to trigger project creation workflow</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE1235_IP</td>
+<td>Enhancement</td>
+<td>Add custom fields to CJI3 and CJI5 reports (SAP S/4HANA Project Systems modul&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE1235_IF</td>
+<td>Enhancement</td>
+<td>Add custom fields to CJI3 and CJI5 reports (SAP S/4HANA Project Systems modul&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE1209</td>
+<td>Enhancement</td>
+<td>Upload adjustments to time sheet entries in bulk for Intel Federal.</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FPRE1104_IP</td>
+<td>Enhancement</td>
+<td>WBS with custom attributes will be created in the PS module. The master data &hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FPRE1104_IF</td>
+<td>Enhancement</td>
+<td>WBS with custom attributes will be created in the PS module. The master data &hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE1025_IP</td>
+<td>Enhancement</td>
+<td>Custom Fiori app will be created using Free style model to display WBS/AUC re&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE1025_IF</td>
+<td>Enhancement</td>
+<td>Custom Fiori app will be created using Free style model to display WBS/AUC re&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE0942_IP</td>
+<td>Enhancement</td>
+<td>Interface of SAP PPM module to ATLAS</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE0942_IF</td>
+<td>Enhancement</td>
+<td>Interface of SAP PPM module to ATLAS</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE0891</td>
+<td>Enhancement</td>
+<td>Split from primary Cost centers to PCOS &amp; R&amp;D/OCOS</td>
+<td>99. Rejected/Cancelled/On Hold</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE0890_IP</td>
+<td>Enhancement</td>
+<td>Investment type creation and automatic settlement rule generation for Opex Pr&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE0890_IF</td>
+<td>Enhancement</td>
+<td>Investment type creation and automatic settlement rule generation for Opex Pr&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE0888_IP</td>
+<td>Enhancement</td>
+<td>Mass Update Fields in WBS Elements</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FPRE0888_IF</td>
+<td>Enhancement</td>
+<td>Mass Update Fields in WBS Elements</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE0887_IP</td>
+<td>Enhancement</td>
+<td>WBS Element field synchronization to AUC and Fixed assets - Construction ID -&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE0887_IF</td>
+<td>Enhancement</td>
+<td>WBS Element field synchronization to AUC and Fixed assets - Construction ID -&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE0886_IP</td>
+<td>Enhancement</td>
+<td>Project Change Order - Create Project Change Order via custom Fiori Screens w&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FPRE0886_IF</td>
+<td>Enhancement</td>
+<td>Project Change Order - Create Project Change Order via custom Fiori Screens w&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE0885</td>
+<td>Enhancement</td>
+<td>Custom Fiori app - Create WBS Element Request Form with ALV Input​</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE0884_IP</td>
+<td>Enhancement</td>
+<td>Custom Fiori app - CPA (Project Budget) approval request using PPM Item decis&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FPRE0884_IF</td>
+<td>Enhancement</td>
+<td>Custom Fiori app - CPA (Project Budget) approval request using PPM Item decis&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE0877_IP</td>
+<td>Enhancement</td>
+<td>Automation to set TECO and CLSD status on Project/ WBS</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FPRE0877_IF</td>
+<td>Enhancement</td>
+<td>Automation to set TECO and CLSD status on Project/ WBS</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE0495_IP</td>
+<td>Enhancement</td>
+<td>Custom Fields in WBS element Master Data</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE0495_IF</td>
+<td>Enhancement</td>
+<td>Custom Fields in WBS element Master Data</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE0315_IP</td>
+<td>Enhancement</td>
+<td>Activation of custom enhancement tab on portfolio bucket for custom fields.</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE0315_IF</td>
+<td>Enhancement</td>
+<td>Activation of custom enhancement tab on portfolio bucket for custom fields.</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE0314_IP</td>
+<td>Enhancement</td>
+<td>Smart numbering for portfolio items.</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE0314_IF</td>
+<td>Enhancement</td>
+<td>Smart numbering for portfolio items.</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRC1565</td>
+<td>Conversion</td>
+<td>Convert active delegate relationships for Timesheet approval</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FPRC1464_IP</td>
+<td>Conversion</td>
+<td>Project Actuals Conversion (Non- Intel Federal)</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FPRC1464_IF</td>
+<td>Conversion</td>
+<td>Project Actuals Conversion (Non- Intel Federal)</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FPRC1442</td>
+<td>Conversion</td>
+<td>Conversion of Actual Labor hours for Intel Federal Projects</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FPRC1441</td>
+<td>Conversion</td>
+<td>Conversion of ECC project hierarchy (WBS element master data) to S/4HANA proj&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FPRC1212</td>
+<td>Conversion</td>
+<td>Project Actuals Conversion including Intel Federal</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRC0908_IP</td>
+<td>Conversion</td>
+<td>Project Budget Conversion</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRC0908_IF</td>
+<td>Conversion</td>
+<td>Project Budget Conversion</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRC0174_IP</td>
+<td>Conversion</td>
+<td>Conversion of ECC project hierarchy (WBS element master data) to S/4HANA proj&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FPRC0174_IF</td>
+<td>Conversion</td>
+<td>Conversion of ECC project hierarchy (WBS element master data) to S/4HANA proj&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRC0035_IP</td>
+<td>Conversion</td>
+<td>Convert existing ECC &amp; MDG hierarchy to S4HANA PPM hierarchy (Portfolio &amp; buc&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRC0035_IF</td>
+<td>Conversion</td>
+<td>Convert existing ECC &amp; MDG hierarchy to S4HANA PPM hierarchy (Portfolio &amp; buc&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE1741</td>
+<td>Enhancement</td>
+<td>Mobile timesheet approval for Intel Federal employees.</td>
+<td>01. Pending Approval</td>
+<td>01.S4</td>
+<td>01.Very High</td>
+</tr>
+</tbody>
+</table>
+<h4 id="552-eca-development-objects">5.5.2 ECA Development Objects</h4>
+<p><strong>Enterprise Cloud Analytics (ECA)</strong> platform objects (Databricks/Snowflake) — views, tables, and ETL jobs with Source or Target System = ECA:</p>
+<table>
+<thead>
+<tr>
+<th>Object ID</th>
+<th>Type</th>
+<th>Description</th>
+<th>Status</th>
+<th>Source → Target</th>
+<th>Complexity</th>
+</tr>
+</thead>
+<tbody>
 <tr>
 <td>FPRI0981_IP</td>
 <td>Interface</td>
 <td>Interface of SAP PPM module to SPEED</td>
 <td>10. Object Complete</td>
 <td>ECA → S/4</td>
-<td>SPEED</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3186,7 +3710,6 @@ flowchart LR
 <td>Interface of SAP PPM module to SPEED</td>
 <td>10. Object Complete</td>
 <td>ECA → S/4</td>
-<td>SPEED</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3195,7 +3718,6 @@ flowchart LR
 <td>Interface for importing the Headcount details by Person# and WBS element comb&hellip;</td>
 <td>10. Object Complete</td>
 <td>ECA → S/4</td>
-<td>Head Count Assignment Tool</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3204,603 +3726,106 @@ flowchart LR
 <td>Interface for importing the Headcount details by Person# and WBS element comb&hellip;</td>
 <td>10. Object Complete</td>
 <td>ECA → S/4</td>
-<td>Head Count Assignment Tool</td>
 <td>04.Low</td>
-</tr>
-<tr>
-<td>FPRI0188</td>
-<td>Interface</td>
-<td>Inbound Interface from EMS to S/4 to create WBS element and Update WBS elemen&hellip;</td>
-<td>10. Object Complete</td>
-<td>XEUS → S/4</td>
-<td>Equipment Management System</td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>FPRE1695</td>
-<td>Enhancement</td>
-<td>Custom Fiori app - Change WBS Element Request Form with ALV Input​</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE1671_IP</td>
-<td>Enhancement</td>
-<td>S4, Perform required calculations, summarizations, mappings and post the allo&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE1671_IF</td>
-<td>Enhancement</td>
-<td>S4, Perform required calculations, summarizations, mappings and post the allo&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE1661_IP</td>
-<td>Enhancement</td>
-<td>WBS transfer tool</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>FPRE1661_IF</td>
-<td>Enhancement</td>
-<td>WBS transfer tool</td>
-<td>09. FUT Overdue</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE1600</td>
-<td>Enhancement</td>
-<td>Custom Fiori app - Create WBS Element Request Form with ALV Input​</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE1564</td>
-<td>Enhancement</td>
-<td>Employee Notification for timesheet entry</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE1563</td>
-<td>Enhancement</td>
-<td>Manager notification for timesheet approval</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE1562</td>
-<td>Enhancement</td>
-<td>Manage Delegates for approval</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE1561</td>
-<td>Enhancement</td>
-<td>Timesheet approval</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>FPRE1560</td>
-<td>Enhancement</td>
-<td>Timesheet entry for Intel Federal employees</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>01.Very High</td>
-</tr>
-<tr>
-<td>FPRE1553</td>
-<td>Enhancement</td>
-<td>Custom Fiori app - Change WBS Element Request Form with ALV Input​</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE1519_IP</td>
-<td>Enhancement</td>
-<td>Project Change Order - Edit and Submit of draft request with change functiona&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>FPRE1519_IF</td>
-<td>Enhancement</td>
-<td>Project Change Order - Edit and Submit of draft request with change functiona&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE1518_IP</td>
-<td>Enhancement</td>
-<td>Project Change Order - Change existing Purchase Orders during creation of Pro&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>FPRE1518_IF</td>
-<td>Enhancement</td>
-<td>Project Change Order - Change existing Purchase Orders during creation of Pro&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE1517_IP</td>
-<td>Enhancement</td>
-<td>Project Change Order - Create Purchase Orders during creation of Project Chan&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>FPRE1517_IF</td>
-<td>Enhancement</td>
-<td>Project Change Order - Create Purchase Orders during creation of Project Chan&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE1516_IP</td>
-<td>Enhancement</td>
-<td>Enhancement to enable user decision action to be taken from email directly fo&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE1516_IF</td>
-<td>Enhancement</td>
-<td>Enhancement to enable user decision action to be taken from email directly fo&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE1515_IP</td>
-<td>Enhancement</td>
-<td>Enhancement to display popup screen to trigger project creation workflow</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE1515_IF</td>
-<td>Enhancement</td>
-<td>Enhancement to display popup screen to trigger project creation workflow</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE1235_IP</td>
-<td>Enhancement</td>
-<td>Add custom fields to CJI3 and CJI5 reports (SAP S/4HANA Project Systems modul&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE1235_IF</td>
-<td>Enhancement</td>
-<td>Add custom fields to CJI3 and CJI5 reports (SAP S/4HANA Project Systems modul&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE1209</td>
-<td>Enhancement</td>
-<td>Upload adjustments to time sheet entries in bulk for Intel Federal.</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>FPRE1104_IP</td>
-<td>Enhancement</td>
-<td>WBS with custom attributes will be created in the PS module. The master data &hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>FPRE1104_IF</td>
-<td>Enhancement</td>
-<td>WBS with custom attributes will be created in the PS module. The master data &hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE1025_IP</td>
-<td>Enhancement</td>
-<td>Custom Fiori app will be created using Free style model to display WBS/AUC re&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE1025_IF</td>
-<td>Enhancement</td>
-<td>Custom Fiori app will be created using Free style model to display WBS/AUC re&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE0942_IP</td>
-<td>Enhancement</td>
-<td>Interface of SAP PPM module to ATLAS</td>
-<td>10. Object Complete</td>
-<td>S4 → ATLAS</td>
-<td>NA</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE0942_IF</td>
-<td>Enhancement</td>
-<td>Interface of SAP PPM module to ATLAS</td>
-<td>10. Object Complete</td>
-<td>S4 → ATLAS</td>
-<td>NA</td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE0891</td>
-<td>Enhancement</td>
-<td>Split from primary Cost centers to PCOS &amp; R&amp;D/OCOS</td>
-<td>99. Rejected/Cancelled/On Hold</td>
-<td></td>
-<td></td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE0890_IP</td>
-<td>Enhancement</td>
-<td>Investment type creation and automatic settlement rule generation for Opex Pr&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE0890_IF</td>
-<td>Enhancement</td>
-<td>Investment type creation and automatic settlement rule generation for Opex Pr&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE0888_IP</td>
-<td>Enhancement</td>
-<td>Mass Update Fields in WBS Elements</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>FPRE0888_IF</td>
-<td>Enhancement</td>
-<td>Mass Update Fields in WBS Elements</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE0887_IP</td>
-<td>Enhancement</td>
-<td>WBS Element field synchronization to AUC and Fixed assets - Construction ID -&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE0887_IF</td>
-<td>Enhancement</td>
-<td>WBS Element field synchronization to AUC and Fixed assets - Construction ID -&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE0886_IP</td>
-<td>Enhancement</td>
-<td>Project Change Order - Create Project Change Order via custom Fiori Screens w&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>FPRE0886_IF</td>
-<td>Enhancement</td>
-<td>Project Change Order - Create Project Change Order via custom Fiori Screens w&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE0885</td>
-<td>Enhancement</td>
-<td>Custom Fiori app - Create WBS Element Request Form with ALV Input​</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE0884_IP</td>
-<td>Enhancement</td>
-<td>Custom Fiori app - CPA (Project Budget) approval request using PPM Item decis&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>FPRE0884_IF</td>
-<td>Enhancement</td>
-<td>Custom Fiori app - CPA (Project Budget) approval request using PPM Item decis&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE0877_IP</td>
-<td>Enhancement</td>
-<td>Automation to set TECO and CLSD status on Project/ WBS</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>FPRE0877_IF</td>
-<td>Enhancement</td>
-<td>Automation to set TECO and CLSD status on Project/ WBS</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE0495_IP</td>
-<td>Enhancement</td>
-<td>Custom Fields in WBS element Master Data</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE0495_IF</td>
-<td>Enhancement</td>
-<td>Custom Fields in WBS element Master Data</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE0315_IP</td>
-<td>Enhancement</td>
-<td>Activation of custom enhancement tab on portfolio bucket for custom fields.</td>
-<td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE0315_IF</td>
-<td>Enhancement</td>
-<td>Activation of custom enhancement tab on portfolio bucket for custom fields.</td>
-<td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE0314_IP</td>
-<td>Enhancement</td>
-<td>Smart numbering for portfolio items.</td>
-<td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE0314_IF</td>
-<td>Enhancement</td>
-<td>Smart numbering for portfolio items.</td>
-<td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRC1565</td>
-<td>Conversion</td>
-<td>Convert active delegate relationships for Timesheet approval</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>FPRC1464_IP</td>
-<td>Conversion</td>
-<td>Project Actuals Conversion (Non- Intel Federal)</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>FPRC1464_IF</td>
-<td>Conversion</td>
-<td>Project Actuals Conversion (Non- Intel Federal)</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>FPRC1442</td>
-<td>Conversion</td>
-<td>Conversion of Actual Labor hours for Intel Federal Projects</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>FPRC1441</td>
-<td>Conversion</td>
-<td>Conversion of ECC project hierarchy (WBS element master data) to S/4HANA proj&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>FPRC1212</td>
-<td>Conversion</td>
-<td>Project Actuals Conversion including Intel Federal</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRC0908_IP</td>
-<td>Conversion</td>
-<td>Project Budget Conversion</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRC0908_IF</td>
-<td>Conversion</td>
-<td>Project Budget Conversion</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRC0174_IP</td>
-<td>Conversion</td>
-<td>Conversion of ECC project hierarchy (WBS element master data) to S/4HANA proj&hellip;</td>
-<td>10. Object Complete</td>
-<td>ECC → S4</td>
-<td>ECC</td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>FPRC0174_IF</td>
-<td>Conversion</td>
-<td>Conversion of ECC project hierarchy (WBS element master data) to S/4HANA proj&hellip;</td>
-<td>10. Object Complete</td>
-<td>ECC → S4</td>
-<td>ECC</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRC0035_IP</td>
-<td>Conversion</td>
-<td>Convert existing ECC &amp; MDG hierarchy to S4HANA PPM hierarchy (Portfolio &amp; buc&hellip;</td>
-<td>10. Object Complete</td>
-<td>→ MDG</td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRC0035_IF</td>
-<td>Conversion</td>
-<td>Convert existing ECC &amp; MDG hierarchy to S4HANA PPM hierarchy (Portfolio &amp; buc&hellip;</td>
-<td>10. Object Complete</td>
-<td>→ MDG</td>
-<td></td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE1741</td>
-<td>Enhancement</td>
-<td>Mobile timesheet approval for Intel Federal employees.</td>
-<td>01. Pending Approval</td>
-<td></td>
-<td></td>
-<td>01.Very High</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Summary</strong>: 4 Reports, 9 Interfaces, 12 Conversions, 52 Enhancements, 10 Workflows</p>
-<h4 id="552-boundary-application-dependencies">5.5.2 Boundary Application Dependencies</h4>
-<p>The following RICEFW objects integrate with <strong>boundary applications</strong> (external systems outside the S/4 HANA core):</p>
+<h4 id="553-interface-objects">5.5.3 Interface Objects</h4>
+<p>Holistic view of all interface objects by L2 capability — includes ECA → S/4, S/4 → ECA, boundary system, and inter-platform interfaces with middleware and integration approach:</p>
 <table>
 <thead>
 <tr>
-<th>RICEFW ID</th>
+<th>Object ID</th>
+<th>Description</th>
+<th>Source → Target</th>
+<th>Middleware</th>
+<th>Approach</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FPRI1670</td>
+<td>Import Dot process/stage details from MDG into S4. ​</td>
+<td></td>
+<td>NA</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI1669</td>
+<td>Import Xeus/Mars volumes from ECA into S4.​</td>
+<td></td>
+<td>BODS</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI1463</td>
+<td>Interface to upload payroll data from Workday to S/4 IP for legal entity 199 &hellip;</td>
+<td></td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI1238</td>
+<td>Pull Foundry WBS from HAT and create in LE 199 in IP S/4 for Foundry Employee&hellip;</td>
+<td>Head Count Assignment Tool → S/4</td>
+<td>BODS</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI0981_IP</td>
+<td>Interface of SAP PPM module to SPEED</td>
+<td>ECA → S/4</td>
+<td>BODS</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI0981_IF</td>
+<td>Interface of SAP PPM module to SPEED</td>
+<td>ECA → S/4</td>
+<td>BODS</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI0909_IP</td>
+<td>Interface for importing the Headcount details by Person# and WBS element comb&hellip;</td>
+<td>ECA → S/4</td>
+<td>BODS</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI0909_IF</td>
+<td>Interface for importing the Headcount details by Person# and WBS element comb&hellip;</td>
+<td>ECA → S/4</td>
+<td>BODS</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI0188</td>
+<td>Inbound Interface from EMS to S/4 to create WBS element and Update WBS elemen&hellip;</td>
+<td>XEUS → S/4</td>
+<td>APIGEE</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+</tbody>
+</table>
+<h4 id="555-scheduling-batch-objects">5.5.5 Scheduling &amp; Batch Objects</h4>
+<p><em>Scheduling and batch job objects (AutoSys, CWA) will be populated when job scheduler metadata is available. This section will map batch dependencies to RICEFW and ECA objects.</em></p>
+<h4 id="556-boundary-application-dependencies">5.5.6 Boundary Application Dependencies</h4>
+<p>The following development objects integrate with <strong>boundary applications</strong> (external systems outside the S/4 HANA core):</p>
+<table>
+<thead>
+<tr>
+<th>Object ID</th>
 <th>Description</th>
 <th>Boundary Application</th>
 <th>Source → Target</th>
@@ -4047,6 +4072,29 @@ flowchart LR
 <td>SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR)</td>
 <td>Intel Corporate Compliance Framework</td>
 <td>Compliance Office</td>
+</tr>
+</tbody>
+</table>
+<h3 id="65-eca-development-object-status">6.5 ECA Development Object Status</h3>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ECA Objects (this capability)</td>
+<td>4</td>
+</tr>
+<tr>
+<td>ECA Interfaces</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Total ECA + SAP Interface Dependencies</td>
+<td>9</td>
 </tr>
 </tbody>
 </table>

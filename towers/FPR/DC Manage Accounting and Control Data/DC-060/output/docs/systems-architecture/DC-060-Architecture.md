@@ -70,10 +70,14 @@ nav.toc a:hover { text-decoration: underline; }
   <li><a href="#5-application-architecture-togaf-a">5. Application Architecture (TOGAF &ldquo;A&rdquo;)</a>
     <ul>
       <li><a href="#54-component-overview">5.4 Component Overview</a></li>
-      <li><a href="#55-ricefw-inventory">5.5 RICEFW Inventory</a>
+      <li><a href="#55-development-object-inventory">5.5 Development Object Inventory</a>
         <ul>
-          <li><a href="#551-eca-dependencies">5.5.1 ECA Dependencies</a></li>
-          <li><a href="#552-boundary-application-dependencies">5.5.2 Boundary Application Dependencies</a></li>
+          <li><a href="#551-sap-development-objects">5.5.1 SAP Development Objects</a></li>
+          <li><a href="#552-eca-development-objects">5.5.2 ECA Development Objects</a></li>
+          <li><a href="#553-interface-objects">5.5.3 Interface Objects</a></li>
+          <li><a href="#554-middleware-objects">5.5.4 Middleware Objects</a></li>
+          <li><a href="#555-scheduling-batch-objects">5.5.5 Scheduling &amp; Batch Objects</a></li>
+          <li><a href="#556-boundary-application-dependencies">5.5.6 Boundary Application Dependencies</a></li>
         </ul>
       </li>
       <li><a href="#56-integration-patterns">5.6 Integration Patterns</a></li>
@@ -85,6 +89,7 @@ nav.toc a:hover { text-decoration: underline; }
       <li><a href="#62-sap-development-object-status">6.2 SAP Development Object Status</a></li>
       <li><a href="#63-nfrs-design-principles">6.3 NFRs &amp; Design Principles</a></li>
       <li><a href="#64-security-governance">6.4 Security &amp; Governance</a></li>
+      <li><a href="#65-eca-development-object-status">6.5 ECA Development Object Status</a></li>
     </ul>
   </li>
   <li><a href="#7-project-context">7. Project Context</a>
@@ -234,39 +239,58 @@ Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
 | System | IAPM ID | Status |
 |--------|---------|--------|
 
-### 5.5 RICEFW Inventory
+### 5.5 Development Object Inventory
 
-| Object ID | Type | Description | Status | Source → Target | Boundary App | Complexity |
-|-----------|------|-------------|--------|----------------|-------------|----------|
-| FPRR1514_IP | Report | To generate reports out of the ITT documents that was created | 10. Object Complete |  |  | 03.Medium |
-| FPRR1514_IF | Report | To generate reports out of the ITT documents that was created | 10. Object Complete |  |  | 04.Low |
-| FPRI0696_IP | Interface | Interface between ONESOURCE and Readsoft Process Director built on the back o... | 10. Object Complete | ONESOURCE → READSOFT | OneSource Indirect Tax Suite; Readsoft - Process Director Accounts Payable IP | 02.High |
-| FPRI0696_IF | Interface | Interface between ONESOURCE and Readsoft Process Director built on the back o... | 10. Object Complete | ONESOURCE → READSOFT | OneSource Indirect Tax Suite; Readsoft - Process Director Accounts Payable IF | 03.Medium |
-| FPRE1723_IP | Enhancement | Intel BRF+ - Create Function Modules in S/4HANA(FM and BRF+) | 10. Object Complete |  |  | 04.Low |
-| FPRE1723_IF | Enhancement | Intel BRF+ - Create Function Modules in S/4HANA(FM and BRF+) | 10. Object Complete |  |  | 04.Low |
-| FPRE1722_IP | Enhancement | Intel BRF+ - Create Function Modules in S/4HANA (FM and components) | 10. Object Complete |  |  | 04.Low |
-| FPRE1722_IF | Enhancement | Intel BRF+ - Create Function Modules in S/4HANA (FM and components) | 10. Object Complete |  |  | 04.Low |
-| FPRE1513_IP | Enhancement | Generate and download JV file for JE posting | 10. Object Complete |  |  | 03.Medium |
-| FPRE1513_IF | Enhancement | Generate and download JV file for JE posting | 10. Object Complete |  |  | 04.Low |
-| FPRE1513_CFIN | Enhancement | Generate and download JV file for JE posting | 99. Rejected/Cancelled/On Hold |  |  | 03.Medium |
-| FPRE1512_IP | Enhancement | Query confirm ITT document to determine the Capital/Expense and tax code manu... | 10. Object Complete |  |  | 03.Medium |
-| FPRE1512_IF | Enhancement | Query confirm ITT document to determine the Capital/Expense and tax code manu... | 10. Object Complete |  |  | 04.Low |
-| FPRE1511_IP | Enhancement | Query existing draft ITT document and make changes | 10. Object Complete |  |  | 03.Medium |
-| FPRE1511_IF | Enhancement | Query existing draft ITT document and make changes | 10. Object Complete |  |  | 04.Low |
-| FPRE1510_IP | Enhancement | ITT document creation | 10. Object Complete |  |  | 03.Medium |
-| FPRE1510_IF | Enhancement | ITT document creation | 10. Object Complete |  |  | 04.Low |
-| FPRE0931_IP | Enhancement | Rebuild Boundary Application ITT in S/4 | 10. Object Complete |  |  | 03.Medium |
-| FPRE0931_IF | Enhancement | Rebuild Boundary Application ITT in S/4 | 10. Object Complete |  |  | 03.Medium |
-| FPRE0931_CFIN | Enhancement | Rebuild Boundary Application ITT in S/4 | 10. Object Complete |  |  | 02.High |
-
-**Summary**: 2 Reports, 2 Interfaces, 16 Enhancements
+**Summary**: 20 SAP, 2 Interfaces | RICEFW: 2 Reports, 2 Interfaces, 16 Enhancements
 
 
-#### 5.5.2 Boundary Application Dependencies
+#### 5.5.1 SAP Development Objects
 
-The following RICEFW objects integrate with **boundary applications** (external systems outside the S/4 HANA core):
+SAP platform objects (Reports, Interfaces, Conversions, Enhancements, Forms, Workflows) developed on S/4, MDG, or S/4 BOT:
 
-| RICEFW ID | Description | Boundary Application | Source → Target |
+| Object ID | Type | Description | Status | Dev System | Complexity |
+|-----------|------|-------------|--------|-----------|----------|
+| FPRR1514_IP | Report | To generate reports out of the ITT documents that was created | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRR1514_IF | Report | To generate reports out of the ITT documents that was created | 10. Object Complete | 01.S4 | 04.Low |
+| FPRI0696_IP | Interface | Interface between ONESOURCE and Readsoft Process Director built on the back o... | 10. Object Complete | 01.S4 | 02.High |
+| FPRI0696_IF | Interface | Interface between ONESOURCE and Readsoft Process Director built on the back o... | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE1723_IP | Enhancement | Intel BRF+ - Create Function Modules in S/4HANA(FM and BRF+) | 10. Object Complete | 01.S4 | 04.Low |
+| FPRE1723_IF | Enhancement | Intel BRF+ - Create Function Modules in S/4HANA(FM and BRF+) | 10. Object Complete | 01.S4 | 04.Low |
+| FPRE1722_IP | Enhancement | Intel BRF+ - Create Function Modules in S/4HANA (FM and components) | 10. Object Complete | 01.S4 | 04.Low |
+| FPRE1722_IF | Enhancement | Intel BRF+ - Create Function Modules in S/4HANA (FM and components) | 10. Object Complete | 01.S4 | 04.Low |
+| FPRE1513_IP | Enhancement | Generate and download JV file for JE posting | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE1513_IF | Enhancement | Generate and download JV file for JE posting | 10. Object Complete | 01.S4 | 04.Low |
+| FPRE1513_CFIN | Enhancement | Generate and download JV file for JE posting | 99. Rejected/Cancelled/On Hold | 01.S4 | 03.Medium |
+| FPRE1512_IP | Enhancement | Query confirm ITT document to determine the Capital/Expense and tax code manu... | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE1512_IF | Enhancement | Query confirm ITT document to determine the Capital/Expense and tax code manu... | 10. Object Complete | 01.S4 | 04.Low |
+| FPRE1511_IP | Enhancement | Query existing draft ITT document and make changes | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE1511_IF | Enhancement | Query existing draft ITT document and make changes | 10. Object Complete | 01.S4 | 04.Low |
+| FPRE1510_IP | Enhancement | ITT document creation | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE1510_IF | Enhancement | ITT document creation | 10. Object Complete | 01.S4 | 04.Low |
+| FPRE0931_IP | Enhancement | Rebuild Boundary Application ITT in S/4 | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE0931_IF | Enhancement | Rebuild Boundary Application ITT in S/4 | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE0931_CFIN | Enhancement | Rebuild Boundary Application ITT in S/4 | 10. Object Complete | 01.S4 | 02.High |
+
+
+#### 5.5.3 Interface Objects
+
+Holistic view of all interface objects by L2 capability — includes ECA → S/4, S/4 → ECA, boundary system, and inter-platform interfaces with middleware and integration approach:
+
+| Object ID | Description | Source → Target | Middleware | Approach | Status |
+|-----------|-------------|----------------|-----------|----------|--------|
+| FPRI0696_IP | Interface between ONESOURCE and Readsoft Process Director built on the back o... | ONESOURCE → READSOFT | NA |  | 10. Object Complete |
+| FPRI0696_IF | Interface between ONESOURCE and Readsoft Process Director built on the back o... | ONESOURCE → READSOFT | NA |  | 10. Object Complete |
+
+
+#### 5.5.5 Scheduling & Batch Objects
+
+*Scheduling and batch job objects (AutoSys, CWA) will be populated when job scheduler metadata is available. This section will map batch dependencies to RICEFW and ECA objects.*
+
+#### 5.5.6 Boundary Application Dependencies
+
+The following development objects integrate with **boundary applications** (external systems outside the S/4 HANA core):
+
+| Object ID | Description | Boundary Application | Source → Target |
 |-----------|------------|---------------------|----------------|
 | FPRI0696_IP | Interface between ONESOURCE and Readsoft Process Director built on the back o... | OneSource Indirect Tax Suite; Readsoft - Process Director Accounts Payable IP | ONESOURCE → READSOFT |
 | FPRI0696_IF | Interface between ONESOURCE and Readsoft Process Director built on the back o... | OneSource Indirect Tax Suite; Readsoft - Process Director Accounts Payable IF | ONESOURCE → READSOFT |
@@ -333,6 +357,10 @@ The following RICEFW objects integrate with **boundary applications** (external 
 | Audit Logging | Comprehensive audit trail for all data changes and user actions (SAP Security Audit Log) | SOX Compliance / Intel Audit Policy | Internal Audit |
 | Certificate Management | Automated certificate lifecycle management for system-to-system trust | Intel PKI Standard | Certificate Authority Team |
 | Compliance | SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR) | Intel Corporate Compliance Framework | Compliance Office |
+
+### 6.5 ECA Development Object Status
+
+*ECA development object status will be auto-populated when Snowflake SELECT access is provisioned for the PDH-IF and PDH-IP curated layers. This section will provide a DEV/QAS/PRD maturity assessment equivalent to §6.2 for SAP objects.*
 
 
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-060 — Manage Taxes</span></div>

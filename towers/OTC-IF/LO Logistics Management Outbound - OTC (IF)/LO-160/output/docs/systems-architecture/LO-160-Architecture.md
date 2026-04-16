@@ -70,10 +70,14 @@ nav.toc a:hover { text-decoration: underline; }
   <li><a href="#5-application-architecture-togaf-a">5. Application Architecture (TOGAF &ldquo;A&rdquo;)</a>
     <ul>
       <li><a href="#54-component-overview">5.4 Component Overview</a></li>
-      <li><a href="#55-ricefw-inventory">5.5 RICEFW Inventory</a>
+      <li><a href="#55-development-object-inventory">5.5 Development Object Inventory</a>
         <ul>
-          <li><a href="#551-eca-dependencies">5.5.1 ECA Dependencies</a></li>
-          <li><a href="#552-boundary-application-dependencies">5.5.2 Boundary Application Dependencies</a></li>
+          <li><a href="#551-sap-development-objects">5.5.1 SAP Development Objects</a></li>
+          <li><a href="#552-eca-development-objects">5.5.2 ECA Development Objects</a></li>
+          <li><a href="#553-interface-objects">5.5.3 Interface Objects</a></li>
+          <li><a href="#554-middleware-objects">5.5.4 Middleware Objects</a></li>
+          <li><a href="#555-scheduling-batch-objects">5.5.5 Scheduling &amp; Batch Objects</a></li>
+          <li><a href="#556-boundary-application-dependencies">5.5.6 Boundary Application Dependencies</a></li>
         </ul>
       </li>
       <li><a href="#56-integration-patterns">5.6 Integration Patterns</a></li>
@@ -85,6 +89,7 @@ nav.toc a:hover { text-decoration: underline; }
       <li><a href="#62-sap-development-object-status">6.2 SAP Development Object Status</a></li>
       <li><a href="#63-nfrs-design-principles">6.3 NFRs &amp; Design Principles</a></li>
       <li><a href="#64-security-governance">6.4 Security &amp; Governance</a></li>
+      <li><a href="#65-eca-development-object-status">6.5 ECA Development Object Status</a></li>
     </ul>
   </li>
   <li><a href="#7-project-context">7. Project Context</a>
@@ -229,22 +234,33 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | System | IAPM ID | Status |
 |--------|---------|--------|
 
-### 5.5 RICEFW Inventory
+### 5.5 Development Object Inventory
 
-| Object ID | Type | Description | Status | Source → Target | Boundary App | Complexity |
-|-----------|------|-------------|--------|----------------|-------------|----------|
-| OTCW0638 | Workflow | Dispute Write-off Workflow | 10. Object Complete |  |  | 03.Medium |
-| OTCF0431 | Form | Generate Custom Late Payment Interest Charge Output Form | 10. Object Complete | NA → NA | NA | 03.Medium |
-| OTCF0290 | Form | Dunning output form customization | 10. Object Complete | NA → NA |  | 03.Medium |
-| OTCE1662 | Enhancement | BADI Enhancement for Dispute Write off (workflow Trigger) | 10. Object Complete |  |  | 03.Medium |
-| OTCE1658 | Enhancement | Dispute Write-off Enhancement | 10. Object Complete |  |  | 04.Low |
-| OTCE1625 | Enhancement | Credit hold release dashboard at line-item level | 10. Object Complete | NA → NA | NA | 01.Very High |
-| OTCE0614_IF | Enhancement | Implement Standard Credit/Collection BADI | 10. Object Complete |  |  | 04.Low |
-| OTCE0235 | Enhancement | Credit and Collections - Credit Check Step Configuration | 10. Object Complete | NA → NA | NA | 04.Low |
-| OTCE0234 | Enhancement | Implement mapping between customer’s risk class and credit check steps | 10. Object Complete | NA → NA | NA | 03.Medium |
+**Summary**: 9 SAP | RICEFW: 6 Enhancements, 2 Forms, 1 Workflows
 
-**Summary**: 6 Enhancements, 2 Forms, 1 Workflows
 
+#### 5.5.1 SAP Development Objects
+
+SAP platform objects (Reports, Interfaces, Conversions, Enhancements, Forms, Workflows) developed on S/4, MDG, or S/4 BOT:
+
+| Object ID | Type | Description | Status | Dev System | Complexity |
+|-----------|------|-------------|--------|-----------|----------|
+| OTCW0638 | Workflow | Dispute Write-off Workflow | 10. Object Complete | 01.S4 | 03.Medium |
+| OTCF0431 | Form | Generate Custom Late Payment Interest Charge Output Form | 10. Object Complete | 01.S4 | 03.Medium |
+| OTCF0290 | Form | Dunning output form customization | 10. Object Complete | 01.S4 | 03.Medium |
+| OTCE1662 | Enhancement | BADI Enhancement for Dispute Write off (workflow Trigger) | 10. Object Complete | 01.S4 | 03.Medium |
+| OTCE1658 | Enhancement | Dispute Write-off Enhancement | 10. Object Complete | 01.S4 | 04.Low |
+| OTCE1625 | Enhancement | Credit hold release dashboard at line-item level | 10. Object Complete | 01.S4 | 01.Very High |
+| OTCE0614_IF | Enhancement | Implement Standard Credit/Collection BADI | 10. Object Complete | 01.S4 | 04.Low |
+| OTCE0235 | Enhancement | Credit and Collections - Credit Check Step Configuration | 10. Object Complete | 01.S4 | 04.Low |
+| OTCE0234 | Enhancement | Implement mapping between customer’s risk class and credit check steps | 10. Object Complete | 01.S4 | 03.Medium |
+
+
+
+
+#### 5.5.5 Scheduling & Batch Objects
+
+*Scheduling and batch job objects (AutoSys, CWA) will be populated when job scheduler metadata is available. This section will map batch dependencies to RICEFW and ECA objects.*
 
 
 
@@ -309,6 +325,10 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 | Audit Logging | Comprehensive audit trail for all data changes and user actions (SAP Security Audit Log) | SOX Compliance / Intel Audit Policy | Internal Audit |
 | Certificate Management | Automated certificate lifecycle management for system-to-system trust | Intel PKI Standard | Certificate Authority Team |
 | Compliance | SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR) | Intel Corporate Compliance Framework | Compliance Office |
+
+### 6.5 ECA Development Object Status
+
+*ECA development object status will be auto-populated when Snowflake SELECT access is provisioned for the PDH-IF and PDH-IP curated layers. This section will provide a DEV/QAS/PRD maturity assessment equivalent to §6.2 for SAP objects.*
 
 
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-160 — Pick Orders - OTC (IF)</span></div>

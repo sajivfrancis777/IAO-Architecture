@@ -70,10 +70,14 @@ nav.toc a:hover { text-decoration: underline; }
   <li><a href="#5-application-architecture-togaf-a">5. Application Architecture (TOGAF &ldquo;A&rdquo;)</a>
     <ul>
       <li><a href="#54-component-overview">5.4 Component Overview</a></li>
-      <li><a href="#55-ricefw-inventory">5.5 RICEFW Inventory</a>
+      <li><a href="#55-development-object-inventory">5.5 Development Object Inventory</a>
         <ul>
-          <li><a href="#551-eca-dependencies">5.5.1 ECA Dependencies</a></li>
-          <li><a href="#552-boundary-application-dependencies">5.5.2 Boundary Application Dependencies</a></li>
+          <li><a href="#551-sap-development-objects">5.5.1 SAP Development Objects</a></li>
+          <li><a href="#552-eca-development-objects">5.5.2 ECA Development Objects</a></li>
+          <li><a href="#553-interface-objects">5.5.3 Interface Objects</a></li>
+          <li><a href="#554-middleware-objects">5.5.4 Middleware Objects</a></li>
+          <li><a href="#555-scheduling-batch-objects">5.5.5 Scheduling &amp; Batch Objects</a></li>
+          <li><a href="#556-boundary-application-dependencies">5.5.6 Boundary Application Dependencies</a></li>
         </ul>
       </li>
       <li><a href="#56-integration-patterns">5.6 Integration Patterns</a></li>
@@ -85,6 +89,7 @@ nav.toc a:hover { text-decoration: underline; }
       <li><a href="#62-sap-development-object-status">6.2 SAP Development Object Status</a></li>
       <li><a href="#63-nfrs-design-principles">6.3 NFRs &amp; Design Principles</a></li>
       <li><a href="#64-security-governance">6.4 Security &amp; Governance</a></li>
+      <li><a href="#65-eca-development-object-status">6.5 ECA Development Object Status</a></li>
     </ul>
   </li>
   <li><a href="#7-project-context">7. Project Context</a>
@@ -947,66 +952,109 @@ flowchart TD
 | System | IAPM ID | Status |
 |--------|---------|--------|
 
-### 5.5 RICEFW Inventory
+### 5.5 Development Object Inventory
 
-| Object ID | Type | Description | Status | Source → Target | Boundary App | Complexity |
-|-----------|------|-------------|--------|----------------|-------------|----------|
-| PTPI1657 | Interface | Interface to send Invoice PAID Status from CFIN to IP | 10. Object Complete |  | NA | 03.Medium |
-| PTPI1533 | Interface | Pay@accept – Inbound Interface to fetch the values from FCE ODS to SAP S/4 HA... | 10. Object Complete |  | FCE Operational Data Services - METS Smart Order Management | 03.Medium |
-| PTPI1428_IP | Interface | Setting Up Inbound Interface from SPT tool/GTT(Global Trade and Tax) system t... | 10. Object Complete |  → S/4 | Customs Tracker | 04.Low |
-| PTPI1428_IF | Interface | Setting Up Inbound Interface from SPT tool/GTT(Global Trade and Tax) system t... | 10. Object Complete |  → S/4 | Customs Tracker | 03.Medium |
-| PTPI0822_IP | Interface | Ariba Invoice Integration through (CIG - Cloud Integration Gateway (Currently... | 10. Object Complete | SAP Ariba Network → S/4 | SAP Ariba Network | 03.Medium |
-| PTPI0822_IF | Interface | Ariba Invoice Integration through (CIG - Cloud Integration Gateway (Currently... | 10. Object Complete | SAP Ariba Network → S/4 | SAP Ariba Network | 04.Low |
-| PTPI0821_IP | Interface | Invoice Status Update from SAP S/4 to Ariba Network through CIG - Cloud Integ... | 10. Object Complete | S/4 → SAP Ariba Network | SAP Ariba Network | 03.Medium |
-| PTPI0821_IF | Interface | Invoice Status Update from SAP S/4 to Ariba Network through CIG - Cloud Integ... | 10. Object Complete | S/4 → SAP Ariba Network | SAP Ariba Network | 04.Low |
-| PTPI0820_IP | Interface | Carbon Copy Invoice Integration from SAP S/4 to Ariba Network | 10. Object Complete | S/4 → SAP Ariba Network | SAP Ariba Network | 03.Medium |
-| PTPI0820_IF | Interface | Carbon Copy Invoice Integration from SAP S/4 to Ariba Network | 10. Object Complete | S/4 → SAP Ariba Network | SAP Ariba Network | 04.Low |
-| PTPI0819_IP | Interface | Intel B2B – XML (3C7) Notify of Self Billing Invoice – Interface to send noti... | 10. Object Complete | S/4 → OpenText | OpenText | 03.Medium |
-| PTPI0819_IF | Interface | Intel B2B – XML (3C7) Notify of Self Billing Invoice – Interface to send noti... | 10. Object Complete | S/4 → OpenText | OpenText | 04.Low |
-| PTPI0710_IP | Interface | S4 Manual Invoice Release Blocking functionality requires connection with GTT... | 10. Object Complete | S/4 → GTT (Custom Tracker) | SAP ECC - Accounts Payable; Customs Tracker | 03.Medium |
-| PTPI0710_IF | Interface | S4 Manual Invoice Release Blocking functionality requires connection with GTT... | 10. Object Complete | S/4 → GTT (Custom Tracker) | SAP ECC - Accounts Payable; Customs Tracker | 04.Low |
-| PTPI0692_IP | Interface | Custom program to send configurations from S4 system to Illumis | 10. Object Complete | S/4 → Accounts Payable Recovery Tool | Accounts Payable Recoveries (APR) | 03.Medium |
-| PTPI0692_IF | Interface | Custom program to send configurations from S4 system to Illumis | 10. Object Complete | S/4 → Accounts Payable Recovery Tool | Accounts Payable Recoveries (APR) | 04.Low |
-| PTPI0691_IP | Interface | Custom program to send the supplier master data from S4 system to Illumis. | 10. Object Complete | S/4 → Accounts Payable Recovery Tool | Accounts Payable Recoveries (APR) | 03.Medium |
-| PTPI0691_IF | Interface | Custom program to send the supplier master data from S4 system to Illumis. | 10. Object Complete | S/4 → Accounts Payable Recovery Tool | Accounts Payable Recoveries (APR) | 04.Low |
-| PTPI0685 | Interface | Custom program to send the Transactions (Invoices) from IF system to Illumis | 10. Object Complete | S/4 → Accounts Payable Recovery Tool | Accounts Payable Recoveries (APR) | 03.Medium |
-| PTPI0470 | Interface | Payment Proposal after invoice posted from SAP S/4 HANA CFIN to Ariba | 10. Object Complete | S/4 → SAP Ariba Network | SAP Ariba Network; SAP Ariba Invoicing | 03.Medium |
-| PTPI0469 | Interface | Payment Remittance after payment posted from CFIN to IP/IF and from IP/IF to ... | 10. Object Complete | S/4 → SAP Ariba Network | SAP Ariba Network; SAP Ariba Invoicing | 03.Medium |
-| PTPI0468 | Interface | Payment Status after payment is cancelled / Void from CFIN to IP / IF and Fro... | 10. Object Complete | S/4 → SAP Ariba Network | SAP Ariba Network; SAP Ariba Invoicing | 02.High |
-| PTPI0466_IP | Interface | Payment Remittance after payment posted from CFIN to IP/IF for Readsoft | 10. Object Complete | S/4 → Readsoft | Readsoft - WorkCycle; Readsoft - Process Director Accounts Payable IP | 03.Medium |
-| PTPI0466_IF | Interface | Payment Remittance after payment posted from CFIN to IP/IF for Readsoft | 10. Object Complete | S/4 → Readsoft | Readsoft - WorkCycle; Readsoft - Process Director Accounts Payable IF | 04.Low |
-| PTPI0388_IP | Interface | Custom program to send the Purchase order from SAP S4 system to Illumis | 10. Object Complete | S/4 → Accounts Payable Recovery Tool | Accounts Payable Recoveries (APR) | 02.High |
-| PTPI0388_IF | Interface | Custom program to send the Purchase order from SAP S4 system to Illumis | 10. Object Complete | S/4 → Accounts Payable Recovery Tool | Accounts Payable Recoveries (APR) | 03.Medium |
-| PTPE1687 | Enhancement | Automate Warranty Credit Memo Posting | 10. Object Complete |  |  | 03.Medium |
-| PTPE1656 | Enhancement | Enhancement to Update Invoice PAID Status from CFIN to IF & IP ARIBA Standard... | 10. Object Complete |  |  | 03.Medium |
-| PTPE1606_IP | Enhancement | Custom enhancement to edit the posted accounting document for Payment Term, B... | 10. Object Complete |  |  | 03.Medium |
-| PTPE1606_IF | Enhancement | Custom enhancement to edit the posted accounting document for Payment Term, B... | 10. Object Complete |  |  | 04.Low |
-| PTPE1606_CFIN | Enhancement | Custom enhancement to edit the posted accounting document for Payment Term, B... | 10. Object Complete |  |  | 03.Medium |
-| PTPE1440_IP | Enhancement | Custom program to generate a PDF printout of SAP self-billing invoices (ERS/C... | 10. Object Complete |  |  | 03.Medium |
-| PTPE1440_IF | Enhancement | Custom program to generate a PDF printout of SAP self-billing invoices (ERS/C... | 10. Object Complete |  |  | 04.Low |
-| PTPE1422_IP | Enhancement | Enhancement to Update Invoice PAID Status from CFIN to IF & IP ARIBA Standard... | 10. Object Complete |  |  | 03.Medium |
-| PTPE1422_IF | Enhancement | Enhancement to Update Invoice PAID Status from CFIN to IF & IP ARIBA Standard... | 10. Object Complete |  |  | 04.Low |
-| PTPE1139_IP | Enhancement | Custom Enhancements for Payment Proposal, payment remittance, payment status,... | 10. Object Complete |  |  | 04.Low |
-| PTPE1139_IF | Enhancement | Custom Enhancements for Payment Proposal, payment remittance, payment status,... | 10. Object Complete |  |  | 04.Low |
-| PTPE1139_CFIN | Enhancement | Custom Enhancements for Payment Proposal, payment remittance, payment status,... | 10. Object Complete |  |  | 03.Medium |
-| PTPE0732 | Enhancement | Pay@Accept Custom Program to release the invoice - SAP S/4 HANA IP and IF | 10. Object Complete |  |  | 03.Medium |
-| PTPE0471 | Enhancement | Review the auto reversal of payment documents, Reset clearing of invoice and ... | 99. Rejected/Cancelled/On Hold | NA → NA |  | 02.High |
-| PTPE0371_IP | Enhancement | Standard BTE for Manage Supplier Line items to add the PO and Supplier name -... | 10. Object Complete | NA → NA |  | 04.Low |
-| PTPE0371_IF | Enhancement | Standard BTE for Manage Supplier Line items to add the PO and Supplier name -... | 10. Object Complete | NA → NA |  | 04.Low |
-| PTPE0371_CFIN | Enhancement | Standard BTE for Manage Supplier Line items to add the PO and Supplier name -... | 10. Object Complete | NA → NA |  | 03.Medium |
-| PTPE0318_IP | Enhancement | Custom program to block the vendor invoice based on the different business sc... | 10. Object Complete | NA → NA | NA | 04.Low |
-| PTPE0318_IF | Enhancement | Custom program to block the vendor invoice based on the different business sc... | 10. Object Complete | NA → NA | NA | 03.Medium |
-| PTPE0241_IP | Enhancement | Payment Term Mass change functionality in FBL1N Vendor Line item report | 10. Object Complete | NA → NA |  | 03.Medium |
-| PTPE0241_IF | Enhancement | Payment Term Mass change functionality in FBL1N Vendor Line item report | 10. Object Complete | NA → NA |  | 04.Low |
-
-**Summary**: 26 Interfaces, 21 Enhancements
+**Summary**: 47 SAP, 26 Interfaces | RICEFW: 26 Interfaces, 21 Enhancements
 
 
-#### 5.5.2 Boundary Application Dependencies
+#### 5.5.1 SAP Development Objects
 
-The following RICEFW objects integrate with **boundary applications** (external systems outside the S/4 HANA core):
+SAP platform objects (Reports, Interfaces, Conversions, Enhancements, Forms, Workflows) developed on S/4, MDG, or S/4 BOT:
 
-| RICEFW ID | Description | Boundary Application | Source → Target |
+| Object ID | Type | Description | Status | Dev System | Complexity |
+|-----------|------|-------------|--------|-----------|----------|
+| PTPI1657 | Interface | Interface to send Invoice PAID Status from CFIN to IP | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPI1533 | Interface | Pay@accept – Inbound Interface to fetch the values from FCE ODS to SAP S/4 HA... | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPI1428_IP | Interface | Setting Up Inbound Interface from SPT tool/GTT(Global Trade and Tax) system t... | 10. Object Complete | 01.S4 | 04.Low |
+| PTPI1428_IF | Interface | Setting Up Inbound Interface from SPT tool/GTT(Global Trade and Tax) system t... | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPI0822_IP | Interface | Ariba Invoice Integration through (CIG - Cloud Integration Gateway (Currently... | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPI0822_IF | Interface | Ariba Invoice Integration through (CIG - Cloud Integration Gateway (Currently... | 10. Object Complete | 01.S4 | 04.Low |
+| PTPI0821_IP | Interface | Invoice Status Update from SAP S/4 to Ariba Network through CIG - Cloud Integ... | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPI0821_IF | Interface | Invoice Status Update from SAP S/4 to Ariba Network through CIG - Cloud Integ... | 10. Object Complete | 01.S4 | 04.Low |
+| PTPI0820_IP | Interface | Carbon Copy Invoice Integration from SAP S/4 to Ariba Network | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPI0820_IF | Interface | Carbon Copy Invoice Integration from SAP S/4 to Ariba Network | 10. Object Complete | 01.S4 | 04.Low |
+| PTPI0819_IP | Interface | Intel B2B – XML (3C7) Notify of Self Billing Invoice – Interface to send noti... | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPI0819_IF | Interface | Intel B2B – XML (3C7) Notify of Self Billing Invoice – Interface to send noti... | 10. Object Complete | 01.S4 | 04.Low |
+| PTPI0710_IP | Interface | S4 Manual Invoice Release Blocking functionality requires connection with GTT... | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPI0710_IF | Interface | S4 Manual Invoice Release Blocking functionality requires connection with GTT... | 10. Object Complete | 01.S4 | 04.Low |
+| PTPI0692_IP | Interface | Custom program to send configurations from S4 system to Illumis | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPI0692_IF | Interface | Custom program to send configurations from S4 system to Illumis | 10. Object Complete | 01.S4 | 04.Low |
+| PTPI0691_IP | Interface | Custom program to send the supplier master data from S4 system to Illumis. | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPI0691_IF | Interface | Custom program to send the supplier master data from S4 system to Illumis. | 10. Object Complete | 01.S4 | 04.Low |
+| PTPI0685 | Interface | Custom program to send the Transactions (Invoices) from IF system to Illumis | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPI0470 | Interface | Payment Proposal after invoice posted from SAP S/4 HANA CFIN to Ariba | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPI0469 | Interface | Payment Remittance after payment posted from CFIN to IP/IF and from IP/IF to ... | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPI0468 | Interface | Payment Status after payment is cancelled / Void from CFIN to IP / IF and Fro... | 10. Object Complete | 01.S4 | 02.High |
+| PTPI0466_IP | Interface | Payment Remittance after payment posted from CFIN to IP/IF for Readsoft | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPI0466_IF | Interface | Payment Remittance after payment posted from CFIN to IP/IF for Readsoft | 10. Object Complete | 01.S4 | 04.Low |
+| PTPI0388_IP | Interface | Custom program to send the Purchase order from SAP S4 system to Illumis | 10. Object Complete | 01.S4 | 02.High |
+| PTPI0388_IF | Interface | Custom program to send the Purchase order from SAP S4 system to Illumis | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPE1687 | Enhancement | Automate Warranty Credit Memo Posting | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPE1656 | Enhancement | Enhancement to Update Invoice PAID Status from CFIN to IF & IP ARIBA Standard... | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPE1606_IP | Enhancement | Custom enhancement to edit the posted accounting document for Payment Term, B... | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPE1606_IF | Enhancement | Custom enhancement to edit the posted accounting document for Payment Term, B... | 10. Object Complete | 01.S4 | 04.Low |
+| PTPE1606_CFIN | Enhancement | Custom enhancement to edit the posted accounting document for Payment Term, B... | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPE1440_IP | Enhancement | Custom program to generate a PDF printout of SAP self-billing invoices (ERS/C... | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPE1440_IF | Enhancement | Custom program to generate a PDF printout of SAP self-billing invoices (ERS/C... | 10. Object Complete | 01.S4 | 04.Low |
+| PTPE1422_IP | Enhancement | Enhancement to Update Invoice PAID Status from CFIN to IF & IP ARIBA Standard... | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPE1422_IF | Enhancement | Enhancement to Update Invoice PAID Status from CFIN to IF & IP ARIBA Standard... | 10. Object Complete | 01.S4 | 04.Low |
+| PTPE1139_IP | Enhancement | Custom Enhancements for Payment Proposal, payment remittance, payment status,... | 10. Object Complete | 01.S4 | 04.Low |
+| PTPE1139_IF | Enhancement | Custom Enhancements for Payment Proposal, payment remittance, payment status,... | 10. Object Complete | 01.S4 | 04.Low |
+| PTPE1139_CFIN | Enhancement | Custom Enhancements for Payment Proposal, payment remittance, payment status,... | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPE0732 | Enhancement | Pay@Accept Custom Program to release the invoice - SAP S/4 HANA IP and IF | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPE0471 | Enhancement | Review the auto reversal of payment documents, Reset clearing of invoice and ... | 99. Rejected/Cancelled/On Hold | 01.S4 | 02.High |
+| PTPE0371_IP | Enhancement | Standard BTE for Manage Supplier Line items to add the PO and Supplier name -... | 10. Object Complete | 01.S4 | 04.Low |
+| PTPE0371_IF | Enhancement | Standard BTE for Manage Supplier Line items to add the PO and Supplier name -... | 10. Object Complete | 01.S4 | 04.Low |
+| PTPE0371_CFIN | Enhancement | Standard BTE for Manage Supplier Line items to add the PO and Supplier name -... | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPE0318_IP | Enhancement | Custom program to block the vendor invoice based on the different business sc... | 10. Object Complete | 01.S4 | 04.Low |
+| PTPE0318_IF | Enhancement | Custom program to block the vendor invoice based on the different business sc... | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPE0241_IP | Enhancement | Payment Term Mass change functionality in FBL1N Vendor Line item report | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPE0241_IF | Enhancement | Payment Term Mass change functionality in FBL1N Vendor Line item report | 10. Object Complete | 01.S4 | 04.Low |
+
+
+#### 5.5.3 Interface Objects
+
+Holistic view of all interface objects by L2 capability — includes ECA → S/4, S/4 → ECA, boundary system, and inter-platform interfaces with middleware and integration approach:
+
+| Object ID | Description | Source → Target | Middleware | Approach | Status |
+|-----------|-------------|----------------|-----------|----------|--------|
+| PTPI1657 | Interface to send Invoice PAID Status from CFIN to IP |  | NA |  | 10. Object Complete |
+| PTPI1533 | Pay@accept – Inbound Interface to fetch the values from FCE ODS to SAP S/4 HA... |  | APIGEE |  | 10. Object Complete |
+| PTPI1428_IP | Setting Up Inbound Interface from SPT tool/GTT(Global Trade and Tax) system t... |  → S/4 | APIGEE |  | 10. Object Complete |
+| PTPI1428_IF | Setting Up Inbound Interface from SPT tool/GTT(Global Trade and Tax) system t... |  → S/4 | APIGEE |  | 10. Object Complete |
+| PTPI0822_IP | Ariba Invoice Integration through (CIG - Cloud Integration Gateway (Currently... | SAP Ariba Network → S/4 | NA |  | 10. Object Complete |
+| PTPI0822_IF | Ariba Invoice Integration through (CIG - Cloud Integration Gateway (Currently... | SAP Ariba Network → S/4 | NA |  | 10. Object Complete |
+| PTPI0821_IP | Invoice Status Update from SAP S/4 to Ariba Network through CIG - Cloud Integ... | S/4 → SAP Ariba Network | NA |  | 10. Object Complete |
+| PTPI0821_IF | Invoice Status Update from SAP S/4 to Ariba Network through CIG - Cloud Integ... | S/4 → SAP Ariba Network | NA |  | 10. Object Complete |
+| PTPI0820_IP | Carbon Copy Invoice Integration from SAP S/4 to Ariba Network | S/4 → SAP Ariba Network | NA |  | 10. Object Complete |
+| PTPI0820_IF | Carbon Copy Invoice Integration from SAP S/4 to Ariba Network | S/4 → SAP Ariba Network | NA |  | 10. Object Complete |
+| PTPI0819_IP | Intel B2B – XML (3C7) Notify of Self Billing Invoice – Interface to send noti... | S/4 → OpenText | MULESOFT |  | 10. Object Complete |
+| PTPI0819_IF | Intel B2B – XML (3C7) Notify of Self Billing Invoice – Interface to send noti... | S/4 → OpenText | MULESOFT |  | 10. Object Complete |
+| PTPI0710_IP | S4 Manual Invoice Release Blocking functionality requires connection with GTT... | S/4 → GTT (Custom Tracker) | NA |  | 10. Object Complete |
+| PTPI0710_IF | S4 Manual Invoice Release Blocking functionality requires connection with GTT... | S/4 → GTT (Custom Tracker) | NA |  | 10. Object Complete |
+| PTPI0692_IP | Custom program to send configurations from S4 system to Illumis | S/4 → Accounts Payable Recovery Tool | SFT |  | 10. Object Complete |
+| PTPI0692_IF | Custom program to send configurations from S4 system to Illumis | S/4 → Accounts Payable Recovery Tool | SFT |  | 10. Object Complete |
+| PTPI0691_IP | Custom program to send the supplier master data from S4 system to Illumis. | S/4 → Accounts Payable Recovery Tool | SFT |  | 10. Object Complete |
+| PTPI0691_IF | Custom program to send the supplier master data from S4 system to Illumis. | S/4 → Accounts Payable Recovery Tool | SFT |  | 10. Object Complete |
+| PTPI0685 | Custom program to send the Transactions (Invoices) from IF system to Illumis | S/4 → Accounts Payable Recovery Tool | SFT |  | 10. Object Complete |
+| PTPI0470 | Payment Proposal after invoice posted from SAP S/4 HANA CFIN to Ariba | S/4 → SAP Ariba Network | NA |  | 10. Object Complete |
+| PTPI0469 | Payment Remittance after payment posted from CFIN to IP/IF and from IP/IF to ... | S/4 → SAP Ariba Network | NA |  | 10. Object Complete |
+| PTPI0468 | Payment Status after payment is cancelled / Void from CFIN to IP / IF and Fro... | S/4 → SAP Ariba Network | NA |  | 10. Object Complete |
+| PTPI0466_IP | Payment Remittance after payment posted from CFIN to IP/IF for Readsoft | S/4 → Readsoft | NA |  | 10. Object Complete |
+| PTPI0466_IF | Payment Remittance after payment posted from CFIN to IP/IF for Readsoft | S/4 → Readsoft | NA |  | 10. Object Complete |
+| PTPI0388_IP | Custom program to send the Purchase order from SAP S4 system to Illumis | S/4 → Accounts Payable Recovery Tool | SFT |  | 10. Object Complete |
+| PTPI0388_IF | Custom program to send the Purchase order from SAP S4 system to Illumis | S/4 → Accounts Payable Recovery Tool | SFT |  | 10. Object Complete |
+
+
+#### 5.5.5 Scheduling & Batch Objects
+
+*Scheduling and batch job objects (AutoSys, CWA) will be populated when job scheduler metadata is available. This section will map batch dependencies to RICEFW and ECA objects.*
+
+#### 5.5.6 Boundary Application Dependencies
+
+The following development objects integrate with **boundary applications** (external systems outside the S/4 HANA core):
+
+| Object ID | Description | Boundary Application | Source → Target |
 |-----------|------------|---------------------|----------------|
 | PTPI1533 | Pay@accept – Inbound Interface to fetch the values from FCE ODS to SAP S/4 HA... | FCE Operational Data Services - METS Smart Order Management |  |
 | PTPI1428_IP | Setting Up Inbound Interface from SPT tool/GTT(Global Trade and Tax) system t... | Customs Tracker |  → S/4 |
@@ -1096,6 +1144,10 @@ The following RICEFW objects integrate with **boundary applications** (external 
 | Audit Logging | Comprehensive audit trail for all data changes and user actions (SAP Security Audit Log) | SOX Compliance / Intel Audit Policy | Internal Audit |
 | Certificate Management | Automated certificate lifecycle management for system-to-system trust | Intel PKI Standard | Certificate Authority Team |
 | Compliance | SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR) | Intel Corporate Compliance Framework | Compliance Office |
+
+### 6.5 ECA Development Object Status
+
+*ECA development object status will be auto-populated when Snowflake SELECT access is provisioned for the PDH-IF and PDH-IP curated layers. This section will provide a DEV/QAS/PRD maturity assessment equivalent to §6.2 for SAP objects.*
 
 
 <div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-150 — Enable Payment</span></div>

@@ -70,10 +70,14 @@ nav.toc a:hover { text-decoration: underline; }
   <li><a href="#5-application-architecture-togaf-a">5. Application Architecture (TOGAF &ldquo;A&rdquo;)</a>
     <ul>
       <li><a href="#54-component-overview">5.4 Component Overview</a></li>
-      <li><a href="#55-ricefw-inventory">5.5 RICEFW Inventory</a>
+      <li><a href="#55-development-object-inventory">5.5 Development Object Inventory</a>
         <ul>
-          <li><a href="#551-eca-dependencies">5.5.1 ECA Dependencies</a></li>
-          <li><a href="#552-boundary-application-dependencies">5.5.2 Boundary Application Dependencies</a></li>
+          <li><a href="#551-sap-development-objects">5.5.1 SAP Development Objects</a></li>
+          <li><a href="#552-eca-development-objects">5.5.2 ECA Development Objects</a></li>
+          <li><a href="#553-interface-objects">5.5.3 Interface Objects</a></li>
+          <li><a href="#554-middleware-objects">5.5.4 Middleware Objects</a></li>
+          <li><a href="#555-scheduling-batch-objects">5.5.5 Scheduling &amp; Batch Objects</a></li>
+          <li><a href="#556-boundary-application-dependencies">5.5.6 Boundary Application Dependencies</a></li>
         </ul>
       </li>
       <li><a href="#56-integration-patterns">5.6 Integration Patterns</a></li>
@@ -85,6 +89,7 @@ nav.toc a:hover { text-decoration: underline; }
       <li><a href="#62-sap-development-object-status">6.2 SAP Development Object Status</a></li>
       <li><a href="#63-nfrs-design-principles">6.3 NFRs &amp; Design Principles</a></li>
       <li><a href="#64-security-governance">6.4 Security &amp; Governance</a></li>
+      <li><a href="#65-eca-development-object-status">6.5 ECA Development Object Status</a></li>
     </ul>
   </li>
   <li><a href="#7-project-context">7. Project Context</a>
@@ -769,398 +774,586 @@ Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
 | System | IAPM ID | Status |
 |--------|---------|--------|
 
-### 5.5 RICEFW Inventory
+### 5.5 Development Object Inventory
 
-| Object ID | Type | Description | Status | Source → Target | Boundary App | Complexity |
-|-----------|------|-------------|--------|----------------|-------------|----------|
-| PTPW0367_IP | Workflow | Workflow for Email Functionality and Notification to PO approver(IP) | 10. Object Complete | NA → NA |  | 02.High |
-| PTPW0367_IF | Workflow | Workflow for Email Functionality and Notification to PO approver(IF) | 10. Object Complete | NA → NA |  | 02.High |
-| PTPW0366_IP | Workflow | Workflow to trigger PO approvals in S4_IF | 10. Object Complete | NA → NA |  | 03.Medium |
-| PTPW0366_IF | Workflow | Workflow to trigger PO approvals in S4_IF | 10. Object Complete | NA → NA |  | 03.Medium |
-| PTPW0363_IP | Workflow | Workflow for Email Functionality and Notification to PR approver - IF | 10. Object Complete | NA → NA |  | 02.High |
-| PTPW0363_IF | Workflow | Workflow for Email Functionality and Notification to PR approver - IF | 10. Object Complete | NA → NA |  | 02.High |
-| PTPW0362_IP | Workflow | Workflow to Trigger PR approvals in S/4 – IF | 10. Object Complete | NA → NA |  | 03.Medium |
-| PTPW0362_IF | Workflow | Workflow to Trigger PR approvals in S/4 – IF | 10. Object Complete | NA → NA |  | 03.Medium |
-| PTPR1530_IP | Report | Develop a custom report in SAP S/4 HANA for auto PR to PO conversion failures... | 10. Object Complete |  |  | 03.Medium |
-| PTPR1530_IF | Report | Develop a custom report in SAP S/4 HANA for auto PR to PO conversion failures... | 10. Object Complete |  |  | 04.Low |
-| PTPM0008 | Conversion | Quality Info record upload [T-Code - QI01] | 10. Object Complete |  |  | N/A |
-| PTPM0007 | Conversion | Inspection Plan upload [T-Code - QP01] | 10. Object Complete |  |  | N/A |
-| PTPM0006 | Conversion | Master Inspection Characteristics upload [T-Code - QS21] | 10. Object Complete |  |  | N/A |
-| PTPI1689 | Interface | New custom API needed to process GET and DELETE function for Document Info Re... | 10. Object Complete |  | Commercial Workbench | 03.Medium |
-| PTPI1657 | Interface | Interface to send Invoice PAID Status from CFIN to IP | 10. Object Complete |  | NA | 03.Medium |
-| PTPI1533 | Interface | Pay@accept – Inbound Interface to fetch the values from FCE ODS to SAP S/4 HA... | 10. Object Complete |  | FCE Operational Data Services - METS Smart Order Management | 03.Medium |
-| PTPI1529_IP | Interface | An interface to retrieve the list of approvers from a custom MDG table(MDG sy... | 10. Object Complete |  | NA | 04.Low |
-| PTPI1529_IF | Interface | An interface to retrieve the list of approvers from a custom MDG table(MDG sy... | 10. Object Complete |  | NA | 04.Low |
-| PTPI1458 | Interface | Develop an interface between PEGA and S/4 HANA system to transmit MSL informa... | 10. Object Complete |  | Pega Manage My Supply Line GFM | 03.Medium |
-| PTPI1428_IP | Interface | Setting Up Inbound Interface from SPT tool/GTT(Global Trade and Tax) system t... | 10. Object Complete |  → S/4 | Customs Tracker | 04.Low |
-| PTPI1428_IF | Interface | Setting Up Inbound Interface from SPT tool/GTT(Global Trade and Tax) system t... | 10. Object Complete |  → S/4 | Customs Tracker | 03.Medium |
-| PTPI1331_IP | Interface | Ariba POs Goods Receipts to be sent from WIINGS to S/4 for R4 sites | 10. Object Complete | WIINGS → S/4 | Wiings on the Web (WOW) - WIINGS (Angular) | 03.Medium |
-| PTPI1331_IF | Interface | Ariba POs Goods Receipts to be sent from WIINGS to S/4 for R4 sites | 10. Object Complete | WIINGS → S/4 | Wiings on the Web (WOW) - WIINGS (Angular) | 04.Low |
-| PTPI1329_IP | Interface | FSD to change Purchase Order information from B2B Staging DB ePO from S4 IP | 10. Object Complete | S/4 → Stagging DB | Intel WebSuite - Web PO; B2B Staging Database | 03.Medium |
-| PTPI1329_IF | Interface | FSD to change Purchase Order information from B2B Staging DB ePO from S4 IF | 10. Object Complete | S/4 → Stagging DB | Intel WebSuite - Web PO; B2B Staging Database | 04.Low |
-| PTPI1308_IP | Interface | FSD to publish SAP Contracts pricing condition details to Web Contract - IP | 10. Object Complete | S/4 → WebContract | Intel WebSuite - Web Contract; B2B Staging Database | 03.Medium |
-| PTPI1308_IF | Interface | FSD to publish SAP Contracts pricing condition details to Web Contract - IF | 10. Object Complete | S/4 → WebContract | Intel WebSuite - Web Contract; B2B Staging Database | 04.Low |
-| PTPI1307_IP | Interface | FSD to publish SAP Contracts changes details to Web Contract - IP | 10. Object Complete | S/4 → WebContract | Intel WebSuite - Web Contract; B2B Staging Database | 03.Medium |
-| PTPI1307_IF | Interface | FSD to publish SAP Contracts changes details to Web Contract - IF | 10. Object Complete | S/4 → WebContract | Intel WebSuite - Web Contract; B2B Staging Database | 04.Low |
-| PTPI1171 | Interface | Get Material details from IF to METs/SOM | 10. Object Complete | S/4 → METs/SOM | FCE Operational Data Services - METS Smart Order Management | 03.Medium |
-| PTPI1170 | Interface | Get Source List details from IF to METs/SOM | 10. Object Complete | METs/SOM → S/4 | FCE Operational Data Services - METS Smart Order Management | 02.High |
-| PTPI1169 | Interface | Read Outline Agreement (OA) from IF in METs/SOM app. | 10. Object Complete | S/4 → METs/SOM | FCE Operational Data Services - METS Smart Order Management | 02.High |
-| PTPI1168 | Interface | Get PO details from IF to METs/SOM | 10. Object Complete | S/4 → METs/SOM | FCE Operational Data Services - METS Smart Order Management | 03.Medium |
-| PTPI1167 | Interface | Maintain PR in IF from METs/SOM | 10. Object Complete | METs/SOM → S/4 | FCE Operational Data Services - METS Smart Order Management | 03.Medium |
-| PTPI1154 | Interface | ILM to SAP S4 Interface – Assigning Material to Inspection Plan | 10. Object Complete | ILM → S/4 | ILM FOAM | 03.Medium |
-| PTPI1153 | Interface | Interface from ILM to SAP S/4 - Create/Modify Quality Info records | 10. Object Complete | ILM → S/4 | ILM FOAM | 03.Medium |
-| PTPI1152 | Interface | Develop an interface to create PO/STO from IRIS Non-Standard Request to S/4 Hana | 10. Object Complete | IRIS → S/4 | Integrated Repair System | 04.Low |
-| PTPI1138 | Interface | This interface is required to trigger split account assigned Purchase Requisi... | 10. Object Complete | MySamples → S/4 | My Samples ( Future of Samples) | 03.Medium |
-| PTPI1137_IP | Interface | Interface between S4 to Boundary Apps (Customs Tracker and PEGA-ISMQ) for rea... | 10. Object Complete | ILM → S/4 | Customs Tracker | 02.High |
-| PTPI1137_IF | Interface | Interface between S4 to Boundary Apps (Customs Tracker and PEGA-ISMQ) for rea... | 10. Object Complete | S/4 → Boundary Apps (Customs Tracker and PEGA-ISMQ | Customs Tracker | 03.Medium |
-| PTPI1134 | Interface | Inbound Interface from E2Open to IF – Intel Foundry in S/4 to bring shipping ... | 10. Object Complete | E2Open → S/4 | OpenText | 03.Medium |
-| PTPI1128_IP | Interface | Interface to send Ariba PO closure status information from S4 to Ariba | 10. Object Complete | S/4 → SAP Ariba Network | SAP Ariba Cloud; SAP Ariba Network | 03.Medium |
-| PTPI1128_IF | Interface | Interface to send Ariba PO closure status information from S4 to Ariba | 10. Object Complete | S/4 → SAP Ariba Network | SAP Ariba Cloud; SAP Ariba Network | 04.Low |
-| PTPI1032 | Interface | MQCS data pull Interface | 10. Object Complete | MQCS → S/4 | Materials Quality Certification System | 03.Medium |
-| PTPI0825 | Interface | Get Purchase Group details from IF to CWB | 10. Object Complete | S/4 → CWB | Commercial Workbench | 04.Low |
-| PTPI0823 | Interface | Get Purchase Req Details from IF to CWB | 10. Object Complete | S/4 → CWB | Commercial Workbench | 03.Medium |
-| PTPI0822_IP | Interface | Ariba Invoice Integration through (CIG - Cloud Integration Gateway (Currently... | 10. Object Complete | SAP Ariba Network → S/4 | SAP Ariba Network | 03.Medium |
-| PTPI0822_IF | Interface | Ariba Invoice Integration through (CIG - Cloud Integration Gateway (Currently... | 10. Object Complete | SAP Ariba Network → S/4 | SAP Ariba Network | 04.Low |
-| PTPI0821_IP | Interface | Invoice Status Update from SAP S/4 to Ariba Network through CIG - Cloud Integ... | 10. Object Complete | S/4 → SAP Ariba Network | SAP Ariba Network | 03.Medium |
-| PTPI0821_IF | Interface | Invoice Status Update from SAP S/4 to Ariba Network through CIG - Cloud Integ... | 10. Object Complete | S/4 → SAP Ariba Network | SAP Ariba Network | 04.Low |
-| PTPI0820_IP | Interface | Carbon Copy Invoice Integration from SAP S/4 to Ariba Network | 10. Object Complete | S/4 → SAP Ariba Network | SAP Ariba Network | 03.Medium |
-| PTPI0820_IF | Interface | Carbon Copy Invoice Integration from SAP S/4 to Ariba Network | 10. Object Complete | S/4 → SAP Ariba Network | SAP Ariba Network | 04.Low |
-| PTPI0819_IP | Interface | Intel B2B – XML (3C7) Notify of Self Billing Invoice – Interface to send noti... | 10. Object Complete | S/4 → OpenText | OpenText | 03.Medium |
-| PTPI0819_IF | Interface | Intel B2B – XML (3C7) Notify of Self Billing Invoice – Interface to send noti... | 10. Object Complete | S/4 → OpenText | OpenText | 04.Low |
-| PTPI0817_IP | Interface | Purchasing Services Fiori Catalog | 10. Object Complete | S/4 → Shopping@Intel | NA | 03.Medium |
-| PTPI0817_IF | Interface | Purchasing Services Fiori Catalog | 10. Object Complete | S/4 → Shopping@Intel | NA | 04.Low |
-| PTPI0816_IP | Interface | Intel WebSuite - Web PO – Interface to display Purchase Order information fro... | 10. Object Complete | Stagging DB → S/4 | Intel WebSuite - Web PO; B2B Staging Database | 03.Medium |
-| PTPI0816_IF | Interface | Intel WebSuite - Web PO – Interface to display Purchase Order information fro... | 10. Object Complete | Stagging DB → S/4 | Intel WebSuite - Web PO; B2B Staging Database | 04.Low |
-| PTPI0812_IP | Interface | Intel WebSuite - Web Forecast – Interface to display Purchase Order informati... | 10. Object Complete | Intel WebSuite Web Contract → S/4 | Intel WebSuite - Web Forecast; B2B Staging Database | 03.Medium |
-| PTPI0812_IF | Interface | Intel WebSuite - Web Forecast – Interface to display Purchase Order informati... | 10. Object Complete | Intel WebSuite Web Contract → S/4 | Intel WebSuite - Web Forecast; B2B Staging Database | 04.Low |
-| PTPI0735_IP | Interface | Ariba/Capital PO details to be retrieved from SAP S/4 at the time of receivin... | 10. Object Complete | WIINGS → S/4 | Wiings on the Web (WOW) - WIINGS (Angular) | 03.Medium |
-| PTPI0735_IF | Interface | Ariba/Capital PO details to be retrieved from SAP S/4 at the time of receivin... | 10. Object Complete | WIINGS → S/4 | Wiings on the Web (WOW) - WIINGS (Angular) | 04.Low |
-| PTPI0710_IP | Interface | S4 Manual Invoice Release Blocking functionality requires connection with GTT... | 10. Object Complete | S/4 → GTT (Custom Tracker) | SAP ECC - Accounts Payable; Customs Tracker | 03.Medium |
-| PTPI0710_IF | Interface | S4 Manual Invoice Release Blocking functionality requires connection with GTT... | 10. Object Complete | S/4 → GTT (Custom Tracker) | SAP ECC - Accounts Payable; Customs Tracker | 04.Low |
-| PTPI0709_IP | Interface | Ariba Asset Settlement Interface | 10. Object Complete | Shopping@Intel → S/4 | Shopping@Intel | 03.Medium |
-| PTPI0709_IF | Interface | Ariba Asset Settlement Interface | 10. Object Complete | Shopping@Intel → S/4 | Shopping@Intel | 04.Low |
-| PTPI0692_IP | Interface | Custom program to send configurations from S4 system to Illumis | 10. Object Complete | S/4 → Accounts Payable Recovery Tool | Accounts Payable Recoveries (APR) | 03.Medium |
-| PTPI0692_IF | Interface | Custom program to send configurations from S4 system to Illumis | 10. Object Complete | S/4 → Accounts Payable Recovery Tool | Accounts Payable Recoveries (APR) | 04.Low |
-| PTPI0691_IP | Interface | Custom program to send the supplier master data from S4 system to Illumis. | 10. Object Complete | S/4 → Accounts Payable Recovery Tool | Accounts Payable Recoveries (APR) | 03.Medium |
-| PTPI0691_IF | Interface | Custom program to send the supplier master data from S4 system to Illumis. | 10. Object Complete | S/4 → Accounts Payable Recovery Tool | Accounts Payable Recoveries (APR) | 04.Low |
-| PTPI0685 | Interface | Custom program to send the Transactions (Invoices) from IF system to Illumis | 10. Object Complete | S/4 → Accounts Payable Recovery Tool | Accounts Payable Recoveries (APR) | 03.Medium |
-| PTPI0671 | Interface | Interface to automatically create VMI PO & IB delivery in S/4 (IF and IP) via... | 10. Object Complete | S/4 → E2Open | E2open | 02.High |
-| PTPI0568 | Interface | Maintain Purchasing Info Record in IF from Pega PSI | 10. Object Complete | PEGA PSI → S/4 | Equipment Item BOM Master Data-Factory Equipment Workflow-Pega PSI | 03.Medium |
-| PTPI0567 | Interface | Get Material Master details from IF to Pega PSI | 10. Object Complete | S/4 → PEGA PSI | Equipment Item BOM Master Data-Factory Equipment Workflow-Pega PSI | 02.High |
-| PTPI0566 | Interface | Maintain Outline Agreement in IF from Pega PSI | 10. Object Complete | PEGA PSI → S/4 | Equipment Item BOM Master Data-Factory Equipment Workflow-Pega PSI | 03.Medium |
-| PTPI0559_IP | Interface | All Validation of Chemical purchases on non MRP PR by using integration betwe... | 10. Object Complete | ICHEM → S/4 | I-CHEM - Chemical Management System | 03.Medium |
-| PTPI0559_IF | Interface | All Validation of Chemical purchases on non MRP PR by using integration betwe... | 10. Object Complete | ICHEM → S/4 | I-CHEM - Chemical Management System | 04.Low |
-| PTPI0494 | Interface | Maintain PO in IF from CWB | 10. Object Complete | CWB → S/4 | Commercial Workbench | 01.Very High |
-| PTPI0473 | Interface | Demand Change - Automatic update of PR/PO/STR/STO/Scheduling agreement and Pr... | 09. FUT Overdue | NA → NA | NA | 02.High |
-| PTPI0470 | Interface | Payment Proposal after invoice posted from SAP S/4 HANA CFIN to Ariba | 10. Object Complete | S/4 → SAP Ariba Network | SAP Ariba Network; SAP Ariba Invoicing | 03.Medium |
-| PTPI0469 | Interface | Payment Remittance after payment posted from CFIN to IP/IF and from IP/IF to ... | 10. Object Complete | S/4 → SAP Ariba Network | SAP Ariba Network; SAP Ariba Invoicing | 03.Medium |
-| PTPI0468 | Interface | Payment Status after payment is cancelled / Void from CFIN to IP / IF and Fro... | 10. Object Complete | S/4 → SAP Ariba Network | SAP Ariba Network; SAP Ariba Invoicing | 02.High |
-| PTPI0467 | Interface | Maintain Outline Agreement in IF from EMS | 10. Object Complete | EMS → S/4 | Equipment Management System | 02.High |
-| PTPI0466_IP | Interface | Payment Remittance after payment posted from CFIN to IP/IF for Readsoft | 10. Object Complete | S/4 → Readsoft | Readsoft - WorkCycle; Readsoft - Process Director Accounts Payable IP | 03.Medium |
-| PTPI0466_IF | Interface | Payment Remittance after payment posted from CFIN to IP/IF for Readsoft | 10. Object Complete | S/4 → Readsoft | Readsoft - WorkCycle; Readsoft - Process Director Accounts Payable IF | 04.Low |
-| PTPI0463_IP | Interface | GR Carbon Copy (Posted in S4) | 10. Object Complete | S/4 → SAP Ariba Network | SAP Ariba Network | 02.High |
-| PTPI0463_IF | Interface | GR Carbon Copy (Posted in S4) | 10. Object Complete | S/4 → SAP Ariba Network | SAP Ariba Network | 03.Medium |
-| PTPI0452 | Interface | Get Material Master alternate UOM details from IF to CWB | 10. Object Complete | S/4 → CWB | Commercial Workbench | 02.High |
-| PTPI0449 | Interface | Maintain Outline Agreement in IF from CWB | 10. Object Complete | CWB → S/4 | Commercial Workbench | 01.Very High |
-| PTPI0448 | Interface | Maintain Purchasing Info Record in IF from CWB | 10. Object Complete | CWB → S/4 | Commercial Workbench | 02.High |
-| PTPI0388_IP | Interface | Custom program to send the Purchase order from SAP S4 system to Illumis | 10. Object Complete | S/4 → Accounts Payable Recovery Tool | Accounts Payable Recoveries (APR) | 02.High |
-| PTPI0388_IF | Interface | Custom program to send the Purchase order from SAP S4 system to Illumis | 10. Object Complete | S/4 → Accounts Payable Recovery Tool | Accounts Payable Recoveries (APR) | 03.Medium |
-| PTPI0386 | Interface | Maintain Document Info Record in IF from CWB | 10. Object Complete | CWB → S/4 | Commercial Workbench | 02.High |
-| PTPI0384 | Interface | Create Document Info Record in IF from EMS | 10. Object Complete | Equipment Management System → S/4 | Equipment Management System | 02.High |
-| PTPI0382 | Interface | Get OA determination by material from IF to CWB | 10. Object Complete | Commercial Workbench → S/4 | Commercial Workbench | 02.High |
-| PTPI0370 | Interface | Get OA determination by material from IF to EMS | 10. Object Complete | S/4 → Equipment Management System | Equipment Management System | 03.Medium |
-| PTPI0369 | Interface | Develop an interface to send inventory reports and MRP parameters from S4(IF)... | 10. Object Complete | S/4 → E2Open | E2open | 02.High |
-| PTPI0368 | Interface | Automatic creation of Discrete PO & IB delivery when supplier initiates shipm... | 10. Object Complete | E2open → S/4 | E2open | 02.High |
-| PTPI0272 | Interface | Get Material Master details from IF to EMS | 10. Object Complete | S/4 → EMS | Equipment Management System | 02.High |
-| PTPI0271 | Interface | Get Material Master details from IF to SIRFIS | 10. Object Complete | S/4 → SIRFIS | Supplier-Intel Resource, Forecast, Install System | 02.High |
-| PTPI0269_IP | Interface | Supplier Onboarding Data - IF | 10. Object Complete | Shopping@Intel → S/4 | Shopping@Intel | 03.Medium |
-| PTPI0269_IF | Interface | Supplier Onboarding Data - IP | 10. Object Complete | Shopping@Intel → S/4 | Shopping@Intel | 04.Low |
-| PTPI0269_CFIN | Interface | Supplier Onboarding Data - CFIN | 10. Object Complete | Shopping@Intel → S/4 | Shopping@Intel | 03.Medium |
-| PTPI0266 | Interface | Get PO details from IF to EMS | 10. Object Complete | S/4 → EMS | Equipment Management System | 02.High |
-| PTPI0263 | Interface | Maintain PR in IF from EMS | 10. Object Complete | EMS → S/4 | Equipment Management System | 02.High |
-| PTPI0262 | Interface | Get PR details from IF to EMS | 10. Object Complete | S/4 → EMS | Equipment Management System | 03.Medium |
-| PTPI0261 | Interface | Get PR details from IF to SIRFIS | 10. Object Complete | S/4 → SIRFIS | Supplier-Intel Resource, Forecast, Install System | 03.Medium |
-| PTPI0211_IP | Interface | Outbound interface to publish SAP Contracts details to Web Contract - IP | 10. Object Complete | S/4 → WebContract | Intel WebSuite - Web Contract; B2B Staging Database | 03.Medium |
-| PTPI0211_IF | Interface | Outbound interface to publish SAP Contracts details to Web Contract - IF | 10. Object Complete | S/4 → WebContract | Intel WebSuite - Web Contract; B2B Staging Database | 04.Low |
-| PTPI0144_IP | Interface | Interface from E2Open to S4 to publish supplier commits against Purchase Order | 10. Object Complete | E2Open → S/4 | E2open | 02.High |
-| PTPI0144_IF | Interface | Interface from E2Open to S4 to publish supplier commits against Purchase Order | 10. Object Complete | E2Open → S/4 | E2open | 03.Medium |
-| PTPI0140_IP | Interface | Interface from S4 to E2Open to send SA delivery schedule lines | 10. Object Complete | S/4 → E2Open | E2open | 02.High |
-| PTPI0140_IF | Interface | Interface from S4 to E2Open to send SA delivery schedule lines | 10. Object Complete | S/4 → E2Open | E2open | 03.Medium |
-| PTPI0138 | Interface | Interface from S4 to OpenText to send new purchase orders & purchase order ch... | 10. Object Complete | S/4 → GXS (Open text) | OpenText | 02.High |
-| PTPI0136_IP | Interface | Interface from S4 to E2open to send new purchase orders, purchase order chang... | 10. Object Complete | S/4 → E2Open | E2open | 02.High |
-| PTPI0136_IF | Interface | Interface from S4 to E2open to send new purchase orders, purchase order chang... | 10. Object Complete | S/4 → E2Open | E2open | 03.Medium |
-| PTPI0134_IP | Interface | Interface from S4 to E2Open for SIMS Master Data & supply demand elements | 10. Object Complete | S/4 → E2Open | E2open | 02.High |
-| PTPI0134_IF | Interface | Interface from S4 to E2Open for SIMS Master Data & supply demand elements | 10. Object Complete | S/4 → E2Open | E2open | 03.Medium |
-| PTPI0133 | Interface | Get OA determination by material from IF to SIRFIS | 10. Object Complete | SIRFIS → S/4 | Supplier-Intel Resource, Forecast, Install System | 03.Medium |
-| PTPI0131 | Interface | Get Outline Agreement data from IF to SIRFIS | 10. Object Complete | SIRFIS → S/4 | Supplier-Intel Resource, Forecast, Install System | 02.High |
-| PTPI0111_IP | Interface | PO change (Custom logic) | 10. Object Complete | SAP Ariba Network → S/4 | Shopping@Intel | 03.Medium |
-| PTPI0111_IF | Interface | PO change (Custom logic) | 10. Object Complete | SAP Ariba Network → S/4 | Shopping@Intel | 04.Low |
-| PTPI0110 | Interface | Get PO details from IF to SIRFIS | 10. Object Complete | SIRFIS → S/4 | Supplier-Intel Resource, Forecast, Install System | 02.High |
-| PTPI0107_IP | Interface | PO Cancel | 10. Object Complete | SAP Ariba Network → S/4 | Shopping@Intel | 03.Medium |
-| PTPI0107_IF | Interface | PO Cancel | 10. Object Complete | SAP Ariba Network → S/4 | Shopping@Intel | 04.Low |
-| PTPI0103_IP | Interface | PO create (Custom logic) | 10. Object Complete | SAP Ariba Network → S/4 | Shopping@Intel | 03.Medium |
-| PTPI0103_IF | Interface | PO create (Custom logic) | 10. Object Complete | SAP Ariba Network → S/4 | Shopping@Intel | 04.Low |
-| PTPI0100_IP | Interface | PR Cancel | 10. Object Complete | SAP Ariba Network → S/4 | SAP Ariba Network; SAP Ariba Invoicing; SAP Ariba Mobile; SAP Ariba Cloud; SA... | 03.Medium |
-| PTPI0100_IF | Interface | PR Cancel | 10. Object Complete | SAP Ariba Network → S/4 | SAP Ariba Network; SAP Ariba Invoicing; SAP Ariba Mobile; SAP Ariba Cloud; SA... | 04.Low |
-| PTPI0098_IP | Interface | PR change (Custom logic) | 10. Object Complete | SAP Ariba Network → S/4 | SAP Ariba Network; SAP Ariba Invoicing; SAP Ariba Mobile; SAP Ariba Cloud; SA... | 03.Medium |
-| PTPI0098_IF | Interface | PR change (Custom logic) | 10. Object Complete | SAP Ariba Network → S/4 | SAP Ariba Network; SAP Ariba Invoicing; SAP Ariba Mobile; SAP Ariba Cloud; SA... | 04.Low |
-| PTPI0096_IP | Interface | PR creation (budget check, custom logic) | 10. Object Complete | SAP Ariba Network → S/4 | SAP Ariba Network; SAP Ariba Invoicing; SAP Ariba Mobile; SAP Ariba Cloud; SA... | 03.Medium |
-| PTPI0096_IF | Interface | PR creation (budget check, custom logic) | 10. Object Complete | SAP Ariba Network → S/4 | SAP Ariba Network; SAP Ariba Invoicing; SAP Ariba Mobile; SAP Ariba Cloud; SA... | 04.Low |
-| PTPI0094_IP | Interface | validate and enrich (PR - master data and custom code) | 10. Object Complete | S/4 → SAP Ariba Network | SAP Ariba Network; SAP Ariba Invoicing; SAP Ariba Mobile; SAP Ariba Cloud; SA... | 03.Medium |
-| PTPI0094_IF | Interface | validate and enrich (PR - master data and custom code) | 10. Object Complete | S/4 → SAP Ariba Network | SAP Ariba Network; SAP Ariba Invoicing; SAP Ariba Mobile; SAP Ariba Cloud; SA... | 04.Low |
-| PTPI0092_IP | Interface | Transfer of Ownership (change Ariba PR/PO) | 10. Object Complete | S/4 → SAP Ariba Network | SAP Ariba Network; SAP Ariba Invoicing; SAP Ariba Mobile; SAP Ariba Cloud; SA... | 03.Medium |
-| PTPI0092_IF | Interface | Transfer of Ownership (change Ariba PR/PO) | 10. Object Complete | S/4 → SAP Ariba Network | SAP Ariba Network; SAP Ariba Invoicing; SAP Ariba Mobile; SAP Ariba Cloud; SA... | 04.Low |
-| PTPI0018 | Interface | SAP S4 IF Boundary App Interface for updating Requested Dock Date (RDD) for C... | 10. Object Complete | S/4 → SIRFIS | Supplier-Intel Resource, Forecast, Install System | 03.Medium |
-| PTPI0017 | Interface | SAP S4 IF Boundary App Interface for updating POChange/PODeliveryDates - PO S... | 10. Object Complete | S/4 → SIRFIS | Supplier-Intel Resource, Forecast, Install System | 02.High |
-| PTPF1384 | Form | Exception Notification – Label printing functionality – IF only | 10. Object Complete |  |  | 03.Medium |
-| PTPF0014_IP | Form | PO Output Form Customization - IP | 10. Object Complete | NA → NA | NA | 02.High |
-| PTPF0014_IF | Form | PO Output Form Customization - IF | 10. Object Complete | NA → NA | NA | 03.Medium |
-| PTPE1700 | Enhancement | Enhancement required in the purchase order (change only) to validate if the u... | 10. Object Complete |  |  | 03.Medium |
-| PTPE1699 | Enhancement | Enhancement required in the purchase requisition (change only) to validate if... | 10. Object Complete |  |  | 03.Medium |
-| PTPE1687 | Enhancement | Automate Warranty Credit Memo Posting | 10. Object Complete |  |  | 03.Medium |
-| PTPE1656 | Enhancement | Enhancement to Update Invoice PAID Status from CFIN to IF & IP ARIBA Standard... | 10. Object Complete |  |  | 03.Medium |
-| PTPE1644 | Enhancement | New Enhancement required for to make PO price updates for HVM OSAT and SIFO o... | 09. FUT Overdue |  |  | 02.High |
-| PTPE1628_IP | Enhancement | INT-CR0941-Develop a custom enhancement in SAP S/4 for Subcon PO BOM comparis... | 10. Object Complete |  |  | 04.Low |
-| PTPE1628_IF | Enhancement | INT-CR0941-Develop a custom enhancement in SAP S/4 for Subcon PO BOM comparis... | 10. Object Complete |  |  | 03.Medium |
-| PTPE1622 | Enhancement | Enhancement to update Purchase document amount into USD when BAPP pull data f... | 10. Object Complete |  |  | 03.Medium |
-| PTPE1621 | Enhancement | Enhancement to deleting all entries from ESH_SR_LTXT and ESH_SR_TXT_OBJ, runn... | 10. Object Complete |  |  | 04.Low |
-| PTPE1606_IP | Enhancement | Custom enhancement to edit the posted accounting document for Payment Term, B... | 10. Object Complete |  |  | 03.Medium |
-| PTPE1606_IF | Enhancement | Custom enhancement to edit the posted accounting document for Payment Term, B... | 10. Object Complete |  |  | 04.Low |
-| PTPE1606_CFIN | Enhancement | Custom enhancement to edit the posted accounting document for Payment Term, B... | 10. Object Complete |  |  | 03.Medium |
-| PTPE1603 | Enhancement | Enhancement to Auto block the Expired Batches in IM Locations | 10. Object Complete |  |  | 03.Medium |
-| PTPE1532 | Enhancement | Enhancement required in the purchase order (change only) to validate if the u... | 10. Object Complete |  |  | 03.Medium |
-| PTPE1531 | Enhancement | Enhancement required in the purchase requisition (change only) to validate if... | 10. Object Complete |  |  | 03.Medium |
-| PTPE1495_IP | Enhancement | Enhancement required for ORDERS05 IDOC applicable for PO outbound from S4 to ... | 10. Object Complete |  |  | 03.Medium |
-| PTPE1495_IF | Enhancement | Enhancement required for ORDERS05 IDOC applicable for PO outbound from S4 to ... | 10. Object Complete |  |  | 04.Low |
-| PTPE1494_IP | Enhancement | Enhancement to trigger Output type which will generate IDOC once GR or GR rev... | 10. Object Complete |  |  | 03.Medium |
-| PTPE1494_IF | Enhancement | Enhancement to trigger Output type which will generate IDOC once GR or GR rev... | 10. Object Complete |  |  | 04.Low |
-| PTPE1465_IP | Enhancement | Enhancement to Get Purchase order details like Payee, Supnam, Purchase group ... | 10. Object Complete |  |  | 03.Medium |
-| PTPE1465_IF | Enhancement | Enhancement to Get Purchase order details like Payee, Supnam, Purchase group ... | 10. Object Complete |  |  | 04.Low |
-| PTPE1452_IP | Enhancement | Enhancement to create AMPL (Approved manufacturer part list ) in S/4 using ex... | 10. Object Complete |  |  | 02.High |
-| PTPE1452_IF | Enhancement | Enhancement to create AMPL (Approved manufacturer part list ) in S/4 using ex... | 10. Object Complete |  |  | 03.Medium |
-| PTPE1440_IP | Enhancement | Custom program to generate a PDF printout of SAP self-billing invoices (ERS/C... | 10. Object Complete |  |  | 03.Medium |
-| PTPE1440_IF | Enhancement | Custom program to generate a PDF printout of SAP self-billing invoices (ERS/C... | 10. Object Complete |  |  | 04.Low |
-| PTPE1437_IP | Enhancement | Enhancement required to populate custom logic for BLAORD (PTPI0211_IP_IF). | 10. Object Complete |  |  | 03.Medium |
-| PTPE1437_IF | Enhancement | Enhancement required to populate custom logic for BLAORD (PTPI0211_IP_IF). | 10. Object Complete |  |  | 04.Low |
-| PTPE1436_IP | Enhancement | Enhancement required to populate custom logic for BLAOCH (PTPI0211_IP_IF). | 99. Rejected/Cancelled/On Hold |  |  | 03.Medium |
-| PTPE1436_IF | Enhancement | Enhancement required to populate custom logic for BLAOCH (PTPI0211_IP_IF). | 99. Rejected/Cancelled/On Hold |  |  | 04.Low |
-| PTPE1424_IP | Enhancement | Enhancement for I-chem PR creation from Ariba until R5 go-live | 10. Object Complete |  |  | 03.Medium |
-| PTPE1424_IF | Enhancement | Enhancement for I-chem PR creation from Ariba until R5 go-live | 10. Object Complete |  |  | 04.Low |
-| PTPE1422_IP | Enhancement | Enhancement to Update Invoice PAID Status from CFIN to IF & IP ARIBA Standard... | 10. Object Complete |  |  | 03.Medium |
-| PTPE1422_IF | Enhancement | Enhancement to Update Invoice PAID Status from CFIN to IF & IP ARIBA Standard... | 10. Object Complete |  |  | 04.Low |
-| PTPE1343 | Enhancement | Enhancement required to maintain the list of approved suppliers for copper ma... | 10. Object Complete |  |  | 03.Medium |
-| PTPE1195_IP | Enhancement | Enhancement to auto close Purchase Orders based on policy criteria , executed... | 10. Object Complete |  |  | 03.Medium |
-| PTPE1195_IF | Enhancement | Enhancement to auto close Purchase Orders based on policy criteria , executed... | 10. Object Complete |  |  | 04.Low |
-| PTPE1139_IP | Enhancement | Custom Enhancements for Payment Proposal, payment remittance, payment status,... | 10. Object Complete |  |  | 04.Low |
-| PTPE1139_IF | Enhancement | Custom Enhancements for Payment Proposal, payment remittance, payment status,... | 10. Object Complete |  |  | 04.Low |
-| PTPE1139_CFIN | Enhancement | Custom Enhancements for Payment Proposal, payment remittance, payment status,... | 10. Object Complete |  |  | 03.Medium |
-| PTPE1135_IP | Enhancement | Enhancement required while triggering the COND_A idoc for contracts (PTPI0211... | 10. Object Complete |  |  | 03.Medium |
-| PTPE1135_IF | Enhancement | Enhancement required while triggering the COND_A idoc for contracts (PTPI0211... | 10. Object Complete |  |  | 03.Medium |
-| PTPE1133 | Enhancement | Enhancement to Get Purchase group email address details from IF system to CWB. | 10. Object Complete |  |  | 04.Low |
-| PTPE1120 | Enhancement | Enhancement required to automatically create and change subcon purchase requi... | 10. Object Complete |  |  | 04.Low |
-| PTPE1107 | Enhancement | Enhancement required to automatically create and change subcon purchase order... | 10. Object Complete |  |  | 03.Medium |
-| PTPE1099 | Enhancement | Exception Notification – Label printing functionality – IF only | 10. Object Complete | NA → NA | NA | 03.Medium |
-| PTPE1050_IP | Enhancement | BADI Enhancement for PR PO Approval Workflow | 10. Object Complete |  |  | 03.Medium |
-| PTPE1050_IF | Enhancement | BADI Enhancement for PR PO Approval Workflow | 10. Object Complete |  |  | 03.Medium |
-| PTPE1049_IP | Enhancement | Enhancement to create custom field on Purchase Order Header Table to store Ap... | 10. Object Complete |  |  | 03.Medium |
-| PTPE1049_IF | Enhancement | Enhancement to create custom field on Purchase Order Header Table to store Ap... | 10. Object Complete |  |  | 03.Medium |
-| PTPE1036 | Enhancement | Batch update Program | 10. Object Complete |  |  | 03.Medium |
-| PTPE1033 | Enhancement | UD Enhancement | 10. Object Complete |  |  | 03.Medium |
-| PTPE1031 | Enhancement | Send email notification with details of task for Quality notification – IF only | 10. Object Complete |  |  | 03.Medium |
-| PTPE1030 | Enhancement | Creation of Return PO from Action box within Notification – IF only | 10. Object Complete |  |  | 03.Medium |
-| PTPE1029 | Enhancement | Creation of Notification as a follow up action with rejection codes – IF only | 10. Object Complete |  |  | 02.High |
-| PTPE1009 | Enhancement | Returns to 3PL | 99. Rejected/Cancelled/On Hold |  |  | 04.Low |
-| PTPE0977 | Enhancement | Develop app/transaction to Automate the stock from ‘Unrestricted/Blocked to Q... | 10. Object Complete |  |  | 03.Medium |
-| PTPE0962 | Enhancement | Enhancement required to automatically create return purchase orders based on ... | 10. Object Complete |  |  | 03.Medium |
-| PTPE0961 | Enhancement | Enhancement required to automatically create rework or repair and replacement... | 10. Object Complete |  |  | 03.Medium |
-| PTPE0958_IP | Enhancement | Activating the Final Invoice Indicator at PO Level SAP S/4 HANA - IP | 10. Object Complete |  |  | 03.Medium |
-| PTPE0958_IF | Enhancement | Activating the Final Invoice Indicator at PO Level - SAP S/4 HANA - IF | 10. Object Complete |  |  | 04.Low |
-| PTPE0941_IP | Enhancement | Enhancement to capture material price from receiving plant in Intercompany STO. | 10. Object Complete |  |  | 03.Medium |
-| PTPE0941_IF | Enhancement | Enhancement to capture material price from receiving plant in Intercompany STO. | 10. Object Complete |  |  | 04.Low |
-| PTPE0919_IP | Enhancement | Enhancement to trigger Output type which will generate IDOC once GR or GR rev... | 10. Object Complete |  |  | 03.Medium |
-| PTPE0919_IF | Enhancement | Enhancement to trigger Output type which will generate IDOC once GR or GR rev... | 10. Object Complete |  |  | 04.Low |
-| PTPE0826 | Enhancement | Enhancement required for FS-PTPI0017_IF, PTPI0018 to update the EKPO-VSART Field | 10. Object Complete |  | Supplier-Intel Resource, Forecast, Install System | 03.Medium |
-| PTPE0790_IP | Enhancement | Enhancement to enrich or remove transactions from Intrastat arrival declarati... | 10. Object Complete |  |  | 03.Medium |
-| PTPE0790_IF | Enhancement | Enhancement to enrich or remove transactions from Intrastat arrival declarati... | 10. Object Complete |  |  | 03.Medium |
-| PTPE0745_IP | Enhancement | Quota Arrangement Mass Upload Tool Functionality IP | 10. Object Complete |  |  | 02.High |
-| PTPE0745_IF | Enhancement | Quota Arrangement Mass Upload Tool Functionality IF | 10. Object Complete |  |  | 03.Medium |
-| PTPE0744_IP | Enhancement | PIR Mass Upload Tool Functionality IP | 10. Object Complete |  |  | 02.High |
-| PTPE0744_IF | Enhancement | PIR Mass Upload Tool Functionality IF | 10. Object Complete |  |  | 03.Medium |
-| PTPE0743_IP | Enhancement | OA Mass Upload Tool Functionality IP | 10. Object Complete |  |  | 02.High |
-| PTPE0743_IF | Enhancement | OA Mass Upload Tool Functionality IF | 10. Object Complete |  |  | 03.Medium |
-| PTPE0733_IP | Enhancement | Enhancement to validate the user that creates/edits the PO cannot make themse... | 10. Object Complete |  |  | 03.Medium |
-| PTPE0733_IF | Enhancement | Enhancement to validate the user that creates/edits the PO cannot make themse... | 10. Object Complete |  |  | 04.Low |
-| PTPE0732 | Enhancement | Pay@Accept Custom Program to release the invoice - SAP S/4 HANA IP and IF | 10. Object Complete |  |  | 03.Medium |
-| PTPE0731_IP | Enhancement | Enhancement on Goods Receipts created from S4 (IF-IP) to Ariba Network | 10. Object Complete |  |  | 03.Medium |
-| PTPE0731_IF | Enhancement | Enhancement on Goods Receipts created from S4 (IF-IP) to Ariba Network | 10. Object Complete |  |  | 04.Low |
-| PTPE0730_IP | Enhancement | PR and PO interface enhancements to support Ariba Asset Interface | 10. Object Complete |  |  | 03.Medium |
-| PTPE0730_IF | Enhancement | PR and PO interface enhancements to support Ariba Asset Interface | 10. Object Complete |  |  | 04.Low |
-| PTPE0729_IP | Enhancement | Enhancement - Transfer of ownership Interface | 10. Object Complete |  |  | 03.Medium |
-| PTPE0729_IF | Enhancement | Enhancement - Transfer of ownership Interface | 10. Object Complete |  |  | 04.Low |
-| PTPE0727_IP | Enhancement | Source List Data Mass Upload Tool Functionality IP | 10. Object Complete |  |  | 02.High |
-| PTPE0727_IF | Enhancement | Source List Data Mass Upload Tool Functionality IF | 10. Object Complete |  |  | 03.Medium |
-| PTPE0726_IP | Enhancement | Enhancement to validate enabled supplier details to trigger Ariba relevant in... | 10. Object Complete |  |  | 04.Low |
-| PTPE0726_IF | Enhancement | Enhancement to validate enabled supplier details to trigger Ariba relevant in... | 10. Object Complete |  |  | 04.Low |
-| PTPE0726_CFIN | Enhancement | Enhancement to validate enabled supplier details to trigger Ariba relevant in... | 10. Object Complete |  |  | 03.Medium |
-| PTPE0707 | Enhancement | PR workflow Custom Table enhancement | 10. Object Complete |  |  | 03.Medium |
-| PTPE0706_IP | Enhancement | Enhancement to Post Goods Receipt for the converted Ariba Purchase Orders in ... | 10. Object Complete |  |  | 02.High |
-| PTPE0706_IF | Enhancement | Enhancement to Post Goods Receipt for the converted Ariba Purchase Orders in ... | 10. Object Complete |  |  | 03.Medium |
-| PTPE0656_IP | Enhancement | Enhancement on Purchase Orders Created or Changed from Ariba to S4 (IF-IP) | 10. Object Complete |  |  | 03.Medium |
-| PTPE0656_IF | Enhancement | Enhancement on Purchase Orders Created or Changed from Ariba to S4 (IF-IP) | 10. Object Complete |  |  | 04.Low |
-| PTPE0606_IP | Enhancement | Enhancement to create idoc extension for payload header info to send data to ... | 10. Object Complete |  |  | 02.High |
-| PTPE0606_IF | Enhancement | Enhancement to create idoc extension for payload header info to send data to ... | 10. Object Complete |  |  | 03.Medium |
-| PTPE0558_IP | Enhancement | Enhancements for chemical purchases on non MRP PR’s. | 10. Object Complete |  |  | 03.Medium |
-| PTPE0558_IF | Enhancement | Enhancements for chemical purchases on non MRP PR’s. | 10. Object Complete |  |  | 04.Low |
-| PTPE0543_IP | Enhancement | Enhancement required for ORDERS05 IDOC applicable for PO outbound from S4 to ... | 10. Object Complete |  |  | 03.Medium |
-| PTPE0543_IF | Enhancement | Enhancement required for ORDERS05 IDOC applicable for PO outbound from S4 to ... | 10. Object Complete |  |  | 04.Low |
-| PTPE0472_IP | Enhancement | Enhancement to map correct plant and user ID’s for Ariba PR replication in S4 | 10. Object Complete | NA → NA |  | 03.Medium |
-| PTPE0472_IF | Enhancement | Enhancement to map correct plant and user ID’s for Ariba PR replication in S4 | 10. Object Complete | NA → NA |  | 04.Low |
-| PTPE0471 | Enhancement | Review the auto reversal of payment documents, Reset clearing of invoice and ... | 99. Rejected/Cancelled/On Hold | NA → NA |  | 02.High |
-| PTPE0371_IP | Enhancement | Standard BTE for Manage Supplier Line items to add the PO and Supplier name -... | 10. Object Complete | NA → NA |  | 04.Low |
-| PTPE0371_IF | Enhancement | Standard BTE for Manage Supplier Line items to add the PO and Supplier name -... | 10. Object Complete | NA → NA |  | 04.Low |
-| PTPE0371_CFIN | Enhancement | Standard BTE for Manage Supplier Line items to add the PO and Supplier name -... | 10. Object Complete | NA → NA |  | 03.Medium |
-| PTPE0365 | Enhancement | Enhancement for populating DPAS data on Purchase Requisition (IF and IP) | 10. Object Complete | NA → NA |  | 03.Medium |
-| PTPE0318_IP | Enhancement | Custom program to block the vendor invoice based on the different business sc... | 10. Object Complete | NA → NA | NA | 04.Low |
-| PTPE0318_IF | Enhancement | Custom program to block the vendor invoice based on the different business sc... | 10. Object Complete | NA → NA | NA | 03.Medium |
-| PTPE0259_IP | Enhancement | Develop a routing logic to send Purchase Order to the Boundary apps from S/4 ... | 10. Object Complete | NA → NA | NA | 03.Medium |
-| PTPE0259_IF | Enhancement | Develop a routing logic to send Purchase Order to the Boundary apps from S/4 ... | 10. Object Complete | NA → NA | NA | 03.Medium |
-| PTPE0241_IP | Enhancement | Payment Term Mass change functionality in FBL1N Vendor Line item report | 10. Object Complete | NA → NA |  | 03.Medium |
-| PTPE0241_IF | Enhancement | Payment Term Mass change functionality in FBL1N Vendor Line item report | 10. Object Complete | NA → NA |  | 04.Low |
-| PTPE0202_IP | Enhancement | Develop a change utility for mass PR creation and change of purchase requisit... | 10. Object Complete | NA → NA | NA | 02.High |
-| PTPE0202_IF | Enhancement | Develop a change utility for mass PR creation and change of purchase requisit... | 10. Object Complete | NA → NA | NA | 03.Medium |
-| PTPE0200_IP | Enhancement | PO Mass Change - Upload Tool Functionality (IP) | 10. Object Complete | NA → NA | NA | 02.High |
-| PTPE0200_IF | Enhancement | PO Mass Change - Upload Tool Functionality (IF) | 10. Object Complete | NA → NA | NA | 03.Medium |
-| PTPE0090_IP | Enhancement | Attachment need to copy from PR to PO automatically | 10. Object Complete | NA → NA | NA | 03.Medium |
-| PTPE0090_IF | Enhancement | Attachment need to copy from PR to PO automatically | 10. Object Complete | NA → NA | NA | 04.Low |
-| PTPC0808_IP | Conversion | 2379_Master Data Migration from ECC to S/4 to bring Approved Manufacturer Par... | 10. Object Complete |  | SPEED PDM (Legacy SPEED); SPEED PDM (Next Generation SPEED) | 03.Medium |
-| PTPC0808_IF | Conversion | 2379_Master Data Migration from ECC to S/4 to bring Approved Manufacturer Par... | 10. Object Complete |  | SPEED PDM (Legacy SPEED); SPEED PDM (Next Generation SPEED) | 04.Low |
-| PTPC0633 | Conversion | Purchase Requisition Conversion from ECC to S/4 - IF | 10. Object Complete |  |  | 02.High |
-| PTPC0537_IP | Conversion | Purchasing Info Records Migration from ECC to S/4 – IF and IP | 10. Object Complete | NA → NA |  | 03.Medium |
-| PTPC0537_IF | Conversion | Purchasing Info Records Migration from ECC to S/4 – IF and IP | 10. Object Complete | NA → NA |  | 03.Medium |
-| PTPC0536_IP | Conversion | Source List Migration from ECC to S/4 – IF and IP | 10. Object Complete | NA → NA |  | 03.Medium |
-| PTPC0536_IF | Conversion | Source List Migration from ECC to S/4 – IF and IP | 10. Object Complete | NA → NA |  | 03.Medium |
-| PTPC0509_IP | Conversion | Open Contracts Migration from ECC to S/4 - IF and IP | 10. Object Complete |  |  | 01.Very High |
-| PTPC0509_IF | Conversion | Open Contracts Migration from ECC to S/4 - IF and IP | 10. Object Complete |  |  | 01.Very High |
-| PTPC0504_IP | Conversion | Quota Arrangement Migration from ECC to S/4 - IF and IP | 10. Object Complete |  | NA | 03.Medium |
-| PTPC0504_IF | Conversion | Quota Arrangement Migration from ECC to S/4 - IF and IP | 10. Object Complete |  | NA | 03.Medium |
-| PTPC0176_IP | Conversion | Open PO conversion from Legacy to SAP S/4 | 10. Object Complete | ECC → S4 | ECC | 02.High |
-| PTPC0176_IF | Conversion | Open PO conversion from Legacy to SAP S/4 | 10. Object Complete | ECC → S4 | ECC | 03.Medium |
-| LOGW0978_IP | Workflow | Workflow for processing Goods Receipt and tracking and tracing of non-invento... | 10. Object Complete |  |  | 03.Medium |
-| LOGW0978_IF | Workflow | Workflow for processing Goods Receipt and tracking and tracing of non-invento... | 10. Object Complete |  |  | 03.Medium |
-| LOGR0856 | Report | Capital Call Ahead GAP Report​ | 10. Object Complete |  |  | 03.Medium |
-| LOGI1726 | Interface | GR replication for raw materials for Straddle Sites from ECC to S4 IP via ECA​ | 06. Dev In Progress |  | NA | 03.Medium |
-| LOGI1427_IP | Interface | Interface between S4 to Boundary Apps (PEGA-ISMQ) for real time data on Deliv... | 10. Object Complete | S/4 → PEGA | PEGA Integrated Shipping Memo Questionnaires | 03.Medium |
-| LOGI1427_IF | Interface | Interface between S4 to Boundary Apps (PEGA-ISMQ) for real time data on Deliv... | 10. Object Complete | S/4 → PEGA | PEGA Integrated Shipping Memo Questionnaires | 04.Low |
-| LOGI1309 | Interface | Inbound interface to receive Finished Goods Advanced Shipping notifications f... | 10. Object Complete | E2Open → S/4 | E2open | 01.Very High |
-| LOGI1206_IP | Interface | S4 sending 3B2 ASN information to supplier as outbound signal for return deli... | 10. Object Complete | S/4 → E2Open | E2open | 03.Medium |
-| LOGI1206_IF | Interface | S4 sending 3B2 ASN information to supplier as outbound signal for return deli... | 10. Object Complete | S/4 → E2Open | E2open | 04.Low |
-| LOGI1136_IP | Interface | Interface between S4 to Boundary Apps (Customs Tracker) for real time data on... | 10. Object Complete | S/4 → Boundary Apps (Customs Tracker) | Customs Tracker | 04.Low |
-| LOGI1136_IF | Interface | Interface between S4 to Boundary Apps (Customs Tracker) for real time data on... | 10. Object Complete | S/4 → Boundary Apps (Customs Tracker and PEGA-ISMQ | Customs Tracker | 03.Medium |
-| LOGI1129 | Interface | TM: RICEFW 1:Carrier selection and Charges calculation for IRG/ISCG( Intel ro... | 10. Object Complete | IRG/IRSG → S/4 | SAP TM - IRG (Intel Routing Guide) | 03.Medium |
-| LOGI0956 | Interface | Inbound interface to receive OSAT Finished Goods and Return rework FG “Goods ... | 10. Object Complete | OpenText → S/4 | OpenText | 03.Medium |
-| LOGI0955 | Interface | Inbound interface to receive Box CPU Finished Goods and Return Rework FG “Goo... | 10. Object Complete | OpenText → S/4 | OpenText | 03.Medium |
-| LOGI0954 | Interface | Bailment Process: Inbound 4B2 from 3PL to IF via OpenText for Receipt of Bail... | 10. Object Complete | OpenText → S/4 | OpenText | 03.Medium |
-| LOGI0953 | Interface | Bailment Process: Generated Outbound 4B2 from IF to OpenText for Bailed Material | 10. Object Complete | S/4 → OpenText | OpenText | 03.Medium |
-| LOGI0852_IP | Interface | Outbound Interface to send freight forwarder rates from TM to CTSI. | 10. Object Complete | S/4 → CTSI | CTSI Global | 03.Medium |
-| LOGI0852_IF | Interface | Outbound Interface to send freight forwarder rates from TM to CTSI | 10. Object Complete | S/4 → CTSI | CTSI Global | 04.Low |
-| LOGI0834 | Interface | Inbound interface for WLA Hold scenario to trigger Outbound ASN with Non-Valu... | 10. Object Complete | E2Open → S/4 | E2open | 03.Medium |
-| LOGI0755 | Interface | PTP-LE: ASN (Inbound 3B2) from SIFO Suppliers - E2Open to S/4 IP | 10. Object Complete | E2OPEN → S/4 | E2open | 03.Medium |
-| LOGI0753_IP | Interface | The process involves sending a Real time consumption signal from a supplier o... | 10. Object Complete | E2OPEN → S/4 | E2open | 03.Medium |
-| LOGI0749_IP | Interface | TM –CTSI integration – Freight details to CTSI for Liability validation | 10. Object Complete | S/4 → CTSI | CTSI Global | 03.Medium |
-| LOGI0749_IF | Interface | TM –CTSI integration – Freight details to CTSI for Liability validation | 10. Object Complete | S/4 → CTSI | CTSI Global | 04.Low |
-| LOGI0516_IP | Interface | PTP IF​Fetch Integrators rate in TM via an API call to Redwood and leverage i... | 10. Object Complete | ECD → S/4 | Redwood | 03.Medium |
-| LOGE0515_IF | Enhancement | TM : Fetch Integrators rate in TM via an API call to Redwood and leverage it ... | 10. Object Complete | NA → NA |  | 04.Low |
-| LOGI0516_IF | Interface | PTP IP​Fetch Integrators rate in TM via an API call to Redwood and leverage i... | 10. Object Complete | ECD → S/4 | Redwood | 04.Low |
-| LOGI0503_IP | Interface | Outboundinterface GR data send to NIT as WIINGS gets replaced by S4 | 10. Object Complete | S/4 → NIT | Non Inventory Tracking | 03.Medium |
-| LOGI0503_IF | Interface | Outboundinterface GR data send to NIT as WIINGS gets replaced by S4 | 10. Object Complete | S/4 → NIT | Non Inventory Tracking | 04.Low |
-| LOGI0502 | Interface | Inbound Interface to receive and process 4B2 Goods receipt signal from 3PL to... | 10. Object Complete | E2Open → S/4 | OpenText | 03.Medium |
-| LOGI0501 | Interface | Inbound interface to receive ASN (3B2) from fab material suppliers via E2Open... | 10. Object Complete | E2Open → S/4 | E2open | 02.High |
-| LOGI0267 | Interface | Inbound Interface to receive Advanced Shipment Notice (ASN) data in txt file ... | 10. Object Complete | GXS → S/4 | OpenText | 02.High |
-| LOGI0253 | Interface | Inbound interface to receive Finished Goods Advanced Shipping notifications f... | 10. Object Complete | E2Open → S/4 | E2open | 03.Medium |
-| LOGI0252 | Interface | Inbound interface to receive “Goods Receipt” (4B2) signal for Raw Materials/F... | 10. Object Complete | OpenText → S/4 | E2open | 03.Medium |
-| LOGI0249 | Interface | Inbound interface to receive Realtime consumption (4B3) of raw materials/FG C... | 10. Object Complete | OpenText → S/4 | E2open | 03.Medium |
-| LOGI0245 | Interface | Inbound interface to receive Finished Goods ASN (3B2) from BOX CPU subcontrac... | 10. Object Complete | OpenText → S/4 | E2open | 03.Medium |
-| LOGI0244 | Interface | Inbound interface to receive ODM Finished Goods “Goods Receipt” (4B2) signal ... | 10. Object Complete | GSX → S/4 | OpenText | 03.Medium |
-| LOGI0197_IP | Interface | Create Inbound Delivery Note from ASN in IP | 10. Object Complete | WebASN → S/4 | Intel WebSuite - ASN; B2B Staging Database | 03.Medium |
-| LOGI0197_IF | Interface | Create Inbound Delivery Note from ASN in IF | 10. Object Complete | WebASN → S/4 | Intel WebSuite - ASN; B2B Staging Database | 04.Low |
-| LOGI0163_IP | Interface | Inbound interface to receive consignment inventory adjustments (manual postin... | 10. Object Complete | E2Open → S/4 | E2open | 03.Medium |
-| LOGI0163_IF | Interface | Inbound interface to receive consignment inventory adjustments (manual postin... | 10. Object Complete | E2Open → S/4 | E2open | 04.Low |
-| LOGI0161 | Interface | Inbound interface to receive ODM Finished Goods “Goods Receipt” (4B2) signal ... | 10. Object Complete | E2Open → S/4 | E2open | 03.Medium |
-| LOGI0158 | Interface | Inbound interface to receive “Goods Receipt” (4B2) signal from OSATs for semi... | 10. Object Complete | E2Open → S/4 | E2open | 03.Medium |
-| LOGI0157_IP | Interface | Inbound interface to receive raw materials “Goods Receipt” (4B2) signal for c... | 10. Object Complete | E2Open → S/4 | E2open | 03.Medium |
-| LOGI0157_IF | Interface | Inbound interface to receive raw materials “Goods Receipt” (4B2) signal for c... | 10. Object Complete | E2Open → S/4 | E2open | 04.Low |
-| LOGI0156 | Interface | Outbound interface to send “Advanced Shipment Notification” signal (3B2) for ... | 10. Object Complete | S/4 → E2Open | E2open | 03.Medium |
-| LOGI0155 | Interface | Inbound interface to receive Semi-Finished Goods Advanced Shipping notificati... | 10. Object Complete | E2Open → S/4 | E2open | 02.High |
-| LOGI0154 | Interface | Inbound interface to receive Finished Goods Advanced Shipping notifications f... | 10. Object Complete | E2Open → S/4 | E2open | 03.Medium |
-| LOGI0150_IP | Interface | Outbound interface to send “Goods Receipt” signal (4B2) for Raw materials & O... | 10. Object Complete | S/4 → E2Open | E2open | 03.Medium |
-| LOGI0150_IF | Interface | Outbound Interface to send 4B2 Goods receipt acknowledgement from S/4 to E2Op... | 10. Object Complete | S/4 → E2Open | E2open | 03.Medium |
-| LOGF1085 | Form | Enhancement to print the Bin Location label in SAP EWM. | 10. Object Complete |  |  | 03.Medium |
-| LOGF1045 | Form | Goods Receipt Label Print triggered at the point of completion of the GR | 10. Object Complete |  |  | 03.Medium |
-| LOGF0920_IP | Form | Form for printing Goods receipt label in IM - IP | 10. Object Complete |  |  | 02.High |
-| LOGF0920_IF | Form | Form for printing Goods receipt label in IM - IF | 10. Object Complete |  |  | 03.Medium |
-| LOGE1728 | Enhancement | Automate Outbound delivery note creation for 250K annual Subcon POs for repai... | 06. Dev In Progress |  |  | 03.Medium |
-| LOGE1570 | Enhancement | CR0856 - Enhancement required (a report) to post the goods receipt for the ad... | 10. Object Complete |  |  | 03.Medium |
-| LOGE1506 | Enhancement | Enhancement to bring attachments of images from Material master (MM03) to the... | 10. Object Complete |  |  | 02.High |
-| LOGE1337 | Enhancement | Enhancement to generate outbound IDOC for 3B2 ASN information to RMA supplier... | 10. Object Complete |  |  | 03.Medium |
-| LOGE1193_IP | Enhancement | S4 – Enhancement to stop GR for Purchase Order for which Delivery Completed i... | 10. Object Complete |  |  | 03.Medium |
-| LOGE1193_IF | Enhancement | S4 – Enhancement to stop GR for Purchase Order for which Delivery Completed i... | 10. Object Complete |  |  | 04.Low |
-| LOGE1087 | Enhancement | Enhancement on the RF screen to auto populate the HU number for receiving. | 10. Object Complete |  |  | 03.Medium |
-| LOGE1086 | Enhancement | Enhancement on the RF screen for identifying the correct inbound delivery bas... | 10. Object Complete |  |  | 03.Medium |
-| LOGE1048 | Enhancement | To Identify Priority Inbound Deliveries in EWM and display the details of the... | 10. Object Complete |  |  | 02.High |
-| LOGE1047 | Enhancement | RF Scanner -Inbound Process Screen to enhanced to show the Delivery Priority ... | 10. Object Complete |  |  | 02.High |
-| LOGE1046 | Enhancement | Enhancement to capture Priority Indicator field in EWM Inbound Delivery from ... | 10. Object Complete |  |  | 02.High |
-| LOGE1035 | Enhancement | Inventory update program for Stock type updates | 10. Object Complete |  |  | 03.Medium |
-| LOGE1034 | Enhancement | Delivery creation enhancement to update Stock type | 10. Object Complete |  |  | 03.Medium |
-| LOGE0976_IP | Enhancement | Enhancement to enable delivery priority Indicator in Inbound delivery Documen... | 10. Object Complete |  |  | 03.Medium |
-| LOGE0976_IF | Enhancement | Enhancement to enable delivery priority Indicator in Inbound delivery Documen... | 10. Object Complete |  |  | 04.Low |
-| LOGE0952 | Enhancement | Generate Outbound 3B2 Message from S4 to OSAT supplier E2Open onboarded Suppl... | 10. Object Complete |  |  | 03.Medium |
-| LOGE0858_IP | Enhancement | Determine mode in freight order and charge calculation​ | 10. Object Complete |  |  | 03.Medium |
-| LOGE0858_IF | Enhancement | Determine mode in freight order and charge calculation​ | 10. Object Complete |  |  | 04.Low |
-| LOGE0855 | Enhancement | Capital Call Ahead Report​ | 10. Object Complete |  |  | 03.Medium |
-| LOGE0854 | Enhancement | Custom Fiori Application development to generate Call Ahead Reports for Capit... | 10. Object Complete |  |  | 03.Medium |
-| LOGE0853_IP | Enhancement | Inbound Carrier selection over-ride and exclusion rules to be considered duri... | 10. Object Complete |  |  | 03.Medium |
-| LOGE0853_IF | Enhancement | Inbound Carrier selection over-ride and exclusion rules to be considered duri... | 10. Object Complete |  |  | 04.Low |
-| LOGE0851_IP | Enhancement | Enhancement to store + transform + trigger freight forwarder rates to CTSI. | 10. Object Complete |  |  | 02.High |
-| LOGE0851_IF | Enhancement | Enhancement to store + transform + trigger freight forwarder rates to CTSI. | 10. Object Complete |  |  | 03.Medium |
-| LOGE0850_IP | Enhancement | Order management for inbound ASN and Non ASN scenarios using automatic optimi... | 10. Object Complete |  |  | 03.Medium |
-| LOGE0850_IF | Enhancement | Order management for inbound ASN and Non ASN scenarios using automatic optimi... | 10. Object Complete |  |  | 04.Low |
-| LOGE0849_IP | Enhancement | Introduce HAWB in Transportation Cockpit, FRO worklist and selection criteria... | 10. Object Complete |  |  | 03.Medium |
-| LOGE0849_IF | Enhancement | introduce HAWB in Transportation Cockpit, FRO worklist and selection criteria... | 10. Object Complete |  |  | 04.Low |
-| LOGE0848_IP | Enhancement | Planning for inbound ASN, Non ASN. ODM/OSAT scenarios using automatic optimiz... | 10. Object Complete |  |  | 03.Medium |
-| LOGE0848_IF | Enhancement | Planning for inbound ASN, Non ASN. ODM/OSAT scenarios using automatic optimiz... | 10. Object Complete |  |  | 04.Low |
-| LOGE0847 | Enhancement | TM: RICEFW 1:Carrier selection and Charges calculation for IRG/ISCG( Intel ro... | 10. Object Complete |  |  | 03.Medium |
-| LOGE0769_IP | Enhancement | TM: Distribute the freight cost to R&D/OCOS/PCOS/Capital cost objects based o... | 10. Object Complete |  |  | 03.Medium |
-| LOGE0769_IF | Enhancement | TM: Distribute the freight cost to R&D/OCOS/PCOS/Capital cost objects based o... | 10. Object Complete |  |  | 04.Low |
-| LOGE0768_IP | Enhancement | TM: Identify correct Company code, Purchase org, Purchase group, Virtual GLO ... | 10. Object Complete |  |  | 03.Medium |
-| LOGE0768_IF | Enhancement | TM: Identify correct Company code, Purchase org, Purchase group, Virtual GLO ... | 10. Object Complete |  |  | 04.Low |
-| LOGE0767_IP | Enhancement | TM - GTT: GTT to S4 for IF and IP data split | 10. Object Complete |  |  | 03.Medium |
-| LOGE0767_IF | Enhancement | TM - GTT: GTT to S4 for IF and IP data split | 10. Object Complete |  |  | 04.Low |
-| LOGE0754_IP | Enhancement | Enhancement to enable Outbound Interface to send 4B2 Goods receipt acknowledg... | 10. Object Complete |  |  | 03.Medium |
-| LOGE0754_IF | Enhancement | Enhancement to enable Outbound Interface to send 4B2 Goods receipt acknowledg... | 10. Object Complete |  |  | 04.Low |
-| LOGE0752_IP | Enhancement | TM: Auto-approve dispute doc for CTSI based invoices to update pass invoice c... | 10. Object Complete |  |  | 03.Medium |
-| LOGE0752_IF | Enhancement | TM: Auto-approve dispute doc for CTSI based invoices to update pass invoice c... | 10. Object Complete |  |  | 04.Low |
-| LOGE0751_IP | Enhancement | TM: Shortcut planning and optimizer-based planning for Capital PO to perform ... | 10. Object Complete |  |  | 03.Medium |
-| LOGE0751_IF | Enhancement | TM: Shortcut planning and optimizer-based planning for Capital PO to perform ... | 10. Object Complete |  |  | 04.Low |
-| LOGE0750_IP | Enhancement | TM: Update Pass invoice amount including prompt payment discount from CTSI to... | 10. Object Complete |  |  | 01.Very High |
-| LOGE0750_IF | Enhancement | TM: Update Pass invoice amount including prompt payment discount from CTSI to... | 10. Object Complete |  |  | 03.Medium |
-| LOGE0665_IP | Enhancement | Calculation base and Associated charge calculation logic for field creation a... | 10. Object Complete |  | NA | 03.Medium |
-| LOGE0665_IF | Enhancement | Calculation base and Associated charge calculation logic for field creation a... | 10. Object Complete |  | NA | 04.Low |
-| LOGE0655_IP | Enhancement | TM :PTP IP/IF​ - Weekly Milk run Charge calculation (Local Trucking)​ | 10. Object Complete |  |  | 02.High |
-| LOGE0655_IF | Enhancement | TM :PTP IP/IF​ - Weekly Milk run Charge calculation (Local Trucking)​ | 10. Object Complete |  |  | 03.Medium |
-| LOGE0515_IP | Enhancement | TM : Fetch Integrators rate in TM via an API call to Redwood and leverage it ... | 10. Object Complete | NA → NA |  | 03.Medium |
-| LOGE0450_IP | Enhancement | In SAP TM, Custom BRF+ and enhancement to populate the commodity code in the ... | 10. Object Complete | NA → NA |  | 03.Medium |
-| LOGE0450_IF | Enhancement | In SAP TM, Custom BRF+ and enhancement to populate the commodity code in the ... | 10. Object Complete | NA → NA |  | 04.Low |
-| PTPE1740 | Enhancement | Fair Market value Determination using custom code/logic during the replicatio... | 01. Pending Approval |  |  | 02.High |
-| PTPE1742 | Enhancement | Enhancement requirement to read production order changes and automate text pu... | 02. FS Unplanned |  |  | 03.Medium |
-
-**Summary**: 3 Reports, 171 Interfaces, 16 Conversions, 172 Enhancements, 7 Forms, 10 Workflows
+**Summary**: 379 SAP, 171 Interfaces | RICEFW: 3 Reports, 171 Interfaces, 16 Conversions, 172 Enhancements, 7 Forms, 10 Workflows
 
 
-#### 5.5.2 Boundary Application Dependencies
+#### 5.5.1 SAP Development Objects
 
-The following RICEFW objects integrate with **boundary applications** (external systems outside the S/4 HANA core):
+SAP platform objects (Reports, Interfaces, Conversions, Enhancements, Forms, Workflows) developed on S/4, MDG, or S/4 BOT:
 
-| RICEFW ID | Description | Boundary Application | Source → Target |
+| Object ID | Type | Description | Status | Dev System | Complexity |
+|-----------|------|-------------|--------|-----------|----------|
+| PTPW0367_IP | Workflow | Workflow for Email Functionality and Notification to PO approver(IP) | 10. Object Complete | 01.S4 | 02.High |
+| PTPW0367_IF | Workflow | Workflow for Email Functionality and Notification to PO approver(IF) | 10. Object Complete | 01.S4 | 02.High |
+| PTPW0366_IP | Workflow | Workflow to trigger PO approvals in S4_IF | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPW0366_IF | Workflow | Workflow to trigger PO approvals in S4_IF | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPW0363_IP | Workflow | Workflow for Email Functionality and Notification to PR approver - IF | 10. Object Complete | 01.S4 | 02.High |
+| PTPW0363_IF | Workflow | Workflow for Email Functionality and Notification to PR approver - IF | 10. Object Complete | 01.S4 | 02.High |
+| PTPW0362_IP | Workflow | Workflow to Trigger PR approvals in S/4 – IF | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPW0362_IF | Workflow | Workflow to Trigger PR approvals in S/4 – IF | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPR1530_IP | Report | Develop a custom report in SAP S/4 HANA for auto PR to PO conversion failures... | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPR1530_IF | Report | Develop a custom report in SAP S/4 HANA for auto PR to PO conversion failures... | 10. Object Complete | 01.S4 | 04.Low |
+| PTPM0008 | Conversion | Quality Info record upload [T-Code - QI01] | 10. Object Complete | 01.S4 | N/A |
+| PTPM0007 | Conversion | Inspection Plan upload [T-Code - QP01] | 10. Object Complete | 01.S4 | N/A |
+| PTPM0006 | Conversion | Master Inspection Characteristics upload [T-Code - QS21] | 10. Object Complete | 01.S4 | N/A |
+| PTPI1689 | Interface | New custom API needed to process GET and DELETE function for Document Info Re... | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPI1657 | Interface | Interface to send Invoice PAID Status from CFIN to IP | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPI1533 | Interface | Pay@accept – Inbound Interface to fetch the values from FCE ODS to SAP S/4 HA... | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPI1529_IP | Interface | An interface to retrieve the list of approvers from a custom MDG table(MDG sy... | 10. Object Complete | 01.S4 | 04.Low |
+| PTPI1529_IF | Interface | An interface to retrieve the list of approvers from a custom MDG table(MDG sy... | 10. Object Complete | 01.S4 | 04.Low |
+| PTPI1458 | Interface | Develop an interface between PEGA and S/4 HANA system to transmit MSL informa... | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPI1428_IP | Interface | Setting Up Inbound Interface from SPT tool/GTT(Global Trade and Tax) system t... | 10. Object Complete | 01.S4 | 04.Low |
+| PTPI1428_IF | Interface | Setting Up Inbound Interface from SPT tool/GTT(Global Trade and Tax) system t... | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPI1331_IP | Interface | Ariba POs Goods Receipts to be sent from WIINGS to S/4 for R4 sites | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPI1331_IF | Interface | Ariba POs Goods Receipts to be sent from WIINGS to S/4 for R4 sites | 10. Object Complete | 01.S4 | 04.Low |
+| PTPI1329_IP | Interface | FSD to change Purchase Order information from B2B Staging DB ePO from S4 IP | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPI1329_IF | Interface | FSD to change Purchase Order information from B2B Staging DB ePO from S4 IF | 10. Object Complete | 01.S4 | 04.Low |
+| PTPI1308_IP | Interface | FSD to publish SAP Contracts pricing condition details to Web Contract - IP | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPI1308_IF | Interface | FSD to publish SAP Contracts pricing condition details to Web Contract - IF | 10. Object Complete | 01.S4 | 04.Low |
+| PTPI1307_IP | Interface | FSD to publish SAP Contracts changes details to Web Contract - IP | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPI1307_IF | Interface | FSD to publish SAP Contracts changes details to Web Contract - IF | 10. Object Complete | 01.S4 | 04.Low |
+| PTPI1171 | Interface | Get Material details from IF to METs/SOM | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPI1170 | Interface | Get Source List details from IF to METs/SOM | 10. Object Complete | 01.S4 | 02.High |
+| PTPI1169 | Interface | Read Outline Agreement (OA) from IF in METs/SOM app. | 10. Object Complete | 01.S4 | 02.High |
+| PTPI1168 | Interface | Get PO details from IF to METs/SOM | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPI1167 | Interface | Maintain PR in IF from METs/SOM | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPI1154 | Interface | ILM to SAP S4 Interface – Assigning Material to Inspection Plan | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPI1153 | Interface | Interface from ILM to SAP S/4 - Create/Modify Quality Info records | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPI1152 | Interface | Develop an interface to create PO/STO from IRIS Non-Standard Request to S/4 Hana | 10. Object Complete | 01.S4 | 04.Low |
+| PTPI1138 | Interface | This interface is required to trigger split account assigned Purchase Requisi... | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPI1137_IP | Interface | Interface between S4 to Boundary Apps (Customs Tracker and PEGA-ISMQ) for rea... | 10. Object Complete | 01.S4 | 02.High |
+| PTPI1137_IF | Interface | Interface between S4 to Boundary Apps (Customs Tracker and PEGA-ISMQ) for rea... | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPI1134 | Interface | Inbound Interface from E2Open to IF – Intel Foundry in S/4 to bring shipping ... | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPI1128_IP | Interface | Interface to send Ariba PO closure status information from S4 to Ariba | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPI1128_IF | Interface | Interface to send Ariba PO closure status information from S4 to Ariba | 10. Object Complete | 01.S4 | 04.Low |
+| PTPI1032 | Interface | MQCS data pull Interface | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPI0825 | Interface | Get Purchase Group details from IF to CWB | 10. Object Complete | 01.S4 | 04.Low |
+| PTPI0823 | Interface | Get Purchase Req Details from IF to CWB | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPI0822_IP | Interface | Ariba Invoice Integration through (CIG - Cloud Integration Gateway (Currently... | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPI0822_IF | Interface | Ariba Invoice Integration through (CIG - Cloud Integration Gateway (Currently... | 10. Object Complete | 01.S4 | 04.Low |
+| PTPI0821_IP | Interface | Invoice Status Update from SAP S/4 to Ariba Network through CIG - Cloud Integ... | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPI0821_IF | Interface | Invoice Status Update from SAP S/4 to Ariba Network through CIG - Cloud Integ... | 10. Object Complete | 01.S4 | 04.Low |
+| PTPI0820_IP | Interface | Carbon Copy Invoice Integration from SAP S/4 to Ariba Network | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPI0820_IF | Interface | Carbon Copy Invoice Integration from SAP S/4 to Ariba Network | 10. Object Complete | 01.S4 | 04.Low |
+| PTPI0819_IP | Interface | Intel B2B – XML (3C7) Notify of Self Billing Invoice – Interface to send noti... | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPI0819_IF | Interface | Intel B2B – XML (3C7) Notify of Self Billing Invoice – Interface to send noti... | 10. Object Complete | 01.S4 | 04.Low |
+| PTPI0817_IP | Interface | Purchasing Services Fiori Catalog | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPI0817_IF | Interface | Purchasing Services Fiori Catalog | 10. Object Complete | 01.S4 | 04.Low |
+| PTPI0816_IP | Interface | Intel WebSuite - Web PO – Interface to display Purchase Order information fro... | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPI0816_IF | Interface | Intel WebSuite - Web PO – Interface to display Purchase Order information fro... | 10. Object Complete | 01.S4 | 04.Low |
+| PTPI0812_IP | Interface | Intel WebSuite - Web Forecast – Interface to display Purchase Order informati... | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPI0812_IF | Interface | Intel WebSuite - Web Forecast – Interface to display Purchase Order informati... | 10. Object Complete | 01.S4 | 04.Low |
+| PTPI0735_IP | Interface | Ariba/Capital PO details to be retrieved from SAP S/4 at the time of receivin... | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPI0735_IF | Interface | Ariba/Capital PO details to be retrieved from SAP S/4 at the time of receivin... | 10. Object Complete | 01.S4 | 04.Low |
+| PTPI0710_IP | Interface | S4 Manual Invoice Release Blocking functionality requires connection with GTT... | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPI0710_IF | Interface | S4 Manual Invoice Release Blocking functionality requires connection with GTT... | 10. Object Complete | 01.S4 | 04.Low |
+| PTPI0709_IP | Interface | Ariba Asset Settlement Interface | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPI0709_IF | Interface | Ariba Asset Settlement Interface | 10. Object Complete | 01.S4 | 04.Low |
+| PTPI0692_IP | Interface | Custom program to send configurations from S4 system to Illumis | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPI0692_IF | Interface | Custom program to send configurations from S4 system to Illumis | 10. Object Complete | 01.S4 | 04.Low |
+| PTPI0691_IP | Interface | Custom program to send the supplier master data from S4 system to Illumis. | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPI0691_IF | Interface | Custom program to send the supplier master data from S4 system to Illumis. | 10. Object Complete | 01.S4 | 04.Low |
+| PTPI0685 | Interface | Custom program to send the Transactions (Invoices) from IF system to Illumis | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPI0671 | Interface | Interface to automatically create VMI PO & IB delivery in S/4 (IF and IP) via... | 10. Object Complete | 01.S4 | 02.High |
+| PTPI0568 | Interface | Maintain Purchasing Info Record in IF from Pega PSI | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPI0567 | Interface | Get Material Master details from IF to Pega PSI | 10. Object Complete | 01.S4 | 02.High |
+| PTPI0566 | Interface | Maintain Outline Agreement in IF from Pega PSI | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPI0559_IP | Interface | All Validation of Chemical purchases on non MRP PR by using integration betwe... | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPI0559_IF | Interface | All Validation of Chemical purchases on non MRP PR by using integration betwe... | 10. Object Complete | 01.S4 | 04.Low |
+| PTPI0494 | Interface | Maintain PO in IF from CWB | 10. Object Complete | 01.S4 | 01.Very High |
+| PTPI0473 | Interface | Demand Change - Automatic update of PR/PO/STR/STO/Scheduling agreement and Pr... | 09. FUT Overdue | 01.S4 | 02.High |
+| PTPI0470 | Interface | Payment Proposal after invoice posted from SAP S/4 HANA CFIN to Ariba | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPI0469 | Interface | Payment Remittance after payment posted from CFIN to IP/IF and from IP/IF to ... | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPI0468 | Interface | Payment Status after payment is cancelled / Void from CFIN to IP / IF and Fro... | 10. Object Complete | 01.S4 | 02.High |
+| PTPI0467 | Interface | Maintain Outline Agreement in IF from EMS | 10. Object Complete | 01.S4 | 02.High |
+| PTPI0466_IP | Interface | Payment Remittance after payment posted from CFIN to IP/IF for Readsoft | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPI0466_IF | Interface | Payment Remittance after payment posted from CFIN to IP/IF for Readsoft | 10. Object Complete | 01.S4 | 04.Low |
+| PTPI0463_IP | Interface | GR Carbon Copy (Posted in S4) | 10. Object Complete | 01.S4 | 02.High |
+| PTPI0463_IF | Interface | GR Carbon Copy (Posted in S4) | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPI0452 | Interface | Get Material Master alternate UOM details from IF to CWB | 10. Object Complete | 01.S4 | 02.High |
+| PTPI0449 | Interface | Maintain Outline Agreement in IF from CWB | 10. Object Complete | 01.S4 | 01.Very High |
+| PTPI0448 | Interface | Maintain Purchasing Info Record in IF from CWB | 10. Object Complete | 01.S4 | 02.High |
+| PTPI0388_IP | Interface | Custom program to send the Purchase order from SAP S4 system to Illumis | 10. Object Complete | 01.S4 | 02.High |
+| PTPI0388_IF | Interface | Custom program to send the Purchase order from SAP S4 system to Illumis | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPI0386 | Interface | Maintain Document Info Record in IF from CWB | 10. Object Complete | 01.S4 | 02.High |
+| PTPI0384 | Interface | Create Document Info Record in IF from EMS | 10. Object Complete | 01.S4 | 02.High |
+| PTPI0382 | Interface | Get OA determination by material from IF to CWB | 10. Object Complete | 01.S4 | 02.High |
+| PTPI0370 | Interface | Get OA determination by material from IF to EMS | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPI0369 | Interface | Develop an interface to send inventory reports and MRP parameters from S4(IF)... | 10. Object Complete | 01.S4 | 02.High |
+| PTPI0368 | Interface | Automatic creation of Discrete PO & IB delivery when supplier initiates shipm... | 10. Object Complete | 01.S4 | 02.High |
+| PTPI0272 | Interface | Get Material Master details from IF to EMS | 10. Object Complete | 01.S4 | 02.High |
+| PTPI0271 | Interface | Get Material Master details from IF to SIRFIS | 10. Object Complete | 01.S4 | 02.High |
+| PTPI0269_IP | Interface | Supplier Onboarding Data - IF | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPI0269_IF | Interface | Supplier Onboarding Data - IP | 10. Object Complete | 01.S4 | 04.Low |
+| PTPI0269_CFIN | Interface | Supplier Onboarding Data - CFIN | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPI0266 | Interface | Get PO details from IF to EMS | 10. Object Complete | 01.S4 | 02.High |
+| PTPI0263 | Interface | Maintain PR in IF from EMS | 10. Object Complete | 01.S4 | 02.High |
+| PTPI0262 | Interface | Get PR details from IF to EMS | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPI0261 | Interface | Get PR details from IF to SIRFIS | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPI0211_IP | Interface | Outbound interface to publish SAP Contracts details to Web Contract - IP | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPI0211_IF | Interface | Outbound interface to publish SAP Contracts details to Web Contract - IF | 10. Object Complete | 01.S4 | 04.Low |
+| PTPI0144_IP | Interface | Interface from E2Open to S4 to publish supplier commits against Purchase Order | 10. Object Complete | 01.S4 | 02.High |
+| PTPI0144_IF | Interface | Interface from E2Open to S4 to publish supplier commits against Purchase Order | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPI0140_IP | Interface | Interface from S4 to E2Open to send SA delivery schedule lines | 10. Object Complete | 01.S4 | 02.High |
+| PTPI0140_IF | Interface | Interface from S4 to E2Open to send SA delivery schedule lines | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPI0138 | Interface | Interface from S4 to OpenText to send new purchase orders & purchase order ch... | 10. Object Complete | 01.S4 | 02.High |
+| PTPI0136_IP | Interface | Interface from S4 to E2open to send new purchase orders, purchase order chang... | 10. Object Complete | 01.S4 | 02.High |
+| PTPI0136_IF | Interface | Interface from S4 to E2open to send new purchase orders, purchase order chang... | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPI0134_IP | Interface | Interface from S4 to E2Open for SIMS Master Data & supply demand elements | 10. Object Complete | 01.S4 | 02.High |
+| PTPI0134_IF | Interface | Interface from S4 to E2Open for SIMS Master Data & supply demand elements | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPI0133 | Interface | Get OA determination by material from IF to SIRFIS | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPI0131 | Interface | Get Outline Agreement data from IF to SIRFIS | 10. Object Complete | 01.S4 | 02.High |
+| PTPI0111_IP | Interface | PO change (Custom logic) | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPI0111_IF | Interface | PO change (Custom logic) | 10. Object Complete | 01.S4 | 04.Low |
+| PTPI0110 | Interface | Get PO details from IF to SIRFIS | 10. Object Complete | 01.S4 | 02.High |
+| PTPI0107_IP | Interface | PO Cancel | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPI0107_IF | Interface | PO Cancel | 10. Object Complete | 01.S4 | 04.Low |
+| PTPI0103_IP | Interface | PO create (Custom logic) | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPI0103_IF | Interface | PO create (Custom logic) | 10. Object Complete | 01.S4 | 04.Low |
+| PTPI0100_IP | Interface | PR Cancel | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPI0100_IF | Interface | PR Cancel | 10. Object Complete | 01.S4 | 04.Low |
+| PTPI0098_IP | Interface | PR change (Custom logic) | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPI0098_IF | Interface | PR change (Custom logic) | 10. Object Complete | 01.S4 | 04.Low |
+| PTPI0096_IP | Interface | PR creation (budget check, custom logic) | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPI0096_IF | Interface | PR creation (budget check, custom logic) | 10. Object Complete | 01.S4 | 04.Low |
+| PTPI0094_IP | Interface | validate and enrich (PR - master data and custom code) | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPI0094_IF | Interface | validate and enrich (PR - master data and custom code) | 10. Object Complete | 01.S4 | 04.Low |
+| PTPI0092_IP | Interface | Transfer of Ownership (change Ariba PR/PO) | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPI0092_IF | Interface | Transfer of Ownership (change Ariba PR/PO) | 10. Object Complete | 01.S4 | 04.Low |
+| PTPI0018 | Interface | SAP S4 IF Boundary App Interface for updating Requested Dock Date (RDD) for C... | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPI0017 | Interface | SAP S4 IF Boundary App Interface for updating POChange/PODeliveryDates - PO S... | 10. Object Complete | 01.S4 | 02.High |
+| PTPF1384 | Form | Exception Notification – Label printing functionality – IF only | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPF0014_IP | Form | PO Output Form Customization - IP | 10. Object Complete | 01.S4 | 02.High |
+| PTPF0014_IF | Form | PO Output Form Customization - IF | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPE1700 | Enhancement | Enhancement required in the purchase order (change only) to validate if the u... | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPE1699 | Enhancement | Enhancement required in the purchase requisition (change only) to validate if... | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPE1687 | Enhancement | Automate Warranty Credit Memo Posting | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPE1656 | Enhancement | Enhancement to Update Invoice PAID Status from CFIN to IF & IP ARIBA Standard... | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPE1644 | Enhancement | New Enhancement required for to make PO price updates for HVM OSAT and SIFO o... | 09. FUT Overdue | 01.S4 | 02.High |
+| PTPE1628_IP | Enhancement | INT-CR0941-Develop a custom enhancement in SAP S/4 for Subcon PO BOM comparis... | 10. Object Complete | 01.S4 | 04.Low |
+| PTPE1628_IF | Enhancement | INT-CR0941-Develop a custom enhancement in SAP S/4 for Subcon PO BOM comparis... | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPE1622 | Enhancement | Enhancement to update Purchase document amount into USD when BAPP pull data f... | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPE1621 | Enhancement | Enhancement to deleting all entries from ESH_SR_LTXT and ESH_SR_TXT_OBJ, runn... | 10. Object Complete | 01.S4 | 04.Low |
+| PTPE1606_IP | Enhancement | Custom enhancement to edit the posted accounting document for Payment Term, B... | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPE1606_IF | Enhancement | Custom enhancement to edit the posted accounting document for Payment Term, B... | 10. Object Complete | 01.S4 | 04.Low |
+| PTPE1606_CFIN | Enhancement | Custom enhancement to edit the posted accounting document for Payment Term, B... | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPE1603 | Enhancement | Enhancement to Auto block the Expired Batches in IM Locations | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPE1532 | Enhancement | Enhancement required in the purchase order (change only) to validate if the u... | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPE1531 | Enhancement | Enhancement required in the purchase requisition (change only) to validate if... | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPE1495_IP | Enhancement | Enhancement required for ORDERS05 IDOC applicable for PO outbound from S4 to ... | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPE1495_IF | Enhancement | Enhancement required for ORDERS05 IDOC applicable for PO outbound from S4 to ... | 10. Object Complete | 01.S4 | 04.Low |
+| PTPE1494_IP | Enhancement | Enhancement to trigger Output type which will generate IDOC once GR or GR rev... | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPE1494_IF | Enhancement | Enhancement to trigger Output type which will generate IDOC once GR or GR rev... | 10. Object Complete | 01.S4 | 04.Low |
+| PTPE1465_IP | Enhancement | Enhancement to Get Purchase order details like Payee, Supnam, Purchase group ... | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPE1465_IF | Enhancement | Enhancement to Get Purchase order details like Payee, Supnam, Purchase group ... | 10. Object Complete | 01.S4 | 04.Low |
+| PTPE1452_IP | Enhancement | Enhancement to create AMPL (Approved manufacturer part list ) in S/4 using ex... | 10. Object Complete | 01.S4 | 02.High |
+| PTPE1452_IF | Enhancement | Enhancement to create AMPL (Approved manufacturer part list ) in S/4 using ex... | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPE1440_IP | Enhancement | Custom program to generate a PDF printout of SAP self-billing invoices (ERS/C... | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPE1440_IF | Enhancement | Custom program to generate a PDF printout of SAP self-billing invoices (ERS/C... | 10. Object Complete | 01.S4 | 04.Low |
+| PTPE1437_IP | Enhancement | Enhancement required to populate custom logic for BLAORD (PTPI0211_IP_IF). | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPE1437_IF | Enhancement | Enhancement required to populate custom logic for BLAORD (PTPI0211_IP_IF). | 10. Object Complete | 01.S4 | 04.Low |
+| PTPE1436_IP | Enhancement | Enhancement required to populate custom logic for BLAOCH (PTPI0211_IP_IF). | 99. Rejected/Cancelled/On Hold | 01.S4 | 03.Medium |
+| PTPE1436_IF | Enhancement | Enhancement required to populate custom logic for BLAOCH (PTPI0211_IP_IF). | 99. Rejected/Cancelled/On Hold | 01.S4 | 04.Low |
+| PTPE1424_IP | Enhancement | Enhancement for I-chem PR creation from Ariba until R5 go-live | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPE1424_IF | Enhancement | Enhancement for I-chem PR creation from Ariba until R5 go-live | 10. Object Complete | 01.S4 | 04.Low |
+| PTPE1422_IP | Enhancement | Enhancement to Update Invoice PAID Status from CFIN to IF & IP ARIBA Standard... | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPE1422_IF | Enhancement | Enhancement to Update Invoice PAID Status from CFIN to IF & IP ARIBA Standard... | 10. Object Complete | 01.S4 | 04.Low |
+| PTPE1343 | Enhancement | Enhancement required to maintain the list of approved suppliers for copper ma... | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPE1195_IP | Enhancement | Enhancement to auto close Purchase Orders based on policy criteria , executed... | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPE1195_IF | Enhancement | Enhancement to auto close Purchase Orders based on policy criteria , executed... | 10. Object Complete | 01.S4 | 04.Low |
+| PTPE1139_IP | Enhancement | Custom Enhancements for Payment Proposal, payment remittance, payment status,... | 10. Object Complete | 01.S4 | 04.Low |
+| PTPE1139_IF | Enhancement | Custom Enhancements for Payment Proposal, payment remittance, payment status,... | 10. Object Complete | 01.S4 | 04.Low |
+| PTPE1139_CFIN | Enhancement | Custom Enhancements for Payment Proposal, payment remittance, payment status,... | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPE1135_IP | Enhancement | Enhancement required while triggering the COND_A idoc for contracts (PTPI0211... | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPE1135_IF | Enhancement | Enhancement required while triggering the COND_A idoc for contracts (PTPI0211... | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPE1133 | Enhancement | Enhancement to Get Purchase group email address details from IF system to CWB. | 10. Object Complete | 01.S4 | 04.Low |
+| PTPE1120 | Enhancement | Enhancement required to automatically create and change subcon purchase requi... | 10. Object Complete | 01.S4 | 04.Low |
+| PTPE1107 | Enhancement | Enhancement required to automatically create and change subcon purchase order... | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPE1099 | Enhancement | Exception Notification – Label printing functionality – IF only | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPE1050_IP | Enhancement | BADI Enhancement for PR PO Approval Workflow | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPE1050_IF | Enhancement | BADI Enhancement for PR PO Approval Workflow | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPE1049_IP | Enhancement | Enhancement to create custom field on Purchase Order Header Table to store Ap... | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPE1049_IF | Enhancement | Enhancement to create custom field on Purchase Order Header Table to store Ap... | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPE1036 | Enhancement | Batch update Program | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPE1033 | Enhancement | UD Enhancement | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPE1031 | Enhancement | Send email notification with details of task for Quality notification – IF only | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPE1030 | Enhancement | Creation of Return PO from Action box within Notification – IF only | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPE1029 | Enhancement | Creation of Notification as a follow up action with rejection codes – IF only | 10. Object Complete | 01.S4 | 02.High |
+| PTPE1009 | Enhancement | Returns to 3PL | 99. Rejected/Cancelled/On Hold | 01.S4 | 04.Low |
+| PTPE0977 | Enhancement | Develop app/transaction to Automate the stock from ‘Unrestricted/Blocked to Q... | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPE0962 | Enhancement | Enhancement required to automatically create return purchase orders based on ... | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPE0961 | Enhancement | Enhancement required to automatically create rework or repair and replacement... | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPE0958_IP | Enhancement | Activating the Final Invoice Indicator at PO Level SAP S/4 HANA - IP | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPE0958_IF | Enhancement | Activating the Final Invoice Indicator at PO Level - SAP S/4 HANA - IF | 10. Object Complete | 01.S4 | 04.Low |
+| PTPE0941_IP | Enhancement | Enhancement to capture material price from receiving plant in Intercompany STO. | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPE0941_IF | Enhancement | Enhancement to capture material price from receiving plant in Intercompany STO. | 10. Object Complete | 01.S4 | 04.Low |
+| PTPE0919_IP | Enhancement | Enhancement to trigger Output type which will generate IDOC once GR or GR rev... | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPE0919_IF | Enhancement | Enhancement to trigger Output type which will generate IDOC once GR or GR rev... | 10. Object Complete | 01.S4 | 04.Low |
+| PTPE0826 | Enhancement | Enhancement required for FS-PTPI0017_IF, PTPI0018 to update the EKPO-VSART Field | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPE0790_IP | Enhancement | Enhancement to enrich or remove transactions from Intrastat arrival declarati... | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPE0790_IF | Enhancement | Enhancement to enrich or remove transactions from Intrastat arrival declarati... | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPE0745_IP | Enhancement | Quota Arrangement Mass Upload Tool Functionality IP | 10. Object Complete | 01.S4 | 02.High |
+| PTPE0745_IF | Enhancement | Quota Arrangement Mass Upload Tool Functionality IF | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPE0744_IP | Enhancement | PIR Mass Upload Tool Functionality IP | 10. Object Complete | 01.S4 | 02.High |
+| PTPE0744_IF | Enhancement | PIR Mass Upload Tool Functionality IF | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPE0743_IP | Enhancement | OA Mass Upload Tool Functionality IP | 10. Object Complete | 01.S4 | 02.High |
+| PTPE0743_IF | Enhancement | OA Mass Upload Tool Functionality IF | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPE0733_IP | Enhancement | Enhancement to validate the user that creates/edits the PO cannot make themse... | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPE0733_IF | Enhancement | Enhancement to validate the user that creates/edits the PO cannot make themse... | 10. Object Complete | 01.S4 | 04.Low |
+| PTPE0732 | Enhancement | Pay@Accept Custom Program to release the invoice - SAP S/4 HANA IP and IF | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPE0731_IP | Enhancement | Enhancement on Goods Receipts created from S4 (IF-IP) to Ariba Network | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPE0731_IF | Enhancement | Enhancement on Goods Receipts created from S4 (IF-IP) to Ariba Network | 10. Object Complete | 01.S4 | 04.Low |
+| PTPE0730_IP | Enhancement | PR and PO interface enhancements to support Ariba Asset Interface | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPE0730_IF | Enhancement | PR and PO interface enhancements to support Ariba Asset Interface | 10. Object Complete | 01.S4 | 04.Low |
+| PTPE0729_IP | Enhancement | Enhancement - Transfer of ownership Interface | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPE0729_IF | Enhancement | Enhancement - Transfer of ownership Interface | 10. Object Complete | 01.S4 | 04.Low |
+| PTPE0727_IP | Enhancement | Source List Data Mass Upload Tool Functionality IP | 10. Object Complete | 01.S4 | 02.High |
+| PTPE0727_IF | Enhancement | Source List Data Mass Upload Tool Functionality IF | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPE0726_IP | Enhancement | Enhancement to validate enabled supplier details to trigger Ariba relevant in... | 10. Object Complete | 01.S4 | 04.Low |
+| PTPE0726_IF | Enhancement | Enhancement to validate enabled supplier details to trigger Ariba relevant in... | 10. Object Complete | 01.S4 | 04.Low |
+| PTPE0726_CFIN | Enhancement | Enhancement to validate enabled supplier details to trigger Ariba relevant in... | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPE0707 | Enhancement | PR workflow Custom Table enhancement | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPE0706_IP | Enhancement | Enhancement to Post Goods Receipt for the converted Ariba Purchase Orders in ... | 10. Object Complete | 01.S4 | 02.High |
+| PTPE0706_IF | Enhancement | Enhancement to Post Goods Receipt for the converted Ariba Purchase Orders in ... | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPE0656_IP | Enhancement | Enhancement on Purchase Orders Created or Changed from Ariba to S4 (IF-IP) | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPE0656_IF | Enhancement | Enhancement on Purchase Orders Created or Changed from Ariba to S4 (IF-IP) | 10. Object Complete | 01.S4 | 04.Low |
+| PTPE0606_IP | Enhancement | Enhancement to create idoc extension for payload header info to send data to ... | 10. Object Complete | 01.S4 | 02.High |
+| PTPE0606_IF | Enhancement | Enhancement to create idoc extension for payload header info to send data to ... | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPE0558_IP | Enhancement | Enhancements for chemical purchases on non MRP PR’s. | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPE0558_IF | Enhancement | Enhancements for chemical purchases on non MRP PR’s. | 10. Object Complete | 01.S4 | 04.Low |
+| PTPE0543_IP | Enhancement | Enhancement required for ORDERS05 IDOC applicable for PO outbound from S4 to ... | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPE0543_IF | Enhancement | Enhancement required for ORDERS05 IDOC applicable for PO outbound from S4 to ... | 10. Object Complete | 01.S4 | 04.Low |
+| PTPE0472_IP | Enhancement | Enhancement to map correct plant and user ID’s for Ariba PR replication in S4 | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPE0472_IF | Enhancement | Enhancement to map correct plant and user ID’s for Ariba PR replication in S4 | 10. Object Complete | 01.S4 | 04.Low |
+| PTPE0471 | Enhancement | Review the auto reversal of payment documents, Reset clearing of invoice and ... | 99. Rejected/Cancelled/On Hold | 01.S4 | 02.High |
+| PTPE0371_IP | Enhancement | Standard BTE for Manage Supplier Line items to add the PO and Supplier name -... | 10. Object Complete | 01.S4 | 04.Low |
+| PTPE0371_IF | Enhancement | Standard BTE for Manage Supplier Line items to add the PO and Supplier name -... | 10. Object Complete | 01.S4 | 04.Low |
+| PTPE0371_CFIN | Enhancement | Standard BTE for Manage Supplier Line items to add the PO and Supplier name -... | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPE0365 | Enhancement | Enhancement for populating DPAS data on Purchase Requisition (IF and IP) | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPE0318_IP | Enhancement | Custom program to block the vendor invoice based on the different business sc... | 10. Object Complete | 01.S4 | 04.Low |
+| PTPE0318_IF | Enhancement | Custom program to block the vendor invoice based on the different business sc... | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPE0259_IP | Enhancement | Develop a routing logic to send Purchase Order to the Boundary apps from S/4 ... | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPE0259_IF | Enhancement | Develop a routing logic to send Purchase Order to the Boundary apps from S/4 ... | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPE0241_IP | Enhancement | Payment Term Mass change functionality in FBL1N Vendor Line item report | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPE0241_IF | Enhancement | Payment Term Mass change functionality in FBL1N Vendor Line item report | 10. Object Complete | 01.S4 | 04.Low |
+| PTPE0202_IP | Enhancement | Develop a change utility for mass PR creation and change of purchase requisit... | 10. Object Complete | 01.S4 | 02.High |
+| PTPE0202_IF | Enhancement | Develop a change utility for mass PR creation and change of purchase requisit... | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPE0200_IP | Enhancement | PO Mass Change - Upload Tool Functionality (IP) | 10. Object Complete | 01.S4 | 02.High |
+| PTPE0200_IF | Enhancement | PO Mass Change - Upload Tool Functionality (IF) | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPE0090_IP | Enhancement | Attachment need to copy from PR to PO automatically | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPE0090_IF | Enhancement | Attachment need to copy from PR to PO automatically | 10. Object Complete | 01.S4 | 04.Low |
+| PTPC0808_IP | Conversion | 2379_Master Data Migration from ECC to S/4 to bring Approved Manufacturer Par... | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPC0808_IF | Conversion | 2379_Master Data Migration from ECC to S/4 to bring Approved Manufacturer Par... | 10. Object Complete | 01.S4 | 04.Low |
+| PTPC0633 | Conversion | Purchase Requisition Conversion from ECC to S/4 - IF | 10. Object Complete | 01.S4 | 02.High |
+| PTPC0537_IP | Conversion | Purchasing Info Records Migration from ECC to S/4 – IF and IP | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPC0537_IF | Conversion | Purchasing Info Records Migration from ECC to S/4 – IF and IP | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPC0536_IP | Conversion | Source List Migration from ECC to S/4 – IF and IP | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPC0536_IF | Conversion | Source List Migration from ECC to S/4 – IF and IP | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPC0509_IP | Conversion | Open Contracts Migration from ECC to S/4 - IF and IP | 10. Object Complete | 01.S4 | 01.Very High |
+| PTPC0509_IF | Conversion | Open Contracts Migration from ECC to S/4 - IF and IP | 10. Object Complete | 01.S4 | 01.Very High |
+| PTPC0504_IP | Conversion | Quota Arrangement Migration from ECC to S/4 - IF and IP | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPC0504_IF | Conversion | Quota Arrangement Migration from ECC to S/4 - IF and IP | 10. Object Complete | 01.S4 | 03.Medium |
+| PTPC0176_IP | Conversion | Open PO conversion from Legacy to SAP S/4 | 10. Object Complete | 01.S4 | 02.High |
+| PTPC0176_IF | Conversion | Open PO conversion from Legacy to SAP S/4 | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGW0978_IP | Workflow | Workflow for processing Goods Receipt and tracking and tracing of non-invento... | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGW0978_IF | Workflow | Workflow for processing Goods Receipt and tracking and tracing of non-invento... | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGR0856 | Report | Capital Call Ahead GAP Report​ | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGI1726 | Interface | GR replication for raw materials for Straddle Sites from ECC to S4 IP via ECA​ | 06. Dev In Progress | 01.S4 | 03.Medium |
+| LOGI1427_IP | Interface | Interface between S4 to Boundary Apps (PEGA-ISMQ) for real time data on Deliv... | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGI1427_IF | Interface | Interface between S4 to Boundary Apps (PEGA-ISMQ) for real time data on Deliv... | 10. Object Complete | 01.S4 | 04.Low |
+| LOGI1309 | Interface | Inbound interface to receive Finished Goods Advanced Shipping notifications f... | 10. Object Complete | 01.S4 | 01.Very High |
+| LOGI1206_IP | Interface | S4 sending 3B2 ASN information to supplier as outbound signal for return deli... | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGI1206_IF | Interface | S4 sending 3B2 ASN information to supplier as outbound signal for return deli... | 10. Object Complete | 01.S4 | 04.Low |
+| LOGI1136_IP | Interface | Interface between S4 to Boundary Apps (Customs Tracker) for real time data on... | 10. Object Complete | 01.S4 | 04.Low |
+| LOGI1136_IF | Interface | Interface between S4 to Boundary Apps (Customs Tracker) for real time data on... | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGI1129 | Interface | TM: RICEFW 1:Carrier selection and Charges calculation for IRG/ISCG( Intel ro... | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGI0956 | Interface | Inbound interface to receive OSAT Finished Goods and Return rework FG “Goods ... | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGI0955 | Interface | Inbound interface to receive Box CPU Finished Goods and Return Rework FG “Goo... | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGI0954 | Interface | Bailment Process: Inbound 4B2 from 3PL to IF via OpenText for Receipt of Bail... | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGI0953 | Interface | Bailment Process: Generated Outbound 4B2 from IF to OpenText for Bailed Material | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGI0852_IP | Interface | Outbound Interface to send freight forwarder rates from TM to CTSI. | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGI0852_IF | Interface | Outbound Interface to send freight forwarder rates from TM to CTSI | 10. Object Complete | 01.S4 | 04.Low |
+| LOGI0834 | Interface | Inbound interface for WLA Hold scenario to trigger Outbound ASN with Non-Valu... | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGI0755 | Interface | PTP-LE: ASN (Inbound 3B2) from SIFO Suppliers - E2Open to S/4 IP | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGI0753_IP | Interface | The process involves sending a Real time consumption signal from a supplier o... | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGI0749_IP | Interface | TM –CTSI integration – Freight details to CTSI for Liability validation | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGI0749_IF | Interface | TM –CTSI integration – Freight details to CTSI for Liability validation | 10. Object Complete | 01.S4 | 04.Low |
+| LOGI0516_IP | Interface | PTP IF​Fetch Integrators rate in TM via an API call to Redwood and leverage i... | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGE0515_IF | Enhancement | TM : Fetch Integrators rate in TM via an API call to Redwood and leverage it ... | 10. Object Complete | 01.S4 | 04.Low |
+| LOGI0516_IF | Interface | PTP IP​Fetch Integrators rate in TM via an API call to Redwood and leverage i... | 10. Object Complete | 01.S4 | 04.Low |
+| LOGI0503_IP | Interface | Outboundinterface GR data send to NIT as WIINGS gets replaced by S4 | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGI0503_IF | Interface | Outboundinterface GR data send to NIT as WIINGS gets replaced by S4 | 10. Object Complete | 01.S4 | 04.Low |
+| LOGI0502 | Interface | Inbound Interface to receive and process 4B2 Goods receipt signal from 3PL to... | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGI0501 | Interface | Inbound interface to receive ASN (3B2) from fab material suppliers via E2Open... | 10. Object Complete | 01.S4 | 02.High |
+| LOGI0267 | Interface | Inbound Interface to receive Advanced Shipment Notice (ASN) data in txt file ... | 10. Object Complete | 01.S4 | 02.High |
+| LOGI0253 | Interface | Inbound interface to receive Finished Goods Advanced Shipping notifications f... | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGI0252 | Interface | Inbound interface to receive “Goods Receipt” (4B2) signal for Raw Materials/F... | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGI0249 | Interface | Inbound interface to receive Realtime consumption (4B3) of raw materials/FG C... | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGI0245 | Interface | Inbound interface to receive Finished Goods ASN (3B2) from BOX CPU subcontrac... | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGI0244 | Interface | Inbound interface to receive ODM Finished Goods “Goods Receipt” (4B2) signal ... | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGI0197_IP | Interface | Create Inbound Delivery Note from ASN in IP | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGI0197_IF | Interface | Create Inbound Delivery Note from ASN in IF | 10. Object Complete | 01.S4 | 04.Low |
+| LOGI0163_IP | Interface | Inbound interface to receive consignment inventory adjustments (manual postin... | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGI0163_IF | Interface | Inbound interface to receive consignment inventory adjustments (manual postin... | 10. Object Complete | 01.S4 | 04.Low |
+| LOGI0161 | Interface | Inbound interface to receive ODM Finished Goods “Goods Receipt” (4B2) signal ... | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGI0158 | Interface | Inbound interface to receive “Goods Receipt” (4B2) signal from OSATs for semi... | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGI0157_IP | Interface | Inbound interface to receive raw materials “Goods Receipt” (4B2) signal for c... | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGI0157_IF | Interface | Inbound interface to receive raw materials “Goods Receipt” (4B2) signal for c... | 10. Object Complete | 01.S4 | 04.Low |
+| LOGI0156 | Interface | Outbound interface to send “Advanced Shipment Notification” signal (3B2) for ... | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGI0155 | Interface | Inbound interface to receive Semi-Finished Goods Advanced Shipping notificati... | 10. Object Complete | 01.S4 | 02.High |
+| LOGI0154 | Interface | Inbound interface to receive Finished Goods Advanced Shipping notifications f... | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGI0150_IP | Interface | Outbound interface to send “Goods Receipt” signal (4B2) for Raw materials & O... | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGI0150_IF | Interface | Outbound Interface to send 4B2 Goods receipt acknowledgement from S/4 to E2Op... | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGF1085 | Form | Enhancement to print the Bin Location label in SAP EWM. | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGF1045 | Form | Goods Receipt Label Print triggered at the point of completion of the GR | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGF0920_IP | Form | Form for printing Goods receipt label in IM - IP | 10. Object Complete | 01.S4 | 02.High |
+| LOGF0920_IF | Form | Form for printing Goods receipt label in IM - IF | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGE1728 | Enhancement | Automate Outbound delivery note creation for 250K annual Subcon POs for repai... | 06. Dev In Progress | 01.S4 | 03.Medium |
+| LOGE1570 | Enhancement | CR0856 - Enhancement required (a report) to post the goods receipt for the ad... | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGE1506 | Enhancement | Enhancement to bring attachments of images from Material master (MM03) to the... | 10. Object Complete | 01.S4 | 02.High |
+| LOGE1337 | Enhancement | Enhancement to generate outbound IDOC for 3B2 ASN information to RMA supplier... | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGE1193_IP | Enhancement | S4 – Enhancement to stop GR for Purchase Order for which Delivery Completed i... | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGE1193_IF | Enhancement | S4 – Enhancement to stop GR for Purchase Order for which Delivery Completed i... | 10. Object Complete | 01.S4 | 04.Low |
+| LOGE1087 | Enhancement | Enhancement on the RF screen to auto populate the HU number for receiving. | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGE1086 | Enhancement | Enhancement on the RF screen for identifying the correct inbound delivery bas... | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGE1048 | Enhancement | To Identify Priority Inbound Deliveries in EWM and display the details of the... | 10. Object Complete | 01.S4 | 02.High |
+| LOGE1047 | Enhancement | RF Scanner -Inbound Process Screen to enhanced to show the Delivery Priority ... | 10. Object Complete | 01.S4 | 02.High |
+| LOGE1046 | Enhancement | Enhancement to capture Priority Indicator field in EWM Inbound Delivery from ... | 10. Object Complete | 01.S4 | 02.High |
+| LOGE1035 | Enhancement | Inventory update program for Stock type updates | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGE1034 | Enhancement | Delivery creation enhancement to update Stock type | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGE0976_IP | Enhancement | Enhancement to enable delivery priority Indicator in Inbound delivery Documen... | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGE0976_IF | Enhancement | Enhancement to enable delivery priority Indicator in Inbound delivery Documen... | 10. Object Complete | 01.S4 | 04.Low |
+| LOGE0952 | Enhancement | Generate Outbound 3B2 Message from S4 to OSAT supplier E2Open onboarded Suppl... | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGE0858_IP | Enhancement | Determine mode in freight order and charge calculation​ | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGE0858_IF | Enhancement | Determine mode in freight order and charge calculation​ | 10. Object Complete | 01.S4 | 04.Low |
+| LOGE0855 | Enhancement | Capital Call Ahead Report​ | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGE0854 | Enhancement | Custom Fiori Application development to generate Call Ahead Reports for Capit... | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGE0853_IP | Enhancement | Inbound Carrier selection over-ride and exclusion rules to be considered duri... | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGE0853_IF | Enhancement | Inbound Carrier selection over-ride and exclusion rules to be considered duri... | 10. Object Complete | 01.S4 | 04.Low |
+| LOGE0851_IP | Enhancement | Enhancement to store + transform + trigger freight forwarder rates to CTSI. | 10. Object Complete | 01.S4 | 02.High |
+| LOGE0851_IF | Enhancement | Enhancement to store + transform + trigger freight forwarder rates to CTSI. | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGE0850_IP | Enhancement | Order management for inbound ASN and Non ASN scenarios using automatic optimi... | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGE0850_IF | Enhancement | Order management for inbound ASN and Non ASN scenarios using automatic optimi... | 10. Object Complete | 01.S4 | 04.Low |
+| LOGE0849_IP | Enhancement | Introduce HAWB in Transportation Cockpit, FRO worklist and selection criteria... | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGE0849_IF | Enhancement | introduce HAWB in Transportation Cockpit, FRO worklist and selection criteria... | 10. Object Complete | 01.S4 | 04.Low |
+| LOGE0848_IP | Enhancement | Planning for inbound ASN, Non ASN. ODM/OSAT scenarios using automatic optimiz... | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGE0848_IF | Enhancement | Planning for inbound ASN, Non ASN. ODM/OSAT scenarios using automatic optimiz... | 10. Object Complete | 01.S4 | 04.Low |
+| LOGE0847 | Enhancement | TM: RICEFW 1:Carrier selection and Charges calculation for IRG/ISCG( Intel ro... | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGE0769_IP | Enhancement | TM: Distribute the freight cost to R&D/OCOS/PCOS/Capital cost objects based o... | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGE0769_IF | Enhancement | TM: Distribute the freight cost to R&D/OCOS/PCOS/Capital cost objects based o... | 10. Object Complete | 01.S4 | 04.Low |
+| LOGE0768_IP | Enhancement | TM: Identify correct Company code, Purchase org, Purchase group, Virtual GLO ... | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGE0768_IF | Enhancement | TM: Identify correct Company code, Purchase org, Purchase group, Virtual GLO ... | 10. Object Complete | 01.S4 | 04.Low |
+| LOGE0767_IP | Enhancement | TM - GTT: GTT to S4 for IF and IP data split | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGE0767_IF | Enhancement | TM - GTT: GTT to S4 for IF and IP data split | 10. Object Complete | 01.S4 | 04.Low |
+| LOGE0754_IP | Enhancement | Enhancement to enable Outbound Interface to send 4B2 Goods receipt acknowledg... | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGE0754_IF | Enhancement | Enhancement to enable Outbound Interface to send 4B2 Goods receipt acknowledg... | 10. Object Complete | 01.S4 | 04.Low |
+| LOGE0752_IP | Enhancement | TM: Auto-approve dispute doc for CTSI based invoices to update pass invoice c... | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGE0752_IF | Enhancement | TM: Auto-approve dispute doc for CTSI based invoices to update pass invoice c... | 10. Object Complete | 01.S4 | 04.Low |
+| LOGE0751_IP | Enhancement | TM: Shortcut planning and optimizer-based planning for Capital PO to perform ... | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGE0751_IF | Enhancement | TM: Shortcut planning and optimizer-based planning for Capital PO to perform ... | 10. Object Complete | 01.S4 | 04.Low |
+| LOGE0750_IP | Enhancement | TM: Update Pass invoice amount including prompt payment discount from CTSI to... | 10. Object Complete | 01.S4 | 01.Very High |
+| LOGE0750_IF | Enhancement | TM: Update Pass invoice amount including prompt payment discount from CTSI to... | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGE0665_IP | Enhancement | Calculation base and Associated charge calculation logic for field creation a... | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGE0665_IF | Enhancement | Calculation base and Associated charge calculation logic for field creation a... | 10. Object Complete | 01.S4 | 04.Low |
+| LOGE0655_IP | Enhancement | TM :PTP IP/IF​ - Weekly Milk run Charge calculation (Local Trucking)​ | 10. Object Complete | 01.S4 | 02.High |
+| LOGE0655_IF | Enhancement | TM :PTP IP/IF​ - Weekly Milk run Charge calculation (Local Trucking)​ | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGE0515_IP | Enhancement | TM : Fetch Integrators rate in TM via an API call to Redwood and leverage it ... | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGE0450_IP | Enhancement | In SAP TM, Custom BRF+ and enhancement to populate the commodity code in the ... | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGE0450_IF | Enhancement | In SAP TM, Custom BRF+ and enhancement to populate the commodity code in the ... | 10. Object Complete | 01.S4 | 04.Low |
+| PTPE1740 | Enhancement | Fair Market value Determination using custom code/logic during the replicatio... | 01. Pending Approval | 01.S4 | 02.High |
+| PTPE1742 | Enhancement | Enhancement requirement to read production order changes and automate text pu... | 02. FS Unplanned | 01.S4 | 03.Medium |
+
+
+#### 5.5.3 Interface Objects
+
+Holistic view of all interface objects by L2 capability — includes ECA → S/4, S/4 → ECA, boundary system, and inter-platform interfaces with middleware and integration approach:
+
+| Object ID | Description | Source → Target | Middleware | Approach | Status |
+|-----------|-------------|----------------|-----------|----------|--------|
+| PTPI1689 | New custom API needed to process GET and DELETE function for Document Info Re... |  | Apigee |  | 10. Object Complete |
+| PTPI1657 | Interface to send Invoice PAID Status from CFIN to IP |  | NA |  | 10. Object Complete |
+| PTPI1533 | Pay@accept – Inbound Interface to fetch the values from FCE ODS to SAP S/4 HA... |  | APIGEE |  | 10. Object Complete |
+| PTPI1529_IP | An interface to retrieve the list of approvers from a custom MDG table(MDG sy... |  | NA |  | 10. Object Complete |
+| PTPI1529_IF | An interface to retrieve the list of approvers from a custom MDG table(MDG sy... |  | NA |  | 10. Object Complete |
+| PTPI1458 | Develop an interface between PEGA and S/4 HANA system to transmit MSL informa... |  | MULESOFT |  | 10. Object Complete |
+| PTPI1428_IP | Setting Up Inbound Interface from SPT tool/GTT(Global Trade and Tax) system t... |  → S/4 | APIGEE |  | 10. Object Complete |
+| PTPI1428_IF | Setting Up Inbound Interface from SPT tool/GTT(Global Trade and Tax) system t... |  → S/4 | APIGEE |  | 10. Object Complete |
+| PTPI1331_IP | Ariba POs Goods Receipts to be sent from WIINGS to S/4 for R4 sites | WIINGS → S/4 | MULESOFT |  | 10. Object Complete |
+| PTPI1331_IF | Ariba POs Goods Receipts to be sent from WIINGS to S/4 for R4 sites | WIINGS → S/4 | MULESOFT |  | 10. Object Complete |
+| PTPI1329_IP | FSD to change Purchase Order information from B2B Staging DB ePO from S4 IP | S/4 → Stagging DB | MULESOFT |  | 10. Object Complete |
+| PTPI1329_IF | FSD to change Purchase Order information from B2B Staging DB ePO from S4 IF | S/4 → Stagging DB | MULESOFT |  | 10. Object Complete |
+| PTPI1308_IP | FSD to publish SAP Contracts pricing condition details to Web Contract - IP | S/4 → WebContract | MULESOFT |  | 10. Object Complete |
+| PTPI1308_IF | FSD to publish SAP Contracts pricing condition details to Web Contract - IF | S/4 → WebContract | MULESOFT |  | 10. Object Complete |
+| PTPI1307_IP | FSD to publish SAP Contracts changes details to Web Contract - IP | S/4 → WebContract | MULESOFT |  | 10. Object Complete |
+| PTPI1307_IF | FSD to publish SAP Contracts changes details to Web Contract - IF | S/4 → WebContract | MULESOFT |  | 10. Object Complete |
+| PTPI1171 | Get Material details from IF to METs/SOM | S/4 → METs/SOM | APIGEE |  | 10. Object Complete |
+| PTPI1170 | Get Source List details from IF to METs/SOM | METs/SOM → S/4 | APIGEE |  | 10. Object Complete |
+| PTPI1169 | Read Outline Agreement (OA) from IF in METs/SOM app. | S/4 → METs/SOM | APIGEE |  | 10. Object Complete |
+| PTPI1168 | Get PO details from IF to METs/SOM | S/4 → METs/SOM | APIGEE |  | 10. Object Complete |
+| PTPI1167 | Maintain PR in IF from METs/SOM | METs/SOM → S/4 | APIGEE |  | 10. Object Complete |
+| PTPI1154 | ILM to SAP S4 Interface – Assigning Material to Inspection Plan | ILM → S/4 | NA |  | 10. Object Complete |
+| PTPI1153 | Interface from ILM to SAP S/4 - Create/Modify Quality Info records | ILM → S/4 | NA |  | 10. Object Complete |
+| PTPI1152 | Develop an interface to create PO/STO from IRIS Non-Standard Request to S/4 Hana | IRIS → S/4 | APIGEE |  | 10. Object Complete |
+| PTPI1138 | This interface is required to trigger split account assigned Purchase Requisi... | MySamples → S/4 | APIGEE |  | 10. Object Complete |
+| PTPI1137_IP | Interface between S4 to Boundary Apps (Customs Tracker and PEGA-ISMQ) for rea... | ILM → S/4 | MULESOFT |  | 10. Object Complete |
+| PTPI1137_IF | Interface between S4 to Boundary Apps (Customs Tracker and PEGA-ISMQ) for rea... | S/4 → Boundary Apps (Customs Tracker and PEGA-ISMQ | MULESOFT |  | 10. Object Complete |
+| PTPI1134 | Inbound Interface from E2Open to IF – Intel Foundry in S/4 to bring shipping ... | E2Open → S/4 | MULESOFT |  | 10. Object Complete |
+| PTPI1128_IP | Interface to send Ariba PO closure status information from S4 to Ariba | S/4 → SAP Ariba Network | NA |  | 10. Object Complete |
+| PTPI1128_IF | Interface to send Ariba PO closure status information from S4 to Ariba | S/4 → SAP Ariba Network | NA |  | 10. Object Complete |
+| PTPI1032 | MQCS data pull Interface | MQCS → S/4 | MULESOFT |  | 10. Object Complete |
+| PTPI0825 | Get Purchase Group details from IF to CWB | S/4 → CWB | MULESOFT |  | 10. Object Complete |
+| PTPI0823 | Get Purchase Req Details from IF to CWB | S/4 → CWB | APIGEE |  | 10. Object Complete |
+| PTPI0822_IP | Ariba Invoice Integration through (CIG - Cloud Integration Gateway (Currently... | SAP Ariba Network → S/4 | NA |  | 10. Object Complete |
+| PTPI0822_IF | Ariba Invoice Integration through (CIG - Cloud Integration Gateway (Currently... | SAP Ariba Network → S/4 | NA |  | 10. Object Complete |
+| PTPI0821_IP | Invoice Status Update from SAP S/4 to Ariba Network through CIG - Cloud Integ... | S/4 → SAP Ariba Network | NA |  | 10. Object Complete |
+| PTPI0821_IF | Invoice Status Update from SAP S/4 to Ariba Network through CIG - Cloud Integ... | S/4 → SAP Ariba Network | NA |  | 10. Object Complete |
+| PTPI0820_IP | Carbon Copy Invoice Integration from SAP S/4 to Ariba Network | S/4 → SAP Ariba Network | NA |  | 10. Object Complete |
+| PTPI0820_IF | Carbon Copy Invoice Integration from SAP S/4 to Ariba Network | S/4 → SAP Ariba Network | NA |  | 10. Object Complete |
+| PTPI0819_IP | Intel B2B – XML (3C7) Notify of Self Billing Invoice – Interface to send noti... | S/4 → OpenText | MULESOFT |  | 10. Object Complete |
+| PTPI0819_IF | Intel B2B – XML (3C7) Notify of Self Billing Invoice – Interface to send noti... | S/4 → OpenText | MULESOFT |  | 10. Object Complete |
+| PTPI0817_IP | Purchasing Services Fiori Catalog | S/4 → Shopping@Intel | NA |  | 10. Object Complete |
+| PTPI0817_IF | Purchasing Services Fiori Catalog | S/4 → Shopping@Intel | NA |  | 10. Object Complete |
+| PTPI0816_IP | Intel WebSuite - Web PO – Interface to display Purchase Order information fro... | Stagging DB → S/4 | MULESOFT |  | 10. Object Complete |
+| PTPI0816_IF | Intel WebSuite - Web PO – Interface to display Purchase Order information fro... | Stagging DB → S/4 | MULESOFT |  | 10. Object Complete |
+| PTPI0812_IP | Intel WebSuite - Web Forecast – Interface to display Purchase Order informati... | Intel WebSuite Web Contract → S/4 | MULESOFT |  | 10. Object Complete |
+| PTPI0812_IF | Intel WebSuite - Web Forecast – Interface to display Purchase Order informati... | Intel WebSuite Web Contract → S/4 | MULESOFT |  | 10. Object Complete |
+| PTPI0735_IP | Ariba/Capital PO details to be retrieved from SAP S/4 at the time of receivin... | WIINGS → S/4 | MULESOFT |  | 10. Object Complete |
+| PTPI0735_IF | Ariba/Capital PO details to be retrieved from SAP S/4 at the time of receivin... | WIINGS → S/4 | MULESOFT |  | 10. Object Complete |
+| PTPI0710_IP | S4 Manual Invoice Release Blocking functionality requires connection with GTT... | S/4 → GTT (Custom Tracker) | NA |  | 10. Object Complete |
+| PTPI0710_IF | S4 Manual Invoice Release Blocking functionality requires connection with GTT... | S/4 → GTT (Custom Tracker) | NA |  | 10. Object Complete |
+| PTPI0709_IP | Ariba Asset Settlement Interface | Shopping@Intel → S/4 | NA |  | 10. Object Complete |
+| PTPI0709_IF | Ariba Asset Settlement Interface | Shopping@Intel → S/4 | NA |  | 10. Object Complete |
+| PTPI0692_IP | Custom program to send configurations from S4 system to Illumis | S/4 → Accounts Payable Recovery Tool | SFT |  | 10. Object Complete |
+| PTPI0692_IF | Custom program to send configurations from S4 system to Illumis | S/4 → Accounts Payable Recovery Tool | SFT |  | 10. Object Complete |
+| PTPI0691_IP | Custom program to send the supplier master data from S4 system to Illumis. | S/4 → Accounts Payable Recovery Tool | SFT |  | 10. Object Complete |
+| PTPI0691_IF | Custom program to send the supplier master data from S4 system to Illumis. | S/4 → Accounts Payable Recovery Tool | SFT |  | 10. Object Complete |
+| PTPI0685 | Custom program to send the Transactions (Invoices) from IF system to Illumis | S/4 → Accounts Payable Recovery Tool | SFT |  | 10. Object Complete |
+| PTPI0671 | Interface to automatically create VMI PO & IB delivery in S/4 (IF and IP) via... | S/4 → E2Open | MULESOFT |  | 10. Object Complete |
+| PTPI0568 | Maintain Purchasing Info Record in IF from Pega PSI | PEGA PSI → S/4 | APIGEE | 01. Standard API | 10. Object Complete |
+| PTPI0567 | Get Material Master details from IF to Pega PSI | S/4 → PEGA PSI | APIGEE | 01. Standard API | 10. Object Complete |
+| PTPI0566 | Maintain Outline Agreement in IF from Pega PSI | PEGA PSI → S/4 | APIGEE | 01. Standard API | 10. Object Complete |
+| PTPI0559_IP | All Validation of Chemical purchases on non MRP PR by using integration betwe... | ICHEM → S/4 | NA |  | 10. Object Complete |
+| PTPI0559_IF | All Validation of Chemical purchases on non MRP PR by using integration betwe... | ICHEM → S/4 | NA |  | 10. Object Complete |
+| PTPI0494 | Maintain PO in IF from CWB | CWB → S/4 | APIGEE | 01. Standard API | 10. Object Complete |
+| PTPI0473 | Demand Change - Automatic update of PR/PO/STR/STO/Scheduling agreement and Pr... | NA → NA | Mulesoft |  | 09. FUT Overdue |
+| PTPI0470 | Payment Proposal after invoice posted from SAP S/4 HANA CFIN to Ariba | S/4 → SAP Ariba Network | NA |  | 10. Object Complete |
+| PTPI0469 | Payment Remittance after payment posted from CFIN to IP/IF and from IP/IF to ... | S/4 → SAP Ariba Network | NA |  | 10. Object Complete |
+| PTPI0468 | Payment Status after payment is cancelled / Void from CFIN to IP / IF and Fro... | S/4 → SAP Ariba Network | NA |  | 10. Object Complete |
+| PTPI0467 | Maintain Outline Agreement in IF from EMS | EMS → S/4 | APIGEE |  | 10. Object Complete |
+| PTPI0466_IP | Payment Remittance after payment posted from CFIN to IP/IF for Readsoft | S/4 → Readsoft | NA |  | 10. Object Complete |
+| PTPI0466_IF | Payment Remittance after payment posted from CFIN to IP/IF for Readsoft | S/4 → Readsoft | NA |  | 10. Object Complete |
+| PTPI0463_IP | GR Carbon Copy (Posted in S4) | S/4 → SAP Ariba Network | NA |  | 10. Object Complete |
+| PTPI0463_IF | GR Carbon Copy (Posted in S4) | S/4 → SAP Ariba Network | NA |  | 10. Object Complete |
+| PTPI0452 | Get Material Master alternate UOM details from IF to CWB | S/4 → CWB | APIGEE | 01. Standard API | 10. Object Complete |
+| PTPI0449 | Maintain Outline Agreement in IF from CWB | CWB → S/4 | APIGEE | 01. Standard API | 10. Object Complete |
+| PTPI0448 | Maintain Purchasing Info Record in IF from CWB | CWB → S/4 | APIGEE | 01. Standard API | 10. Object Complete |
+| PTPI0388_IP | Custom program to send the Purchase order from SAP S4 system to Illumis | S/4 → Accounts Payable Recovery Tool | SFT |  | 10. Object Complete |
+| PTPI0388_IF | Custom program to send the Purchase order from SAP S4 system to Illumis | S/4 → Accounts Payable Recovery Tool | SFT |  | 10. Object Complete |
+| PTPI0386 | Maintain Document Info Record in IF from CWB | CWB → S/4 | APIGEE |  | 10. Object Complete |
+| PTPI0384 | Create Document Info Record in IF from EMS | Equipment Management System → S/4 | APIGEE | 01. Standard API | 10. Object Complete |
+| PTPI0382 | Get OA determination by material from IF to CWB | Commercial Workbench → S/4 | APIGEE |  | 10. Object Complete |
+| PTPI0370 | Get OA determination by material from IF to EMS | S/4 → Equipment Management System | APIGEE | 01. Standard API | 10. Object Complete |
+| PTPI0369 | Develop an interface to send inventory reports and MRP parameters from S4(IF)... | S/4 → E2Open | MULESOFT |  | 10. Object Complete |
+| PTPI0368 | Automatic creation of Discrete PO & IB delivery when supplier initiates shipm... | E2open → S/4 | MULESOFT | 05. Fully custom API | 10. Object Complete |
+| PTPI0272 | Get Material Master details from IF to EMS | S/4 → EMS | APIGEE | 01. Standard API | 10. Object Complete |
+| PTPI0271 | Get Material Master details from IF to SIRFIS | S/4 → SIRFIS | APIGEE | 01. Standard API | 10. Object Complete |
+| PTPI0269_IP | Supplier Onboarding Data - IF | Shopping@Intel → S/4 | NA |  | 10. Object Complete |
+| PTPI0269_IF | Supplier Onboarding Data - IP | Shopping@Intel → S/4 | NA |  | 10. Object Complete |
+| PTPI0269_CFIN | Supplier Onboarding Data - CFIN | Shopping@Intel → S/4 | NA |  | 10. Object Complete |
+| PTPI0266 | Get PO details from IF to EMS | S/4 → EMS | APIGEE | 01. Standard API | 10. Object Complete |
+| PTPI0263 | Maintain PR in IF from EMS | EMS → S/4 | APIGEE | 01. Standard API | 10. Object Complete |
+| PTPI0262 | Get PR details from IF to EMS | S/4 → EMS | APIGEE | 01. Standard API | 10. Object Complete |
+| PTPI0261 | Get PR details from IF to SIRFIS | S/4 → SIRFIS | APIGEE | 01. Standard API | 10. Object Complete |
+| PTPI0211_IP | Outbound interface to publish SAP Contracts details to Web Contract - IP | S/4 → WebContract | MULESOFT |  | 10. Object Complete |
+| PTPI0211_IF | Outbound interface to publish SAP Contracts details to Web Contract - IF | S/4 → WebContract | MULESOFT |  | 10. Object Complete |
+| PTPI0144_IP | Interface from E2Open to S4 to publish supplier commits against Purchase Order | E2Open → S/4 | MULESOFT | 05. Fully custom API | 10. Object Complete |
+| PTPI0144_IF | Interface from E2Open to S4 to publish supplier commits against Purchase Order | E2Open → S/4 | MULESOFT | 05. Fully custom API | 10. Object Complete |
+| PTPI0140_IP | Interface from S4 to E2Open to send SA delivery schedule lines | S/4 → E2Open | MULESOFT | 04. Enhanced IDOC | 10. Object Complete |
+| PTPI0140_IF | Interface from S4 to E2Open to send SA delivery schedule lines | S/4 → E2Open | MULESOFT | 04. Enhanced IDOC | 10. Object Complete |
+| PTPI0138 | Interface from S4 to OpenText to send new purchase orders & purchase order ch... | S/4 → GXS (Open text) | MULESOFT | 04. Enhanced IDOC | 10. Object Complete |
+| PTPI0136_IP | Interface from S4 to E2open to send new purchase orders, purchase order chang... | S/4 → E2Open | MULESOFT | 04. Enhanced IDOC | 10. Object Complete |
+| PTPI0136_IF | Interface from S4 to E2open to send new purchase orders, purchase order chang... | S/4 → E2Open | MULESOFT | 04. Enhanced IDOC | 10. Object Complete |
+| PTPI0134_IP | Interface from S4 to E2Open for SIMS Master Data & supply demand elements | S/4 → E2Open | MULESOFT |  | 10. Object Complete |
+| PTPI0134_IF | Interface from S4 to E2Open for SIMS Master Data & supply demand elements | S/4 → E2Open | MULESOFT |  | 10. Object Complete |
+| PTPI0133 | Get OA determination by material from IF to SIRFIS | SIRFIS → S/4 | APIGEE | 01. Standard API | 10. Object Complete |
+| PTPI0131 | Get Outline Agreement data from IF to SIRFIS | SIRFIS → S/4 | APIGEE | 01. Standard API | 10. Object Complete |
+| PTPI0111_IP | PO change (Custom logic) | SAP Ariba Network → S/4 | NA |  | 10. Object Complete |
+| PTPI0111_IF | PO change (Custom logic) | SAP Ariba Network → S/4 | NA |  | 10. Object Complete |
+| PTPI0110 | Get PO details from IF to SIRFIS | SIRFIS → S/4 | APIGEE | 01. Standard API | 10. Object Complete |
+| PTPI0107_IP | PO Cancel | SAP Ariba Network → S/4 | NA |  | 10. Object Complete |
+| PTPI0107_IF | PO Cancel | SAP Ariba Network → S/4 | NA |  | 10. Object Complete |
+| PTPI0103_IP | PO create (Custom logic) | SAP Ariba Network → S/4 | NA |  | 10. Object Complete |
+| PTPI0103_IF | PO create (Custom logic) | SAP Ariba Network → S/4 | NA |  | 10. Object Complete |
+| PTPI0100_IP | PR Cancel | SAP Ariba Network → S/4 | NA |  | 10. Object Complete |
+| PTPI0100_IF | PR Cancel | SAP Ariba Network → S/4 | NA |  | 10. Object Complete |
+| PTPI0098_IP | PR change (Custom logic) | SAP Ariba Network → S/4 | NA |  | 10. Object Complete |
+| PTPI0098_IF | PR change (Custom logic) | SAP Ariba Network → S/4 | NA |  | 10. Object Complete |
+| PTPI0096_IP | PR creation (budget check, custom logic) | SAP Ariba Network → S/4 | NA |  | 10. Object Complete |
+| PTPI0096_IF | PR creation (budget check, custom logic) | SAP Ariba Network → S/4 | NA |  | 10. Object Complete |
+| PTPI0094_IP | validate and enrich (PR - master data and custom code) | S/4 → SAP Ariba Network | MULESOFT |  | 10. Object Complete |
+| PTPI0094_IF | validate and enrich (PR - master data and custom code) | S/4 → SAP Ariba Network | MULESOFT |  | 10. Object Complete |
+| PTPI0092_IP | Transfer of Ownership (change Ariba PR/PO) | S/4 → SAP Ariba Network | APIGEE |  | 10. Object Complete |
+| PTPI0092_IF | Transfer of Ownership (change Ariba PR/PO) | S/4 → SAP Ariba Network | APIGEE |  | 10. Object Complete |
+| PTPI0018 | SAP S4 IF Boundary App Interface for updating Requested Dock Date (RDD) for C... | S/4 → SIRFIS | APIGEE |  | 10. Object Complete |
+| PTPI0017 | SAP S4 IF Boundary App Interface for updating POChange/PODeliveryDates - PO S... | S/4 → SIRFIS | APIGEE |  | 10. Object Complete |
+| LOGI1726 | GR replication for raw materials for Straddle Sites from ECC to S4 IP via ECA​ |  | MULESOFT |  | 06. Dev In Progress |
+| LOGI1427_IP | Interface between S4 to Boundary Apps (PEGA-ISMQ) for real time data on Deliv... | S/4 → PEGA | APIGEE |  | 10. Object Complete |
+| LOGI1427_IF | Interface between S4 to Boundary Apps (PEGA-ISMQ) for real time data on Deliv... | S/4 → PEGA | APIGEE |  | 10. Object Complete |
+| LOGI1309 | Inbound interface to receive Finished Goods Advanced Shipping notifications f... | E2Open → S/4 | MULESOFT |  | 10. Object Complete |
+| LOGI1206_IP | S4 sending 3B2 ASN information to supplier as outbound signal for return deli... | S/4 → E2Open | MULESOFT |  | 10. Object Complete |
+| LOGI1206_IF | S4 sending 3B2 ASN information to supplier as outbound signal for return deli... | S/4 → E2Open | MULESOFT |  | 10. Object Complete |
+| LOGI1136_IP | Interface between S4 to Boundary Apps (Customs Tracker) for real time data on... | S/4 → Boundary Apps (Customs Tracker) | APIGEE |  | 10. Object Complete |
+| LOGI1136_IF | Interface between S4 to Boundary Apps (Customs Tracker) for real time data on... | S/4 → Boundary Apps (Customs Tracker and PEGA-ISMQ | APIGEE |  | 10. Object Complete |
+| LOGI1129 | TM: RICEFW 1:Carrier selection and Charges calculation for IRG/ISCG( Intel ro... | IRG/IRSG → S/4 | MULESOFT |  | 10. Object Complete |
+| LOGI0956 | Inbound interface to receive OSAT Finished Goods and Return rework FG “Goods ... | OpenText → S/4 | MULESOFT |  | 10. Object Complete |
+| LOGI0955 | Inbound interface to receive Box CPU Finished Goods and Return Rework FG “Goo... | OpenText → S/4 | MULESOFT |  | 10. Object Complete |
+| LOGI0954 | Bailment Process: Inbound 4B2 from 3PL to IF via OpenText for Receipt of Bail... | OpenText → S/4 | MULESOFT |  | 10. Object Complete |
+| LOGI0953 | Bailment Process: Generated Outbound 4B2 from IF to OpenText for Bailed Material | S/4 → OpenText | MULESOFT |  | 10. Object Complete |
+| LOGI0852_IP | Outbound Interface to send freight forwarder rates from TM to CTSI. | S/4 → CTSI | NA |  | 10. Object Complete |
+| LOGI0852_IF | Outbound Interface to send freight forwarder rates from TM to CTSI | S/4 → CTSI | NA |  | 10. Object Complete |
+| LOGI0834 | Inbound interface for WLA Hold scenario to trigger Outbound ASN with Non-Valu... | E2Open → S/4 | MULESOFT |  | 10. Object Complete |
+| LOGI0755 | PTP-LE: ASN (Inbound 3B2) from SIFO Suppliers - E2Open to S/4 IP | E2OPEN → S/4 | MULESOFT |  | 10. Object Complete |
+| LOGI0753_IP | The process involves sending a Real time consumption signal from a supplier o... | E2OPEN → S/4 | MULESOFT |  | 10. Object Complete |
+| LOGI0749_IP | TM –CTSI integration – Freight details to CTSI for Liability validation | S/4 → CTSI | SFT |  | 10. Object Complete |
+| LOGI0749_IF | TM –CTSI integration – Freight details to CTSI for Liability validation | S/4 → CTSI | SFT |  | 10. Object Complete |
+| LOGI0516_IP | PTP IF​Fetch Integrators rate in TM via an API call to Redwood and leverage i... | ECD → S/4 | APIGEE |  | 10. Object Complete |
+| LOGI0516_IF | PTP IP​Fetch Integrators rate in TM via an API call to Redwood and leverage i... | ECD → S/4 | APIGEE |  | 10. Object Complete |
+| LOGI0503_IP | Outboundinterface GR data send to NIT as WIINGS gets replaced by S4 | S/4 → NIT | MULESOFT |  | 10. Object Complete |
+| LOGI0503_IF | Outboundinterface GR data send to NIT as WIINGS gets replaced by S4 | S/4 → NIT | MULESOFT |  | 10. Object Complete |
+| LOGI0502 | Inbound Interface to receive and process 4B2 Goods receipt signal from 3PL to... | E2Open → S/4 | MULESOFT |  | 10. Object Complete |
+| LOGI0501 | Inbound interface to receive ASN (3B2) from fab material suppliers via E2Open... | E2Open → S/4 | MULESOFT |  | 10. Object Complete |
+| LOGI0267 | Inbound Interface to receive Advanced Shipment Notice (ASN) data in txt file ... | GXS → S/4 | MULESOFT |  | 10. Object Complete |
+| LOGI0253 | Inbound interface to receive Finished Goods Advanced Shipping notifications f... | E2Open → S/4 | MULESOFT |  | 10. Object Complete |
+| LOGI0252 | Inbound interface to receive “Goods Receipt” (4B2) signal for Raw Materials/F... | OpenText → S/4 | MULESOFT |  | 10. Object Complete |
+| LOGI0249 | Inbound interface to receive Realtime consumption (4B3) of raw materials/FG C... | OpenText → S/4 | MULESOFT |  | 10. Object Complete |
+| LOGI0245 | Inbound interface to receive Finished Goods ASN (3B2) from BOX CPU subcontrac... | OpenText → S/4 | MULESOFT |  | 10. Object Complete |
+| LOGI0244 | Inbound interface to receive ODM Finished Goods “Goods Receipt” (4B2) signal ... | GSX → S/4 | MULESOFT |  | 10. Object Complete |
+| LOGI0197_IP | Create Inbound Delivery Note from ASN in IP | WebASN → S/4 | MULESOFT |  | 10. Object Complete |
+| LOGI0197_IF | Create Inbound Delivery Note from ASN in IF | WebASN → S/4 | MULESOFT |  | 10. Object Complete |
+| LOGI0163_IP | Inbound interface to receive consignment inventory adjustments (manual postin... | E2Open → S/4 | MULESOFT |  | 10. Object Complete |
+| LOGI0163_IF | Inbound interface to receive consignment inventory adjustments (manual postin... | E2Open → S/4 | MULESOFT |  | 10. Object Complete |
+| LOGI0161 | Inbound interface to receive ODM Finished Goods “Goods Receipt” (4B2) signal ... | E2Open → S/4 | MULESOFT |  | 10. Object Complete |
+| LOGI0158 | Inbound interface to receive “Goods Receipt” (4B2) signal from OSATs for semi... | E2Open → S/4 | MULESOFT |  | 10. Object Complete |
+| LOGI0157_IP | Inbound interface to receive raw materials “Goods Receipt” (4B2) signal for c... | E2Open → S/4 | MULESOFT |  | 10. Object Complete |
+| LOGI0157_IF | Inbound interface to receive raw materials “Goods Receipt” (4B2) signal for c... | E2Open → S/4 | MULESOFT |  | 10. Object Complete |
+| LOGI0156 | Outbound interface to send “Advanced Shipment Notification” signal (3B2) for ... | S/4 → E2Open | MULESOFT |  | 10. Object Complete |
+| LOGI0155 | Inbound interface to receive Semi-Finished Goods Advanced Shipping notificati... | E2Open → S/4 | MULESOFT |  | 10. Object Complete |
+| LOGI0154 | Inbound interface to receive Finished Goods Advanced Shipping notifications f... | E2Open → S/4 | MULESOFT |  | 10. Object Complete |
+| LOGI0150_IP | Outbound interface to send “Goods Receipt” signal (4B2) for Raw materials & O... | S/4 → E2Open | MULESOFT |  | 10. Object Complete |
+| LOGI0150_IF | Outbound Interface to send 4B2 Goods receipt acknowledgement from S/4 to E2Op... | S/4 → E2Open | MULESOFT |  | 10. Object Complete |
+
+
+#### 5.5.5 Scheduling & Batch Objects
+
+*Scheduling and batch job objects (AutoSys, CWA) will be populated when job scheduler metadata is available. This section will map batch dependencies to RICEFW and ECA objects.*
+
+#### 5.5.6 Boundary Application Dependencies
+
+The following development objects integrate with **boundary applications** (external systems outside the S/4 HANA core):
+
+| Object ID | Description | Boundary Application | Source → Target |
 |-----------|------------|---------------------|----------------|
 | PTPI1689 | New custom API needed to process GET and DELETE function for Document Info Re... | Commercial Workbench |  |
 | PTPI1533 | Pay@accept – Inbound Interface to fetch the values from FCE ODS to SAP S/4 HA... | FCE Operational Data Services - METS Smart Order Management |  |
@@ -1394,6 +1587,10 @@ The following RICEFW objects integrate with **boundary applications** (external 
 | Audit Logging | Comprehensive audit trail for all data changes and user actions (SAP Security Audit Log) | SOX Compliance / Intel Audit Policy | Internal Audit |
 | Certificate Management | Automated certificate lifecycle management for system-to-system trust | Intel PKI Standard | Certificate Authority Team |
 | Compliance | SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR) | Intel Corporate Compliance Framework | Compliance Office |
+
+### 6.5 ECA Development Object Status
+
+*ECA development object status will be auto-populated when Snowflake SELECT access is provisioned for the PDH-IF and PDH-IP curated layers. This section will provide a DEV/QAS/PRD maturity assessment equivalent to §6.2 for SAP objects.*
 
 
 <div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-090 — Manage Contracts</span></div>

@@ -477,10 +477,14 @@ nav.toc a:hover { text-decoration: underline; }
   <li><a href="#5-application-architecture-togaf-a">5. Application Architecture (TOGAF &ldquo;A&rdquo;)</a>
     <ul>
       <li><a href="#54-component-overview">5.4 Component Overview</a></li>
-      <li><a href="#55-ricefw-inventory">5.5 RICEFW Inventory</a>
+      <li><a href="#55-development-object-inventory">5.5 Development Object Inventory</a>
         <ul>
-          <li><a href="#551-eca-dependencies">5.5.1 ECA Dependencies</a></li>
-          <li><a href="#552-boundary-application-dependencies">5.5.2 Boundary Application Dependencies</a></li>
+          <li><a href="#551-sap-development-objects">5.5.1 SAP Development Objects</a></li>
+          <li><a href="#552-eca-development-objects">5.5.2 ECA Development Objects</a></li>
+          <li><a href="#553-interface-objects">5.5.3 Interface Objects</a></li>
+          <li><a href="#554-middleware-objects">5.5.4 Middleware Objects</a></li>
+          <li><a href="#555-scheduling-batch-objects">5.5.5 Scheduling &amp; Batch Objects</a></li>
+          <li><a href="#556-boundary-application-dependencies">5.5.6 Boundary Application Dependencies</a></li>
         </ul>
       </li>
       <li><a href="#56-integration-patterns">5.6 Integration Patterns</a></li>
@@ -492,6 +496,7 @@ nav.toc a:hover { text-decoration: underline; }
       <li><a href="#62-sap-development-object-status">6.2 SAP Development Object Status</a></li>
       <li><a href="#63-nfrs-design-principles">6.3 NFRs &amp; Design Principles</a></li>
       <li><a href="#64-security-governance">6.4 Security &amp; Governance</a></li>
+      <li><a href="#65-eca-development-object-status">6.5 ECA Development Object Status</a></li>
     </ul>
   </li>
   <li><a href="#7-project-context">7. Project Context</a>
@@ -2140,7 +2145,10 @@ flowchart TD
 </tr>
 </tbody>
 </table>
-<h3 id="55-ricefw-inventory">5.5 RICEFW Inventory</h3>
+<h3 id="55-development-object-inventory">5.5 Development Object Inventory</h3>
+<p><strong>Summary</strong>: 23 SAP, 4 ECA, 10 Interfaces | RICEFW: 10 Interfaces, 2 Conversions, 15 Enhancements</p>
+<h4 id="551-sap-development-objects">5.5.1 SAP Development Objects</h4>
+<p>SAP platform objects (Reports, Interfaces, Conversions, Enhancements, Forms, Workflows) developed on S/4, MDG, or S/4 BOT:</p>
 <table>
 <thead>
 <tr>
@@ -2148,8 +2156,7 @@ flowchart TD
 <th>Type</th>
 <th>Description</th>
 <th>Status</th>
-<th>Source → Target</th>
-<th>Boundary App</th>
+<th>Dev System</th>
 <th>Complexity</th>
 </tr>
 </thead>
@@ -2159,8 +2166,7 @@ flowchart TD
 <td>Interface</td>
 <td>Automated Tool MUP Excess Capacity calculation and associated PCOS/OCOS Split&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2168,17 +2174,199 @@ flowchart TD
 <td>Interface</td>
 <td>Receive planned production quantities per production version from ECA to S/4 &hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
+<tr>
+<td>FPRI0704</td>
+<td>Interface</td>
+<td>IF-IP Integration Actual Cost - Inbound Interface</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FPRI0703</td>
+<td>Interface</td>
+<td>IF-IP Integration Actual Cost - Outbound Interface</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FPRI0545</td>
+<td>Interface</td>
+<td>IF-IP Integration - Interface to send Cost Idoc from S4 If to S4 IP</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRI0544</td>
+<td>Interface</td>
+<td>IF-IP Integration - Interface to receive Cost Idoc from S4 If to S4 IP</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE1620_IP</td>
+<td>Enhancement</td>
+<td>Implement OSS Note 2358961 to allow COGS split based on Aux CCS at time of de&hellip;</td>
+<td>99. Rejected/Cancelled/On Hold</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE1620_IF</td>
+<td>Enhancement</td>
+<td>Implement OSS Note 2358961 to allow COGS split based on Aux CCS at time of de&hellip;</td>
+<td>99. Rejected/Cancelled/On Hold</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE1438</td>
+<td>Enhancement</td>
+<td>Update mixing ratio for Procurement alternative for Cross site transfer based&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE1419</td>
+<td>Enhancement</td>
+<td>Update Procurement alternatives based on production version &amp; PIR for cross s&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE1328</td>
+<td>Enhancement</td>
+<td>Legal Valuation standard cost calculation enhancement</td>
+<td>99. Rejected/Cancelled/On Hold</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE0702</td>
+<td>Enhancement</td>
+<td>Calculation of variance to be loaded for Group Actual Costing</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE0701_IP</td>
+<td>Enhancement</td>
+<td>Mixed Costing ratio auto update</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE0701_IF</td>
+<td>Enhancement</td>
+<td>Mixed Costing ratio auto update</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE0700_IP</td>
+<td>Enhancement</td>
+<td>Representative material ID – Q2-Q8 Forecast</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE0700_IF</td>
+<td>Enhancement</td>
+<td>Representative material ID – Q2-Q8 Forecast</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE0699</td>
+<td>Enhancement</td>
+<td>Enhancement for Excess Capacity – Fixed Spending Adjustment</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FPRE0698</td>
+<td>Enhancement</td>
+<td>Legal Valuation standard cost calculation enhancement</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE0551</td>
+<td>Enhancement</td>
+<td>SKF Actual Driver volume update from actual activity confirmation Automation</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE0550</td>
+<td>Enhancement</td>
+<td>Enhancement to update additive cost in IP based on Idoc of IF cost</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE0549</td>
+<td>Enhancement</td>
+<td>Enhancement to a) update Cost and Production volume in custom table, b) calcu&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRC1493</td>
+<td>Conversion</td>
+<td>Conversion of WIP values as per Component structure in S/4 - IP</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FPRC1491</td>
+<td>Conversion</td>
+<td>Conversion of WIP values as per Component structure in S/4 - Back End IF</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>02.High</td>
+</tr>
+</tbody>
+</table>
+<h4 id="552-eca-development-objects">5.5.2 ECA Development Objects</h4>
+<p><strong>Enterprise Cloud Analytics (ECA)</strong> platform objects (Databricks/Snowflake) — views, tables, and ETL jobs with Source or Target System = ECA:</p>
+<table>
+<thead>
+<tr>
+<th>Object ID</th>
+<th>Type</th>
+<th>Description</th>
+<th>Status</th>
+<th>Source → Target</th>
+<th>Complexity</th>
+</tr>
+</thead>
+<tbody>
 <tr>
 <td>FPRI1288</td>
 <td>Interface</td>
 <td>Activity Inbound interface from ECA to S4 IP</td>
 <td>10. Object Complete</td>
 <td>ECA → S/4</td>
-<td>NA</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2187,7 +2375,6 @@ flowchart TD
 <td>Production quantity update in WAC custom table from ECA to S4 IF</td>
 <td>10. Object Complete</td>
 <td>ECA → S/4</td>
-<td>NA</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2196,26 +2383,7 @@ flowchart TD
 <td>Activity Quantity Inbound interface from ECA to S4 IF</td>
 <td>10. Object Complete</td>
 <td>ECA → S/4</td>
-<td>NA</td>
 <td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRI0704</td>
-<td>Interface</td>
-<td>IF-IP Integration Actual Cost - Inbound Interface</td>
-<td>10. Object Complete</td>
-<td>OpenText → S/4</td>
-<td>NA</td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>FPRI0703</td>
-<td>Interface</td>
-<td>IF-IP Integration Actual Cost - Outbound Interface</td>
-<td>10. Object Complete</td>
-<td>S/4 → OpenText</td>
-<td>NA</td>
-<td>02.High</td>
 </tr>
 <tr>
 <td>FPRI0554</td>
@@ -2223,189 +2391,114 @@ flowchart TD
 <td>SKF Interface to get file from ECA and send to S4 via BODS - IF</td>
 <td>10. Object Complete</td>
 <td>ECA → S/4</td>
-<td>Wafer Starts Per Week; ISA-VS2012 US (MAPPS); ISA-VS2008 Asia (ATMPS CR and D&hellip;</td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>FPRI0545</td>
-<td>Interface</td>
-<td>IF-IP Integration - Interface to send Cost Idoc from S4 If to S4 IP</td>
-<td>10. Object Complete</td>
-<td>S/4 → S/4</td>
-<td>NA</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRI0544</td>
-<td>Interface</td>
-<td>IF-IP Integration - Interface to receive Cost Idoc from S4 If to S4 IP</td>
-<td>10. Object Complete</td>
-<td>S/4 → S/4</td>
-<td>NA</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE1620_IP</td>
-<td>Enhancement</td>
-<td>Implement OSS Note 2358961 to allow COGS split based on Aux CCS at time of de&hellip;</td>
-<td>99. Rejected/Cancelled/On Hold</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE1620_IF</td>
-<td>Enhancement</td>
-<td>Implement OSS Note 2358961 to allow COGS split based on Aux CCS at time of de&hellip;</td>
-<td>99. Rejected/Cancelled/On Hold</td>
-<td></td>
-<td></td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE1438</td>
-<td>Enhancement</td>
-<td>Update mixing ratio for Procurement alternative for Cross site transfer based&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE1419</td>
-<td>Enhancement</td>
-<td>Update Procurement alternatives based on production version &amp; PIR for cross s&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE1328</td>
-<td>Enhancement</td>
-<td>Legal Valuation standard cost calculation enhancement</td>
-<td>99. Rejected/Cancelled/On Hold</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE0702</td>
-<td>Enhancement</td>
-<td>Calculation of variance to be loaded for Group Actual Costing</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE0701_IP</td>
-<td>Enhancement</td>
-<td>Mixed Costing ratio auto update</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE0701_IF</td>
-<td>Enhancement</td>
-<td>Mixed Costing ratio auto update</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE0700_IP</td>
-<td>Enhancement</td>
-<td>Representative material ID – Q2-Q8 Forecast</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE0700_IF</td>
-<td>Enhancement</td>
-<td>Representative material ID – Q2-Q8 Forecast</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE0699</td>
-<td>Enhancement</td>
-<td>Enhancement for Excess Capacity – Fixed Spending Adjustment</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>FPRE0698</td>
-<td>Enhancement</td>
-<td>Legal Valuation standard cost calculation enhancement</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE0551</td>
-<td>Enhancement</td>
-<td>SKF Actual Driver volume update from actual activity confirmation Automation</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE0550</td>
-<td>Enhancement</td>
-<td>Enhancement to update additive cost in IP based on Idoc of IF cost</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE0549</td>
-<td>Enhancement</td>
-<td>Enhancement to a) update Cost and Production volume in custom table, b) calcu&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>BY-PDH</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRC1493</td>
-<td>Conversion</td>
-<td>Conversion of WIP values as per Component structure in S/4 - IP</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>FPRC1491</td>
-<td>Conversion</td>
-<td>Conversion of WIP values as per Component structure in S/4 - Back End IF</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
 <td>02.High</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Summary</strong>: 10 Interfaces, 2 Conversions, 15 Enhancements</p>
-<h4 id="552-boundary-application-dependencies">5.5.2 Boundary Application Dependencies</h4>
-<p>The following RICEFW objects integrate with <strong>boundary applications</strong> (external systems outside the S/4 HANA core):</p>
+<h4 id="553-interface-objects">5.5.3 Interface Objects</h4>
+<p>Holistic view of all interface objects by L2 capability — includes ECA → S/4, S/4 → ECA, boundary system, and inter-platform interfaces with middleware and integration approach:</p>
 <table>
 <thead>
 <tr>
-<th>RICEFW ID</th>
+<th>Object ID</th>
+<th>Description</th>
+<th>Source → Target</th>
+<th>Middleware</th>
+<th>Approach</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FPRI1704</td>
+<td>Automated Tool MUP Excess Capacity calculation and associated PCOS/OCOS Split&hellip;</td>
+<td></td>
+<td>BODS</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI1439</td>
+<td>Receive planned production quantities per production version from ECA to S/4 &hellip;</td>
+<td></td>
+<td>APIGEE</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI1288</td>
+<td>Activity Inbound interface from ECA to S4 IP</td>
+<td>ECA → S/4</td>
+<td>MuleSoft</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI1287</td>
+<td>Production quantity update in WAC custom table from ECA to S4 IF</td>
+<td>ECA → S/4</td>
+<td>MuleSoft</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI1273</td>
+<td>Activity Quantity Inbound interface from ECA to S4 IF</td>
+<td>ECA → S/4</td>
+<td>MuleSoft</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI0704</td>
+<td>IF-IP Integration Actual Cost - Inbound Interface</td>
+<td>OpenText → S/4</td>
+<td>SFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI0703</td>
+<td>IF-IP Integration Actual Cost - Outbound Interface</td>
+<td>S/4 → OpenText</td>
+<td>SFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI0554</td>
+<td>SKF Interface to get file from ECA and send to S4 via BODS - IF</td>
+<td>ECA → S/4</td>
+<td>MuleSoft</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI0545</td>
+<td>IF-IP Integration - Interface to send Cost Idoc from S4 If to S4 IP</td>
+<td>S/4 → S/4</td>
+<td>SFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI0544</td>
+<td>IF-IP Integration - Interface to receive Cost Idoc from S4 If to S4 IP</td>
+<td>S/4 → S/4</td>
+<td>SFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+</tbody>
+</table>
+<h4 id="555-scheduling-batch-objects">5.5.5 Scheduling &amp; Batch Objects</h4>
+<p><em>Scheduling and batch job objects (AutoSys, CWA) will be populated when job scheduler metadata is available. This section will map batch dependencies to RICEFW and ECA objects.</em></p>
+<h4 id="556-boundary-application-dependencies">5.5.6 Boundary Application Dependencies</h4>
+<p>The following development objects integrate with <strong>boundary applications</strong> (external systems outside the S/4 HANA core):</p>
+<table>
+<thead>
+<tr>
+<th>Object ID</th>
 <th>Description</th>
 <th>Boundary Application</th>
 <th>Source → Target</th>
@@ -2569,6 +2662,29 @@ flowchart TD
 <td>SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR)</td>
 <td>Intel Corporate Compliance Framework</td>
 <td>Compliance Office</td>
+</tr>
+</tbody>
+</table>
+<h3 id="65-eca-development-object-status">6.5 ECA Development Object Status</h3>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ECA Objects (this capability)</td>
+<td>4</td>
+</tr>
+<tr>
+<td>ECA Interfaces</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Total ECA + SAP Interface Dependencies</td>
+<td>10</td>
 </tr>
 </tbody>
 </table>

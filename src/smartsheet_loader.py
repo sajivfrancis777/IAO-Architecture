@@ -172,8 +172,8 @@ class SmartsheetData:
         return ", ".join(parts) if parts else "No RICEFW objects"
 
     def sap_dev_objects(self) -> list[RICEFWObject]:
-        """SAP development objects — R/E/C/F/W on S4/MDG/BOT (non-interface)."""
-        return [r for r in self.ricefw if r.platform_category == "SAP" and r.type_code != "I"]
+        """SAP development objects — R/I/C/E/F/W on S4/MDG/BOT."""
+        return [r for r in self.ricefw if r.platform_category == "SAP"]
 
     def eca_dev_objects(self) -> list[RICEFWObject]:
         """ECA development objects — Source/Target = ECA or PDH."""

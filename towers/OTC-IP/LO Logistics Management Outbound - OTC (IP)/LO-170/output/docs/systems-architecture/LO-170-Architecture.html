@@ -477,10 +477,14 @@ nav.toc a:hover { text-decoration: underline; }
   <li><a href="#5-application-architecture-togaf-a">5. Application Architecture (TOGAF &ldquo;A&rdquo;)</a>
     <ul>
       <li><a href="#54-component-overview">5.4 Component Overview</a></li>
-      <li><a href="#55-ricefw-inventory">5.5 RICEFW Inventory</a>
+      <li><a href="#55-development-object-inventory">5.5 Development Object Inventory</a>
         <ul>
-          <li><a href="#551-eca-dependencies">5.5.1 ECA Dependencies</a></li>
-          <li><a href="#552-boundary-application-dependencies">5.5.2 Boundary Application Dependencies</a></li>
+          <li><a href="#551-sap-development-objects">5.5.1 SAP Development Objects</a></li>
+          <li><a href="#552-eca-development-objects">5.5.2 ECA Development Objects</a></li>
+          <li><a href="#553-interface-objects">5.5.3 Interface Objects</a></li>
+          <li><a href="#554-middleware-objects">5.5.4 Middleware Objects</a></li>
+          <li><a href="#555-scheduling-batch-objects">5.5.5 Scheduling &amp; Batch Objects</a></li>
+          <li><a href="#556-boundary-application-dependencies">5.5.6 Boundary Application Dependencies</a></li>
         </ul>
       </li>
       <li><a href="#56-integration-patterns">5.6 Integration Patterns</a></li>
@@ -492,6 +496,7 @@ nav.toc a:hover { text-decoration: underline; }
       <li><a href="#62-sap-development-object-status">6.2 SAP Development Object Status</a></li>
       <li><a href="#63-nfrs-design-principles">6.3 NFRs &amp; Design Principles</a></li>
       <li><a href="#64-security-governance">6.4 Security &amp; Governance</a></li>
+      <li><a href="#65-eca-development-object-status">6.5 ECA Development Object Status</a></li>
     </ul>
   </li>
   <li><a href="#7-project-context">7. Project Context</a>
@@ -1454,7 +1459,10 @@ flowchart TD
 </tr>
 </tbody>
 </table>
-<h3 id="55-ricefw-inventory">5.5 RICEFW Inventory</h3>
+<h3 id="55-development-object-inventory">5.5 Development Object Inventory</h3>
+<p><strong>Summary</strong>: 10 SAP | RICEFW: 6 Conversions, 3 Enhancements, 1 Workflows</p>
+<h4 id="551-sap-development-objects">5.5.1 SAP Development Objects</h4>
+<p>SAP platform objects (Reports, Interfaces, Conversions, Enhancements, Forms, Workflows) developed on S/4, MDG, or S/4 BOT:</p>
 <table>
 <thead>
 <tr>
@@ -1462,8 +1470,7 @@ flowchart TD
 <th>Type</th>
 <th>Description</th>
 <th>Status</th>
-<th>Source → Target</th>
-<th>Boundary App</th>
+<th>Dev System</th>
 <th>Complexity</th>
 </tr>
 </thead>
@@ -1473,8 +1480,7 @@ flowchart TD
 <td>Workflow</td>
 <td>Additional WRICEF for Credit Limit Request Workflow</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1482,8 +1488,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Implement Standard BADI to activate Credit Limit Request Workflow</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -1491,8 +1496,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Implement Standard Credit/Collection BADI</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1500,8 +1504,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Credit hold release dashboard at line-item level</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
+<td>01.S4</td>
 <td>01.Very High</td>
 </tr>
 <tr>
@@ -1509,8 +1512,7 @@ flowchart TD
 <td>Conversion</td>
 <td>Payer Profile Data Conversion</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1518,8 +1520,7 @@ flowchart TD
 <td>Conversion</td>
 <td>Payer Segment Data Conversion</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1527,8 +1528,7 @@ flowchart TD
 <td>Conversion</td>
 <td>Payer Relationship Data Conversion</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1536,8 +1536,7 @@ flowchart TD
 <td>Conversion</td>
 <td>Open Credit Case Conversion</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1545,8 +1544,7 @@ flowchart TD
 <td>Conversion</td>
 <td>Open Dispute Case Conversion</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1554,13 +1552,13 @@ flowchart TD
 <td>Conversion</td>
 <td>Collection Master Conversion</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Summary</strong>: 6 Conversions, 3 Enhancements, 1 Workflows</p>
+<h4 id="555-scheduling-batch-objects">5.5.5 Scheduling &amp; Batch Objects</h4>
+<p><em>Scheduling and batch job objects (AutoSys, CWA) will be populated when job scheduler metadata is available. This section will map batch dependencies to RICEFW and ECA objects.</em></p>
 <div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-170 — Pack Orders - OTC (IP)</span></div>
 
 </div>
@@ -1748,6 +1746,8 @@ flowchart TD
 </tr>
 </tbody>
 </table>
+<h3 id="65-eca-development-object-status">6.5 ECA Development Object Status</h3>
+<p><em>ECA development object status will be auto-populated when Snowflake SELECT access is provisioned for the PDH-IF and PDH-IP curated layers. This section will provide a DEV/QAS/PRD maturity assessment equivalent to §6.2 for SAP objects.</em></p>
 <div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-170 — Pack Orders - OTC (IP)</span></div>
 
 </div>

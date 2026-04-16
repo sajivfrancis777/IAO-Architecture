@@ -70,10 +70,14 @@ nav.toc a:hover { text-decoration: underline; }
   <li><a href="#5-application-architecture-togaf-a">5. Application Architecture (TOGAF &ldquo;A&rdquo;)</a>
     <ul>
       <li><a href="#54-component-overview">5.4 Component Overview</a></li>
-      <li><a href="#55-ricefw-inventory">5.5 RICEFW Inventory</a>
+      <li><a href="#55-development-object-inventory">5.5 Development Object Inventory</a>
         <ul>
-          <li><a href="#551-eca-dependencies">5.5.1 ECA Dependencies</a></li>
-          <li><a href="#552-boundary-application-dependencies">5.5.2 Boundary Application Dependencies</a></li>
+          <li><a href="#551-sap-development-objects">5.5.1 SAP Development Objects</a></li>
+          <li><a href="#552-eca-development-objects">5.5.2 ECA Development Objects</a></li>
+          <li><a href="#553-interface-objects">5.5.3 Interface Objects</a></li>
+          <li><a href="#554-middleware-objects">5.5.4 Middleware Objects</a></li>
+          <li><a href="#555-scheduling-batch-objects">5.5.5 Scheduling &amp; Batch Objects</a></li>
+          <li><a href="#556-boundary-application-dependencies">5.5.6 Boundary Application Dependencies</a></li>
         </ul>
       </li>
       <li><a href="#56-integration-patterns">5.6 Integration Patterns</a></li>
@@ -85,6 +89,7 @@ nav.toc a:hover { text-decoration: underline; }
       <li><a href="#62-sap-development-object-status">6.2 SAP Development Object Status</a></li>
       <li><a href="#63-nfrs-design-principles">6.3 NFRs &amp; Design Principles</a></li>
       <li><a href="#64-security-governance">6.4 Security &amp; Governance</a></li>
+      <li><a href="#65-eca-development-object-status">6.5 ECA Development Object Status</a></li>
     </ul>
   </li>
   <li><a href="#7-project-context">7. Project Context</a>
@@ -962,99 +967,128 @@ Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
 | System | IAPM ID | Status |
 |--------|---------|--------|
 
-### 5.5 RICEFW Inventory
+### 5.5 Development Object Inventory
 
-| Object ID | Type | Description | Status | Source → Target | Boundary App | Complexity |
-|-----------|------|-------------|--------|----------------|-------------|----------|
-| FTSW1372 | Workflow | Factory Portal - Equipment to Parts Management (Custom Fields – Part Check ou... | 03. FS Not Started |  |  | 03.Medium |
-| FTSR1364 | Report | Factory Portal - Warranty Claim (Warranty Dashboard​​) | 10. Object Complete |  |  | 02.High |
-| FTSR1011 | Report | Report- Custom Fiori report to show full parts tracking status dashboard (wor... | 10. Object Complete |  |  | 02.High |
-| FTSM0986 | Conversion | Convert Equipment Warranty information to SAP S/4 Equipment Master – reusable... | 10. Object Complete |  |  | 02.High |
-| FTSM019 | Conversion | Conversion of Inflight Work Orders | 10. Object Complete |  | ME, XEUS, MARS | N/A |
-| FTSM018 | Conversion | Conversion of General Task List | 10. Object Complete |  | ME, EMS | N/A |
-| FTSM017_IF | Conversion | Manual Conversion of Functional Locations (FLOC) | 10. Object Complete |  | ME, EMS | 03.Medium |
-| FTSM016 | Conversion | Equipment Master | 10. Object Complete | MES, SAP ME, EMS, EDFIT, Workstream, NIT, ECM → S4 | MES, SAP ME, EMS, EDFIT, Workstream, NIT, ECM | N/A |
-| FTSM011 | Conversion | Catalogs | 10. Object Complete |  → S4 |  | N/A |
-| FTSM010 | Conversion | Maintenance Plans | 10. Object Complete | ME → S4 | ME | N/A |
-| FTSM009 | Conversion | Maintenance Items | 10. Object Complete | NA → S4 |  | N/A |
-| FTSM008 | Conversion | Equipment Class | 10. Object Complete | NA → S4 |  | N/A |
-| FTSM007 | Conversion | Characteristics | 10. Object Complete | NA → S4 |  | N/A |
-| FTSM002_IF | Conversion | Work Center | 10. Object Complete | Fuzion, ME, Manual → S4 | ME | N/A |
-| FTSI1538 | Interface | CMMS – get location info from CMMS | 02. FS Unplanned |  | Collateral MMS | 03.Medium |
-| FTSI1537 | Interface | CMMS – Get Collateral Details | 02. FS Unplanned |  | Collateral MMS | 03.Medium |
-| FTSI1536 | Interface | CMMS – Collateral Conversion | 02. FS Unplanned |  | Collateral MMS | 03.Medium |
-| FTSI1527 | Interface | Interface to get Cu flag from XEUS | 10. Object Complete |  | XEUS Loader Framework | 03.Medium |
-| FTSI1371 | Interface | CMMS – Equipment create and update (status and collateral name) | 04. FS In Progress |  → S/4 | Collateral MMS | 03.Medium |
-| FTSI1370 | Interface | Factory Portal - Equipment to Parts Management (Custom Fields – Part Check ou... | 04. FS In Progress |  → S/4 | Factory Communications | 03.Medium |
-| FTSI1355 | Interface | CMMS – Equipment with MMS flag (S4 to CMMS) | 06. Dev Not Started |  → S/4 | Collateral MMS | 03.Medium |
-| FTSI1008 | Interface | Interface S/4 with EMS | 10. Object Complete | EMS → S/4 | Equipment Management System | 03.Medium |
-| FTSI1007 | Interface | Interface S/4 with XEUS | 10. Object Complete | XEUS/Mars → S/4 | XEUS Loader Framework; ATM MARS | 02.High |
-| FTSI0985 | Interface | Claim Status Update from e2open to SAP S4 (Inbound Interface) | 10. Object Complete | E2Open → S/4 | E2open | 03.Medium |
-| FTSI0983 | Interface | SAP Warranty Claim Document to e2open (Outbound Interface) | 10. Object Complete | S/4 → E2Open | E2open | 03.Medium |
-| FTSI0924 | Interface | Interface: SAP ME to S/4 to Create & Maintain Notifications | 10. Object Complete | SAP ME → S/4 | SAP Manufacturing Execution | 03.Medium |
-| FTSF1361 | Form | Factory Portal - Returns Order Flow (Form-Based (CRD) Return Order​) | 10. Object Complete |  |  | 03.Medium |
-| FTSE1579 | Enhancement | Custom tables to store Board Failure Form details | 10. Object Complete |  |  | 03.Medium |
-| FTSE1549 | Enhancement | Custom Attributes for AMT/ISM | 02. FS Unplanned |  |  | 03.Medium |
-| FTSE1548 | Enhancement | Automation for Product Conversions – Equipment Structure update | 02. FS Unplanned |  |  | 03.Medium |
-| FTSE1547 | Enhancement | Automation for Product Conversions – Work Order Closure | 02. FS Unplanned |  |  | 03.Medium |
-| FTSE1546 | Enhancement | Automation for Product Conversions – Parts Request and Return | 02. FS Unplanned |  |  | 03.Medium |
-| FTSE1545 | Enhancement | Automation for Product Conversions – Explode BOM | 02. FS Unplanned |  |  | 03.Medium |
-| FTSE1544 | Enhancement | Automation for Product Conversions – create Work Order | 02. FS Unplanned |  |  | 03.Medium |
-| FTSE1543 | Enhancement | PM inbound from AMT | 02. FS Unplanned |  |  | 03.Medium |
-| FTSE1542 | Enhancement | PM outbound to AMT | 02. FS Unplanned |  |  | 03.Medium |
-| FTSE1541 | Enhancement | Send SAP notification on Work Order update | 02. FS Unplanned |  |  | 03.Medium |
-| FTSE1540 | Enhancement | Send SAP notification on Equipment update | 02. FS Unplanned |  |  | 03.Medium |
-| FTSE1539 | Enhancement | Custom Fiori UI – Move Equipment SRoom to SRoom (screen) | 02. FS Unplanned |  |  | 03.Medium |
-| FTSE1528 | Enhancement | Warranty claim for non E2O supplier | 10. Object Complete |  |  | 03.Medium |
-| FTSE1451 | Enhancement | Enhancement required for triggering Interface between S4 and SAP ME from the ... | 10. Object Complete |  |  | 03.Medium |
-| FTSE1413 | Enhancement | Reusable Mass Upload Program for Equipment Master Warranty | 10. Object Complete |  |  | 03.Medium |
-| FTSE1385 | Enhancement | Factory Portal - Preventative Maintenance (AT) (Schedule Maintenance Plan) | 10. Object Complete |  |  | 01.Very High |
-| FTSE1383 | Enhancement | Factory Portal - Preventative Maintenance (AT) (Set Maintenance Counte) | 10. Object Complete |  |  | 01.Very High |
-| FTSE1382 | Enhancement | Factory Portal - Preventative Maintenance (AT) (Set Maintenance Cycle​) | 10. Object Complete |  |  | 01.Very High |
-| FTSE1381 | Enhancement | Factory Portal - Preventative Maintenance (AT) (Create Maintenance Plan) | 10. Object Complete |  |  | 01.Very High |
-| FTSE1379 | Enhancement | Factory Portal - Part list (Part list creation / modify (IA05​) | 10. Object Complete |  |  | 01.Very High |
-| FTSE1378 | Enhancement | Factory Portal - Functional Location​ (FLOC creation / Update (IL01 and IL02)​​) | 10. Object Complete |  |  | 01.Very High |
-| FTSE1376 | Enhancement | Factory Portal - Admin (Notifications​) | 10. Object Complete |  |  | 01.Very High |
-| FTSE1374 | Enhancement | Factory Portal - Admin (Admin Screen - My Profile) - Contacts custom Table En... | 10. Object Complete |  |  | 01.Very High |
-| FTSE1373 | Enhancement | Factory Portal - Admin (Admin Screen - My Profile) - Fiori Enhancement | 10. Object Complete |  |  | 01.Very High |
-| FTSE1369 | Enhancement | Factory Portal - Equipment to Parts Management (Custom Fields – Part Check ou... | 04. FS In Progress |  |  | 01.Very High |
-| FTSE1368 | Enhancement | Factory Portal - Equipment to Parts Management (Equipment Management (details... | 10. Object Complete |  |  | 01.Very High |
-| FTSE1367 | Enhancement | Factory Portal - Equipment to Parts Management (Equipment/ Entity/ Sub-Entity... | 10. Object Complete |  |  | 01.Very High |
-| FTSE1366 | Enhancement | Factory Portal - Operating Supply (Reserve Ops Suppl​​​) | 10. Object Complete |  |  | 01.Very High |
-| FTSE1365 | Enhancement | Factory Portal - Operating Supply (Search for Ops Supply​​​) | 10. Object Complete |  |  | 01.Very High |
-| FTSE1363 | Enhancement | Factory Portal - Warranty Claim (Create Warranty Claim – Detailed Vie​) | 10. Object Complete |  |  | 01.Very High |
-| FTSE1360 | Enhancement | Custom Fiori UI – HAZMAT Enhancement to pull data | 10. Object Complete |  |  | 03.Medium |
-| FTSE1359 | Enhancement | Factory Portal - Returns Order Flow (Prevent TECO until after parts have been... | 10. Object Complete |  |  | 01.Very High |
-| FTSE1358 | Enhancement | Factory Portal - Returns Order Flow (Form-Based (CRD) Return Order​) | 10. Object Complete |  |  | 01.Very High |
-| FTSE1354 | Enhancement | Factory Portal - Work Order Flow ( Confirm and Submit Parts (Table Extension ... | 10. Object Complete |  |  | 01.Very High |
-| FTSE1353 | Enhancement | Factory Portal - Work Order Flow ( Confirm and Submit Parts (Fiori Enhancemen... | 10. Object Complete |  |  | 01.Very High |
-| FTSE1351 | Enhancement | Factory Portal - Work Order Flow ( Add component to work order ) | 10. Object Complete |  |  | 01.Very High |
-| FTSE1350 | Enhancement | Factory Portal - Work Order Flow ( Search Parts ) | 10. Object Complete |  |  | 01.Very High |
-| FTSE1349 | Enhancement | Factory Portal - Work Order Flow ( Change Color of WO, Equipment, and CRD & e... | 10. Object Complete |  |  | 01.Very High |
-| FTSE1348 | Enhancement | Factory Portal - Work Order Flow ( Show Work Order – Single Work Order View +... | 10. Object Complete |  |  | 01.Very High |
-| FTSE1347 | Enhancement | Factory Portal - Work Order Flow ( Search work orders - ​List View ) | 10. Object Complete |  |  | 01.Very High |
-| FTSE1344 | Enhancement | Factory Portal - Work Order Flow ( Home Page - View S/4 work orders ) | 10. Object Complete |  |  | 01.Very High |
-| FTSE1010 | Enhancement | Update the Copper/Heavy Metal flag (User Status) for the tools on placement a... | 10. Object Complete |  |  | 03.Medium |
-| FTSE0996 | Enhancement | Create Purchase Requisition with multiple purchase req document types from Wo... | 10. Object Complete |  |  | 03.Medium |
-| FTSE0995 | Enhancement | Enhancement to update rejection reason and text in maintenance work order fro... | 10. Object Complete |  |  | 03.Medium |
-| FTSE0993 | Enhancement | Auto Roll Function to add Item/Part through Batch job in Master Warranty | 10. Object Complete |  |  | 03.Medium |
-| FTSE0992 | Enhancement | Custom Fields Enhancement in WTY Claim | 10. Object Complete |  |  | 03.Medium |
-| FTSE0991 | Enhancement | Claim Generation from Maintenance Work Order per Item | 10. Object Complete |  |  | 03.Medium |
-| FTSE0990 | Enhancement | Create PR with Free of Charge from approved claim status – MMID & Non-MMID | 10. Object Complete |  |  | 03.Medium |
-| FTSE0989 | Enhancement | Warranty validation at Equipment level & Item/Part level in Work Order | 10. Object Complete |  |  | 03.Medium |
-| FTSE0988 | Enhancement | Convert Item/Part Warranty information upload to SAP S/4 Master Warranty | 10. Object Complete |  |  | 02.High |
-| FTSE0984 | Enhancement | SAP Warranty Claim Document to e2open (Outbound Interface) | 10. Object Complete |  |  | 03.Medium |
-| FTSE0982 | Enhancement | SAP PM enhancement to capture reason codes for returns (dropdown) | 10. Object Complete |  |  | 02.High |
-| FTSE0925 | Enhancement | Enhancement: Batch process to create Equipment from Material BOM after GR | 10. Object Complete |  |  | 03.Medium |
-
-**Summary**: 2 Reports, 12 Interfaces, 11 Conversions, 53 Enhancements, 1 Forms, 1 Workflows
+**Summary**: 80 SAP, 12 Interfaces | RICEFW: 2 Reports, 12 Interfaces, 11 Conversions, 53 Enhancements, 1 Forms, 1 Workflows
 
 
-#### 5.5.2 Boundary Application Dependencies
+#### 5.5.1 SAP Development Objects
 
-The following RICEFW objects integrate with **boundary applications** (external systems outside the S/4 HANA core):
+SAP platform objects (Reports, Interfaces, Conversions, Enhancements, Forms, Workflows) developed on S/4, MDG, or S/4 BOT:
 
-| RICEFW ID | Description | Boundary Application | Source → Target |
+| Object ID | Type | Description | Status | Dev System | Complexity |
+|-----------|------|-------------|--------|-----------|----------|
+| FTSW1372 | Workflow | Factory Portal - Equipment to Parts Management (Custom Fields – Part Check ou... | 03. FS Not Started | 01.S4 | 03.Medium |
+| FTSR1364 | Report | Factory Portal - Warranty Claim (Warranty Dashboard​​) | 10. Object Complete | 01.S4 | 02.High |
+| FTSR1011 | Report | Report- Custom Fiori report to show full parts tracking status dashboard (wor... | 10. Object Complete | 01.S4 | 02.High |
+| FTSM0986 | Conversion | Convert Equipment Warranty information to SAP S/4 Equipment Master – reusable... | 10. Object Complete | 01.S4 | 02.High |
+| FTSM019 | Conversion | Conversion of Inflight Work Orders | 10. Object Complete | 01.S4 | N/A |
+| FTSM018 | Conversion | Conversion of General Task List | 10. Object Complete | 01.S4 | N/A |
+| FTSM017_IF | Conversion | Manual Conversion of Functional Locations (FLOC) | 10. Object Complete | 01.S4 | 03.Medium |
+| FTSM016 | Conversion | Equipment Master | 10. Object Complete | 01.S4 | N/A |
+| FTSM011 | Conversion | Catalogs | 10. Object Complete | 01.S4 | N/A |
+| FTSM010 | Conversion | Maintenance Plans | 10. Object Complete | 01.S4 | N/A |
+| FTSM009 | Conversion | Maintenance Items | 10. Object Complete | 01.S4 | N/A |
+| FTSM008 | Conversion | Equipment Class | 10. Object Complete | 01.S4 | N/A |
+| FTSM007 | Conversion | Characteristics | 10. Object Complete | 01.S4 | N/A |
+| FTSM002_IF | Conversion | Work Center | 10. Object Complete | 01.S4 | N/A |
+| FTSI1538 | Interface | CMMS – get location info from CMMS | 02. FS Unplanned | 01.S4 | 03.Medium |
+| FTSI1537 | Interface | CMMS – Get Collateral Details | 02. FS Unplanned | 01.S4 | 03.Medium |
+| FTSI1536 | Interface | CMMS – Collateral Conversion | 02. FS Unplanned | 01.S4 | 03.Medium |
+| FTSI1527 | Interface | Interface to get Cu flag from XEUS | 10. Object Complete | 01.S4 | 03.Medium |
+| FTSI1371 | Interface | CMMS – Equipment create and update (status and collateral name) | 04. FS In Progress | 01.S4 | 03.Medium |
+| FTSI1370 | Interface | Factory Portal - Equipment to Parts Management (Custom Fields – Part Check ou... | 04. FS In Progress | 01.S4 | 03.Medium |
+| FTSI1355 | Interface | CMMS – Equipment with MMS flag (S4 to CMMS) | 06. Dev Not Started | 01.S4 | 03.Medium |
+| FTSI1008 | Interface | Interface S/4 with EMS | 10. Object Complete | 01.S4 | 03.Medium |
+| FTSI1007 | Interface | Interface S/4 with XEUS | 10. Object Complete | 01.S4 | 02.High |
+| FTSI0985 | Interface | Claim Status Update from e2open to SAP S4 (Inbound Interface) | 10. Object Complete | 01.S4 | 03.Medium |
+| FTSI0983 | Interface | SAP Warranty Claim Document to e2open (Outbound Interface) | 10. Object Complete | 01.S4 | 03.Medium |
+| FTSI0924 | Interface | Interface: SAP ME to S/4 to Create & Maintain Notifications | 10. Object Complete | 01.S4 | 03.Medium |
+| FTSF1361 | Form | Factory Portal - Returns Order Flow (Form-Based (CRD) Return Order​) | 10. Object Complete | 01.S4 | 03.Medium |
+| FTSE1579 | Enhancement | Custom tables to store Board Failure Form details | 10. Object Complete | 01.S4 | 03.Medium |
+| FTSE1549 | Enhancement | Custom Attributes for AMT/ISM | 02. FS Unplanned | 01.S4 | 03.Medium |
+| FTSE1548 | Enhancement | Automation for Product Conversions – Equipment Structure update | 02. FS Unplanned | 01.S4 | 03.Medium |
+| FTSE1547 | Enhancement | Automation for Product Conversions – Work Order Closure | 02. FS Unplanned | 01.S4 | 03.Medium |
+| FTSE1546 | Enhancement | Automation for Product Conversions – Parts Request and Return | 02. FS Unplanned | 01.S4 | 03.Medium |
+| FTSE1545 | Enhancement | Automation for Product Conversions – Explode BOM | 02. FS Unplanned | 01.S4 | 03.Medium |
+| FTSE1544 | Enhancement | Automation for Product Conversions – create Work Order | 02. FS Unplanned | 01.S4 | 03.Medium |
+| FTSE1543 | Enhancement | PM inbound from AMT | 02. FS Unplanned | 01.S4 | 03.Medium |
+| FTSE1542 | Enhancement | PM outbound to AMT | 02. FS Unplanned | 01.S4 | 03.Medium |
+| FTSE1541 | Enhancement | Send SAP notification on Work Order update | 02. FS Unplanned | 01.S4 | 03.Medium |
+| FTSE1540 | Enhancement | Send SAP notification on Equipment update | 02. FS Unplanned | 01.S4 | 03.Medium |
+| FTSE1539 | Enhancement | Custom Fiori UI – Move Equipment SRoom to SRoom (screen) | 02. FS Unplanned | 01.S4 | 03.Medium |
+| FTSE1528 | Enhancement | Warranty claim for non E2O supplier | 10. Object Complete | 01.S4 | 03.Medium |
+| FTSE1451 | Enhancement | Enhancement required for triggering Interface between S4 and SAP ME from the ... | 10. Object Complete | 01.S4 | 03.Medium |
+| FTSE1413 | Enhancement | Reusable Mass Upload Program for Equipment Master Warranty | 10. Object Complete | 01.S4 | 03.Medium |
+| FTSE1385 | Enhancement | Factory Portal - Preventative Maintenance (AT) (Schedule Maintenance Plan) | 10. Object Complete | 01.S4 | 01.Very High |
+| FTSE1383 | Enhancement | Factory Portal - Preventative Maintenance (AT) (Set Maintenance Counte) | 10. Object Complete | 01.S4 | 01.Very High |
+| FTSE1382 | Enhancement | Factory Portal - Preventative Maintenance (AT) (Set Maintenance Cycle​) | 10. Object Complete | 01.S4 | 01.Very High |
+| FTSE1381 | Enhancement | Factory Portal - Preventative Maintenance (AT) (Create Maintenance Plan) | 10. Object Complete | 01.S4 | 01.Very High |
+| FTSE1379 | Enhancement | Factory Portal - Part list (Part list creation / modify (IA05​) | 10. Object Complete | 01.S4 | 01.Very High |
+| FTSE1378 | Enhancement | Factory Portal - Functional Location​ (FLOC creation / Update (IL01 and IL02)​​) | 10. Object Complete | 01.S4 | 01.Very High |
+| FTSE1376 | Enhancement | Factory Portal - Admin (Notifications​) | 10. Object Complete | 01.S4 | 01.Very High |
+| FTSE1374 | Enhancement | Factory Portal - Admin (Admin Screen - My Profile) - Contacts custom Table En... | 10. Object Complete | 01.S4 | 01.Very High |
+| FTSE1373 | Enhancement | Factory Portal - Admin (Admin Screen - My Profile) - Fiori Enhancement | 10. Object Complete | 01.S4 | 01.Very High |
+| FTSE1369 | Enhancement | Factory Portal - Equipment to Parts Management (Custom Fields – Part Check ou... | 04. FS In Progress | 01.S4 | 01.Very High |
+| FTSE1368 | Enhancement | Factory Portal - Equipment to Parts Management (Equipment Management (details... | 10. Object Complete | 01.S4 | 01.Very High |
+| FTSE1367 | Enhancement | Factory Portal - Equipment to Parts Management (Equipment/ Entity/ Sub-Entity... | 10. Object Complete | 01.S4 | 01.Very High |
+| FTSE1366 | Enhancement | Factory Portal - Operating Supply (Reserve Ops Suppl​​​) | 10. Object Complete | 01.S4 | 01.Very High |
+| FTSE1365 | Enhancement | Factory Portal - Operating Supply (Search for Ops Supply​​​) | 10. Object Complete | 01.S4 | 01.Very High |
+| FTSE1363 | Enhancement | Factory Portal - Warranty Claim (Create Warranty Claim – Detailed Vie​) | 10. Object Complete | 01.S4 | 01.Very High |
+| FTSE1360 | Enhancement | Custom Fiori UI – HAZMAT Enhancement to pull data | 10. Object Complete | 01.S4 | 03.Medium |
+| FTSE1359 | Enhancement | Factory Portal - Returns Order Flow (Prevent TECO until after parts have been... | 10. Object Complete | 01.S4 | 01.Very High |
+| FTSE1358 | Enhancement | Factory Portal - Returns Order Flow (Form-Based (CRD) Return Order​) | 10. Object Complete | 01.S4 | 01.Very High |
+| FTSE1354 | Enhancement | Factory Portal - Work Order Flow ( Confirm and Submit Parts (Table Extension ... | 10. Object Complete | 01.S4 | 01.Very High |
+| FTSE1353 | Enhancement | Factory Portal - Work Order Flow ( Confirm and Submit Parts (Fiori Enhancemen... | 10. Object Complete | 01.S4 | 01.Very High |
+| FTSE1351 | Enhancement | Factory Portal - Work Order Flow ( Add component to work order ) | 10. Object Complete | 01.S4 | 01.Very High |
+| FTSE1350 | Enhancement | Factory Portal - Work Order Flow ( Search Parts ) | 10. Object Complete | 01.S4 | 01.Very High |
+| FTSE1349 | Enhancement | Factory Portal - Work Order Flow ( Change Color of WO, Equipment, and CRD & e... | 10. Object Complete | 01.S4 | 01.Very High |
+| FTSE1348 | Enhancement | Factory Portal - Work Order Flow ( Show Work Order – Single Work Order View +... | 10. Object Complete | 01.S4 | 01.Very High |
+| FTSE1347 | Enhancement | Factory Portal - Work Order Flow ( Search work orders - ​List View ) | 10. Object Complete | 01.S4 | 01.Very High |
+| FTSE1344 | Enhancement | Factory Portal - Work Order Flow ( Home Page - View S/4 work orders ) | 10. Object Complete | 01.S4 | 01.Very High |
+| FTSE1010 | Enhancement | Update the Copper/Heavy Metal flag (User Status) for the tools on placement a... | 10. Object Complete | 01.S4 | 03.Medium |
+| FTSE0996 | Enhancement | Create Purchase Requisition with multiple purchase req document types from Wo... | 10. Object Complete | 01.S4 | 03.Medium |
+| FTSE0995 | Enhancement | Enhancement to update rejection reason and text in maintenance work order fro... | 10. Object Complete | 01.S4 | 03.Medium |
+| FTSE0993 | Enhancement | Auto Roll Function to add Item/Part through Batch job in Master Warranty | 10. Object Complete | 01.S4 | 03.Medium |
+| FTSE0992 | Enhancement | Custom Fields Enhancement in WTY Claim | 10. Object Complete | 01.S4 | 03.Medium |
+| FTSE0991 | Enhancement | Claim Generation from Maintenance Work Order per Item | 10. Object Complete | 01.S4 | 03.Medium |
+| FTSE0990 | Enhancement | Create PR with Free of Charge from approved claim status – MMID & Non-MMID | 10. Object Complete | 01.S4 | 03.Medium |
+| FTSE0989 | Enhancement | Warranty validation at Equipment level & Item/Part level in Work Order | 10. Object Complete | 01.S4 | 03.Medium |
+| FTSE0988 | Enhancement | Convert Item/Part Warranty information upload to SAP S/4 Master Warranty | 10. Object Complete | 01.S4 | 02.High |
+| FTSE0984 | Enhancement | SAP Warranty Claim Document to e2open (Outbound Interface) | 10. Object Complete | 01.S4 | 03.Medium |
+| FTSE0982 | Enhancement | SAP PM enhancement to capture reason codes for returns (dropdown) | 10. Object Complete | 01.S4 | 02.High |
+| FTSE0925 | Enhancement | Enhancement: Batch process to create Equipment from Material BOM after GR | 10. Object Complete | 01.S4 | 03.Medium |
+
+
+#### 5.5.3 Interface Objects
+
+Holistic view of all interface objects by L2 capability — includes ECA → S/4, S/4 → ECA, boundary system, and inter-platform interfaces with middleware and integration approach:
+
+| Object ID | Description | Source → Target | Middleware | Approach | Status |
+|-----------|-------------|----------------|-----------|----------|--------|
+| FTSI1538 | CMMS – get location info from CMMS |  | NA |  | 02. FS Unplanned |
+| FTSI1537 | CMMS – Get Collateral Details |  | NA |  | 02. FS Unplanned |
+| FTSI1536 | CMMS – Collateral Conversion |  | NA |  | 02. FS Unplanned |
+| FTSI1527 | Interface to get Cu flag from XEUS |  | MULESOFT |  | 10. Object Complete |
+| FTSI1371 | CMMS – Equipment create and update (status and collateral name) |  → S/4 | MULESOFT |  | 04. FS In Progress |
+| FTSI1370 | Factory Portal - Equipment to Parts Management (Custom Fields – Part Check ou... |  → S/4 | MULESOFT |  | 04. FS In Progress |
+| FTSI1355 | CMMS – Equipment with MMS flag (S4 to CMMS) |  → S/4 | MULESOFT |  | 06. Dev Not Started |
+| FTSI1008 | Interface S/4 with EMS | EMS → S/4 | MULESOFT |  | 10. Object Complete |
+| FTSI1007 | Interface S/4 with XEUS | XEUS/Mars → S/4 | APIGEE |  | 10. Object Complete |
+| FTSI0985 | Claim Status Update from e2open to SAP S4 (Inbound Interface) | E2Open → S/4 | MULESOFT |  | 10. Object Complete |
+| FTSI0983 | SAP Warranty Claim Document to e2open (Outbound Interface) | S/4 → E2Open | MULESOFT |  | 10. Object Complete |
+| FTSI0924 | Interface: SAP ME to S/4 to Create & Maintain Notifications | SAP ME → S/4 | NA |  | 10. Object Complete |
+
+
+#### 5.5.5 Scheduling & Batch Objects
+
+*Scheduling and batch job objects (AutoSys, CWA) will be populated when job scheduler metadata is available. This section will map batch dependencies to RICEFW and ECA objects.*
+
+#### 5.5.6 Boundary Application Dependencies
+
+The following development objects integrate with **boundary applications** (external systems outside the S/4 HANA core):
+
+| Object ID | Description | Boundary Application | Source → Target |
 |-----------|------------|---------------------|----------------|
 | FTSM019 | Conversion of Inflight Work Orders | ME, XEUS, MARS |  |
 | FTSM018 | Conversion of General Task List | ME, EMS |  |
@@ -1137,6 +1171,10 @@ The following RICEFW objects integrate with **boundary applications** (external 
 | Audit Logging | Comprehensive audit trail for all data changes and user actions (SAP Security Audit Log) | SOX Compliance / Intel Audit Policy | Internal Audit |
 | Certificate Management | Automated certificate lifecycle management for system-to-system trust | Intel PKI Standard | Certificate Authority Team |
 | Compliance | SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR) | Intel Corporate Compliance Framework | Compliance Office |
+
+### 6.5 ECA Development Object Status
+
+*ECA development object status will be auto-populated when Snowflake SELECT access is provisioned for the PDH-IF and PDH-IP curated layers. This section will provide a DEV/QAS/PRD maturity assessment equivalent to §6.2 for SAP objects.*
 
 
 <div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>PE-070 — Identify and Plan Plant Maintenance (IF)</span></div>

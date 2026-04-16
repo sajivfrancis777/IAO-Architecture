@@ -477,10 +477,14 @@ nav.toc a:hover { text-decoration: underline; }
   <li><a href="#5-application-architecture-togaf-a">5. Application Architecture (TOGAF &ldquo;A&rdquo;)</a>
     <ul>
       <li><a href="#54-component-overview">5.4 Component Overview</a></li>
-      <li><a href="#55-ricefw-inventory">5.5 RICEFW Inventory</a>
+      <li><a href="#55-development-object-inventory">5.5 Development Object Inventory</a>
         <ul>
-          <li><a href="#551-eca-dependencies">5.5.1 ECA Dependencies</a></li>
-          <li><a href="#552-boundary-application-dependencies">5.5.2 Boundary Application Dependencies</a></li>
+          <li><a href="#551-sap-development-objects">5.5.1 SAP Development Objects</a></li>
+          <li><a href="#552-eca-development-objects">5.5.2 ECA Development Objects</a></li>
+          <li><a href="#553-interface-objects">5.5.3 Interface Objects</a></li>
+          <li><a href="#554-middleware-objects">5.5.4 Middleware Objects</a></li>
+          <li><a href="#555-scheduling-batch-objects">5.5.5 Scheduling &amp; Batch Objects</a></li>
+          <li><a href="#556-boundary-application-dependencies">5.5.6 Boundary Application Dependencies</a></li>
         </ul>
       </li>
       <li><a href="#56-integration-patterns">5.6 Integration Patterns</a></li>
@@ -492,6 +496,7 @@ nav.toc a:hover { text-decoration: underline; }
       <li><a href="#62-sap-development-object-status">6.2 SAP Development Object Status</a></li>
       <li><a href="#63-nfrs-design-principles">6.3 NFRs &amp; Design Principles</a></li>
       <li><a href="#64-security-governance">6.4 Security &amp; Governance</a></li>
+      <li><a href="#65-eca-development-object-status">6.5 ECA Development Object Status</a></li>
     </ul>
   </li>
   <li><a href="#7-project-context">7. Project Context</a>
@@ -1295,7 +1300,10 @@ flowchart TD
 </tr>
 </tbody>
 </table>
-<h3 id="55-ricefw-inventory">5.5 RICEFW Inventory</h3>
+<h3 id="55-development-object-inventory">5.5 Development Object Inventory</h3>
+<p><strong>Summary</strong>: 337 SAP, 15 ECA, 86 Interfaces, 15 Middleware | RICEFW: 17 Reports, 86 Interfaces, 25 Conversions, 220 Enhancements, 1 Forms, 18 Workflows</p>
+<h4 id="551-sap-development-objects">5.5.1 SAP Development Objects</h4>
+<p>SAP platform objects (Reports, Interfaces, Conversions, Enhancements, Forms, Workflows) developed on S/4, MDG, or S/4 BOT:</p>
 <table>
 <thead>
 <tr>
@@ -1303,8 +1311,7 @@ flowchart TD
 <th>Type</th>
 <th>Description</th>
 <th>Status</th>
-<th>Source → Target</th>
-<th>Boundary App</th>
+<th>Dev System</th>
 <th>Complexity</th>
 </tr>
 </thead>
@@ -1314,8 +1321,7 @@ flowchart TD
 <td>Workflow</td>
 <td>TPR : Workflow to handle Memo creation and cancellation process</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1323,8 +1329,7 @@ flowchart TD
 <td>Workflow</td>
 <td>TFR: Workflow to handle Memo creation and cancellation process</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1332,8 +1337,7 @@ flowchart TD
 <td>Workflow</td>
 <td>Custom Workflow will also be created with some predefined process/rules for a&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>01.Very High</td>
 </tr>
 <tr>
@@ -1341,8 +1345,7 @@ flowchart TD
 <td>Workflow</td>
 <td>Custom Workflow will also be created with some predefined process/rules for a&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1350,8 +1353,7 @@ flowchart TD
 <td>Workflow</td>
 <td>Workflow for Counterparty Approval</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>02.MDG</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1359,8 +1361,7 @@ flowchart TD
 <td>Workflow</td>
 <td>Custom workflow: Change Order Create and Change Approval</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1368,8 +1369,7 @@ flowchart TD
 <td>Workflow</td>
 <td>Custom workflow: Change Order Create and Change Approval</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1377,8 +1377,7 @@ flowchart TD
 <td>Workflow</td>
 <td>Custom Workflow - WBS Element Request approval with WBS Element creation</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1386,8 +1385,7 @@ flowchart TD
 <td>Workflow</td>
 <td>Custom Workflow - WBS Element Request approval with WBS Element creation</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1395,8 +1393,7 @@ flowchart TD
 <td>Workflow</td>
 <td>Custom Workflow: Approval for Project creation and create a Project def and l&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1404,8 +1401,7 @@ flowchart TD
 <td>Workflow</td>
 <td>Custom Workflow: Approval for Project creation and create a Project def and l&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1413,8 +1409,7 @@ flowchart TD
 <td>Workflow</td>
 <td>Project budget approval workflow (Capex)​</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1422,8 +1417,7 @@ flowchart TD
 <td>Workflow</td>
 <td>Project budget approval workflow (Capex)​</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1431,8 +1425,7 @@ flowchart TD
 <td>Workflow</td>
 <td>Custom workflow to manage the approval process in bulk/individual requests</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1440,8 +1433,7 @@ flowchart TD
 <td>Workflow</td>
 <td>Custom workflow to manage the approval process in bulk/individual requests</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1449,8 +1441,7 @@ flowchart TD
 <td>Workflow</td>
 <td>Workflow is required to trigger the approvers based on the business requireme&hellip;</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1458,8 +1449,7 @@ flowchart TD
 <td>Workflow</td>
 <td>Workflow is required to trigger the approvers based on the business requireme&hellip;</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1467,8 +1457,7 @@ flowchart TD
 <td>Workflow</td>
 <td>Workflow is required to trigger the approvers based on the business requireme&hellip;</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1476,8 +1465,7 @@ flowchart TD
 <td>Report</td>
 <td>To generate reports out of the ITT documents that was created</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1485,8 +1473,7 @@ flowchart TD
 <td>Report</td>
 <td>To generate reports out of the ITT documents that was created</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -1494,8 +1481,7 @@ flowchart TD
 <td>Report</td>
 <td>Custom report for Revenue Recognition by Stage for Product/Services Sale​ act&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1503,8 +1489,7 @@ flowchart TD
 <td>Report</td>
 <td>Report for searching on and viewing government contract timesheets for Intel &hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1512,8 +1497,7 @@ flowchart TD
 <td>Report</td>
 <td>Report for searching on and viewing government contract timesheet changes for&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1521,8 +1505,7 @@ flowchart TD
 <td>Report</td>
 <td>Workflow Status Report ( Order Request / Approval Request / Others )</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1530,8 +1513,7 @@ flowchart TD
 <td>Report</td>
 <td>Workflow Status Report ( Order Request / Approval Request / Others )</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -1539,8 +1521,7 @@ flowchart TD
 <td>Report</td>
 <td>CFR - Report to support multiple Treasury Funding requests from Multiple Inte&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1548,8 +1529,7 @@ flowchart TD
 <td>Report</td>
 <td>TPR-Report to support multiple Treasury Payment Requests from Multiple Intel &hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1557,8 +1537,7 @@ flowchart TD
 <td>Report</td>
 <td>Inter-company Outage Pre-consolidate Report (ACDOCA)</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1566,8 +1545,7 @@ flowchart TD
 <td>Report</td>
 <td>GL Interface – Reconciliation Report/Dashboard</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1575,8 +1553,7 @@ flowchart TD
 <td>Report</td>
 <td>Report to display the requests/change IDs and status of the workflow approval&hellip;</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1584,8 +1561,7 @@ flowchart TD
 <td>Report</td>
 <td>Report to display the requests/change IDs and status of the workflow approval&hellip;</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1593,8 +1569,7 @@ flowchart TD
 <td>Report</td>
 <td>Operational Report to display whether supporting documents are attached to JEs</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1602,8 +1577,7 @@ flowchart TD
 <td>Report</td>
 <td>Operational Report to display whether supporting documents are attached to JEs</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1611,8 +1585,7 @@ flowchart TD
 <td>Report</td>
 <td>Operational Report to display whether supporting documents are attached to JEs</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1620,8 +1593,7 @@ flowchart TD
 <td>Report</td>
 <td>In House Cash – Loan Account balance Detailed report</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
+<td>01.S4</td>
 <td>01.Very High</td>
 </tr>
 <tr>
@@ -1629,8 +1601,7 @@ flowchart TD
 <td>Conversion</td>
 <td>Revenue Recognition Rules</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>N/A</td>
 </tr>
 <tr>
@@ -1638,8 +1609,7 @@ flowchart TD
 <td>Conversion</td>
 <td>Revenue Contracts</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>N/A</td>
 </tr>
 <tr>
@@ -1647,8 +1617,7 @@ flowchart TD
 <td>Conversion</td>
 <td>Bank Master</td>
 <td>10. Object Complete</td>
-<td>ECC → CFIN</td>
-<td></td>
+<td>01.S4</td>
 <td>N/A</td>
 </tr>
 <tr>
@@ -1656,8 +1625,7 @@ flowchart TD
 <td>Interface</td>
 <td>Interface to be developed to transfer the files from Denodo to FS share path &hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>Workday</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1665,8 +1633,7 @@ flowchart TD
 <td>Interface</td>
 <td>Interface to be developed to transfer the files from Denodo to FS share path &hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>Workday</td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -1674,8 +1641,7 @@ flowchart TD
 <td>Interface</td>
 <td>Automated Tool MUP Excess Capacity calculation and associated PCOS/OCOS Split&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1683,8 +1649,7 @@ flowchart TD
 <td>Interface</td>
 <td>Import Dot process/stage details from MDG into S4. ​</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1692,8 +1657,7 @@ flowchart TD
 <td>Interface</td>
 <td>Import Xeus/Mars volumes from ECA into S4.​</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1701,8 +1665,7 @@ flowchart TD
 <td>Interface</td>
 <td>Asset Delete from EMS to S4 through APIGEE</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>Equipment Management System</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1710,8 +1673,7 @@ flowchart TD
 <td>Interface</td>
 <td>Asset Display from EMS to S4 through APIGEE</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>Equipment Management System</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1719,8 +1681,7 @@ flowchart TD
 <td>Interface</td>
 <td>Asset Change from EMS to S4 through APIGEE</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>Equipment Management System</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1728,8 +1689,7 @@ flowchart TD
 <td>Interface</td>
 <td>Interface to upload payroll data from Workday to S/4 IP for legal entity 199 &hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>Workday</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1737,8 +1697,7 @@ flowchart TD
 <td>Interface</td>
 <td>GL Interface –Create Inbound IDOCs to CFIN from IF system</td>
 <td>10. Object Complete</td>
-<td>IF → CFIN</td>
-<td>NA</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1746,8 +1705,7 @@ flowchart TD
 <td>Interface</td>
 <td>GL Interface –Create Inbound IDOCs to CFIN from IP system</td>
 <td>10. Object Complete</td>
-<td>IP → CFIN</td>
-<td>NA</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1755,8 +1713,7 @@ flowchart TD
 <td>Interface</td>
 <td>Receive planned production quantities per production version from ECA to S/4 &hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1764,8 +1721,7 @@ flowchart TD
 <td>Interface</td>
 <td>Outbound Interface to view the Cleared Customer Invoices from CFIN System to &hellip;</td>
 <td>10. Object Complete</td>
-<td>S/4 → WOM</td>
-<td>SAP Commerce Cloud</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1773,8 +1729,7 @@ flowchart TD
 <td>Interface</td>
 <td>Asset Create from EMS to S4 through APIGEE</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>Equipment Management System</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1782,8 +1737,7 @@ flowchart TD
 <td>Interface</td>
 <td>Interface for importing GL transactional data from SAP CFIN system into SAP IF</td>
 <td>10. Object Complete</td>
-<td>CFIN → S/4</td>
-<td>NA</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1791,17 +1745,2295 @@ flowchart TD
 <td>Interface</td>
 <td>Interface for importing GL transactional data from SAP CFIN system into SAP IP</td>
 <td>10. Object Complete</td>
-<td>CFIN → S/4</td>
-<td>NA</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
+<tr>
+<td>FPRI1286_IP</td>
+<td>Interface</td>
+<td>Interface between SAP IP and IF boxes for Outbound IDOC flow_IP</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRI1286_IF</td>
+<td>Interface</td>
+<td>Interface between SAP IP and IF boxes for Outbound IDOC flow_IF</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRI1238</td>
+<td>Interface</td>
+<td>Pull Foundry WBS from HAT and create in LE 199 in IP S/4 for Foundry Employee&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRI1105</td>
+<td>Interface</td>
+<td>Interface for automatic creation of B2B customer related payment advice</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRI0913_IP</td>
+<td>Interface</td>
+<td>Export the Planning data from the SAC table to PPM standard tables using the &hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FPRI0913_IF</td>
+<td>Interface</td>
+<td>Export the Planning data from the SAC table to PPM standard tables using the &hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRI0895</td>
+<td>Interface</td>
+<td>Import Tool Sharing Forecasted Data from FCS to S4 &amp; derive FTQ data by Capex&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FPRI0894</td>
+<td>Interface</td>
+<td>Planned Volume from IP-BY will be utilized as a KP26 quantity to split &lsquo;Overh&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FPRI0869</td>
+<td>Interface</td>
+<td>Interface for automatic creation of WOM related payment advice</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRI0867</td>
+<td>Interface</td>
+<td>Outbound Interface to view the open &amp; Cleared Customer Invoices from CFIN Sys&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRI0866</td>
+<td>Interface</td>
+<td>Interface to Obtains the payer associated to the sold to from CFIN System to &hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRI0865</td>
+<td>Interface</td>
+<td>Interface to transfer the Uploaded WCP Grant Amount from CFIN to WOM and Defe&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRI0864_IP</td>
+<td>Interface</td>
+<td>Interface between SAP IP and IF boxes for Inbound IDOC flow_IP</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRI0864_IF</td>
+<td>Interface</td>
+<td>Interface between SAP IP and IF boxes for Inbound IDOC flow_IF</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRI0862</td>
+<td>Interface</td>
+<td>Interface to transfer the details of selected invoice from WOM to CFIN ( Inbo&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRI0778_IP</td>
+<td>Interface</td>
+<td>Continue to auto-certify a BL task when the related JE is approved</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRI0778_IF</td>
+<td>Interface</td>
+<td>Continue to auto-certify a BL task when the related JE is approved</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRI0778_CFIN</td>
+<td>Interface</td>
+<td>Continue to auto-certify a BL task when the related JE is approved</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FPRI0704</td>
+<td>Interface</td>
+<td>IF-IP Integration Actual Cost - Inbound Interface</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FPRI0703</td>
+<td>Interface</td>
+<td>IF-IP Integration Actual Cost - Outbound Interface</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FPRI0696_IP</td>
+<td>Interface</td>
+<td>Interface between ONESOURCE and Readsoft Process Director built on the back o&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FPRI0696_IF</td>
+<td>Interface</td>
+<td>Interface between ONESOURCE and Readsoft Process Director built on the back o&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRI0695</td>
+<td>Interface</td>
+<td>Reference Interest Rates - S4 converted data from MDG to CFIN</td>
+<td>10. Object Complete</td>
+<td>02.MDG</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRI0600_IP</td>
+<td>Interface</td>
+<td>Continuation to use Blackline Account Reconciliations Tool (ART), Blackline M&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRI0600_IF</td>
+<td>Interface</td>
+<td>Continuation to use Blackline Account Reconciliations Tool (ART), Blackline M&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRI0600_CFIN</td>
+<td>Interface</td>
+<td>Continuation to use Blackline Account Reconciliations Tool (ART), Blackline M&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRI0599_IP</td>
+<td>Interface</td>
+<td>ServiceNow Asset change</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRI0599_IF</td>
+<td>Interface</td>
+<td>ServiceNow Asset change</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRI0598</td>
+<td>Interface</td>
+<td>N rate from Mulesoft to MDG</td>
+<td>10. Object Complete</td>
+<td>02.MDG</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRI0545</td>
+<td>Interface</td>
+<td>IF-IP Integration - Interface to send Cost Idoc from S4 If to S4 IP</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRI0544</td>
+<td>Interface</td>
+<td>IF-IP Integration - Interface to receive Cost Idoc from S4 If to S4 IP</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRI0533</td>
+<td>Interface</td>
+<td>Reference Interest Rates from MuleSoft to S4 MDG</td>
+<td>10. Object Complete</td>
+<td>02.MDG</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRI0531</td>
+<td>Interface</td>
+<td>L Rates from MuleSoft to S4 MDG</td>
+<td>10. Object Complete</td>
+<td>02.MDG</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRI0505</td>
+<td>Interface</td>
+<td>Interface – Copp Clark Holiday Calendar Integration with SAP</td>
+<td>10. Object Complete</td>
+<td>02.MDG</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRI0378_IP</td>
+<td>Interface</td>
+<td>GL Interface - SAP API IP</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FPRI0378_IF</td>
+<td>Interface</td>
+<td>GL Interface - SAP API IF</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRI0323_IP</td>
+<td>Interface</td>
+<td>Create a common API for Asset updates, transfer, retire and Mass upload</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FPRI0323_IF</td>
+<td>Interface</td>
+<td>Create a common API for Asset updates, transfer, retire and Mass upload</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRI0224</td>
+<td>Interface</td>
+<td>Outbound Interface - SAP to Quantum for Transmitting Cash Management Relevant&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FPRI0188</td>
+<td>Interface</td>
+<td>Inbound Interface from EMS to S/4 to create WBS element and Update WBS elemen&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FPRF0230</td>
+<td>Form</td>
+<td>Invoice output Layout - America</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FPRE1723_IP</td>
+<td>Enhancement</td>
+<td>Intel BRF+ - Create Function Modules in S/4HANA(FM and BRF+)</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE1723_IF</td>
+<td>Enhancement</td>
+<td>Intel BRF+ - Create Function Modules in S/4HANA(FM and BRF+)</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE1722_IP</td>
+<td>Enhancement</td>
+<td>Intel BRF+ - Create Function Modules in S/4HANA (FM and components)</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE1722_IF</td>
+<td>Enhancement</td>
+<td>Intel BRF+ - Create Function Modules in S/4HANA (FM and components)</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE1711</td>
+<td>Enhancement</td>
+<td>BADI Enhancement to change Order Type from Product cost Collector from IP &amp; I&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE1706</td>
+<td>Enhancement</td>
+<td>Enhancement to create Cash Management relevant data from F110 Payment Run for&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE1705</td>
+<td>Enhancement</td>
+<td>Enhancement to do Cash App post EBS load with the corresponding payment advice.</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE1695</td>
+<td>Enhancement</td>
+<td>Custom Fiori app - Change WBS Element Request Form with ALV Input​</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE1671_IP</td>
+<td>Enhancement</td>
+<td>S4, Perform required calculations, summarizations, mappings and post the allo&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE1671_IF</td>
+<td>Enhancement</td>
+<td>S4, Perform required calculations, summarizations, mappings and post the allo&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE1661_IP</td>
+<td>Enhancement</td>
+<td>WBS transfer tool</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FPRE1661_IF</td>
+<td>Enhancement</td>
+<td>WBS transfer tool</td>
+<td>09. FUT Overdue</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE1660</td>
+<td>Enhancement</td>
+<td>Enhancement for Revenue Recognition by Stage postings for Product/Services Sa&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FPRE1659</td>
+<td>Enhancement</td>
+<td>Enhancement for Revenue Recognition by Stage postings for Product/Services Sa&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FPRE1650_IP</td>
+<td>Enhancement</td>
+<td>(FTQ Input to drive Disaggregation to Allocation Cycle) for Forecast.​</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE1650_IF</td>
+<td>Enhancement</td>
+<td>(FTQ Input to drive Disaggregation to Allocation Cycle) for Forecast.​</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE1620_IP</td>
+<td>Enhancement</td>
+<td>Implement OSS Note 2358961 to allow COGS split based on Aux CCS at time of de&hellip;</td>
+<td>99. Rejected/Cancelled/On Hold</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE1620_IF</td>
+<td>Enhancement</td>
+<td>Implement OSS Note 2358961 to allow COGS split based on Aux CCS at time of de&hellip;</td>
+<td>99. Rejected/Cancelled/On Hold</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE1600</td>
+<td>Enhancement</td>
+<td>Custom Fiori app - Create WBS Element Request Form with ALV Input​</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE1599_IP</td>
+<td>Enhancement</td>
+<td>Update existing custom table ZTFPR_ACRENG02 to store the calculation of PO li&hellip;</td>
+<td>09. FUT Overdue</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE1599_IF</td>
+<td>Enhancement</td>
+<td>Update existing custom table ZTFPR_ACRENG02 to store the calculation of PO li&hellip;</td>
+<td>09. FUT Overdue</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE1564</td>
+<td>Enhancement</td>
+<td>Employee Notification for timesheet entry</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE1563</td>
+<td>Enhancement</td>
+<td>Manager notification for timesheet approval</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE1562</td>
+<td>Enhancement</td>
+<td>Manage Delegates for approval</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE1561</td>
+<td>Enhancement</td>
+<td>Timesheet approval</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FPRE1560</td>
+<td>Enhancement</td>
+<td>Timesheet entry for Intel Federal employees</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>01.Very High</td>
+</tr>
+<tr>
+<td>FPRE1553</td>
+<td>Enhancement</td>
+<td>Custom Fiori app - Change WBS Element Request Form with ALV Input​</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE1519_IP</td>
+<td>Enhancement</td>
+<td>Project Change Order - Edit and Submit of draft request with change functiona&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FPRE1519_IF</td>
+<td>Enhancement</td>
+<td>Project Change Order - Edit and Submit of draft request with change functiona&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE1518_IP</td>
+<td>Enhancement</td>
+<td>Project Change Order - Change existing Purchase Orders during creation of Pro&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FPRE1518_IF</td>
+<td>Enhancement</td>
+<td>Project Change Order - Change existing Purchase Orders during creation of Pro&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE1517_IP</td>
+<td>Enhancement</td>
+<td>Project Change Order - Create Purchase Orders during creation of Project Chan&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FPRE1517_IF</td>
+<td>Enhancement</td>
+<td>Project Change Order - Create Purchase Orders during creation of Project Chan&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE1516_IP</td>
+<td>Enhancement</td>
+<td>Enhancement to enable user decision action to be taken from email directly fo&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE1516_IF</td>
+<td>Enhancement</td>
+<td>Enhancement to enable user decision action to be taken from email directly fo&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE1515_IP</td>
+<td>Enhancement</td>
+<td>Enhancement to display popup screen to trigger project creation workflow</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE1515_IF</td>
+<td>Enhancement</td>
+<td>Enhancement to display popup screen to trigger project creation workflow</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE1513_IP</td>
+<td>Enhancement</td>
+<td>Generate and download JV file for JE posting</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE1513_IF</td>
+<td>Enhancement</td>
+<td>Generate and download JV file for JE posting</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE1513_CFIN</td>
+<td>Enhancement</td>
+<td>Generate and download JV file for JE posting</td>
+<td>99. Rejected/Cancelled/On Hold</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE1512_IP</td>
+<td>Enhancement</td>
+<td>Query confirm ITT document to determine the Capital/Expense and tax code manu&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE1512_IF</td>
+<td>Enhancement</td>
+<td>Query confirm ITT document to determine the Capital/Expense and tax code manu&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE1511_IP</td>
+<td>Enhancement</td>
+<td>Query existing draft ITT document and make changes</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE1511_IF</td>
+<td>Enhancement</td>
+<td>Query existing draft ITT document and make changes</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE1510_IP</td>
+<td>Enhancement</td>
+<td>ITT document creation</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE1510_IF</td>
+<td>Enhancement</td>
+<td>ITT document creation</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE1448</td>
+<td>Enhancement</td>
+<td>FIORI screen to take care of TPR Display/ Change/ cancellation options</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE1443</td>
+<td>Enhancement</td>
+<td>FIORI screen to take care of TFR Display/ Change/ cancellation options</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE1438</td>
+<td>Enhancement</td>
+<td>Update mixing ratio for Procurement alternative for Cross site transfer based&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE1419</td>
+<td>Enhancement</td>
+<td>Update Procurement alternatives based on production version &amp; PIR for cross s&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE1328</td>
+<td>Enhancement</td>
+<td>Legal Valuation standard cost calculation enhancement</td>
+<td>99. Rejected/Cancelled/On Hold</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE1239</td>
+<td>Enhancement</td>
+<td>Enhancement for Revenue Recognition by Stage postings for Product/Services Sa&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FPRE1235_IP</td>
+<td>Enhancement</td>
+<td>Add custom fields to CJI3 and CJI5 reports (SAP S/4HANA Project Systems modul&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE1235_IF</td>
+<td>Enhancement</td>
+<td>Add custom fields to CJI3 and CJI5 reports (SAP S/4HANA Project Systems modul&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE1209</td>
+<td>Enhancement</td>
+<td>Upload adjustments to time sheet entries in bulk for Intel Federal.</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FPRE1104_IP</td>
+<td>Enhancement</td>
+<td>WBS with custom attributes will be created in the PS module. The master data &hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FPRE1104_IF</td>
+<td>Enhancement</td>
+<td>WBS with custom attributes will be created in the PS module. The master data &hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE1025_IP</td>
+<td>Enhancement</td>
+<td>Custom Fiori app will be created using Free style model to display WBS/AUC re&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE1025_IF</td>
+<td>Enhancement</td>
+<td>Custom Fiori app will be created using Free style model to display WBS/AUC re&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE0942_IP</td>
+<td>Enhancement</td>
+<td>Interface of SAP PPM module to ATLAS</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE0942_IF</td>
+<td>Enhancement</td>
+<td>Interface of SAP PPM module to ATLAS</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE0931_IP</td>
+<td>Enhancement</td>
+<td>Rebuild Boundary Application ITT in S/4</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE0931_IF</td>
+<td>Enhancement</td>
+<td>Rebuild Boundary Application ITT in S/4</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE0931_CFIN</td>
+<td>Enhancement</td>
+<td>Rebuild Boundary Application ITT in S/4</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FPRE0929</td>
+<td>Enhancement</td>
+<td>Fiori UI for Counterparty Maintenance and User Exit to trigger replication to&hellip;</td>
+<td>10. Object Complete</td>
+<td>02.MDG</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FPRE0928</td>
+<td>Enhancement</td>
+<td>Enhancement for automatic derivation and population of Purpose Of Payment (PO&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE0899_IP</td>
+<td>Enhancement</td>
+<td>Custom Enhancement to disaggregate: Owner CC-DPN $ to WBS elements using Cape&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FPRE0899_IF</td>
+<td>Enhancement</td>
+<td>Custom Enhancement to disaggregate:Owner CC-DPN $ to WBS elements using Capex&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE0892</td>
+<td>Enhancement</td>
+<td>Derive ICS FTQ data by Capex WBS L2 &amp; Mfr. Process Node CC​</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE0891</td>
+<td>Enhancement</td>
+<td>Split from primary Cost centers to PCOS &amp; R&amp;D/OCOS</td>
+<td>99. Rejected/Cancelled/On Hold</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE0890_IP</td>
+<td>Enhancement</td>
+<td>Investment type creation and automatic settlement rule generation for Opex Pr&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE0890_IF</td>
+<td>Enhancement</td>
+<td>Investment type creation and automatic settlement rule generation for Opex Pr&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE0889_IP</td>
+<td>Enhancement</td>
+<td>Custom table needs to be created to hold allocation %s based on LOB Profit ce&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE0889_IF</td>
+<td>Enhancement</td>
+<td>Custom table needs to be created to hold allocation %s based on LOB Profit ce&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE0888_IP</td>
+<td>Enhancement</td>
+<td>Mass Update Fields in WBS Elements</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FPRE0888_IF</td>
+<td>Enhancement</td>
+<td>Mass Update Fields in WBS Elements</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE0887_IP</td>
+<td>Enhancement</td>
+<td>WBS Element field synchronization to AUC and Fixed assets - Construction ID -&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE0887_IF</td>
+<td>Enhancement</td>
+<td>WBS Element field synchronization to AUC and Fixed assets - Construction ID -&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE0886_IP</td>
+<td>Enhancement</td>
+<td>Project Change Order - Create Project Change Order via custom Fiori Screens w&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FPRE0886_IF</td>
+<td>Enhancement</td>
+<td>Project Change Order - Create Project Change Order via custom Fiori Screens w&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE0885</td>
+<td>Enhancement</td>
+<td>Custom Fiori app - Create WBS Element Request Form with ALV Input​</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE0884_IP</td>
+<td>Enhancement</td>
+<td>Custom Fiori app - CPA (Project Budget) approval request using PPM Item decis&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FPRE0884_IF</td>
+<td>Enhancement</td>
+<td>Custom Fiori app - CPA (Project Budget) approval request using PPM Item decis&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE0883_IP</td>
+<td>Enhancement</td>
+<td>(FTQ Input to drive Disaggregation to Allocation Cycle) for Actuals.​</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE0883_IF</td>
+<td>Enhancement</td>
+<td>(FTQ Input to drive Disaggregation to Allocation Cycle) for Actuals.​</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE0882</td>
+<td>Enhancement</td>
+<td>Derive FCS FTQ data by Capex WBS L2 &amp; Mfr. Process Node CC​</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE0881</td>
+<td>Enhancement</td>
+<td>DMEE User Exits Required in the payment files- APAC​</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE0880</td>
+<td>Enhancement</td>
+<td>Cash concentration functionality for cross-currency current accounts</td>
+<td>09. FUT Overdue</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE0879</td>
+<td>Enhancement</td>
+<td>File Formatting and processing to support MBC and APM integration</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE0877_IP</td>
+<td>Enhancement</td>
+<td>Automation to set TECO and CLSD status on Project/ WBS</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FPRE0877_IF</td>
+<td>Enhancement</td>
+<td>Automation to set TECO and CLSD status on Project/ WBS</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE0870</td>
+<td>Enhancement</td>
+<td>Smart Exporter Interface to CFIN</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE0827</td>
+<td>Enhancement</td>
+<td>MT3xx and MT5xx Files - Adjust SWIFT Parameters for MBC</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE0786</td>
+<td>Enhancement</td>
+<td>Enhancement to Mass upload of WOM payment advice.</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE0785</td>
+<td>Enhancement</td>
+<td>Enhancement to upload WCP Grant Amount in CFIN sys</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE0784_IP</td>
+<td>Enhancement</td>
+<td>Reclass program for XIU/ SIU to reclass expense to inventory accounts (cost c&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE0784_IF</td>
+<td>Enhancement</td>
+<td>Reclass program for XIU/ SIU to reclass expense to inventory accounts (cost c&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE0783_IP</td>
+<td>Enhancement</td>
+<td>Asset creation from PO (S4 / Ariba / EMS, etc.)</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE0783_IF</td>
+<td>Enhancement</td>
+<td>Asset creation from PO (S4 / Ariba / EMS, etc.)</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE0781_IP</td>
+<td>Enhancement</td>
+<td>Import Standard Cost from S4 tables into SAC using Custom CDS view.</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE0781_IF</td>
+<td>Enhancement</td>
+<td>Import Standard Cost from S4 tables into SAC using Custom CDS view.</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE0780_IP</td>
+<td>Enhancement</td>
+<td>Read the workday file from AL11 in IP, IF</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE0780_IF</td>
+<td>Enhancement</td>
+<td>Read the workday file from AL11 in IP, IF</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE0779_IP</td>
+<td>Enhancement</td>
+<td>Enhance the details in workday file to meet AE format in IP, IF</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE0779_IF</td>
+<td>Enhancement</td>
+<td>Enhance the details in workday file to meet AE format in IP, IF</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE0777_IP</td>
+<td>Enhancement</td>
+<td>Add a field in ACDOCA to store Cert ID to continue auto-certify a BL task whe&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE0777_IF</td>
+<td>Enhancement</td>
+<td>Add a field in ACDOCA to store Cert ID to continue auto-certify a BL task whe&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE0777_CFIN</td>
+<td>Enhancement</td>
+<td>Add a field in ACDOCA to store Cert ID to continue auto-certify a BL task whe&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE0764_IP</td>
+<td>Enhancement</td>
+<td>Import Headcount details by cost center and update in S4 for HR benefits spen&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE0764_IF</td>
+<td>Enhancement</td>
+<td>Import Headcount details by cost center and update in S4 for HR benefits spen&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE0763</td>
+<td>Enhancement</td>
+<td>Placeholder - BADI for Memo Records with different Planning Levels/Types gene&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE0761</td>
+<td>Enhancement</td>
+<td>Branch Name and Address for Payments instead of entity Name and Address</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE0760_IP</td>
+<td>Enhancement</td>
+<td>SAP RAR and TM Integration to trigger POD Event</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE0760_IF</td>
+<td>Enhancement</td>
+<td>SAP RAR and TM Integration to trigger POD Event</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE0702</td>
+<td>Enhancement</td>
+<td>Calculation of variance to be loaded for Group Actual Costing</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE0701_IP</td>
+<td>Enhancement</td>
+<td>Mixed Costing ratio auto update</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE0701_IF</td>
+<td>Enhancement</td>
+<td>Mixed Costing ratio auto update</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE0700_IP</td>
+<td>Enhancement</td>
+<td>Representative material ID – Q2-Q8 Forecast</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE0700_IF</td>
+<td>Enhancement</td>
+<td>Representative material ID – Q2-Q8 Forecast</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE0699</td>
+<td>Enhancement</td>
+<td>Enhancement for Excess Capacity – Fixed Spending Adjustment</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FPRE0698</td>
+<td>Enhancement</td>
+<td>Legal Valuation standard cost calculation enhancement</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE0697</td>
+<td>Enhancement</td>
+<td>RAR Balance sheet posting with MM &amp; Sold To ID</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE0648_IP</td>
+<td>Enhancement</td>
+<td>RD04 - Intercompany invoice billing posting to different GL accounts</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE0648_IF</td>
+<td>Enhancement</td>
+<td>RD04 - Intercompany invoice billing posting to different GL accounts</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE0647_IP</td>
+<td>Enhancement</td>
+<td>Intercompany - Subledger Posting template &amp; Approval Workflow</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE0647_IF</td>
+<td>Enhancement</td>
+<td>Intercompany - Subledger Posting template &amp; Approval Workflow</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE0647_CFIN</td>
+<td>Enhancement</td>
+<td>Intercompany - Subledger Posting template &amp; Approval Workflow</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE0646_IP</td>
+<td>Enhancement</td>
+<td>An automated solution to record the depreciation amount in a monthly basis fo&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE0646_IF</td>
+<td>Enhancement</td>
+<td>An automated solution to record the depreciation amount in a monthly basis fo&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE0645_IP</td>
+<td>Enhancement</td>
+<td>Need to identify a Mass settlement upload tool. Today, the capital life cycle&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>01.Very High</td>
+</tr>
+<tr>
+<td>FPRE0645_IF</td>
+<td>Enhancement</td>
+<td>Need to identify a Mass settlement upload tool. Today, the capital life cycle&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE0624</td>
+<td>Enhancement</td>
+<td>Portal Remittance Automation- Retrofitting</td>
+<td>10. Object Complete</td>
+<td>04.S4 BOT</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE0623</td>
+<td>Enhancement</td>
+<td>Payment Advice Bot Success &amp; Exception Report</td>
+<td>10. Object Complete</td>
+<td>04.S4 BOT</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE0622</td>
+<td>Enhancement</td>
+<td>Exception Handling &amp; Trigger Set up</td>
+<td>10. Object Complete</td>
+<td>04.S4 BOT</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE0621</td>
+<td>Enhancement</td>
+<td>Payment Advice CSV Creation &amp; Upload</td>
+<td>10. Object Complete</td>
+<td>04.S4 BOT</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE0620</td>
+<td>Enhancement</td>
+<td>Model Integration &amp; Export</td>
+<td>10. Object Complete</td>
+<td>04.S4 BOT</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE0619</td>
+<td>Enhancement</td>
+<td>UiPath OCR - Model Validation</td>
+<td>10. Object Complete</td>
+<td>04.S4 BOT</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE0618</td>
+<td>Enhancement</td>
+<td>UiPath OCR - Iterative Model Training</td>
+<td>10. Object Complete</td>
+<td>04.S4 BOT</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE0617</td>
+<td>Enhancement</td>
+<td>UiPath OCR - Classification &amp; Extraction</td>
+<td>10. Object Complete</td>
+<td>04.S4 BOT</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE0616</td>
+<td>Enhancement</td>
+<td>UiPath OCR - Taxonomy &amp; Digitize</td>
+<td>10. Object Complete</td>
+<td>04.S4 BOT</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE0605_IP</td>
+<td>Enhancement</td>
+<td>H2RA - 13th month bonus &amp; Quarterly Performance Bonus (QPB) bonus accrual pos&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE0605_IF</td>
+<td>Enhancement</td>
+<td>H2RA - 13th month bonus &amp; Quarterly Performance Bonus (QPB) bonus accrual pos&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE0604_IP</td>
+<td>Enhancement</td>
+<td>H2RA - Annual Performance Bonus (APB) ER taxes accrual &amp; Quarterly Performanc&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE0604_IF</td>
+<td>Enhancement</td>
+<td>H2RA - Annual Performance Bonus (APB) ER taxes accrual &amp; Quarterly Performanc&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE0602</td>
+<td>Enhancement</td>
+<td>Reclassification of Vendor transactions from Default to Actual within CFIN</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE0601</td>
+<td>Enhancement</td>
+<td>Reclassification of Customer transactions from Default to Actual within CFIN</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE0574_IP</td>
+<td>Enhancement</td>
+<td>Margin analysis Dimensions creation</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE0573_IP</td>
+<td>Enhancement</td>
+<td>Mass Asset Documents Reversal</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FPRE0573_IF</td>
+<td>Enhancement</td>
+<td>Mass Asset Documents Reversal</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE0572_IP</td>
+<td>Enhancement</td>
+<td>Mass Asset Capitalization</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FPRE0572_IF</td>
+<td>Enhancement</td>
+<td>Mass Asset Capitalization</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE0571_IP</td>
+<td>Enhancement</td>
+<td>DSD Matrix Rules to Update Depreciation Start Date in the Direct Cap Asset Ma&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE0571_IF</td>
+<td>Enhancement</td>
+<td>DSD Matrix Rules to Update Depreciation Start Date in the Direct Cap Asset Ma&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE0551</td>
+<td>Enhancement</td>
+<td>SKF Actual Driver volume update from actual activity confirmation Automation</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE0550</td>
+<td>Enhancement</td>
+<td>Enhancement to update additive cost in IP based on Idoc of IF cost</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE0549</td>
+<td>Enhancement</td>
+<td>Enhancement to a) update Cost and Production volume in custom table, b) calcu&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE0500_IP</td>
+<td>Enhancement</td>
+<td>Rule for Transaction Price Allocation in BRIM vs SD</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE0500_IF</td>
+<td>Enhancement</td>
+<td>Rule for Transaction Price Allocation in BRIM vs SD</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE0499_IP</td>
+<td>Enhancement</td>
+<td>Substitution and Validation rule user exit</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE0499_IF</td>
+<td>Enhancement</td>
+<td>Substitution and Validation rule user exit</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE0495_IP</td>
+<td>Enhancement</td>
+<td>Custom Fields in WBS element Master Data</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE0495_IF</td>
+<td>Enhancement</td>
+<td>Custom Fields in WBS element Master Data</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE0477</td>
+<td>Enhancement</td>
+<td>Rebate for Direct Customer to Rebate of Intransit deferrals for Direct &amp; Dist&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE0476</td>
+<td>Enhancement</td>
+<td>Accounting for Stock Rotation</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE0475</td>
+<td>Enhancement</td>
+<td>Accounting for reserves for unissued returns credit note &amp; Rebate Return Accr&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE0474</td>
+<td>Enhancement</td>
+<td>Accounting for technical return reserve</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE0462</td>
+<td>Enhancement</td>
+<td>Enhancement to develop automatic creation of payment advice number in the AR &hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE0430</td>
+<td>Enhancement</td>
+<td>Enhancement for automatic creation of MT210 (pre-advice) message for IC settl&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE0429_IP</td>
+<td>Enhancement</td>
+<td>Utility program to look up inactive cost center and derive replacement cost c&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE0429_IF</td>
+<td>Enhancement</td>
+<td>Utility program to look up inactive cost center and derive replacement cost c&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE0429_CFIN</td>
+<td>Enhancement</td>
+<td>Utility program to look up inactive cost center and derive replacement cost c&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE0428_IP</td>
+<td>Enhancement</td>
+<td>Program to replace inactive cost centers in Assets</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE0428_IF</td>
+<td>Enhancement</td>
+<td>Program to replace inactive cost centers in Assets</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE0425</td>
+<td>Enhancement</td>
+<td>Treasury Funding - Enhancement to support multiple Treasury Funding scenarios&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FPRE0407_IP</td>
+<td>Enhancement</td>
+<td>Period Close in CFin, IP &amp; IF</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE0407_IF</td>
+<td>Enhancement</td>
+<td>Period Close in CFin, IP &amp; IF</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE0407_CFIN</td>
+<td>Enhancement</td>
+<td>Period Close in CFin, IP &amp; IF</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE0375_IP</td>
+<td>Enhancement</td>
+<td>GL Interface – IDOC status from IF &amp; IP</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE0375_IF</td>
+<td>Enhancement</td>
+<td>GL Interface – IDOC status from IF &amp; IP</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE0375_CFIN</td>
+<td>Enhancement</td>
+<td>GL Interface – IDOC status from IF &amp; IP</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE0374_IP</td>
+<td>Enhancement</td>
+<td>GL Interface- Managing 999+ GL line items</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE0374_IF</td>
+<td>Enhancement</td>
+<td>GL Interface- Managing 999+ GL line items</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE0374_CFIN</td>
+<td>Enhancement</td>
+<td>GL Interface- Managing 999+ GL line items</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE0373</td>
+<td>Enhancement</td>
+<td>GL Interface – Splitting of enriched files and populating staging table</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FPRE0372</td>
+<td>Enhancement</td>
+<td>GL Interface - Incoming file processing and Simulation</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FPRE0360_IP</td>
+<td>Enhancement</td>
+<td>Reclassify GL Accounts for Balance Carryforwards - IP</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE0360_IF</td>
+<td>Enhancement</td>
+<td>Reclassify GL Accounts for Balance Carryforwards - IF</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE0328_IP</td>
+<td>Enhancement</td>
+<td>Validations on Asset updates, transfer and retirement</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE0328_IF</td>
+<td>Enhancement</td>
+<td>Validations on Asset updates, transfer and retirement</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE0326_IP</td>
+<td>Enhancement</td>
+<td>Mass upload tool to asset update, transfer and retire (S4 Fiori functionality&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE0326_IF</td>
+<td>Enhancement</td>
+<td>Mass upload tool to asset update, transfer and retire (S4 Fiori functionality&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE0324_IP</td>
+<td>Enhancement</td>
+<td>Custom Fiori App for Asset update, transfer, scrap, and retire based on Repor&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FPRE0324_IF</td>
+<td>Enhancement</td>
+<td>Custom Fiori App for Asset update, transfer, scrap, and retire based on Repor&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE0322_IP</td>
+<td>Enhancement</td>
+<td>Fiori Dashboard to display/edit pre-paid amortization for PO​</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FPRE0322_IF</td>
+<td>Enhancement</td>
+<td>Fiori Dashboard to display/edit pre-paid amortization for PO​</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE0321_IP</td>
+<td>Enhancement</td>
+<td>Fiori Dashboard to display/edit accruals for PO​</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FPRE0321_IF</td>
+<td>Enhancement</td>
+<td>Fiori Dashboard to display/edit accruals for PO​</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE0320_IP</td>
+<td>Enhancement</td>
+<td>Enhancement to read PO data and create manual accrual object​</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE0320_IF</td>
+<td>Enhancement</td>
+<td>Enhancement to read PO data and create manual accrual object​</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE0319_IP</td>
+<td>Enhancement</td>
+<td>Enhancement for accrual posting notification​</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE0319_IF</td>
+<td>Enhancement</td>
+<td>Enhancement for accrual posting notification​</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE0315_IP</td>
+<td>Enhancement</td>
+<td>Activation of custom enhancement tab on portfolio bucket for custom fields.</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE0315_IF</td>
+<td>Enhancement</td>
+<td>Activation of custom enhancement tab on portfolio bucket for custom fields.</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE0314_IP</td>
+<td>Enhancement</td>
+<td>Smart numbering for portfolio items.</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE0314_IF</td>
+<td>Enhancement</td>
+<td>Smart numbering for portfolio items.</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE0289_IP</td>
+<td>Enhancement</td>
+<td>Update XREF1, XREF2 and XREF3 fields in subledger line items</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE0289_IF</td>
+<td>Enhancement</td>
+<td>Update XREF1, XREF2 and XREF3 fields in subledger line items</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE0289_CFIN</td>
+<td>Enhancement</td>
+<td>Update XREF1, XREF2 and XREF3 fields in subledger line items</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE0287_IP</td>
+<td>Enhancement</td>
+<td>Need to enhance Fiori screen to capture business process and the approver whi&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE0287_IF</td>
+<td>Enhancement</td>
+<td>Need to enhance Fiori screen to capture business process and the approver whi&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE0287_CFIN</td>
+<td>Enhancement</td>
+<td>Need to enhance Fiori screen to capture business process and the approver whi&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE0286_IP</td>
+<td>Enhancement</td>
+<td>Mass upload of the same supporting document as an attachment to multiple JEs</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE0286_IF</td>
+<td>Enhancement</td>
+<td>Mass upload of the same supporting document as an attachment to multiple JEs</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE0286_CFIN</td>
+<td>Enhancement</td>
+<td>Mass upload of the same supporting document as an attachment to multiple JEs</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE0285</td>
+<td>Enhancement</td>
+<td>Cash App rules engine for matching incoming payments with payment advice</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>01.Very High</td>
+</tr>
+<tr>
+<td>FPRE0284</td>
+<td>Enhancement</td>
+<td>Mass upload of payment advice</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRE0282</td>
+<td>Enhancement</td>
+<td>RPA BOT for collecting and transforming customer payment advice into standard&hellip;</td>
+<td>10. Object Complete</td>
+<td>04.S4 BOT</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE0240</td>
+<td>Enhancement</td>
+<td>Treasury Payment/funding Request - Enhancement to support multiple Treasury P&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FPRE0049</td>
+<td>Enhancement</td>
+<td>Enhancement - Custom Fields in Manage bank Accounts</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRC1724_IP</td>
+<td>Conversion</td>
+<td>Creation of output template with consumption data</td>
+<td>06. Dev In Progress</td>
+<td>01.S4</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FPRC1724_IF</td>
+<td>Conversion</td>
+<td>Creation of output template with consumption data</td>
+<td>06. Dev In Progress</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRC1565</td>
+<td>Conversion</td>
+<td>Convert active delegate relationships for Timesheet approval</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FPRC1493</td>
+<td>Conversion</td>
+<td>Conversion of WIP values as per Component structure in S/4 - IP</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FPRC1491</td>
+<td>Conversion</td>
+<td>Conversion of WIP values as per Component structure in S/4 - Back End IF</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FPRC1464_IP</td>
+<td>Conversion</td>
+<td>Project Actuals Conversion (Non- Intel Federal)</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FPRC1464_IF</td>
+<td>Conversion</td>
+<td>Project Actuals Conversion (Non- Intel Federal)</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FPRC1442</td>
+<td>Conversion</td>
+<td>Conversion of Actual Labor hours for Intel Federal Projects</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FPRC1441</td>
+<td>Conversion</td>
+<td>Conversion of ECC project hierarchy (WBS element master data) to S/4HANA proj&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FPRC1212</td>
+<td>Conversion</td>
+<td>Project Actuals Conversion including Intel Federal</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRC0908_IP</td>
+<td>Conversion</td>
+<td>Project Budget Conversion</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRC0908_IF</td>
+<td>Conversion</td>
+<td>Project Budget Conversion</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRC0196_IP</td>
+<td>Conversion</td>
+<td>Asset Transaction data conversion</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FPRC0196_IF</td>
+<td>Conversion</td>
+<td>Asset Transaction data conversion</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FPRC0195_IP</td>
+<td>Conversion</td>
+<td>Asset Master data conversion</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRC0195_IF</td>
+<td>Conversion</td>
+<td>Asset Master data conversion</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRC0174_IP</td>
+<td>Conversion</td>
+<td>Conversion of ECC project hierarchy (WBS element master data) to S/4HANA proj&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FPRC0174_IF</td>
+<td>Conversion</td>
+<td>Conversion of ECC project hierarchy (WBS element master data) to S/4HANA proj&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRC0117</td>
+<td>Conversion</td>
+<td>Conversion – In House Cash: Current Account creation and Current Account Bala&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FPRC0116</td>
+<td>Conversion</td>
+<td>Conversion – Migration of Existing Bank Guarantees and Intercompany Loans to &hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRC0035_IP</td>
+<td>Conversion</td>
+<td>Convert existing ECC &amp; MDG hierarchy to S4HANA PPM hierarchy (Portfolio &amp; buc&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRC0035_IF</td>
+<td>Conversion</td>
+<td>Convert existing ECC &amp; MDG hierarchy to S4HANA PPM hierarchy (Portfolio &amp; buc&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FPRE1741</td>
+<td>Enhancement</td>
+<td>Mobile timesheet approval for Intel Federal employees.</td>
+<td>01. Pending Approval</td>
+<td>01.S4</td>
+<td>01.Very High</td>
+</tr>
+</tbody>
+</table>
+<h4 id="552-eca-development-objects">5.5.2 ECA Development Objects</h4>
+<p><strong>Enterprise Cloud Analytics (ECA)</strong> platform objects (Databricks/Snowflake) — views, tables, and ETL jobs with Source or Target System = ECA:</p>
+<table>
+<thead>
+<tr>
+<th>Object ID</th>
+<th>Type</th>
+<th>Description</th>
+<th>Status</th>
+<th>Source → Target</th>
+<th>Complexity</th>
+</tr>
+</thead>
+<tbody>
 <tr>
 <td>FPRI1288</td>
 <td>Interface</td>
 <td>Activity Inbound interface from ECA to S4 IP</td>
 <td>10. Object Complete</td>
 <td>ECA → S/4</td>
-<td>NA</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1810,26 +4042,7 @@ flowchart TD
 <td>Production quantity update in WAC custom table from ECA to S4 IF</td>
 <td>10. Object Complete</td>
 <td>ECA → S/4</td>
-<td>NA</td>
 <td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRI1286_IP</td>
-<td>Interface</td>
-<td>Interface between SAP IP and IF boxes for Outbound IDOC flow_IP</td>
-<td>10. Object Complete</td>
-<td>MULESOFT → S/4</td>
-<td>NA</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRI1286_IF</td>
-<td>Interface</td>
-<td>Interface between SAP IP and IF boxes for Outbound IDOC flow_IF</td>
-<td>10. Object Complete</td>
-<td>MULESOFT → S/4</td>
-<td>NA</td>
-<td>04.Low</td>
 </tr>
 <tr>
 <td>FPRI1273</td>
@@ -1837,7 +4050,6 @@ flowchart TD
 <td>Activity Quantity Inbound interface from ECA to S4 IF</td>
 <td>10. Object Complete</td>
 <td>ECA → S/4</td>
-<td>NA</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1846,25 +4058,6 @@ flowchart TD
 <td>Disti Rebate percentage of gross for Unissued Returns and Intransit Deferral</td>
 <td>10. Object Complete</td>
 <td>ECA → S/4</td>
-<td>NA</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRI1238</td>
-<td>Interface</td>
-<td>Pull Foundry WBS from HAT and create in LE 199 in IP S/4 for Foundry Employee&hellip;</td>
-<td>10. Object Complete</td>
-<td>Head Count Assignment Tool → S/4</td>
-<td>Head Count Assignment Tool</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRI1105</td>
-<td>Interface</td>
-<td>Interface for automatic creation of B2B customer related payment advice</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>OpenText</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1873,7 +4066,6 @@ flowchart TD
 <td>Interface of SAP PPM module to SPEED</td>
 <td>10. Object Complete</td>
 <td>ECA → S/4</td>
-<td>SPEED</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1882,26 +4074,7 @@ flowchart TD
 <td>Interface of SAP PPM module to SPEED</td>
 <td>10. Object Complete</td>
 <td>ECA → S/4</td>
-<td>SPEED</td>
 <td>04.Low</td>
-</tr>
-<tr>
-<td>FPRI0913_IP</td>
-<td>Interface</td>
-<td>Export the Planning data from the SAC table to PPM standard tables using the &hellip;</td>
-<td>10. Object Complete</td>
-<td>SAC → S/4</td>
-<td>NA</td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>FPRI0913_IF</td>
-<td>Interface</td>
-<td>Export the Planning data from the SAC table to PPM standard tables using the &hellip;</td>
-<td>10. Object Complete</td>
-<td>SAC → S/4</td>
-<td>NA</td>
-<td>03.Medium</td>
 </tr>
 <tr>
 <td>FPRI0909_IP</td>
@@ -1909,7 +4082,6 @@ flowchart TD
 <td>Interface for importing the Headcount details by Person# and WBS element comb&hellip;</td>
 <td>10. Object Complete</td>
 <td>ECA → S/4</td>
-<td>Head Count Assignment Tool</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1918,79 +4090,6 @@ flowchart TD
 <td>Interface for importing the Headcount details by Person# and WBS element comb&hellip;</td>
 <td>10. Object Complete</td>
 <td>ECA → S/4</td>
-<td>Head Count Assignment Tool</td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRI0895</td>
-<td>Interface</td>
-<td>Import Tool Sharing Forecasted Data from FCS to S4 &amp; derive FTQ data by Capex&hellip;</td>
-<td>10. Object Complete</td>
-<td>FCS → S/4</td>
-<td>MOR/FCS/SCS</td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>FPRI0894</td>
-<td>Interface</td>
-<td>Planned Volume from IP-BY will be utilized as a KP26 quantity to split &lsquo;Overh&hellip;</td>
-<td>10. Object Complete</td>
-<td>ICS → S/4</td>
-<td>JDA/Blue Yonder ESP/OP (ALTR); Module Planning for Supply Chain on Blue Yonde&hellip;</td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>FPRI0869</td>
-<td>Interface</td>
-<td>Interface for automatic creation of WOM related payment advice</td>
-<td>10. Object Complete</td>
-<td>S/4 → WOM</td>
-<td>SAP Commerce Cloud</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRI0867</td>
-<td>Interface</td>
-<td>Outbound Interface to view the open &amp; Cleared Customer Invoices from CFIN Sys&hellip;</td>
-<td>10. Object Complete</td>
-<td>S/4 → WOM</td>
-<td>SAP Commerce Cloud</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRI0866</td>
-<td>Interface</td>
-<td>Interface to Obtains the payer associated to the sold to from CFIN System to &hellip;</td>
-<td>10. Object Complete</td>
-<td>S/4 → WOM</td>
-<td>SAP Commerce Cloud</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRI0865</td>
-<td>Interface</td>
-<td>Interface to transfer the Uploaded WCP Grant Amount from CFIN to WOM and Defe&hellip;</td>
-<td>10. Object Complete</td>
-<td>S/4 → WOM</td>
-<td>SAP Commerce Cloud</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRI0864_IP</td>
-<td>Interface</td>
-<td>Interface between SAP IP and IF boxes for Inbound IDOC flow_IP</td>
-<td>10. Object Complete</td>
-<td>MULESOFT → S/4</td>
-<td>NA</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRI0864_IF</td>
-<td>Interface</td>
-<td>Interface between SAP IP and IF boxes for Inbound IDOC flow_IF</td>
-<td>10. Object Complete</td>
-<td>MULESOFT → S/4</td>
-<td>NA</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -1999,7 +4098,6 @@ flowchart TD
 <td>Interface between SAP &amp; ECA to provide information for auto certification in &hellip;</td>
 <td>10. Object Complete</td>
 <td>ECA → BLACKLINE</td>
-<td>Task - Blackline</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2008,7 +4106,6 @@ flowchart TD
 <td>Interface between SAP &amp; ECA to provide information for auto certification in &hellip;</td>
 <td>10. Object Complete</td>
 <td>ECA → BLACKLINE</td>
-<td>Task - Blackline</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -2017,44 +4114,7 @@ flowchart TD
 <td>Interface between SAP &amp; ECA to provide information for auto certification in &hellip;</td>
 <td>10. Object Complete</td>
 <td>ECA → BLACKLINE</td>
-<td>Task - Blackline</td>
 <td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRI0862</td>
-<td>Interface</td>
-<td>Interface to transfer the details of selected invoice from WOM to CFIN ( Inbo&hellip;</td>
-<td>10. Object Complete</td>
-<td>WOM → S/4</td>
-<td>SAP Commerce Cloud</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRI0778_IP</td>
-<td>Interface</td>
-<td>Continue to auto-certify a BL task when the related JE is approved</td>
-<td>10. Object Complete</td>
-<td>BLACKLINE → S/4</td>
-<td>Task - Blackline</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRI0778_IF</td>
-<td>Interface</td>
-<td>Continue to auto-certify a BL task when the related JE is approved</td>
-<td>10. Object Complete</td>
-<td>BLACKLINE → S/4</td>
-<td>Task - Blackline</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRI0778_CFIN</td>
-<td>Interface</td>
-<td>Continue to auto-certify a BL task when the related JE is approved</td>
-<td>10. Object Complete</td>
-<td>BLACKLINE → S/4</td>
-<td>Task - Blackline</td>
-<td>02.High</td>
 </tr>
 <tr>
 <td>FPRI0770_IP</td>
@@ -2062,7 +4122,6 @@ flowchart TD
 <td>To enable auto-certify a BL [Blackline] task when the related JE is approved</td>
 <td>10. Object Complete</td>
 <td>BLACKLINE → ECA</td>
-<td>Task - Blackline</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2071,7 +4130,6 @@ flowchart TD
 <td>To enable auto-certify a BL [Blackline] task when the related JE is approved</td>
 <td>10. Object Complete</td>
 <td>BLACKLINE → ECA</td>
-<td>Task - Blackline</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2080,143 +4138,7 @@ flowchart TD
 <td>To enable auto-certify a BL [Blackline] task when the related JE is approved</td>
 <td>10. Object Complete</td>
 <td>BLACKLINE → ECA</td>
-<td>Task - Blackline</td>
 <td>02.High</td>
-</tr>
-<tr>
-<td>FPRI0704</td>
-<td>Interface</td>
-<td>IF-IP Integration Actual Cost - Inbound Interface</td>
-<td>10. Object Complete</td>
-<td>OpenText → S/4</td>
-<td>NA</td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>FPRI0703</td>
-<td>Interface</td>
-<td>IF-IP Integration Actual Cost - Outbound Interface</td>
-<td>10. Object Complete</td>
-<td>S/4 → OpenText</td>
-<td>NA</td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>FPRI0696_IP</td>
-<td>Interface</td>
-<td>Interface between ONESOURCE and Readsoft Process Director built on the back o&hellip;</td>
-<td>10. Object Complete</td>
-<td>ONESOURCE → READSOFT</td>
-<td>OneSource Indirect Tax Suite; Readsoft - Process Director Accounts Payable IP</td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>FPRI0696_IF</td>
-<td>Interface</td>
-<td>Interface between ONESOURCE and Readsoft Process Director built on the back o&hellip;</td>
-<td>10. Object Complete</td>
-<td>ONESOURCE → READSOFT</td>
-<td>OneSource Indirect Tax Suite; Readsoft - Process Director Accounts Payable IF</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRI0695</td>
-<td>Interface</td>
-<td>Reference Interest Rates - S4 converted data from MDG to CFIN</td>
-<td>10. Object Complete</td>
-<td>S/4 MDG → CFIN</td>
-<td>Treasury Suite</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRI0694</td>
-<td>Interface</td>
-<td>Exchange Rates N - S4 converted data from MuleSoft to Treasury Suite</td>
-<td>10. Object Complete</td>
-<td>MULESOFT → TREASURY SUITE</td>
-<td>Treasury Suite</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRI0693</td>
-<td>Interface</td>
-<td>Exchange Rates L - S4 converted data from MuleSoft to Treasury Suite</td>
-<td>10. Object Complete</td>
-<td>Treasury Suite → MULESOFT</td>
-<td>Treasury Suite</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRI0600_IP</td>
-<td>Interface</td>
-<td>Continuation to use Blackline Account Reconciliations Tool (ART), Blackline M&hellip;</td>
-<td>10. Object Complete</td>
-<td>BLACKLINE → S/4</td>
-<td>Matching - Blackline; Close Reconciliation Tool - Blackline; Task - Blackline</td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRI0600_IF</td>
-<td>Interface</td>
-<td>Continuation to use Blackline Account Reconciliations Tool (ART), Blackline M&hellip;</td>
-<td>10. Object Complete</td>
-<td>BLACKLINE → S/4</td>
-<td>Matching - Blackline; Close Reconciliation Tool - Blackline; Task - Blackline</td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRI0600_CFIN</td>
-<td>Interface</td>
-<td>Continuation to use Blackline Account Reconciliations Tool (ART), Blackline M&hellip;</td>
-<td>10. Object Complete</td>
-<td>BLACKLINE → S/4</td>
-<td>Matching - Blackline; Close Reconciliation Tool - Blackline; Task - Blackline</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRI0599_IP</td>
-<td>Interface</td>
-<td>ServiceNow Asset change</td>
-<td>10. Object Complete</td>
-<td>SERVICENOW → S/4</td>
-<td>ServiceNow Cloud Lab</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRI0599_IF</td>
-<td>Interface</td>
-<td>ServiceNow Asset change</td>
-<td>10. Object Complete</td>
-<td>SERVICENOW → S/4</td>
-<td>ServiceNow Cloud Lab</td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRI0598</td>
-<td>Interface</td>
-<td>N rate from Mulesoft to MDG</td>
-<td>10. Object Complete</td>
-<td>MULESOFT → S/4 MDG</td>
-<td>Bloomberg Professional</td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRI0597</td>
-<td>Interface</td>
-<td>N rate from Mulesoft to Bloomberg</td>
-<td>10. Object Complete</td>
-<td>MULESOFT → BLOOMBERG</td>
-<td>Bloomberg Professional</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRI0596</td>
-<td>Interface</td>
-<td>N rate from Mulesoft to Treasury Suite</td>
-<td>10. Object Complete</td>
-<td>MULESOFT → TREASURY SUITE</td>
-<td>Treasury Suite</td>
-<td>03.Medium</td>
 </tr>
 <tr>
 <td>FPRI0554</td>
@@ -2224,2403 +4146,842 @@ flowchart TD
 <td>SKF Interface to get file from ECA and send to S4 via BODS - IF</td>
 <td>10. Object Complete</td>
 <td>ECA → S/4</td>
-<td>Wafer Starts Per Week; ISA-VS2012 US (MAPPS); ISA-VS2008 Asia (ATMPS CR and D&hellip;</td>
 <td>02.High</td>
+</tr>
+</tbody>
+</table>
+<h4 id="553-interface-objects">5.5.3 Interface Objects</h4>
+<p>Holistic view of all interface objects by L2 capability — includes ECA → S/4, S/4 → ECA, boundary system, and inter-platform interfaces with middleware and integration approach:</p>
+<table>
+<thead>
+<tr>
+<th>Object ID</th>
+<th>Description</th>
+<th>Source → Target</th>
+<th>Middleware</th>
+<th>Approach</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FPRI1725_IP</td>
+<td>Interface to be developed to transfer the files from Denodo to FS share path &hellip;</td>
+<td></td>
+<td>Intel MW</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI1725_IF</td>
+<td>Interface to be developed to transfer the files from Denodo to FS share path &hellip;</td>
+<td></td>
+<td>Intel MW</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI1704</td>
+<td>Automated Tool MUP Excess Capacity calculation and associated PCOS/OCOS Split&hellip;</td>
+<td></td>
+<td>BODS</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI1670</td>
+<td>Import Dot process/stage details from MDG into S4. ​</td>
+<td></td>
+<td>NA</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI1669</td>
+<td>Import Xeus/Mars volumes from ECA into S4.​</td>
+<td></td>
+<td>BODS</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI1504</td>
+<td>Asset Delete from EMS to S4 through APIGEE</td>
+<td></td>
+<td>APIGEE</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI1503</td>
+<td>Asset Display from EMS to S4 through APIGEE</td>
+<td></td>
+<td>APIGEE</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI1502</td>
+<td>Asset Change from EMS to S4 through APIGEE</td>
+<td></td>
+<td>APIGEE</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI1463</td>
+<td>Interface to upload payroll data from Workday to S/4 IP for legal entity 199 &hellip;</td>
+<td></td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI1447</td>
+<td>GL Interface –Create Inbound IDOCs to CFIN from IF system</td>
+<td>IF → CFIN</td>
+<td>NA</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI1446</td>
+<td>GL Interface –Create Inbound IDOCs to CFIN from IP system</td>
+<td>IP → CFIN</td>
+<td>NA</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI1439</td>
+<td>Receive planned production quantities per production version from ECA to S/4 &hellip;</td>
+<td></td>
+<td>APIGEE</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI1338</td>
+<td>Outbound Interface to view the Cleared Customer Invoices from CFIN System to &hellip;</td>
+<td>S/4 → WOM</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI1315</td>
+<td>Asset Create from EMS to S4 through APIGEE</td>
+<td></td>
+<td>APIGEE</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI1306</td>
+<td>Interface for importing GL transactional data from SAP CFIN system into SAP IF</td>
+<td>CFIN → S/4</td>
+<td>NA</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI1305</td>
+<td>Interface for importing GL transactional data from SAP CFIN system into SAP IP</td>
+<td>CFIN → S/4</td>
+<td>NA</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI1288</td>
+<td>Activity Inbound interface from ECA to S4 IP</td>
+<td>ECA → S/4</td>
+<td>MuleSoft</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI1287</td>
+<td>Production quantity update in WAC custom table from ECA to S4 IF</td>
+<td>ECA → S/4</td>
+<td>MuleSoft</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI1286_IP</td>
+<td>Interface between SAP IP and IF boxes for Outbound IDOC flow_IP</td>
+<td>MULESOFT → S/4</td>
+<td>SFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI1286_IF</td>
+<td>Interface between SAP IP and IF boxes for Outbound IDOC flow_IF</td>
+<td>MULESOFT → S/4</td>
+<td>SFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI1273</td>
+<td>Activity Quantity Inbound interface from ECA to S4 IF</td>
+<td>ECA → S/4</td>
+<td>MuleSoft</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI1241</td>
+<td>Disti Rebate percentage of gross for Unissued Returns and Intransit Deferral</td>
+<td>ECA → S/4</td>
+<td>BODS</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI1238</td>
+<td>Pull Foundry WBS from HAT and create in LE 199 in IP S/4 for Foundry Employee&hellip;</td>
+<td>Head Count Assignment Tool → S/4</td>
+<td>BODS</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI1105</td>
+<td>Interface for automatic creation of B2B customer related payment advice</td>
+<td></td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI0981_IP</td>
+<td>Interface of SAP PPM module to SPEED</td>
+<td>ECA → S/4</td>
+<td>BODS</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI0981_IF</td>
+<td>Interface of SAP PPM module to SPEED</td>
+<td>ECA → S/4</td>
+<td>BODS</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI0913_IP</td>
+<td>Export the Planning data from the SAC table to PPM standard tables using the &hellip;</td>
+<td>SAC → S/4</td>
+<td>NA</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI0913_IF</td>
+<td>Export the Planning data from the SAC table to PPM standard tables using the &hellip;</td>
+<td>SAC → S/4</td>
+<td>NA</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI0909_IP</td>
+<td>Interface for importing the Headcount details by Person# and WBS element comb&hellip;</td>
+<td>ECA → S/4</td>
+<td>BODS</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI0909_IF</td>
+<td>Interface for importing the Headcount details by Person# and WBS element comb&hellip;</td>
+<td>ECA → S/4</td>
+<td>BODS</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI0895</td>
+<td>Import Tool Sharing Forecasted Data from FCS to S4 &amp; derive FTQ data by Capex&hellip;</td>
+<td>FCS → S/4</td>
+<td>BODS</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI0894</td>
+<td>Planned Volume from IP-BY will be utilized as a KP26 quantity to split &lsquo;Overh&hellip;</td>
+<td>ICS → S/4</td>
+<td>BODS</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI0869</td>
+<td>Interface for automatic creation of WOM related payment advice</td>
+<td>S/4 → WOM</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI0867</td>
+<td>Outbound Interface to view the open &amp; Cleared Customer Invoices from CFIN Sys&hellip;</td>
+<td>S/4 → WOM</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI0866</td>
+<td>Interface to Obtains the payer associated to the sold to from CFIN System to &hellip;</td>
+<td>S/4 → WOM</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI0865</td>
+<td>Interface to transfer the Uploaded WCP Grant Amount from CFIN to WOM and Defe&hellip;</td>
+<td>S/4 → WOM</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI0864_IP</td>
+<td>Interface between SAP IP and IF boxes for Inbound IDOC flow_IP</td>
+<td>MULESOFT → S/4</td>
+<td>SFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI0864_IF</td>
+<td>Interface between SAP IP and IF boxes for Inbound IDOC flow_IF</td>
+<td>MULESOFT → S/4</td>
+<td>SFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI0863_IP</td>
+<td>Interface between SAP &amp; ECA to provide information for auto certification in &hellip;</td>
+<td>ECA → BLACKLINE</td>
+<td>APIGEE;DENODO</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI0863_IF</td>
+<td>Interface between SAP &amp; ECA to provide information for auto certification in &hellip;</td>
+<td>ECA → BLACKLINE</td>
+<td>APIGEE;DENODO</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI0863_CFIN</td>
+<td>Interface between SAP &amp; ECA to provide information for auto certification in &hellip;</td>
+<td>ECA → BLACKLINE</td>
+<td>APIGEE;DENODO</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI0862</td>
+<td>Interface to transfer the details of selected invoice from WOM to CFIN ( Inbo&hellip;</td>
+<td>WOM → S/4</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI0778_IP</td>
+<td>Continue to auto-certify a BL task when the related JE is approved</td>
+<td>BLACKLINE → S/4</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI0778_IF</td>
+<td>Continue to auto-certify a BL task when the related JE is approved</td>
+<td>BLACKLINE → S/4</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI0778_CFIN</td>
+<td>Continue to auto-certify a BL task when the related JE is approved</td>
+<td>BLACKLINE → S/4</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI0770_IP</td>
+<td>To enable auto-certify a BL [Blackline] task when the related JE is approved</td>
+<td>BLACKLINE → ECA</td>
+<td>NA</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI0770_IF</td>
+<td>To enable auto-certify a BL [Blackline] task when the related JE is approved</td>
+<td>BLACKLINE → ECA</td>
+<td>NA</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI0770_CFIN</td>
+<td>To enable auto-certify a BL [Blackline] task when the related JE is approved</td>
+<td>BLACKLINE → ECA</td>
+<td>NA</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI0704</td>
+<td>IF-IP Integration Actual Cost - Inbound Interface</td>
+<td>OpenText → S/4</td>
+<td>SFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI0703</td>
+<td>IF-IP Integration Actual Cost - Outbound Interface</td>
+<td>S/4 → OpenText</td>
+<td>SFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI0696_IP</td>
+<td>Interface between ONESOURCE and Readsoft Process Director built on the back o&hellip;</td>
+<td>ONESOURCE → READSOFT</td>
+<td>NA</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI0696_IF</td>
+<td>Interface between ONESOURCE and Readsoft Process Director built on the back o&hellip;</td>
+<td>ONESOURCE → READSOFT</td>
+<td>NA</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI0695</td>
+<td>Reference Interest Rates - S4 converted data from MDG to CFIN</td>
+<td>S/4 MDG → CFIN</td>
+<td>NA</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI0694</td>
+<td>Exchange Rates N - S4 converted data from MuleSoft to Treasury Suite</td>
+<td>MULESOFT → TREASURY SUITE</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI0693</td>
+<td>Exchange Rates L - S4 converted data from MuleSoft to Treasury Suite</td>
+<td>Treasury Suite → MULESOFT</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI0600_IP</td>
+<td>Continuation to use Blackline Account Reconciliations Tool (ART), Blackline M&hellip;</td>
+<td>BLACKLINE → S/4</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI0600_IF</td>
+<td>Continuation to use Blackline Account Reconciliations Tool (ART), Blackline M&hellip;</td>
+<td>BLACKLINE → S/4</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI0600_CFIN</td>
+<td>Continuation to use Blackline Account Reconciliations Tool (ART), Blackline M&hellip;</td>
+<td>BLACKLINE → S/4</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI0599_IP</td>
+<td>ServiceNow Asset change</td>
+<td>SERVICENOW → S/4</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI0599_IF</td>
+<td>ServiceNow Asset change</td>
+<td>SERVICENOW → S/4</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI0598</td>
+<td>N rate from Mulesoft to MDG</td>
+<td>MULESOFT → S/4 MDG</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI0597</td>
+<td>N rate from Mulesoft to Bloomberg</td>
+<td>MULESOFT → BLOOMBERG</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI0596</td>
+<td>N rate from Mulesoft to Treasury Suite</td>
+<td>MULESOFT → TREASURY SUITE</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI0554</td>
+<td>SKF Interface to get file from ECA and send to S4 via BODS - IF</td>
+<td>ECA → S/4</td>
+<td>MuleSoft</td>
+<td></td>
+<td>10. Object Complete</td>
 </tr>
 <tr>
 <td>FPRI0545</td>
-<td>Interface</td>
 <td>IF-IP Integration - Interface to send Cost Idoc from S4 If to S4 IP</td>
-<td>10. Object Complete</td>
 <td>S/4 → S/4</td>
-<td>NA</td>
-<td>03.Medium</td>
+<td>SFT</td>
+<td></td>
+<td>10. Object Complete</td>
 </tr>
 <tr>
 <td>FPRI0544</td>
-<td>Interface</td>
 <td>IF-IP Integration - Interface to receive Cost Idoc from S4 If to S4 IP</td>
-<td>10. Object Complete</td>
 <td>S/4 → S/4</td>
-<td>NA</td>
-<td>03.Medium</td>
+<td>SFT</td>
+<td></td>
+<td>10. Object Complete</td>
 </tr>
 <tr>
 <td>FPRI0533</td>
-<td>Interface</td>
 <td>Reference Interest Rates from MuleSoft to S4 MDG</td>
-<td>10. Object Complete</td>
 <td>Bloomberg → S/4 MDG</td>
-<td>Bloomberg Professional</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI0532</td>
+<td>Request for Reference Interest Rates from MuleSoft to Bloomberg</td>
+<td>MULESOFT → BLOOMBERG</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI0531</td>
+<td>L Rates from MuleSoft to S4 MDG</td>
+<td>Bloomberg → S/4 MDG</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI0530</td>
+<td>Request for L Rates from MuleSoft to Bloomberg</td>
+<td>MULESOFT → BLOOMBERG</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI0529</td>
+<td>L Rates from MuleSoft to Quantum</td>
+<td>MULESOFT → QUANTUM</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI0528</td>
+<td>L Rates from MuleSoft to Treasury Suite</td>
+<td>MULESOFT → TREASURY SUITE</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI0527</td>
+<td>Reference Interest Rates from MuleSoft to Quantum</td>
+<td>MULESOFT → QUANTUM</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI0526</td>
+<td>Reference Interest Rates from MuleSoft to Treasury Suite</td>
+<td>MULESOFT → TREASURY SUITE</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI0505</td>
+<td>Interface – Copp Clark Holiday Calendar Integration with SAP</td>
+<td>Copp Clark → S/4</td>
+<td>SFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI0379</td>
+<td>GL Interface – File processing in MuleSoft-Payroll</td>
+<td>PAYROLL → S/4</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI0378_IP</td>
+<td>GL Interface - SAP API IP</td>
+<td>API → S/4</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI0378_IF</td>
+<td>GL Interface - SAP API IF</td>
+<td>API → S/4</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI0377</td>
+<td>GL Interface - File Processing in Mulesoft</td>
+<td>CONCUR → S/4</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI0376</td>
+<td>GL Interface - File Processing in Mulesoft</td>
+<td>ICOST → S/4</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI0323_IP</td>
+<td>Create a common API for Asset updates, transfer, retire and Mass upload</td>
+<td></td>
+<td>NA</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI0323_IF</td>
+<td>Create a common API for Asset updates, transfer, retire and Mass upload</td>
+<td></td>
+<td>NA</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI0227</td>
+<td>Outbound Interface from CFIN to QTM in relation to not only QTM payment ackno&hellip;</td>
+<td>S/4 → Quantum</td>
+<td>SFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI0226</td>
+<td>Inbound Interface from QTM to CFIN in relation to QTM payment files and MT me&hellip;</td>
+<td>Quantum → S/4</td>
+<td>SFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI0224</td>
+<td>Outbound Interface - SAP to Quantum for Transmitting Cash Management Relevant&hellip;</td>
+<td>S/4 → Quantum</td>
+<td>SFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI0188</td>
+<td>Inbound Interface from EMS to S/4 to create WBS element and Update WBS elemen&hellip;</td>
+<td>XEUS → S/4</td>
+<td>APIGEE</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+</tbody>
+</table>
+<h4 id="554-middleware-objects">5.5.4 Middleware Objects</h4>
+<p><strong>MuleSoft</strong> integration objects (Development System = MuleSoft):</p>
+<table>
+<thead>
+<tr>
+<th>Object ID</th>
+<th>Description</th>
+<th>Status</th>
+<th>Source → Target</th>
+<th>Complexity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FPRI0694</td>
+<td>Exchange Rates N - S4 converted data from MuleSoft to Treasury Suite</td>
+<td>10. Object Complete</td>
+<td>MULESOFT → TREASURY SUITE</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRI0693</td>
+<td>Exchange Rates L - S4 converted data from MuleSoft to Treasury Suite</td>
+<td>10. Object Complete</td>
+<td>Treasury Suite → MULESOFT</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRI0597</td>
+<td>N rate from Mulesoft to Bloomberg</td>
+<td>10. Object Complete</td>
+<td>MULESOFT → BLOOMBERG</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FPRI0596</td>
+<td>N rate from Mulesoft to Treasury Suite</td>
+<td>10. Object Complete</td>
+<td>MULESOFT → TREASURY SUITE</td>
 <td>03.Medium</td>
 </tr>
 <tr>
 <td>FPRI0532</td>
-<td>Interface</td>
 <td>Request for Reference Interest Rates from MuleSoft to Bloomberg</td>
 <td>10. Object Complete</td>
 <td>MULESOFT → BLOOMBERG</td>
-<td>Bloomberg Professional</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRI0531</td>
-<td>Interface</td>
-<td>L Rates from MuleSoft to S4 MDG</td>
-<td>10. Object Complete</td>
-<td>Bloomberg → S/4 MDG</td>
-<td>Bloomberg Professional</td>
 <td>03.Medium</td>
 </tr>
 <tr>
 <td>FPRI0530</td>
-<td>Interface</td>
 <td>Request for L Rates from MuleSoft to Bloomberg</td>
 <td>10. Object Complete</td>
 <td>MULESOFT → BLOOMBERG</td>
-<td>Bloomberg Professional</td>
 <td>03.Medium</td>
 </tr>
 <tr>
 <td>FPRI0529</td>
-<td>Interface</td>
 <td>L Rates from MuleSoft to Quantum</td>
 <td>10. Object Complete</td>
 <td>MULESOFT → QUANTUM</td>
-<td>FIS Quantum</td>
 <td>03.Medium</td>
 </tr>
 <tr>
 <td>FPRI0528</td>
-<td>Interface</td>
 <td>L Rates from MuleSoft to Treasury Suite</td>
 <td>10. Object Complete</td>
 <td>MULESOFT → TREASURY SUITE</td>
-<td>Treasury Suite</td>
 <td>03.Medium</td>
 </tr>
 <tr>
 <td>FPRI0527</td>
-<td>Interface</td>
 <td>Reference Interest Rates from MuleSoft to Quantum</td>
 <td>10. Object Complete</td>
 <td>MULESOFT → QUANTUM</td>
-<td>FIS Quantum</td>
 <td>03.Medium</td>
 </tr>
 <tr>
 <td>FPRI0526</td>
-<td>Interface</td>
 <td>Reference Interest Rates from MuleSoft to Treasury Suite</td>
 <td>10. Object Complete</td>
 <td>MULESOFT → TREASURY SUITE</td>
-<td>Treasury Suite</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRI0505</td>
-<td>Interface</td>
-<td>Interface – Copp Clark Holiday Calendar Integration with SAP</td>
-<td>10. Object Complete</td>
-<td>Copp Clark → S/4</td>
-<td>Copp Clark Holiday Data Service</td>
 <td>03.Medium</td>
 </tr>
 <tr>
 <td>FPRI0379</td>
-<td>Interface</td>
 <td>GL Interface – File processing in MuleSoft-Payroll</td>
 <td>10. Object Complete</td>
 <td>PAYROLL → S/4</td>
-<td>NA</td>
 <td>02.High</td>
-</tr>
-<tr>
-<td>FPRI0378_IP</td>
-<td>Interface</td>
-<td>GL Interface - SAP API IP</td>
-<td>10. Object Complete</td>
-<td>API → S/4</td>
-<td>Design and Sales Acceleration E-Commerce (Demo Depot); Flex One-Stop Tool</td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>FPRI0378_IF</td>
-<td>Interface</td>
-<td>GL Interface - SAP API IF</td>
-<td>10. Object Complete</td>
-<td>API → S/4</td>
-<td>Design and Sales Acceleration E-Commerce (Demo Depot); Flex One-Stop Tool</td>
-<td>03.Medium</td>
 </tr>
 <tr>
 <td>FPRI0377</td>
-<td>Interface</td>
 <td>GL Interface - File Processing in Mulesoft</td>
 <td>10. Object Complete</td>
 <td>CONCUR → S/4</td>
-<td>Workday; ADP Payroll GAR; ADP Payroll EMEA; ICOST - Integrated Cost of Sales &hellip;</td>
 <td>02.High</td>
 </tr>
 <tr>
 <td>FPRI0376</td>
-<td>Interface</td>
 <td>GL Interface - File Processing in Mulesoft</td>
 <td>10. Object Complete</td>
 <td>ICOST → S/4</td>
-<td>Workday; ADP Payroll GAR; ADP Payroll EMEA; ICOST - Integrated Cost of Sales &hellip;</td>
 <td>02.High</td>
-</tr>
-<tr>
-<td>FPRI0323_IP</td>
-<td>Interface</td>
-<td>Create a common API for Asset updates, transfer, retire and Mass upload</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>ServiceNow Cloud</td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>FPRI0323_IF</td>
-<td>Interface</td>
-<td>Create a common API for Asset updates, transfer, retire and Mass upload</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>ServiceNow Cloud</td>
-<td>03.Medium</td>
 </tr>
 <tr>
 <td>FPRI0227</td>
-<td>Interface</td>
 <td>Outbound Interface from CFIN to QTM in relation to not only QTM payment ackno&hellip;</td>
 <td>10. Object Complete</td>
 <td>S/4 → Quantum</td>
-<td>FIS Quantum</td>
 <td>03.Medium</td>
 </tr>
 <tr>
 <td>FPRI0226</td>
-<td>Interface</td>
 <td>Inbound Interface from QTM to CFIN in relation to QTM payment files and MT me&hellip;</td>
 <td>10. Object Complete</td>
 <td>Quantum → S/4</td>
-<td>FIS Quantum</td>
 <td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRI0224</td>
-<td>Interface</td>
-<td>Outbound Interface - SAP to Quantum for Transmitting Cash Management Relevant&hellip;</td>
-<td>10. Object Complete</td>
-<td>S/4 → Quantum</td>
-<td>FIS Quantum</td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>FPRI0188</td>
-<td>Interface</td>
-<td>Inbound Interface from EMS to S/4 to create WBS element and Update WBS elemen&hellip;</td>
-<td>10. Object Complete</td>
-<td>XEUS → S/4</td>
-<td>Equipment Management System</td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>FPRF0230</td>
-<td>Form</td>
-<td>Invoice output Layout - America</td>
-<td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>FPRE1723_IP</td>
-<td>Enhancement</td>
-<td>Intel BRF+ - Create Function Modules in S/4HANA(FM and BRF+)</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE1723_IF</td>
-<td>Enhancement</td>
-<td>Intel BRF+ - Create Function Modules in S/4HANA(FM and BRF+)</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE1722_IP</td>
-<td>Enhancement</td>
-<td>Intel BRF+ - Create Function Modules in S/4HANA (FM and components)</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE1722_IF</td>
-<td>Enhancement</td>
-<td>Intel BRF+ - Create Function Modules in S/4HANA (FM and components)</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE1711</td>
-<td>Enhancement</td>
-<td>BADI Enhancement to change Order Type from Product cost Collector from IP &amp; I&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE1706</td>
-<td>Enhancement</td>
-<td>Enhancement to create Cash Management relevant data from F110 Payment Run for&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE1705</td>
-<td>Enhancement</td>
-<td>Enhancement to do Cash App post EBS load with the corresponding payment advice.</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE1695</td>
-<td>Enhancement</td>
-<td>Custom Fiori app - Change WBS Element Request Form with ALV Input​</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE1671_IP</td>
-<td>Enhancement</td>
-<td>S4, Perform required calculations, summarizations, mappings and post the allo&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE1671_IF</td>
-<td>Enhancement</td>
-<td>S4, Perform required calculations, summarizations, mappings and post the allo&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE1661_IP</td>
-<td>Enhancement</td>
-<td>WBS transfer tool</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>FPRE1661_IF</td>
-<td>Enhancement</td>
-<td>WBS transfer tool</td>
-<td>09. FUT Overdue</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE1660</td>
-<td>Enhancement</td>
-<td>Enhancement for Revenue Recognition by Stage postings for Product/Services Sa&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>FPRE1659</td>
-<td>Enhancement</td>
-<td>Enhancement for Revenue Recognition by Stage postings for Product/Services Sa&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>FPRE1650_IP</td>
-<td>Enhancement</td>
-<td>(FTQ Input to drive Disaggregation to Allocation Cycle) for Forecast.​</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE1650_IF</td>
-<td>Enhancement</td>
-<td>(FTQ Input to drive Disaggregation to Allocation Cycle) for Forecast.​</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE1620_IP</td>
-<td>Enhancement</td>
-<td>Implement OSS Note 2358961 to allow COGS split based on Aux CCS at time of de&hellip;</td>
-<td>99. Rejected/Cancelled/On Hold</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE1620_IF</td>
-<td>Enhancement</td>
-<td>Implement OSS Note 2358961 to allow COGS split based on Aux CCS at time of de&hellip;</td>
-<td>99. Rejected/Cancelled/On Hold</td>
-<td></td>
-<td></td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE1600</td>
-<td>Enhancement</td>
-<td>Custom Fiori app - Create WBS Element Request Form with ALV Input​</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE1599_IP</td>
-<td>Enhancement</td>
-<td>Update existing custom table ZTFPR_ACRENG02 to store the calculation of PO li&hellip;</td>
-<td>09. FUT Overdue</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE1599_IF</td>
-<td>Enhancement</td>
-<td>Update existing custom table ZTFPR_ACRENG02 to store the calculation of PO li&hellip;</td>
-<td>09. FUT Overdue</td>
-<td></td>
-<td></td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE1564</td>
-<td>Enhancement</td>
-<td>Employee Notification for timesheet entry</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE1563</td>
-<td>Enhancement</td>
-<td>Manager notification for timesheet approval</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE1562</td>
-<td>Enhancement</td>
-<td>Manage Delegates for approval</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE1561</td>
-<td>Enhancement</td>
-<td>Timesheet approval</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>FPRE1560</td>
-<td>Enhancement</td>
-<td>Timesheet entry for Intel Federal employees</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>01.Very High</td>
-</tr>
-<tr>
-<td>FPRE1553</td>
-<td>Enhancement</td>
-<td>Custom Fiori app - Change WBS Element Request Form with ALV Input​</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE1519_IP</td>
-<td>Enhancement</td>
-<td>Project Change Order - Edit and Submit of draft request with change functiona&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>FPRE1519_IF</td>
-<td>Enhancement</td>
-<td>Project Change Order - Edit and Submit of draft request with change functiona&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE1518_IP</td>
-<td>Enhancement</td>
-<td>Project Change Order - Change existing Purchase Orders during creation of Pro&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>FPRE1518_IF</td>
-<td>Enhancement</td>
-<td>Project Change Order - Change existing Purchase Orders during creation of Pro&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE1517_IP</td>
-<td>Enhancement</td>
-<td>Project Change Order - Create Purchase Orders during creation of Project Chan&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>FPRE1517_IF</td>
-<td>Enhancement</td>
-<td>Project Change Order - Create Purchase Orders during creation of Project Chan&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE1516_IP</td>
-<td>Enhancement</td>
-<td>Enhancement to enable user decision action to be taken from email directly fo&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE1516_IF</td>
-<td>Enhancement</td>
-<td>Enhancement to enable user decision action to be taken from email directly fo&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE1515_IP</td>
-<td>Enhancement</td>
-<td>Enhancement to display popup screen to trigger project creation workflow</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE1515_IF</td>
-<td>Enhancement</td>
-<td>Enhancement to display popup screen to trigger project creation workflow</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE1513_IP</td>
-<td>Enhancement</td>
-<td>Generate and download JV file for JE posting</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE1513_IF</td>
-<td>Enhancement</td>
-<td>Generate and download JV file for JE posting</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE1513_CFIN</td>
-<td>Enhancement</td>
-<td>Generate and download JV file for JE posting</td>
-<td>99. Rejected/Cancelled/On Hold</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE1512_IP</td>
-<td>Enhancement</td>
-<td>Query confirm ITT document to determine the Capital/Expense and tax code manu&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE1512_IF</td>
-<td>Enhancement</td>
-<td>Query confirm ITT document to determine the Capital/Expense and tax code manu&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE1511_IP</td>
-<td>Enhancement</td>
-<td>Query existing draft ITT document and make changes</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE1511_IF</td>
-<td>Enhancement</td>
-<td>Query existing draft ITT document and make changes</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE1510_IP</td>
-<td>Enhancement</td>
-<td>ITT document creation</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE1510_IF</td>
-<td>Enhancement</td>
-<td>ITT document creation</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE1448</td>
-<td>Enhancement</td>
-<td>FIORI screen to take care of TPR Display/ Change/ cancellation options</td>
-<td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE1443</td>
-<td>Enhancement</td>
-<td>FIORI screen to take care of TFR Display/ Change/ cancellation options</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE1438</td>
-<td>Enhancement</td>
-<td>Update mixing ratio for Procurement alternative for Cross site transfer based&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE1419</td>
-<td>Enhancement</td>
-<td>Update Procurement alternatives based on production version &amp; PIR for cross s&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE1328</td>
-<td>Enhancement</td>
-<td>Legal Valuation standard cost calculation enhancement</td>
-<td>99. Rejected/Cancelled/On Hold</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE1239</td>
-<td>Enhancement</td>
-<td>Enhancement for Revenue Recognition by Stage postings for Product/Services Sa&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>FPRE1235_IP</td>
-<td>Enhancement</td>
-<td>Add custom fields to CJI3 and CJI5 reports (SAP S/4HANA Project Systems modul&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE1235_IF</td>
-<td>Enhancement</td>
-<td>Add custom fields to CJI3 and CJI5 reports (SAP S/4HANA Project Systems modul&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE1209</td>
-<td>Enhancement</td>
-<td>Upload adjustments to time sheet entries in bulk for Intel Federal.</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>FPRE1104_IP</td>
-<td>Enhancement</td>
-<td>WBS with custom attributes will be created in the PS module. The master data &hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>FPRE1104_IF</td>
-<td>Enhancement</td>
-<td>WBS with custom attributes will be created in the PS module. The master data &hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE1025_IP</td>
-<td>Enhancement</td>
-<td>Custom Fiori app will be created using Free style model to display WBS/AUC re&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE1025_IF</td>
-<td>Enhancement</td>
-<td>Custom Fiori app will be created using Free style model to display WBS/AUC re&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE0942_IP</td>
-<td>Enhancement</td>
-<td>Interface of SAP PPM module to ATLAS</td>
-<td>10. Object Complete</td>
-<td>S4 → ATLAS</td>
-<td>NA</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE0942_IF</td>
-<td>Enhancement</td>
-<td>Interface of SAP PPM module to ATLAS</td>
-<td>10. Object Complete</td>
-<td>S4 → ATLAS</td>
-<td>NA</td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE0931_IP</td>
-<td>Enhancement</td>
-<td>Rebuild Boundary Application ITT in S/4</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE0931_IF</td>
-<td>Enhancement</td>
-<td>Rebuild Boundary Application ITT in S/4</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE0931_CFIN</td>
-<td>Enhancement</td>
-<td>Rebuild Boundary Application ITT in S/4</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>FPRE0929</td>
-<td>Enhancement</td>
-<td>Fiori UI for Counterparty Maintenance and User Exit to trigger replication to&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>FPRE0928</td>
-<td>Enhancement</td>
-<td>Enhancement for automatic derivation and population of Purpose Of Payment (PO&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE0899_IP</td>
-<td>Enhancement</td>
-<td>Custom Enhancement to disaggregate: Owner CC-DPN $ to WBS elements using Cape&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>FPRE0899_IF</td>
-<td>Enhancement</td>
-<td>Custom Enhancement to disaggregate:Owner CC-DPN $ to WBS elements using Capex&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE0892</td>
-<td>Enhancement</td>
-<td>Derive ICS FTQ data by Capex WBS L2 &amp; Mfr. Process Node CC​</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE0891</td>
-<td>Enhancement</td>
-<td>Split from primary Cost centers to PCOS &amp; R&amp;D/OCOS</td>
-<td>99. Rejected/Cancelled/On Hold</td>
-<td></td>
-<td></td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE0890_IP</td>
-<td>Enhancement</td>
-<td>Investment type creation and automatic settlement rule generation for Opex Pr&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE0890_IF</td>
-<td>Enhancement</td>
-<td>Investment type creation and automatic settlement rule generation for Opex Pr&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE0889_IP</td>
-<td>Enhancement</td>
-<td>Custom table needs to be created to hold allocation %s based on LOB Profit ce&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE0889_IF</td>
-<td>Enhancement</td>
-<td>Custom table needs to be created to hold allocation %s based on LOB Profit ce&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE0888_IP</td>
-<td>Enhancement</td>
-<td>Mass Update Fields in WBS Elements</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>FPRE0888_IF</td>
-<td>Enhancement</td>
-<td>Mass Update Fields in WBS Elements</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE0887_IP</td>
-<td>Enhancement</td>
-<td>WBS Element field synchronization to AUC and Fixed assets - Construction ID -&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE0887_IF</td>
-<td>Enhancement</td>
-<td>WBS Element field synchronization to AUC and Fixed assets - Construction ID -&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE0886_IP</td>
-<td>Enhancement</td>
-<td>Project Change Order - Create Project Change Order via custom Fiori Screens w&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>FPRE0886_IF</td>
-<td>Enhancement</td>
-<td>Project Change Order - Create Project Change Order via custom Fiori Screens w&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE0885</td>
-<td>Enhancement</td>
-<td>Custom Fiori app - Create WBS Element Request Form with ALV Input​</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE0884_IP</td>
-<td>Enhancement</td>
-<td>Custom Fiori app - CPA (Project Budget) approval request using PPM Item decis&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>FPRE0884_IF</td>
-<td>Enhancement</td>
-<td>Custom Fiori app - CPA (Project Budget) approval request using PPM Item decis&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE0883_IP</td>
-<td>Enhancement</td>
-<td>(FTQ Input to drive Disaggregation to Allocation Cycle) for Actuals.​</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE0883_IF</td>
-<td>Enhancement</td>
-<td>(FTQ Input to drive Disaggregation to Allocation Cycle) for Actuals.​</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE0882</td>
-<td>Enhancement</td>
-<td>Derive FCS FTQ data by Capex WBS L2 &amp; Mfr. Process Node CC​</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE0881</td>
-<td>Enhancement</td>
-<td>DMEE User Exits Required in the payment files- APAC​</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE0880</td>
-<td>Enhancement</td>
-<td>Cash concentration functionality for cross-currency current accounts</td>
-<td>09. FUT Overdue</td>
-<td></td>
-<td></td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE0879</td>
-<td>Enhancement</td>
-<td>File Formatting and processing to support MBC and APM integration</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE0877_IP</td>
-<td>Enhancement</td>
-<td>Automation to set TECO and CLSD status on Project/ WBS</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>FPRE0877_IF</td>
-<td>Enhancement</td>
-<td>Automation to set TECO and CLSD status on Project/ WBS</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE0870</td>
-<td>Enhancement</td>
-<td>Smart Exporter Interface to CFIN</td>
-<td>10. Object Complete</td>
-<td>EY Smart Exporter Tool → S4</td>
-<td>EY Smart Exporter Tool</td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE0827</td>
-<td>Enhancement</td>
-<td>MT3xx and MT5xx Files - Adjust SWIFT Parameters for MBC</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE0786</td>
-<td>Enhancement</td>
-<td>Enhancement to Mass upload of WOM payment advice.</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE0785</td>
-<td>Enhancement</td>
-<td>Enhancement to upload WCP Grant Amount in CFIN sys</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE0784_IP</td>
-<td>Enhancement</td>
-<td>Reclass program for XIU/ SIU to reclass expense to inventory accounts (cost c&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE0784_IF</td>
-<td>Enhancement</td>
-<td>Reclass program for XIU/ SIU to reclass expense to inventory accounts (cost c&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE0783_IP</td>
-<td>Enhancement</td>
-<td>Asset creation from PO (S4 / Ariba / EMS, etc.)</td>
-<td>10. Object Complete</td>
-<td>Ariba → S4</td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE0783_IF</td>
-<td>Enhancement</td>
-<td>Asset creation from PO (S4 / Ariba / EMS, etc.)</td>
-<td>10. Object Complete</td>
-<td>Ariba → S4</td>
-<td></td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE0781_IP</td>
-<td>Enhancement</td>
-<td>Import Standard Cost from S4 tables into SAC using Custom CDS view.</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE0781_IF</td>
-<td>Enhancement</td>
-<td>Import Standard Cost from S4 tables into SAC using Custom CDS view.</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE0780_IP</td>
-<td>Enhancement</td>
-<td>Read the workday file from AL11 in IP, IF</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE0780_IF</td>
-<td>Enhancement</td>
-<td>Read the workday file from AL11 in IP, IF</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE0779_IP</td>
-<td>Enhancement</td>
-<td>Enhance the details in workday file to meet AE format in IP, IF</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE0779_IF</td>
-<td>Enhancement</td>
-<td>Enhance the details in workday file to meet AE format in IP, IF</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE0777_IP</td>
-<td>Enhancement</td>
-<td>Add a field in ACDOCA to store Cert ID to continue auto-certify a BL task whe&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE0777_IF</td>
-<td>Enhancement</td>
-<td>Add a field in ACDOCA to store Cert ID to continue auto-certify a BL task whe&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE0777_CFIN</td>
-<td>Enhancement</td>
-<td>Add a field in ACDOCA to store Cert ID to continue auto-certify a BL task whe&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE0764_IP</td>
-<td>Enhancement</td>
-<td>Import Headcount details by cost center and update in S4 for HR benefits spen&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE0764_IF</td>
-<td>Enhancement</td>
-<td>Import Headcount details by cost center and update in S4 for HR benefits spen&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE0763</td>
-<td>Enhancement</td>
-<td>Placeholder - BADI for Memo Records with different Planning Levels/Types gene&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE0761</td>
-<td>Enhancement</td>
-<td>Branch Name and Address for Payments instead of entity Name and Address</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE0760_IP</td>
-<td>Enhancement</td>
-<td>SAP RAR and TM Integration to trigger POD Event</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE0760_IF</td>
-<td>Enhancement</td>
-<td>SAP RAR and TM Integration to trigger POD Event</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE0702</td>
-<td>Enhancement</td>
-<td>Calculation of variance to be loaded for Group Actual Costing</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE0701_IP</td>
-<td>Enhancement</td>
-<td>Mixed Costing ratio auto update</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE0701_IF</td>
-<td>Enhancement</td>
-<td>Mixed Costing ratio auto update</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE0700_IP</td>
-<td>Enhancement</td>
-<td>Representative material ID – Q2-Q8 Forecast</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE0700_IF</td>
-<td>Enhancement</td>
-<td>Representative material ID – Q2-Q8 Forecast</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE0699</td>
-<td>Enhancement</td>
-<td>Enhancement for Excess Capacity – Fixed Spending Adjustment</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>FPRE0698</td>
-<td>Enhancement</td>
-<td>Legal Valuation standard cost calculation enhancement</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE0697</td>
-<td>Enhancement</td>
-<td>RAR Balance sheet posting with MM &amp; Sold To ID</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE0648_IP</td>
-<td>Enhancement</td>
-<td>RD04 - Intercompany invoice billing posting to different GL accounts</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE0648_IF</td>
-<td>Enhancement</td>
-<td>RD04 - Intercompany invoice billing posting to different GL accounts</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE0647_IP</td>
-<td>Enhancement</td>
-<td>Intercompany - Subledger Posting template &amp; Approval Workflow</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE0647_IF</td>
-<td>Enhancement</td>
-<td>Intercompany - Subledger Posting template &amp; Approval Workflow</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE0647_CFIN</td>
-<td>Enhancement</td>
-<td>Intercompany - Subledger Posting template &amp; Approval Workflow</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE0646_IP</td>
-<td>Enhancement</td>
-<td>An automated solution to record the depreciation amount in a monthly basis fo&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE0646_IF</td>
-<td>Enhancement</td>
-<td>An automated solution to record the depreciation amount in a monthly basis fo&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE0645_IP</td>
-<td>Enhancement</td>
-<td>Need to identify a Mass settlement upload tool. Today, the capital life cycle&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>01.Very High</td>
-</tr>
-<tr>
-<td>FPRE0645_IF</td>
-<td>Enhancement</td>
-<td>Need to identify a Mass settlement upload tool. Today, the capital life cycle&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE0624</td>
-<td>Enhancement</td>
-<td>Portal Remittance Automation- Retrofitting</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE0623</td>
-<td>Enhancement</td>
-<td>Payment Advice Bot Success &amp; Exception Report</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE0622</td>
-<td>Enhancement</td>
-<td>Exception Handling &amp; Trigger Set up</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE0621</td>
-<td>Enhancement</td>
-<td>Payment Advice CSV Creation &amp; Upload</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE0620</td>
-<td>Enhancement</td>
-<td>Model Integration &amp; Export</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE0619</td>
-<td>Enhancement</td>
-<td>UiPath OCR - Model Validation</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE0618</td>
-<td>Enhancement</td>
-<td>UiPath OCR - Iterative Model Training</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE0617</td>
-<td>Enhancement</td>
-<td>UiPath OCR - Classification &amp; Extraction</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE0616</td>
-<td>Enhancement</td>
-<td>UiPath OCR - Taxonomy &amp; Digitize</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE0605_IP</td>
-<td>Enhancement</td>
-<td>H2RA - 13th month bonus &amp; Quarterly Performance Bonus (QPB) bonus accrual pos&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE0605_IF</td>
-<td>Enhancement</td>
-<td>H2RA - 13th month bonus &amp; Quarterly Performance Bonus (QPB) bonus accrual pos&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE0604_IP</td>
-<td>Enhancement</td>
-<td>H2RA - Annual Performance Bonus (APB) ER taxes accrual &amp; Quarterly Performanc&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE0604_IF</td>
-<td>Enhancement</td>
-<td>H2RA - Annual Performance Bonus (APB) ER taxes accrual &amp; Quarterly Performanc&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE0602</td>
-<td>Enhancement</td>
-<td>Reclassification of Vendor transactions from Default to Actual within CFIN</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE0601</td>
-<td>Enhancement</td>
-<td>Reclassification of Customer transactions from Default to Actual within CFIN</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE0574_IP</td>
-<td>Enhancement</td>
-<td>Margin analysis Dimensions creation</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE0573_IP</td>
-<td>Enhancement</td>
-<td>Mass Asset Documents Reversal</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>FPRE0573_IF</td>
-<td>Enhancement</td>
-<td>Mass Asset Documents Reversal</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE0572_IP</td>
-<td>Enhancement</td>
-<td>Mass Asset Capitalization</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>FPRE0572_IF</td>
-<td>Enhancement</td>
-<td>Mass Asset Capitalization</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE0571_IP</td>
-<td>Enhancement</td>
-<td>DSD Matrix Rules to Update Depreciation Start Date in the Direct Cap Asset Ma&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE0571_IF</td>
-<td>Enhancement</td>
-<td>DSD Matrix Rules to Update Depreciation Start Date in the Direct Cap Asset Ma&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE0551</td>
-<td>Enhancement</td>
-<td>SKF Actual Driver volume update from actual activity confirmation Automation</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE0550</td>
-<td>Enhancement</td>
-<td>Enhancement to update additive cost in IP based on Idoc of IF cost</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE0549</td>
-<td>Enhancement</td>
-<td>Enhancement to a) update Cost and Production volume in custom table, b) calcu&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>BY-PDH</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE0500_IP</td>
-<td>Enhancement</td>
-<td>Rule for Transaction Price Allocation in BRIM vs SD</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE0500_IF</td>
-<td>Enhancement</td>
-<td>Rule for Transaction Price Allocation in BRIM vs SD</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE0499_IP</td>
-<td>Enhancement</td>
-<td>Substitution and Validation rule user exit</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE0499_IF</td>
-<td>Enhancement</td>
-<td>Substitution and Validation rule user exit</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE0495_IP</td>
-<td>Enhancement</td>
-<td>Custom Fields in WBS element Master Data</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE0495_IF</td>
-<td>Enhancement</td>
-<td>Custom Fields in WBS element Master Data</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE0477</td>
-<td>Enhancement</td>
-<td>Rebate for Direct Customer to Rebate of Intransit deferrals for Direct &amp; Dist&hellip;</td>
-<td>10. Object Complete</td>
-<td>NA → NA</td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE0476</td>
-<td>Enhancement</td>
-<td>Accounting for Stock Rotation</td>
-<td>10. Object Complete</td>
-<td>NA → NA</td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE0475</td>
-<td>Enhancement</td>
-<td>Accounting for reserves for unissued returns credit note &amp; Rebate Return Accr&hellip;</td>
-<td>10. Object Complete</td>
-<td>NA → NA</td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE0474</td>
-<td>Enhancement</td>
-<td>Accounting for technical return reserve</td>
-<td>10. Object Complete</td>
-<td>NA → NA</td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE0462</td>
-<td>Enhancement</td>
-<td>Enhancement to develop automatic creation of payment advice number in the AR &hellip;</td>
-<td>10. Object Complete</td>
-<td>NA → NA</td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE0430</td>
-<td>Enhancement</td>
-<td>Enhancement for automatic creation of MT210 (pre-advice) message for IC settl&hellip;</td>
-<td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE0429_IP</td>
-<td>Enhancement</td>
-<td>Utility program to look up inactive cost center and derive replacement cost c&hellip;</td>
-<td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE0429_IF</td>
-<td>Enhancement</td>
-<td>Utility program to look up inactive cost center and derive replacement cost c&hellip;</td>
-<td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE0429_CFIN</td>
-<td>Enhancement</td>
-<td>Utility program to look up inactive cost center and derive replacement cost c&hellip;</td>
-<td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE0428_IP</td>
-<td>Enhancement</td>
-<td>Program to replace inactive cost centers in Assets</td>
-<td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE0428_IF</td>
-<td>Enhancement</td>
-<td>Program to replace inactive cost centers in Assets</td>
-<td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE0425</td>
-<td>Enhancement</td>
-<td>Treasury Funding - Enhancement to support multiple Treasury Funding scenarios&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>FPRE0407_IP</td>
-<td>Enhancement</td>
-<td>Period Close in CFin, IP &amp; IF</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE0407_IF</td>
-<td>Enhancement</td>
-<td>Period Close in CFin, IP &amp; IF</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE0407_CFIN</td>
-<td>Enhancement</td>
-<td>Period Close in CFin, IP &amp; IF</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE0375_IP</td>
-<td>Enhancement</td>
-<td>GL Interface – IDOC status from IF &amp; IP</td>
-<td>10. Object Complete</td>
-<td>NA → NA</td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE0375_IF</td>
-<td>Enhancement</td>
-<td>GL Interface – IDOC status from IF &amp; IP</td>
-<td>10. Object Complete</td>
-<td>NA → NA</td>
-<td></td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE0375_CFIN</td>
-<td>Enhancement</td>
-<td>GL Interface – IDOC status from IF &amp; IP</td>
-<td>10. Object Complete</td>
-<td>NA → NA</td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE0374_IP</td>
-<td>Enhancement</td>
-<td>GL Interface- Managing 999+ GL line items</td>
-<td>10. Object Complete</td>
-<td>NA → NA</td>
-<td></td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE0374_IF</td>
-<td>Enhancement</td>
-<td>GL Interface- Managing 999+ GL line items</td>
-<td>10. Object Complete</td>
-<td>NA → NA</td>
-<td></td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE0374_CFIN</td>
-<td>Enhancement</td>
-<td>GL Interface- Managing 999+ GL line items</td>
-<td>10. Object Complete</td>
-<td>NA → NA</td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE0373</td>
-<td>Enhancement</td>
-<td>GL Interface – Splitting of enriched files and populating staging table</td>
-<td>10. Object Complete</td>
-<td>NA → NA</td>
-<td></td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>FPRE0372</td>
-<td>Enhancement</td>
-<td>GL Interface - Incoming file processing and Simulation</td>
-<td>10. Object Complete</td>
-<td>NA → NA</td>
-<td></td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>FPRE0360_IP</td>
-<td>Enhancement</td>
-<td>Reclassify GL Accounts for Balance Carryforwards - IP</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE0360_IF</td>
-<td>Enhancement</td>
-<td>Reclassify GL Accounts for Balance Carryforwards - IF</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE0328_IP</td>
-<td>Enhancement</td>
-<td>Validations on Asset updates, transfer and retirement</td>
-<td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE0328_IF</td>
-<td>Enhancement</td>
-<td>Validations on Asset updates, transfer and retirement</td>
-<td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE0326_IP</td>
-<td>Enhancement</td>
-<td>Mass upload tool to asset update, transfer and retire (S4 Fiori functionality&hellip;</td>
-<td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE0326_IF</td>
-<td>Enhancement</td>
-<td>Mass upload tool to asset update, transfer and retire (S4 Fiori functionality&hellip;</td>
-<td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE0324_IP</td>
-<td>Enhancement</td>
-<td>Custom Fiori App for Asset update, transfer, scrap, and retire based on Repor&hellip;</td>
-<td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>FPRE0324_IF</td>
-<td>Enhancement</td>
-<td>Custom Fiori App for Asset update, transfer, scrap, and retire based on Repor&hellip;</td>
-<td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE0322_IP</td>
-<td>Enhancement</td>
-<td>Fiori Dashboard to display/edit pre-paid amortization for PO​</td>
-<td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>FPRE0322_IF</td>
-<td>Enhancement</td>
-<td>Fiori Dashboard to display/edit pre-paid amortization for PO​</td>
-<td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE0321_IP</td>
-<td>Enhancement</td>
-<td>Fiori Dashboard to display/edit accruals for PO​</td>
-<td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>FPRE0321_IF</td>
-<td>Enhancement</td>
-<td>Fiori Dashboard to display/edit accruals for PO​</td>
-<td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE0320_IP</td>
-<td>Enhancement</td>
-<td>Enhancement to read PO data and create manual accrual object​</td>
-<td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE0320_IF</td>
-<td>Enhancement</td>
-<td>Enhancement to read PO data and create manual accrual object​</td>
-<td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE0319_IP</td>
-<td>Enhancement</td>
-<td>Enhancement for accrual posting notification​</td>
-<td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE0319_IF</td>
-<td>Enhancement</td>
-<td>Enhancement for accrual posting notification​</td>
-<td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE0315_IP</td>
-<td>Enhancement</td>
-<td>Activation of custom enhancement tab on portfolio bucket for custom fields.</td>
-<td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE0315_IF</td>
-<td>Enhancement</td>
-<td>Activation of custom enhancement tab on portfolio bucket for custom fields.</td>
-<td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE0314_IP</td>
-<td>Enhancement</td>
-<td>Smart numbering for portfolio items.</td>
-<td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE0314_IF</td>
-<td>Enhancement</td>
-<td>Smart numbering for portfolio items.</td>
-<td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE0289_IP</td>
-<td>Enhancement</td>
-<td>Update XREF1, XREF2 and XREF3 fields in subledger line items</td>
-<td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE0289_IF</td>
-<td>Enhancement</td>
-<td>Update XREF1, XREF2 and XREF3 fields in subledger line items</td>
-<td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE0289_CFIN</td>
-<td>Enhancement</td>
-<td>Update XREF1, XREF2 and XREF3 fields in subledger line items</td>
-<td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE0287_IP</td>
-<td>Enhancement</td>
-<td>Need to enhance Fiori screen to capture business process and the approver whi&hellip;</td>
-<td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE0287_IF</td>
-<td>Enhancement</td>
-<td>Need to enhance Fiori screen to capture business process and the approver whi&hellip;</td>
-<td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE0287_CFIN</td>
-<td>Enhancement</td>
-<td>Need to enhance Fiori screen to capture business process and the approver whi&hellip;</td>
-<td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE0286_IP</td>
-<td>Enhancement</td>
-<td>Mass upload of the same supporting document as an attachment to multiple JEs</td>
-<td>10. Object Complete</td>
-<td>NA → NA</td>
-<td></td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE0286_IF</td>
-<td>Enhancement</td>
-<td>Mass upload of the same supporting document as an attachment to multiple JEs</td>
-<td>10. Object Complete</td>
-<td>NA → NA</td>
-<td></td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE0286_CFIN</td>
-<td>Enhancement</td>
-<td>Mass upload of the same supporting document as an attachment to multiple JEs</td>
-<td>10. Object Complete</td>
-<td>NA → NA</td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE0285</td>
-<td>Enhancement</td>
-<td>Cash App rules engine for matching incoming payments with payment advice</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
-<td>01.Very High</td>
-</tr>
-<tr>
-<td>FPRE0284</td>
-<td>Enhancement</td>
-<td>Mass upload of payment advice</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRE0282</td>
-<td>Enhancement</td>
-<td>RPA BOT for collecting and transforming customer payment advice into standard&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE0240</td>
-<td>Enhancement</td>
-<td>Treasury Payment/funding Request - Enhancement to support multiple Treasury P&hellip;</td>
-<td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>FPRE0049</td>
-<td>Enhancement</td>
-<td>Enhancement - Custom Fields in Manage bank Accounts</td>
-<td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRC1724_IP</td>
-<td>Conversion</td>
-<td>Creation of output template with consumption data</td>
-<td>06. Dev In Progress</td>
-<td></td>
-<td></td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>FPRC1724_IF</td>
-<td>Conversion</td>
-<td>Creation of output template with consumption data</td>
-<td>06. Dev In Progress</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRC1565</td>
-<td>Conversion</td>
-<td>Convert active delegate relationships for Timesheet approval</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>FPRC1493</td>
-<td>Conversion</td>
-<td>Conversion of WIP values as per Component structure in S/4 - IP</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>FPRC1491</td>
-<td>Conversion</td>
-<td>Conversion of WIP values as per Component structure in S/4 - Back End IF</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>FPRC1464_IP</td>
-<td>Conversion</td>
-<td>Project Actuals Conversion (Non- Intel Federal)</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>FPRC1464_IF</td>
-<td>Conversion</td>
-<td>Project Actuals Conversion (Non- Intel Federal)</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>FPRC1442</td>
-<td>Conversion</td>
-<td>Conversion of Actual Labor hours for Intel Federal Projects</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>FPRC1441</td>
-<td>Conversion</td>
-<td>Conversion of ECC project hierarchy (WBS element master data) to S/4HANA proj&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>FPRC1212</td>
-<td>Conversion</td>
-<td>Project Actuals Conversion including Intel Federal</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRC0908_IP</td>
-<td>Conversion</td>
-<td>Project Budget Conversion</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRC0908_IF</td>
-<td>Conversion</td>
-<td>Project Budget Conversion</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRC0196_IP</td>
-<td>Conversion</td>
-<td>Asset Transaction data conversion</td>
-<td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>FPRC0196_IF</td>
-<td>Conversion</td>
-<td>Asset Transaction data conversion</td>
-<td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>FPRC0195_IP</td>
-<td>Conversion</td>
-<td>Asset Master data conversion</td>
-<td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRC0195_IF</td>
-<td>Conversion</td>
-<td>Asset Master data conversion</td>
-<td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRC0174_IP</td>
-<td>Conversion</td>
-<td>Conversion of ECC project hierarchy (WBS element master data) to S/4HANA proj&hellip;</td>
-<td>10. Object Complete</td>
-<td>ECC → S4</td>
-<td>ECC</td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>FPRC0174_IF</td>
-<td>Conversion</td>
-<td>Conversion of ECC project hierarchy (WBS element master data) to S/4HANA proj&hellip;</td>
-<td>10. Object Complete</td>
-<td>ECC → S4</td>
-<td>ECC</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRC0117</td>
-<td>Conversion</td>
-<td>Conversion – In House Cash: Current Account creation and Current Account Bala&hellip;</td>
-<td>10. Object Complete</td>
-<td>ECC → CFIN</td>
-<td>ECC</td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>FPRC0116</td>
-<td>Conversion</td>
-<td>Conversion – Migration of Existing Bank Guarantees and Intercompany Loans to &hellip;</td>
-<td>10. Object Complete</td>
-<td>Quantum → CFIN</td>
-<td>Quantum</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRC0035_IP</td>
-<td>Conversion</td>
-<td>Convert existing ECC &amp; MDG hierarchy to S4HANA PPM hierarchy (Portfolio &amp; buc&hellip;</td>
-<td>10. Object Complete</td>
-<td>→ MDG</td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FPRC0035_IF</td>
-<td>Conversion</td>
-<td>Convert existing ECC &amp; MDG hierarchy to S4HANA PPM hierarchy (Portfolio &amp; buc&hellip;</td>
-<td>10. Object Complete</td>
-<td>→ MDG</td>
-<td></td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FPRE1741</td>
-<td>Enhancement</td>
-<td>Mobile timesheet approval for Intel Federal employees.</td>
-<td>01. Pending Approval</td>
-<td></td>
-<td></td>
-<td>01.Very High</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Summary</strong>: 17 Reports, 86 Interfaces, 25 Conversions, 220 Enhancements, 1 Forms, 18 Workflows</p>
-<h4 id="552-boundary-application-dependencies">5.5.2 Boundary Application Dependencies</h4>
-<p>The following RICEFW objects integrate with <strong>boundary applications</strong> (external systems outside the S/4 HANA core):</p>
+<h4 id="555-scheduling-batch-objects">5.5.5 Scheduling &amp; Batch Objects</h4>
+<p><em>Scheduling and batch job objects (AutoSys, CWA) will be populated when job scheduler metadata is available. This section will map batch dependencies to RICEFW and ECA objects.</em></p>
+<h4 id="556-boundary-application-dependencies">5.5.6 Boundary Application Dependencies</h4>
+<p>The following development objects integrate with <strong>boundary applications</strong> (external systems outside the S/4 HANA core):</p>
 <table>
 <thead>
 <tr>
-<th>RICEFW ID</th>
+<th>Object ID</th>
 <th>Description</th>
 <th>Boundary Application</th>
 <th>Source → Target</th>
@@ -5227,6 +5588,29 @@ flowchart TD
 <td>SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR)</td>
 <td>Intel Corporate Compliance Framework</td>
 <td>Compliance Office</td>
+</tr>
+</tbody>
+</table>
+<h3 id="65-eca-development-object-status">6.5 ECA Development Object Status</h3>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ECA Objects (this capability)</td>
+<td>15</td>
+</tr>
+<tr>
+<td>ECA Interfaces</td>
+<td>15</td>
+</tr>
+<tr>
+<td>Total ECA + SAP Interface Dependencies</td>
+<td>86</td>
 </tr>
 </tbody>
 </table>

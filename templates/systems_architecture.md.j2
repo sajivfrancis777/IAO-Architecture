@@ -76,10 +76,14 @@ nav.toc a:hover { text-decoration: underline; }
       <li><a href="#53-change-impact-summary">5.3 Change Impact Summary</a></li>
 {% endif %}
       <li><a href="#54-component-overview">5.4 Component Overview</a></li>
-      <li><a href="#55-ricefw-inventory">5.5 RICEFW Inventory</a>
+      <li><a href="#55-development-object-inventory">5.5 Development Object Inventory</a>
         <ul>
-          <li><a href="#551-eca-dependencies">5.5.1 ECA Dependencies</a></li>
-          <li><a href="#552-boundary-application-dependencies">5.5.2 Boundary Application Dependencies</a></li>
+          <li><a href="#551-sap-development-objects">5.5.1 SAP Development Objects</a></li>
+          <li><a href="#552-eca-development-objects">5.5.2 ECA Development Objects</a></li>
+          <li><a href="#553-interface-objects">5.5.3 Interface Objects</a></li>
+          <li><a href="#554-middleware-objects">5.5.4 Middleware Objects</a></li>
+          <li><a href="#555-scheduling-batch-objects">5.5.5 Scheduling &amp; Batch Objects</a></li>
+          <li><a href="#556-boundary-application-dependencies">5.5.6 Boundary Application Dependencies</a></li>
         </ul>
       </li>
       <li><a href="#56-integration-patterns">5.6 Integration Patterns</a></li>
@@ -94,6 +98,7 @@ nav.toc a:hover { text-decoration: underline; }
       <li><a href="#62-sap-development-object-status">6.2 SAP Development Object Status</a></li>
       <li><a href="#63-nfrs-design-principles">6.3 NFRs &amp; Design Principles</a></li>
       <li><a href="#64-security-governance">6.4 Security &amp; Governance</a></li>
+      <li><a href="#65-eca-development-object-status">6.5 ECA Development Object Status</a></li>
     </ul>
   </li>
   <li><a href="#7-project-context">7. Project Context</a>
@@ -468,31 +473,75 @@ This view is generated from `{{ future_csv_name }}` ({{ future_flows.total_hops 
 | {{ sys.name }} | {{ sys.iapm_id }} | {{ sys.status }} |
 {% endfor %}
 
-### 5.5 RICEFW Inventory
+### 5.5 Development Object Inventory
 
 {% if ricefw and ricefw.ricefw %}
-| Object ID | Type | Description | Status | Source → Target | Boundary App | Complexity |
-|-----------|------|-------------|--------|----------------|-------------|----------|
-{% for obj in ricefw.ricefw -%}
-| {{ obj.object_id }} | {{ obj.type_label }} | {{ obj.description|tc }} | {{ obj.status|tc }} | {{ obj.source_system|tc }}{% if obj.target_system %} → {{ obj.target_system|tc }}{% endif %} | {{ obj.boundary_app|tc }} | {{ obj.technical_complexity|tc }} |
+**Summary**: {{ ricefw.dev_object_summary }} | RICEFW: {{ ricefw.ricefw_summary }}
+
+{% set sap_objs = ricefw.sap_dev_objects() %}
+{% set eca_objs = ricefw.eca_dev_objects() %}
+{% set intf_objs = ricefw.interfaces() %}
+{% set mw_objs = ricefw.middleware_objects() %}
+{% set sched_objs = ricefw.scheduling_objects() %}
+
+{% if sap_objs %}
+#### 5.5.1 SAP Development Objects
+
+SAP platform objects (Reports, Interfaces, Conversions, Enhancements, Forms, Workflows) developed on S/4, MDG, or S/4 BOT:
+
+| Object ID | Type | Description | Status | Dev System | Complexity |
+|-----------|------|-------------|--------|-----------|----------|
+{% for obj in sap_objs -%}
+| {{ obj.object_id }} | {{ obj.type_label }} | {{ obj.description|tc }} | {{ obj.status|tc }} | {{ obj.development_system|tc }} | {{ obj.technical_complexity|tc }} |
 {% endfor %}
+{% endif %}
 
-**Summary**: {{ ricefw.ricefw_summary }}
+{% if eca_objs %}
+#### 5.5.2 ECA Development Objects
 
-{% set eca_objects = [] %}
-{% for obj in ricefw.ricefw if obj.eca_object_id %}
-{% if eca_objects.append(obj) %}{% endif %}
+**Enterprise Cloud Analytics (ECA)** platform objects (Databricks/Snowflake) — views, tables, and ETL jobs with Source or Target System = ECA:
+
+| Object ID | Type | Description | Status | Source → Target | Complexity |
+|-----------|------|-------------|--------|----------------|----------|
+{% for obj in eca_objs -%}
+| {{ obj.object_id }} | {{ obj.type_label }} | {{ obj.description|tc }} | {{ obj.status|tc }} | {{ obj.source_system|tc }}{% if obj.target_system %} → {{ obj.target_system|tc }}{% endif %} | {{ obj.technical_complexity|tc }} |
 {% endfor %}
-{% if eca_objects %}
-#### 5.5.1 ECA Dependencies
+{% endif %}
 
-The following RICEFW objects have dependencies on **Enterprise Cloud Analytics (ECA)** platform objects (Databricks/Snowflake):
+{% if intf_objs %}
+#### 5.5.3 Interface Objects
 
-| RICEFW ID | Description | ECA Object ID | ECA Description |
-|-----------|------------|---------------|----------------|
-{% for obj in eca_objects -%}
-| {{ obj.object_id }} | {{ obj.description|tc }} | {{ obj.eca_object_id }} | {{ obj.eca_description|tc }} |
+Holistic view of all interface objects by L2 capability — includes ECA → S/4, S/4 → ECA, boundary system, and inter-platform interfaces with middleware and integration approach:
+
+| Object ID | Description | Source → Target | Middleware | Approach | Status |
+|-----------|-------------|----------------|-----------|----------|--------|
+{% for obj in intf_objs -%}
+| {{ obj.object_id }} | {{ obj.description|tc }} | {{ obj.source_system|tc }}{% if obj.target_system %} → {{ obj.target_system|tc }}{% endif %} | {{ obj.middleware|tc }} | {{ obj.interface_approach|tc }} | {{ obj.status|tc }} |
 {% endfor %}
+{% endif %}
+
+{% if mw_objs %}
+#### 5.5.4 Middleware Objects
+
+**MuleSoft** integration objects (Development System = MuleSoft):
+
+| Object ID | Description | Status | Source → Target | Complexity |
+|-----------|-------------|--------|----------------|----------|
+{% for obj in mw_objs -%}
+| {{ obj.object_id }} | {{ obj.description|tc }} | {{ obj.status|tc }} | {{ obj.source_system|tc }}{% if obj.target_system %} → {{ obj.target_system|tc }}{% endif %} | {{ obj.technical_complexity|tc }} |
+{% endfor %}
+{% endif %}
+
+#### 5.5.5 Scheduling & Batch Objects
+
+{% if sched_objs %}
+| Object ID | Description | Status | Source → Target | Schedule | Complexity |
+|-----------|-------------|--------|----------------|----------|----------|
+{% for obj in sched_objs -%}
+| {{ obj.object_id }} | {{ obj.description|tc }} | {{ obj.status|tc }} | {{ obj.source_system|tc }}{% if obj.target_system %} → {{ obj.target_system|tc }}{% endif %} | — | {{ obj.technical_complexity|tc }} |
+{% endfor %}
+{% else %}
+*Scheduling and batch job objects (AutoSys, CWA) will be populated when job scheduler metadata is available. This section will map batch dependencies to RICEFW and ECA objects.*
 {% endif %}
 
 {% set ba_objects = [] %}
@@ -500,18 +549,18 @@ The following RICEFW objects have dependencies on **Enterprise Cloud Analytics (
 {% if ba_objects.append(obj) %}{% endif %}
 {% endfor %}
 {% if ba_objects %}
-#### 5.5.2 Boundary Application Dependencies
+#### 5.5.6 Boundary Application Dependencies
 
-The following RICEFW objects integrate with **boundary applications** (external systems outside the S/4 HANA core):
+The following development objects integrate with **boundary applications** (external systems outside the S/4 HANA core):
 
-| RICEFW ID | Description | Boundary Application | Source → Target |
+| Object ID | Description | Boundary Application | Source → Target |
 |-----------|------------|---------------------|----------------|
 {% for obj in ba_objects -%}
 | {{ obj.object_id }} | {{ obj.description|tc }} | {{ obj.boundary_app|tc }} | {{ obj.source_system|tc }}{% if obj.target_system %} → {{ obj.target_system|tc }}{% endif %} |
 {% endfor %}
 {% endif %}
 {% else %}
-*RICEFW inventory will be auto-populated from the Smartsheet S/4 Object Tracker when matched to this capability.*
+*Development object inventory will be auto-populated from the Smartsheet S/4 Object Tracker when matched to this capability.*
 {% endif %}
 
 {% if ricefw and ricefw.ricefw %}
@@ -695,6 +744,18 @@ This section presents the **{{ release_id }}-scoped** current and future state f
 {% endfor %}
 {% else %}
 *Security and governance controls will be populated from the Input Portal when tower architects complete the Security Controls tab.*
+{% endif %}
+
+### 6.5 ECA Development Object Status
+
+{% if ricefw and ricefw.eca_dev_objects() %}
+| Metric | Count |
+|--------|-------|
+| ECA Objects (this capability) | {{ ricefw.eca_dev_objects()|length }} |
+| ECA Interfaces | {{ ricefw.eca_dev_objects()|selectattr('type_code', 'equalto', 'I')|list|length }} |
+| Total ECA + SAP Interface Dependencies | {{ ricefw.interfaces()|length }} |
+{% else %}
+*ECA development object status will be auto-populated when Snowflake SELECT access is provisioned for the PDH-IF and PDH-IP curated layers. This section will provide a DEV/QAS/PRD maturity assessment equivalent to §6.2 for SAP objects.*
 {% endif %}
 
 {% if (ctx and (ctx.has_sap_status or ctx.has_nfrs or ctx.has_security)) or tech_platforms or current_platform_mermaid or future_platform_mermaid %}

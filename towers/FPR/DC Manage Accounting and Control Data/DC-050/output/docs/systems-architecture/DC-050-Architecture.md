@@ -70,10 +70,14 @@ nav.toc a:hover { text-decoration: underline; }
   <li><a href="#5-application-architecture-togaf-a">5. Application Architecture (TOGAF &ldquo;A&rdquo;)</a>
     <ul>
       <li><a href="#54-component-overview">5.4 Component Overview</a></li>
-      <li><a href="#55-ricefw-inventory">5.5 RICEFW Inventory</a>
+      <li><a href="#55-development-object-inventory">5.5 Development Object Inventory</a>
         <ul>
-          <li><a href="#551-eca-dependencies">5.5.1 ECA Dependencies</a></li>
-          <li><a href="#552-boundary-application-dependencies">5.5.2 Boundary Application Dependencies</a></li>
+          <li><a href="#551-sap-development-objects">5.5.1 SAP Development Objects</a></li>
+          <li><a href="#552-eca-development-objects">5.5.2 ECA Development Objects</a></li>
+          <li><a href="#553-interface-objects">5.5.3 Interface Objects</a></li>
+          <li><a href="#554-middleware-objects">5.5.4 Middleware Objects</a></li>
+          <li><a href="#555-scheduling-batch-objects">5.5.5 Scheduling &amp; Batch Objects</a></li>
+          <li><a href="#556-boundary-application-dependencies">5.5.6 Boundary Application Dependencies</a></li>
         </ul>
       </li>
       <li><a href="#56-integration-patterns">5.6 Integration Patterns</a></li>
@@ -85,6 +89,7 @@ nav.toc a:hover { text-decoration: underline; }
       <li><a href="#62-sap-development-object-status">6.2 SAP Development Object Status</a></li>
       <li><a href="#63-nfrs-design-principles">6.3 NFRs &amp; Design Principles</a></li>
       <li><a href="#64-security-governance">6.4 Security &amp; Governance</a></li>
+      <li><a href="#65-eca-development-object-status">6.5 ECA Development Object Status</a></li>
     </ul>
   </li>
   <li><a href="#7-project-context">7. Project Context</a>
@@ -2088,106 +2093,138 @@ Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
 | System | IAPM ID | Status |
 |--------|---------|--------|
 
-### 5.5 RICEFW Inventory
+### 5.5 Development Object Inventory
 
-| Object ID | Type | Description | Status | Source → Target | Boundary App | Complexity |
-|-----------|------|-------------|--------|----------------|-------------|----------|
-| FPRW1064_IP | Workflow | Custom Workflow will also be created with some predefined process/rules for a... | 10. Object Complete |  |  | 01.Very High |
-| FPRW1064_IF | Workflow | Custom Workflow will also be created with some predefined process/rules for a... | 10. Object Complete |  |  | 02.High |
-| FPRW0906_IP | Workflow | Custom workflow: Change Order Create and Change Approval | 10. Object Complete |  |  | 03.Medium |
-| FPRW0906_IF | Workflow | Custom workflow: Change Order Create and Change Approval | 10. Object Complete |  |  | 03.Medium |
-| FPRW0904_IP | Workflow | Custom Workflow - WBS Element Request approval with WBS Element creation | 10. Object Complete |  |  | 03.Medium |
-| FPRW0904_IF | Workflow | Custom Workflow - WBS Element Request approval with WBS Element creation | 10. Object Complete |  |  | 03.Medium |
-| FPRW0900_IP | Workflow | Custom Workflow: Approval for Project creation and create a Project def and l... | 10. Object Complete |  |  | 03.Medium |
-| FPRW0900_IF | Workflow | Custom Workflow: Approval for Project creation and create a Project def and l... | 10. Object Complete |  |  | 03.Medium |
-| FPRW0445_IP | Workflow | Project budget approval workflow (Capex)​ | 10. Object Complete |  |  | 03.Medium |
-| FPRW0445_IF | Workflow | Project budget approval workflow (Capex)​ | 10. Object Complete |  |  | 03.Medium |
-| FPRR1211 | Report | Report for searching on and viewing government contract timesheets for Intel ... | 10. Object Complete |  |  | 03.Medium |
-| FPRR1210 | Report | Report for searching on and viewing government contract timesheet changes for... | 10. Object Complete |  |  | 03.Medium |
-| FPRR0907_IP | Report | Workflow Status Report ( Order Request / Approval Request / Others ) | 10. Object Complete |  |  | 03.Medium |
-| FPRR0907_IF | Report | Workflow Status Report ( Order Request / Approval Request / Others ) | 10. Object Complete |  |  | 04.Low |
-| FPRI1670 | Interface | Import Dot process/stage details from MDG into S4. ​ | 10. Object Complete |  | NA | 03.Medium |
-| FPRI1669 | Interface | Import Xeus/Mars volumes from ECA into S4.​ | 10. Object Complete |  | NA | 03.Medium |
-| FPRI1463 | Interface | Interface to upload payroll data from Workday to S/4 IP for legal entity 199 ... | 10. Object Complete |  | Workday | 03.Medium |
-| FPRI1238 | Interface | Pull Foundry WBS from HAT and create in LE 199 in IP S/4 for Foundry Employee... | 10. Object Complete | Head Count Assignment Tool → S/4 | Head Count Assignment Tool | 03.Medium |
-| FPRI0981_IP | Interface | Interface of SAP PPM module to SPEED | 10. Object Complete | ECA → S/4 | SPEED | 03.Medium |
-| FPRI0981_IF | Interface | Interface of SAP PPM module to SPEED | 10. Object Complete | ECA → S/4 | SPEED | 04.Low |
-| FPRI0909_IP | Interface | Interface for importing the Headcount details by Person# and WBS element comb... | 10. Object Complete | ECA → S/4 | Head Count Assignment Tool | 03.Medium |
-| FPRI0909_IF | Interface | Interface for importing the Headcount details by Person# and WBS element comb... | 10. Object Complete | ECA → S/4 | Head Count Assignment Tool | 04.Low |
-| FPRI0188 | Interface | Inbound Interface from EMS to S/4 to create WBS element and Update WBS elemen... | 10. Object Complete | XEUS → S/4 | Equipment Management System | 02.High |
-| FPRE1695 | Enhancement | Custom Fiori app - Change WBS Element Request Form with ALV Input​ | 10. Object Complete |  |  | 03.Medium |
-| FPRE1671_IP | Enhancement | S4, Perform required calculations, summarizations, mappings and post the allo... | 10. Object Complete |  |  | 03.Medium |
-| FPRE1671_IF | Enhancement | S4, Perform required calculations, summarizations, mappings and post the allo... | 10. Object Complete |  |  | 04.Low |
-| FPRE1661_IP | Enhancement | WBS transfer tool | 10. Object Complete |  |  | 02.High |
-| FPRE1661_IF | Enhancement | WBS transfer tool | 09. FUT Overdue |  |  | 03.Medium |
-| FPRE1600 | Enhancement | Custom Fiori app - Create WBS Element Request Form with ALV Input​ | 10. Object Complete |  |  | 03.Medium |
-| FPRE1564 | Enhancement | Employee Notification for timesheet entry | 10. Object Complete |  |  | 03.Medium |
-| FPRE1563 | Enhancement | Manager notification for timesheet approval | 10. Object Complete |  |  | 03.Medium |
-| FPRE1562 | Enhancement | Manage Delegates for approval | 10. Object Complete |  |  | 03.Medium |
-| FPRE1561 | Enhancement | Timesheet approval | 10. Object Complete |  |  | 02.High |
-| FPRE1560 | Enhancement | Timesheet entry for Intel Federal employees | 10. Object Complete |  |  | 01.Very High |
-| FPRE1553 | Enhancement | Custom Fiori app - Change WBS Element Request Form with ALV Input​ | 10. Object Complete |  |  | 03.Medium |
-| FPRE1519_IP | Enhancement | Project Change Order - Edit and Submit of draft request with change functiona... | 10. Object Complete |  |  | 02.High |
-| FPRE1519_IF | Enhancement | Project Change Order - Edit and Submit of draft request with change functiona... | 10. Object Complete |  |  | 03.Medium |
-| FPRE1518_IP | Enhancement | Project Change Order - Change existing Purchase Orders during creation of Pro... | 10. Object Complete |  |  | 02.High |
-| FPRE1518_IF | Enhancement | Project Change Order - Change existing Purchase Orders during creation of Pro... | 10. Object Complete |  |  | 03.Medium |
-| FPRE1517_IP | Enhancement | Project Change Order - Create Purchase Orders during creation of Project Chan... | 10. Object Complete |  |  | 02.High |
-| FPRE1517_IF | Enhancement | Project Change Order - Create Purchase Orders during creation of Project Chan... | 10. Object Complete |  |  | 03.Medium |
-| FPRE1516_IP | Enhancement | Enhancement to enable user decision action to be taken from email directly fo... | 10. Object Complete |  |  | 03.Medium |
-| FPRE1516_IF | Enhancement | Enhancement to enable user decision action to be taken from email directly fo... | 10. Object Complete |  |  | 04.Low |
-| FPRE1515_IP | Enhancement | Enhancement to display popup screen to trigger project creation workflow | 10. Object Complete |  |  | 03.Medium |
-| FPRE1515_IF | Enhancement | Enhancement to display popup screen to trigger project creation workflow | 10. Object Complete |  |  | 04.Low |
-| FPRE1235_IP | Enhancement | Add custom fields to CJI3 and CJI5 reports (SAP S/4HANA Project Systems modul... | 10. Object Complete |  |  | 03.Medium |
-| FPRE1235_IF | Enhancement | Add custom fields to CJI3 and CJI5 reports (SAP S/4HANA Project Systems modul... | 10. Object Complete |  |  | 04.Low |
-| FPRE1209 | Enhancement | Upload adjustments to time sheet entries in bulk for Intel Federal. | 10. Object Complete |  |  | 02.High |
-| FPRE1104_IP | Enhancement | WBS with custom attributes will be created in the PS module. The master data ... | 10. Object Complete |  |  | 02.High |
-| FPRE1104_IF | Enhancement | WBS with custom attributes will be created in the PS module. The master data ... | 10. Object Complete |  |  | 03.Medium |
-| FPRE1025_IP | Enhancement | Custom Fiori app will be created using Free style model to display WBS/AUC re... | 10. Object Complete |  |  | 03.Medium |
-| FPRE1025_IF | Enhancement | Custom Fiori app will be created using Free style model to display WBS/AUC re... | 10. Object Complete |  |  | 04.Low |
-| FPRE0942_IP | Enhancement | Interface of SAP PPM module to ATLAS | 10. Object Complete | S4 → ATLAS | NA | 03.Medium |
-| FPRE0942_IF | Enhancement | Interface of SAP PPM module to ATLAS | 10. Object Complete | S4 → ATLAS | NA | 04.Low |
-| FPRE0891 | Enhancement | Split from primary Cost centers to PCOS & R&D/OCOS | 99. Rejected/Cancelled/On Hold |  |  | 04.Low |
-| FPRE0890_IP | Enhancement | Investment type creation and automatic settlement rule generation for Opex Pr... | 10. Object Complete |  |  | 03.Medium |
-| FPRE0890_IF | Enhancement | Investment type creation and automatic settlement rule generation for Opex Pr... | 10. Object Complete |  |  | 04.Low |
-| FPRE0888_IP | Enhancement | Mass Update Fields in WBS Elements | 10. Object Complete |  |  | 02.High |
-| FPRE0888_IF | Enhancement | Mass Update Fields in WBS Elements | 10. Object Complete |  |  | 03.Medium |
-| FPRE0887_IP | Enhancement | WBS Element field synchronization to AUC and Fixed assets - Construction ID -... | 10. Object Complete |  |  | 03.Medium |
-| FPRE0887_IF | Enhancement | WBS Element field synchronization to AUC and Fixed assets - Construction ID -... | 10. Object Complete |  |  | 04.Low |
-| FPRE0886_IP | Enhancement | Project Change Order - Create Project Change Order via custom Fiori Screens w... | 10. Object Complete |  |  | 02.High |
-| FPRE0886_IF | Enhancement | Project Change Order - Create Project Change Order via custom Fiori Screens w... | 10. Object Complete |  |  | 03.Medium |
-| FPRE0885 | Enhancement | Custom Fiori app - Create WBS Element Request Form with ALV Input​ | 10. Object Complete |  |  | 03.Medium |
-| FPRE0884_IP | Enhancement | Custom Fiori app - CPA (Project Budget) approval request using PPM Item decis... | 10. Object Complete |  |  | 02.High |
-| FPRE0884_IF | Enhancement | Custom Fiori app - CPA (Project Budget) approval request using PPM Item decis... | 10. Object Complete |  |  | 03.Medium |
-| FPRE0877_IP | Enhancement | Automation to set TECO and CLSD status on Project/ WBS | 10. Object Complete |  |  | 02.High |
-| FPRE0877_IF | Enhancement | Automation to set TECO and CLSD status on Project/ WBS | 10. Object Complete |  |  | 03.Medium |
-| FPRE0495_IP | Enhancement | Custom Fields in WBS element Master Data | 10. Object Complete |  |  | 03.Medium |
-| FPRE0495_IF | Enhancement | Custom Fields in WBS element Master Data | 10. Object Complete |  |  | 04.Low |
-| FPRE0315_IP | Enhancement | Activation of custom enhancement tab on portfolio bucket for custom fields. | 10. Object Complete | NA → NA | NA | 03.Medium |
-| FPRE0315_IF | Enhancement | Activation of custom enhancement tab on portfolio bucket for custom fields. | 10. Object Complete | NA → NA | NA | 04.Low |
-| FPRE0314_IP | Enhancement | Smart numbering for portfolio items. | 10. Object Complete | NA → NA | NA | 03.Medium |
-| FPRE0314_IF | Enhancement | Smart numbering for portfolio items. | 10. Object Complete | NA → NA | NA | 04.Low |
-| FPRC1565 | Conversion | Convert active delegate relationships for Timesheet approval | 10. Object Complete |  |  | 02.High |
-| FPRC1464_IP | Conversion | Project Actuals Conversion (Non- Intel Federal) | 10. Object Complete |  |  | 02.High |
-| FPRC1464_IF | Conversion | Project Actuals Conversion (Non- Intel Federal) | 10. Object Complete |  |  | 02.High |
-| FPRC1442 | Conversion | Conversion of Actual Labor hours for Intel Federal Projects | 10. Object Complete |  |  | 02.High |
-| FPRC1441 | Conversion | Conversion of ECC project hierarchy (WBS element master data) to S/4HANA proj... | 10. Object Complete |  |  | 02.High |
-| FPRC1212 | Conversion | Project Actuals Conversion including Intel Federal | 10. Object Complete |  |  | 03.Medium |
-| FPRC0908_IP | Conversion | Project Budget Conversion | 10. Object Complete |  |  | 03.Medium |
-| FPRC0908_IF | Conversion | Project Budget Conversion | 10. Object Complete |  |  | 03.Medium |
-| FPRC0174_IP | Conversion | Conversion of ECC project hierarchy (WBS element master data) to S/4HANA proj... | 10. Object Complete | ECC → S4 | ECC | 02.High |
-| FPRC0174_IF | Conversion | Conversion of ECC project hierarchy (WBS element master data) to S/4HANA proj... | 10. Object Complete | ECC → S4 | ECC | 03.Medium |
-| FPRC0035_IP | Conversion | Convert existing ECC & MDG hierarchy to S4HANA PPM hierarchy (Portfolio & buc... | 10. Object Complete |  → MDG |  | 03.Medium |
-| FPRC0035_IF | Conversion | Convert existing ECC & MDG hierarchy to S4HANA PPM hierarchy (Portfolio & buc... | 10. Object Complete |  → MDG |  | 04.Low |
-| FPRE1741 | Enhancement | Mobile timesheet approval for Intel Federal employees. | 01. Pending Approval |  |  | 01.Very High |
-
-**Summary**: 4 Reports, 9 Interfaces, 12 Conversions, 52 Enhancements, 10 Workflows
+**Summary**: 83 SAP, 4 ECA, 9 Interfaces | RICEFW: 4 Reports, 9 Interfaces, 12 Conversions, 52 Enhancements, 10 Workflows
 
 
-#### 5.5.2 Boundary Application Dependencies
+#### 5.5.1 SAP Development Objects
 
-The following RICEFW objects integrate with **boundary applications** (external systems outside the S/4 HANA core):
+SAP platform objects (Reports, Interfaces, Conversions, Enhancements, Forms, Workflows) developed on S/4, MDG, or S/4 BOT:
 
-| RICEFW ID | Description | Boundary Application | Source → Target |
+| Object ID | Type | Description | Status | Dev System | Complexity |
+|-----------|------|-------------|--------|-----------|----------|
+| FPRW1064_IP | Workflow | Custom Workflow will also be created with some predefined process/rules for a... | 10. Object Complete | 01.S4 | 01.Very High |
+| FPRW1064_IF | Workflow | Custom Workflow will also be created with some predefined process/rules for a... | 10. Object Complete | 01.S4 | 02.High |
+| FPRW0906_IP | Workflow | Custom workflow: Change Order Create and Change Approval | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRW0906_IF | Workflow | Custom workflow: Change Order Create and Change Approval | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRW0904_IP | Workflow | Custom Workflow - WBS Element Request approval with WBS Element creation | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRW0904_IF | Workflow | Custom Workflow - WBS Element Request approval with WBS Element creation | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRW0900_IP | Workflow | Custom Workflow: Approval for Project creation and create a Project def and l... | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRW0900_IF | Workflow | Custom Workflow: Approval for Project creation and create a Project def and l... | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRW0445_IP | Workflow | Project budget approval workflow (Capex)​ | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRW0445_IF | Workflow | Project budget approval workflow (Capex)​ | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRR1211 | Report | Report for searching on and viewing government contract timesheets for Intel ... | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRR1210 | Report | Report for searching on and viewing government contract timesheet changes for... | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRR0907_IP | Report | Workflow Status Report ( Order Request / Approval Request / Others ) | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRR0907_IF | Report | Workflow Status Report ( Order Request / Approval Request / Others ) | 10. Object Complete | 01.S4 | 04.Low |
+| FPRI1670 | Interface | Import Dot process/stage details from MDG into S4. ​ | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRI1669 | Interface | Import Xeus/Mars volumes from ECA into S4.​ | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRI1463 | Interface | Interface to upload payroll data from Workday to S/4 IP for legal entity 199 ... | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRI1238 | Interface | Pull Foundry WBS from HAT and create in LE 199 in IP S/4 for Foundry Employee... | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRI0188 | Interface | Inbound Interface from EMS to S/4 to create WBS element and Update WBS elemen... | 10. Object Complete | 01.S4 | 02.High |
+| FPRE1695 | Enhancement | Custom Fiori app - Change WBS Element Request Form with ALV Input​ | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE1671_IP | Enhancement | S4, Perform required calculations, summarizations, mappings and post the allo... | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE1671_IF | Enhancement | S4, Perform required calculations, summarizations, mappings and post the allo... | 10. Object Complete | 01.S4 | 04.Low |
+| FPRE1661_IP | Enhancement | WBS transfer tool | 10. Object Complete | 01.S4 | 02.High |
+| FPRE1661_IF | Enhancement | WBS transfer tool | 09. FUT Overdue | 01.S4 | 03.Medium |
+| FPRE1600 | Enhancement | Custom Fiori app - Create WBS Element Request Form with ALV Input​ | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE1564 | Enhancement | Employee Notification for timesheet entry | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE1563 | Enhancement | Manager notification for timesheet approval | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE1562 | Enhancement | Manage Delegates for approval | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE1561 | Enhancement | Timesheet approval | 10. Object Complete | 01.S4 | 02.High |
+| FPRE1560 | Enhancement | Timesheet entry for Intel Federal employees | 10. Object Complete | 01.S4 | 01.Very High |
+| FPRE1553 | Enhancement | Custom Fiori app - Change WBS Element Request Form with ALV Input​ | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE1519_IP | Enhancement | Project Change Order - Edit and Submit of draft request with change functiona... | 10. Object Complete | 01.S4 | 02.High |
+| FPRE1519_IF | Enhancement | Project Change Order - Edit and Submit of draft request with change functiona... | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE1518_IP | Enhancement | Project Change Order - Change existing Purchase Orders during creation of Pro... | 10. Object Complete | 01.S4 | 02.High |
+| FPRE1518_IF | Enhancement | Project Change Order - Change existing Purchase Orders during creation of Pro... | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE1517_IP | Enhancement | Project Change Order - Create Purchase Orders during creation of Project Chan... | 10. Object Complete | 01.S4 | 02.High |
+| FPRE1517_IF | Enhancement | Project Change Order - Create Purchase Orders during creation of Project Chan... | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE1516_IP | Enhancement | Enhancement to enable user decision action to be taken from email directly fo... | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE1516_IF | Enhancement | Enhancement to enable user decision action to be taken from email directly fo... | 10. Object Complete | 01.S4 | 04.Low |
+| FPRE1515_IP | Enhancement | Enhancement to display popup screen to trigger project creation workflow | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE1515_IF | Enhancement | Enhancement to display popup screen to trigger project creation workflow | 10. Object Complete | 01.S4 | 04.Low |
+| FPRE1235_IP | Enhancement | Add custom fields to CJI3 and CJI5 reports (SAP S/4HANA Project Systems modul... | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE1235_IF | Enhancement | Add custom fields to CJI3 and CJI5 reports (SAP S/4HANA Project Systems modul... | 10. Object Complete | 01.S4 | 04.Low |
+| FPRE1209 | Enhancement | Upload adjustments to time sheet entries in bulk for Intel Federal. | 10. Object Complete | 01.S4 | 02.High |
+| FPRE1104_IP | Enhancement | WBS with custom attributes will be created in the PS module. The master data ... | 10. Object Complete | 01.S4 | 02.High |
+| FPRE1104_IF | Enhancement | WBS with custom attributes will be created in the PS module. The master data ... | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE1025_IP | Enhancement | Custom Fiori app will be created using Free style model to display WBS/AUC re... | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE1025_IF | Enhancement | Custom Fiori app will be created using Free style model to display WBS/AUC re... | 10. Object Complete | 01.S4 | 04.Low |
+| FPRE0942_IP | Enhancement | Interface of SAP PPM module to ATLAS | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE0942_IF | Enhancement | Interface of SAP PPM module to ATLAS | 10. Object Complete | 01.S4 | 04.Low |
+| FPRE0891 | Enhancement | Split from primary Cost centers to PCOS & R&D/OCOS | 99. Rejected/Cancelled/On Hold | 01.S4 | 04.Low |
+| FPRE0890_IP | Enhancement | Investment type creation and automatic settlement rule generation for Opex Pr... | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE0890_IF | Enhancement | Investment type creation and automatic settlement rule generation for Opex Pr... | 10. Object Complete | 01.S4 | 04.Low |
+| FPRE0888_IP | Enhancement | Mass Update Fields in WBS Elements | 10. Object Complete | 01.S4 | 02.High |
+| FPRE0888_IF | Enhancement | Mass Update Fields in WBS Elements | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE0887_IP | Enhancement | WBS Element field synchronization to AUC and Fixed assets - Construction ID -... | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE0887_IF | Enhancement | WBS Element field synchronization to AUC and Fixed assets - Construction ID -... | 10. Object Complete | 01.S4 | 04.Low |
+| FPRE0886_IP | Enhancement | Project Change Order - Create Project Change Order via custom Fiori Screens w... | 10. Object Complete | 01.S4 | 02.High |
+| FPRE0886_IF | Enhancement | Project Change Order - Create Project Change Order via custom Fiori Screens w... | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE0885 | Enhancement | Custom Fiori app - Create WBS Element Request Form with ALV Input​ | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE0884_IP | Enhancement | Custom Fiori app - CPA (Project Budget) approval request using PPM Item decis... | 10. Object Complete | 01.S4 | 02.High |
+| FPRE0884_IF | Enhancement | Custom Fiori app - CPA (Project Budget) approval request using PPM Item decis... | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE0877_IP | Enhancement | Automation to set TECO and CLSD status on Project/ WBS | 10. Object Complete | 01.S4 | 02.High |
+| FPRE0877_IF | Enhancement | Automation to set TECO and CLSD status on Project/ WBS | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE0495_IP | Enhancement | Custom Fields in WBS element Master Data | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE0495_IF | Enhancement | Custom Fields in WBS element Master Data | 10. Object Complete | 01.S4 | 04.Low |
+| FPRE0315_IP | Enhancement | Activation of custom enhancement tab on portfolio bucket for custom fields. | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE0315_IF | Enhancement | Activation of custom enhancement tab on portfolio bucket for custom fields. | 10. Object Complete | 01.S4 | 04.Low |
+| FPRE0314_IP | Enhancement | Smart numbering for portfolio items. | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE0314_IF | Enhancement | Smart numbering for portfolio items. | 10. Object Complete | 01.S4 | 04.Low |
+| FPRC1565 | Conversion | Convert active delegate relationships for Timesheet approval | 10. Object Complete | 01.S4 | 02.High |
+| FPRC1464_IP | Conversion | Project Actuals Conversion (Non- Intel Federal) | 10. Object Complete | 01.S4 | 02.High |
+| FPRC1464_IF | Conversion | Project Actuals Conversion (Non- Intel Federal) | 10. Object Complete | 01.S4 | 02.High |
+| FPRC1442 | Conversion | Conversion of Actual Labor hours for Intel Federal Projects | 10. Object Complete | 01.S4 | 02.High |
+| FPRC1441 | Conversion | Conversion of ECC project hierarchy (WBS element master data) to S/4HANA proj... | 10. Object Complete | 01.S4 | 02.High |
+| FPRC1212 | Conversion | Project Actuals Conversion including Intel Federal | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRC0908_IP | Conversion | Project Budget Conversion | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRC0908_IF | Conversion | Project Budget Conversion | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRC0174_IP | Conversion | Conversion of ECC project hierarchy (WBS element master data) to S/4HANA proj... | 10. Object Complete | 01.S4 | 02.High |
+| FPRC0174_IF | Conversion | Conversion of ECC project hierarchy (WBS element master data) to S/4HANA proj... | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRC0035_IP | Conversion | Convert existing ECC & MDG hierarchy to S4HANA PPM hierarchy (Portfolio & buc... | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRC0035_IF | Conversion | Convert existing ECC & MDG hierarchy to S4HANA PPM hierarchy (Portfolio & buc... | 10. Object Complete | 01.S4 | 04.Low |
+| FPRE1741 | Enhancement | Mobile timesheet approval for Intel Federal employees. | 01. Pending Approval | 01.S4 | 01.Very High |
+
+#### 5.5.2 ECA Development Objects
+
+**Enterprise Cloud Analytics (ECA)** platform objects (Databricks/Snowflake) — views, tables, and ETL jobs with Source or Target System = ECA:
+
+| Object ID | Type | Description | Status | Source → Target | Complexity |
+|-----------|------|-------------|--------|----------------|----------|
+| FPRI0981_IP | Interface | Interface of SAP PPM module to SPEED | 10. Object Complete | ECA → S/4 | 03.Medium |
+| FPRI0981_IF | Interface | Interface of SAP PPM module to SPEED | 10. Object Complete | ECA → S/4 | 04.Low |
+| FPRI0909_IP | Interface | Interface for importing the Headcount details by Person# and WBS element comb... | 10. Object Complete | ECA → S/4 | 03.Medium |
+| FPRI0909_IF | Interface | Interface for importing the Headcount details by Person# and WBS element comb... | 10. Object Complete | ECA → S/4 | 04.Low |
+
+#### 5.5.3 Interface Objects
+
+Holistic view of all interface objects by L2 capability — includes ECA → S/4, S/4 → ECA, boundary system, and inter-platform interfaces with middleware and integration approach:
+
+| Object ID | Description | Source → Target | Middleware | Approach | Status |
+|-----------|-------------|----------------|-----------|----------|--------|
+| FPRI1670 | Import Dot process/stage details from MDG into S4. ​ |  | NA |  | 10. Object Complete |
+| FPRI1669 | Import Xeus/Mars volumes from ECA into S4.​ |  | BODS |  | 10. Object Complete |
+| FPRI1463 | Interface to upload payroll data from Workday to S/4 IP for legal entity 199 ... |  | MULESOFT |  | 10. Object Complete |
+| FPRI1238 | Pull Foundry WBS from HAT and create in LE 199 in IP S/4 for Foundry Employee... | Head Count Assignment Tool → S/4 | BODS |  | 10. Object Complete |
+| FPRI0981_IP | Interface of SAP PPM module to SPEED | ECA → S/4 | BODS |  | 10. Object Complete |
+| FPRI0981_IF | Interface of SAP PPM module to SPEED | ECA → S/4 | BODS |  | 10. Object Complete |
+| FPRI0909_IP | Interface for importing the Headcount details by Person# and WBS element comb... | ECA → S/4 | BODS |  | 10. Object Complete |
+| FPRI0909_IF | Interface for importing the Headcount details by Person# and WBS element comb... | ECA → S/4 | BODS |  | 10. Object Complete |
+| FPRI0188 | Inbound Interface from EMS to S/4 to create WBS element and Update WBS elemen... | XEUS → S/4 | APIGEE |  | 10. Object Complete |
+
+
+#### 5.5.5 Scheduling & Batch Objects
+
+*Scheduling and batch job objects (AutoSys, CWA) will be populated when job scheduler metadata is available. This section will map batch dependencies to RICEFW and ECA objects.*
+
+#### 5.5.6 Boundary Application Dependencies
+
+The following development objects integrate with **boundary applications** (external systems outside the S/4 HANA core):
+
+| Object ID | Description | Boundary Application | Source → Target |
 |-----------|------------|---------------------|----------------|
 | FPRI1463 | Interface to upload payroll data from Workday to S/4 IP for legal entity 199 ... | Workday |  |
 | FPRI1238 | Pull Foundry WBS from HAT and create in LE 199 in IP S/4 for Foundry Employee... | Head Count Assignment Tool | Head Count Assignment Tool → S/4 |
@@ -2261,6 +2298,14 @@ The following RICEFW objects integrate with **boundary applications** (external 
 | Audit Logging | Comprehensive audit trail for all data changes and user actions (SAP Security Audit Log) | SOX Compliance / Intel Audit Policy | Internal Audit |
 | Certificate Management | Automated certificate lifecycle management for system-to-system trust | Intel PKI Standard | Certificate Authority Team |
 | Compliance | SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR) | Intel Corporate Compliance Framework | Compliance Office |
+
+### 6.5 ECA Development Object Status
+
+| Metric | Count |
+|--------|-------|
+| ECA Objects (this capability) | 4 |
+| ECA Interfaces | 4 |
+| Total ECA + SAP Interface Dependencies | 9 |
 
 
 <div class="page-footer"><span>Page 31</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-050 — Project Accounting</span></div>

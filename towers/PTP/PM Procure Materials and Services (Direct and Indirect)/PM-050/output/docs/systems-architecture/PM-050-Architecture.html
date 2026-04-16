@@ -477,10 +477,14 @@ nav.toc a:hover { text-decoration: underline; }
   <li><a href="#5-application-architecture-togaf-a">5. Application Architecture (TOGAF &ldquo;A&rdquo;)</a>
     <ul>
       <li><a href="#54-component-overview">5.4 Component Overview</a></li>
-      <li><a href="#55-ricefw-inventory">5.5 RICEFW Inventory</a>
+      <li><a href="#55-development-object-inventory">5.5 Development Object Inventory</a>
         <ul>
-          <li><a href="#551-eca-dependencies">5.5.1 ECA Dependencies</a></li>
-          <li><a href="#552-boundary-application-dependencies">5.5.2 Boundary Application Dependencies</a></li>
+          <li><a href="#551-sap-development-objects">5.5.1 SAP Development Objects</a></li>
+          <li><a href="#552-eca-development-objects">5.5.2 ECA Development Objects</a></li>
+          <li><a href="#553-interface-objects">5.5.3 Interface Objects</a></li>
+          <li><a href="#554-middleware-objects">5.5.4 Middleware Objects</a></li>
+          <li><a href="#555-scheduling-batch-objects">5.5.5 Scheduling &amp; Batch Objects</a></li>
+          <li><a href="#556-boundary-application-dependencies">5.5.6 Boundary Application Dependencies</a></li>
         </ul>
       </li>
       <li><a href="#56-integration-patterns">5.6 Integration Patterns</a></li>
@@ -492,6 +496,7 @@ nav.toc a:hover { text-decoration: underline; }
       <li><a href="#62-sap-development-object-status">6.2 SAP Development Object Status</a></li>
       <li><a href="#63-nfrs-design-principles">6.3 NFRs &amp; Design Principles</a></li>
       <li><a href="#64-security-governance">6.4 Security &amp; Governance</a></li>
+      <li><a href="#65-eca-development-object-status">6.5 ECA Development Object Status</a></li>
     </ul>
   </li>
   <li><a href="#7-project-context">7. Project Context</a>
@@ -2117,7 +2122,10 @@ flowchart TD
 </tr>
 </tbody>
 </table>
-<h3 id="55-ricefw-inventory">5.5 RICEFW Inventory</h3>
+<h3 id="55-development-object-inventory">5.5 Development Object Inventory</h3>
+<p><strong>Summary</strong>: 379 SAP, 171 Interfaces | RICEFW: 3 Reports, 171 Interfaces, 16 Conversions, 172 Enhancements, 7 Forms, 10 Workflows</p>
+<h4 id="551-sap-development-objects">5.5.1 SAP Development Objects</h4>
+<p>SAP platform objects (Reports, Interfaces, Conversions, Enhancements, Forms, Workflows) developed on S/4, MDG, or S/4 BOT:</p>
 <table>
 <thead>
 <tr>
@@ -2125,8 +2133,7 @@ flowchart TD
 <th>Type</th>
 <th>Description</th>
 <th>Status</th>
-<th>Source → Target</th>
-<th>Boundary App</th>
+<th>Dev System</th>
 <th>Complexity</th>
 </tr>
 </thead>
@@ -2136,8 +2143,7 @@ flowchart TD
 <td>Workflow</td>
 <td>Workflow for Email Functionality and Notification to PO approver(IP)</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td></td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2145,8 +2151,7 @@ flowchart TD
 <td>Workflow</td>
 <td>Workflow for Email Functionality and Notification to PO approver(IF)</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td></td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2154,8 +2159,7 @@ flowchart TD
 <td>Workflow</td>
 <td>Workflow to trigger PO approvals in S4_IF</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2163,8 +2167,7 @@ flowchart TD
 <td>Workflow</td>
 <td>Workflow to trigger PO approvals in S4_IF</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2172,8 +2175,7 @@ flowchart TD
 <td>Workflow</td>
 <td>Workflow for Email Functionality and Notification to PR approver - IF</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td></td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2181,8 +2183,7 @@ flowchart TD
 <td>Workflow</td>
 <td>Workflow for Email Functionality and Notification to PR approver - IF</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td></td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2190,8 +2191,7 @@ flowchart TD
 <td>Workflow</td>
 <td>Workflow to Trigger PR approvals in S/4 – IF</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2199,8 +2199,7 @@ flowchart TD
 <td>Workflow</td>
 <td>Workflow to Trigger PR approvals in S/4 – IF</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2208,8 +2207,7 @@ flowchart TD
 <td>Report</td>
 <td>Develop a custom report in SAP S/4 HANA for auto PR to PO conversion failures&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2217,8 +2215,7 @@ flowchart TD
 <td>Report</td>
 <td>Develop a custom report in SAP S/4 HANA for auto PR to PO conversion failures&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -2226,8 +2223,7 @@ flowchart TD
 <td>Conversion</td>
 <td>Quality Info record upload [T-Code - QI01]</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>N/A</td>
 </tr>
 <tr>
@@ -2235,8 +2231,7 @@ flowchart TD
 <td>Conversion</td>
 <td>Inspection Plan upload [T-Code - QP01]</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>N/A</td>
 </tr>
 <tr>
@@ -2244,8 +2239,7 @@ flowchart TD
 <td>Conversion</td>
 <td>Master Inspection Characteristics upload [T-Code - QS21]</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>N/A</td>
 </tr>
 <tr>
@@ -2253,8 +2247,7 @@ flowchart TD
 <td>Interface</td>
 <td>New custom API needed to process GET and DELETE function for Document Info Re&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>Commercial Workbench</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2262,8 +2255,7 @@ flowchart TD
 <td>Interface</td>
 <td>Interface to send Invoice PAID Status from CFIN to IP</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2271,8 +2263,7 @@ flowchart TD
 <td>Interface</td>
 <td>Pay@accept – Inbound Interface to fetch the values from FCE ODS to SAP S/4 HA&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>FCE Operational Data Services - METS Smart Order Management</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2280,8 +2271,7 @@ flowchart TD
 <td>Interface</td>
 <td>An interface to retrieve the list of approvers from a custom MDG table(MDG sy&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -2289,8 +2279,7 @@ flowchart TD
 <td>Interface</td>
 <td>An interface to retrieve the list of approvers from a custom MDG table(MDG sy&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -2298,8 +2287,7 @@ flowchart TD
 <td>Interface</td>
 <td>Develop an interface between PEGA and S/4 HANA system to transmit MSL informa&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>Pega Manage My Supply Line GFM</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2307,8 +2295,7 @@ flowchart TD
 <td>Interface</td>
 <td>Setting Up Inbound Interface from SPT tool/GTT(Global Trade and Tax) system t&hellip;</td>
 <td>10. Object Complete</td>
-<td>→ S/4</td>
-<td>Customs Tracker</td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -2316,8 +2303,7 @@ flowchart TD
 <td>Interface</td>
 <td>Setting Up Inbound Interface from SPT tool/GTT(Global Trade and Tax) system t&hellip;</td>
 <td>10. Object Complete</td>
-<td>→ S/4</td>
-<td>Customs Tracker</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2325,8 +2311,7 @@ flowchart TD
 <td>Interface</td>
 <td>Ariba POs Goods Receipts to be sent from WIINGS to S/4 for R4 sites</td>
 <td>10. Object Complete</td>
-<td>WIINGS → S/4</td>
-<td>Wiings on the Web (WOW) - WIINGS (Angular)</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2334,8 +2319,7 @@ flowchart TD
 <td>Interface</td>
 <td>Ariba POs Goods Receipts to be sent from WIINGS to S/4 for R4 sites</td>
 <td>10. Object Complete</td>
-<td>WIINGS → S/4</td>
-<td>Wiings on the Web (WOW) - WIINGS (Angular)</td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -2343,8 +2327,7 @@ flowchart TD
 <td>Interface</td>
 <td>FSD to change Purchase Order information from B2B Staging DB ePO from S4 IP</td>
 <td>10. Object Complete</td>
-<td>S/4 → Stagging DB</td>
-<td>Intel WebSuite - Web PO; B2B Staging Database</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2352,8 +2335,7 @@ flowchart TD
 <td>Interface</td>
 <td>FSD to change Purchase Order information from B2B Staging DB ePO from S4 IF</td>
 <td>10. Object Complete</td>
-<td>S/4 → Stagging DB</td>
-<td>Intel WebSuite - Web PO; B2B Staging Database</td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -2361,8 +2343,7 @@ flowchart TD
 <td>Interface</td>
 <td>FSD to publish SAP Contracts pricing condition details to Web Contract - IP</td>
 <td>10. Object Complete</td>
-<td>S/4 → WebContract</td>
-<td>Intel WebSuite - Web Contract; B2B Staging Database</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2370,8 +2351,7 @@ flowchart TD
 <td>Interface</td>
 <td>FSD to publish SAP Contracts pricing condition details to Web Contract - IF</td>
 <td>10. Object Complete</td>
-<td>S/4 → WebContract</td>
-<td>Intel WebSuite - Web Contract; B2B Staging Database</td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -2379,8 +2359,7 @@ flowchart TD
 <td>Interface</td>
 <td>FSD to publish SAP Contracts changes details to Web Contract - IP</td>
 <td>10. Object Complete</td>
-<td>S/4 → WebContract</td>
-<td>Intel WebSuite - Web Contract; B2B Staging Database</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2388,8 +2367,7 @@ flowchart TD
 <td>Interface</td>
 <td>FSD to publish SAP Contracts changes details to Web Contract - IF</td>
 <td>10. Object Complete</td>
-<td>S/4 → WebContract</td>
-<td>Intel WebSuite - Web Contract; B2B Staging Database</td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -2397,8 +2375,7 @@ flowchart TD
 <td>Interface</td>
 <td>Get Material details from IF to METs/SOM</td>
 <td>10. Object Complete</td>
-<td>S/4 → METs/SOM</td>
-<td>FCE Operational Data Services - METS Smart Order Management</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2406,8 +2383,7 @@ flowchart TD
 <td>Interface</td>
 <td>Get Source List details from IF to METs/SOM</td>
 <td>10. Object Complete</td>
-<td>METs/SOM → S/4</td>
-<td>FCE Operational Data Services - METS Smart Order Management</td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2415,8 +2391,7 @@ flowchart TD
 <td>Interface</td>
 <td>Read Outline Agreement (OA) from IF in METs/SOM app.</td>
 <td>10. Object Complete</td>
-<td>S/4 → METs/SOM</td>
-<td>FCE Operational Data Services - METS Smart Order Management</td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2424,8 +2399,7 @@ flowchart TD
 <td>Interface</td>
 <td>Get PO details from IF to METs/SOM</td>
 <td>10. Object Complete</td>
-<td>S/4 → METs/SOM</td>
-<td>FCE Operational Data Services - METS Smart Order Management</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2433,8 +2407,7 @@ flowchart TD
 <td>Interface</td>
 <td>Maintain PR in IF from METs/SOM</td>
 <td>10. Object Complete</td>
-<td>METs/SOM → S/4</td>
-<td>FCE Operational Data Services - METS Smart Order Management</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2442,8 +2415,7 @@ flowchart TD
 <td>Interface</td>
 <td>ILM to SAP S4 Interface – Assigning Material to Inspection Plan</td>
 <td>10. Object Complete</td>
-<td>ILM → S/4</td>
-<td>ILM FOAM</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2451,8 +2423,7 @@ flowchart TD
 <td>Interface</td>
 <td>Interface from ILM to SAP S/4 - Create/Modify Quality Info records</td>
 <td>10. Object Complete</td>
-<td>ILM → S/4</td>
-<td>ILM FOAM</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2460,8 +2431,7 @@ flowchart TD
 <td>Interface</td>
 <td>Develop an interface to create PO/STO from IRIS Non-Standard Request to S/4 Hana</td>
 <td>10. Object Complete</td>
-<td>IRIS → S/4</td>
-<td>Integrated Repair System</td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -2469,8 +2439,7 @@ flowchart TD
 <td>Interface</td>
 <td>This interface is required to trigger split account assigned Purchase Requisi&hellip;</td>
 <td>10. Object Complete</td>
-<td>MySamples → S/4</td>
-<td>My Samples ( Future of Samples)</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2478,8 +2447,7 @@ flowchart TD
 <td>Interface</td>
 <td>Interface between S4 to Boundary Apps (Customs Tracker and PEGA-ISMQ) for rea&hellip;</td>
 <td>10. Object Complete</td>
-<td>ILM → S/4</td>
-<td>Customs Tracker</td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2487,8 +2455,7 @@ flowchart TD
 <td>Interface</td>
 <td>Interface between S4 to Boundary Apps (Customs Tracker and PEGA-ISMQ) for rea&hellip;</td>
 <td>10. Object Complete</td>
-<td>S/4 → Boundary Apps (Customs Tracker and PEGA-ISMQ</td>
-<td>Customs Tracker</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2496,8 +2463,7 @@ flowchart TD
 <td>Interface</td>
 <td>Inbound Interface from E2Open to IF – Intel Foundry in S/4 to bring shipping &hellip;</td>
 <td>10. Object Complete</td>
-<td>E2Open → S/4</td>
-<td>OpenText</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2505,8 +2471,7 @@ flowchart TD
 <td>Interface</td>
 <td>Interface to send Ariba PO closure status information from S4 to Ariba</td>
 <td>10. Object Complete</td>
-<td>S/4 → SAP Ariba Network</td>
-<td>SAP Ariba Cloud; SAP Ariba Network</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2514,8 +2479,7 @@ flowchart TD
 <td>Interface</td>
 <td>Interface to send Ariba PO closure status information from S4 to Ariba</td>
 <td>10. Object Complete</td>
-<td>S/4 → SAP Ariba Network</td>
-<td>SAP Ariba Cloud; SAP Ariba Network</td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -2523,8 +2487,7 @@ flowchart TD
 <td>Interface</td>
 <td>MQCS data pull Interface</td>
 <td>10. Object Complete</td>
-<td>MQCS → S/4</td>
-<td>Materials Quality Certification System</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2532,8 +2495,7 @@ flowchart TD
 <td>Interface</td>
 <td>Get Purchase Group details from IF to CWB</td>
 <td>10. Object Complete</td>
-<td>S/4 → CWB</td>
-<td>Commercial Workbench</td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -2541,8 +2503,7 @@ flowchart TD
 <td>Interface</td>
 <td>Get Purchase Req Details from IF to CWB</td>
 <td>10. Object Complete</td>
-<td>S/4 → CWB</td>
-<td>Commercial Workbench</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2550,8 +2511,7 @@ flowchart TD
 <td>Interface</td>
 <td>Ariba Invoice Integration through (CIG - Cloud Integration Gateway (Currently&hellip;</td>
 <td>10. Object Complete</td>
-<td>SAP Ariba Network → S/4</td>
-<td>SAP Ariba Network</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2559,8 +2519,7 @@ flowchart TD
 <td>Interface</td>
 <td>Ariba Invoice Integration through (CIG - Cloud Integration Gateway (Currently&hellip;</td>
 <td>10. Object Complete</td>
-<td>SAP Ariba Network → S/4</td>
-<td>SAP Ariba Network</td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -2568,8 +2527,7 @@ flowchart TD
 <td>Interface</td>
 <td>Invoice Status Update from SAP S/4 to Ariba Network through CIG - Cloud Integ&hellip;</td>
 <td>10. Object Complete</td>
-<td>S/4 → SAP Ariba Network</td>
-<td>SAP Ariba Network</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2577,8 +2535,7 @@ flowchart TD
 <td>Interface</td>
 <td>Invoice Status Update from SAP S/4 to Ariba Network through CIG - Cloud Integ&hellip;</td>
 <td>10. Object Complete</td>
-<td>S/4 → SAP Ariba Network</td>
-<td>SAP Ariba Network</td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -2586,8 +2543,7 @@ flowchart TD
 <td>Interface</td>
 <td>Carbon Copy Invoice Integration from SAP S/4 to Ariba Network</td>
 <td>10. Object Complete</td>
-<td>S/4 → SAP Ariba Network</td>
-<td>SAP Ariba Network</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2595,8 +2551,7 @@ flowchart TD
 <td>Interface</td>
 <td>Carbon Copy Invoice Integration from SAP S/4 to Ariba Network</td>
 <td>10. Object Complete</td>
-<td>S/4 → SAP Ariba Network</td>
-<td>SAP Ariba Network</td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -2604,8 +2559,7 @@ flowchart TD
 <td>Interface</td>
 <td>Intel B2B – XML (3C7) Notify of Self Billing Invoice – Interface to send noti&hellip;</td>
 <td>10. Object Complete</td>
-<td>S/4 → OpenText</td>
-<td>OpenText</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2613,8 +2567,7 @@ flowchart TD
 <td>Interface</td>
 <td>Intel B2B – XML (3C7) Notify of Self Billing Invoice – Interface to send noti&hellip;</td>
 <td>10. Object Complete</td>
-<td>S/4 → OpenText</td>
-<td>OpenText</td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -2622,8 +2575,7 @@ flowchart TD
 <td>Interface</td>
 <td>Purchasing Services Fiori Catalog</td>
 <td>10. Object Complete</td>
-<td>S/4 → Shopping@Intel</td>
-<td>NA</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2631,8 +2583,7 @@ flowchart TD
 <td>Interface</td>
 <td>Purchasing Services Fiori Catalog</td>
 <td>10. Object Complete</td>
-<td>S/4 → Shopping@Intel</td>
-<td>NA</td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -2640,8 +2591,7 @@ flowchart TD
 <td>Interface</td>
 <td>Intel WebSuite - Web PO – Interface to display Purchase Order information fro&hellip;</td>
 <td>10. Object Complete</td>
-<td>Stagging DB → S/4</td>
-<td>Intel WebSuite - Web PO; B2B Staging Database</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2649,8 +2599,7 @@ flowchart TD
 <td>Interface</td>
 <td>Intel WebSuite - Web PO – Interface to display Purchase Order information fro&hellip;</td>
 <td>10. Object Complete</td>
-<td>Stagging DB → S/4</td>
-<td>Intel WebSuite - Web PO; B2B Staging Database</td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -2658,8 +2607,7 @@ flowchart TD
 <td>Interface</td>
 <td>Intel WebSuite - Web Forecast – Interface to display Purchase Order informati&hellip;</td>
 <td>10. Object Complete</td>
-<td>Intel WebSuite Web Contract → S/4</td>
-<td>Intel WebSuite - Web Forecast; B2B Staging Database</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2667,8 +2615,7 @@ flowchart TD
 <td>Interface</td>
 <td>Intel WebSuite - Web Forecast – Interface to display Purchase Order informati&hellip;</td>
 <td>10. Object Complete</td>
-<td>Intel WebSuite Web Contract → S/4</td>
-<td>Intel WebSuite - Web Forecast; B2B Staging Database</td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -2676,8 +2623,7 @@ flowchart TD
 <td>Interface</td>
 <td>Ariba/Capital PO details to be retrieved from SAP S/4 at the time of receivin&hellip;</td>
 <td>10. Object Complete</td>
-<td>WIINGS → S/4</td>
-<td>Wiings on the Web (WOW) - WIINGS (Angular)</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2685,8 +2631,7 @@ flowchart TD
 <td>Interface</td>
 <td>Ariba/Capital PO details to be retrieved from SAP S/4 at the time of receivin&hellip;</td>
 <td>10. Object Complete</td>
-<td>WIINGS → S/4</td>
-<td>Wiings on the Web (WOW) - WIINGS (Angular)</td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -2694,8 +2639,7 @@ flowchart TD
 <td>Interface</td>
 <td>S4 Manual Invoice Release Blocking functionality requires connection with GTT&hellip;</td>
 <td>10. Object Complete</td>
-<td>S/4 → GTT (Custom Tracker)</td>
-<td>SAP ECC - Accounts Payable; Customs Tracker</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2703,8 +2647,7 @@ flowchart TD
 <td>Interface</td>
 <td>S4 Manual Invoice Release Blocking functionality requires connection with GTT&hellip;</td>
 <td>10. Object Complete</td>
-<td>S/4 → GTT (Custom Tracker)</td>
-<td>SAP ECC - Accounts Payable; Customs Tracker</td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -2712,8 +2655,7 @@ flowchart TD
 <td>Interface</td>
 <td>Ariba Asset Settlement Interface</td>
 <td>10. Object Complete</td>
-<td>Shopping@Intel → S/4</td>
-<td>Shopping@Intel</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2721,8 +2663,7 @@ flowchart TD
 <td>Interface</td>
 <td>Ariba Asset Settlement Interface</td>
 <td>10. Object Complete</td>
-<td>Shopping@Intel → S/4</td>
-<td>Shopping@Intel</td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -2730,8 +2671,7 @@ flowchart TD
 <td>Interface</td>
 <td>Custom program to send configurations from S4 system to Illumis</td>
 <td>10. Object Complete</td>
-<td>S/4 → Accounts Payable Recovery Tool</td>
-<td>Accounts Payable Recoveries (APR)</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2739,8 +2679,7 @@ flowchart TD
 <td>Interface</td>
 <td>Custom program to send configurations from S4 system to Illumis</td>
 <td>10. Object Complete</td>
-<td>S/4 → Accounts Payable Recovery Tool</td>
-<td>Accounts Payable Recoveries (APR)</td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -2748,8 +2687,7 @@ flowchart TD
 <td>Interface</td>
 <td>Custom program to send the supplier master data from S4 system to Illumis.</td>
 <td>10. Object Complete</td>
-<td>S/4 → Accounts Payable Recovery Tool</td>
-<td>Accounts Payable Recoveries (APR)</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2757,8 +2695,7 @@ flowchart TD
 <td>Interface</td>
 <td>Custom program to send the supplier master data from S4 system to Illumis.</td>
 <td>10. Object Complete</td>
-<td>S/4 → Accounts Payable Recovery Tool</td>
-<td>Accounts Payable Recoveries (APR)</td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -2766,8 +2703,7 @@ flowchart TD
 <td>Interface</td>
 <td>Custom program to send the Transactions (Invoices) from IF system to Illumis</td>
 <td>10. Object Complete</td>
-<td>S/4 → Accounts Payable Recovery Tool</td>
-<td>Accounts Payable Recoveries (APR)</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2775,8 +2711,7 @@ flowchart TD
 <td>Interface</td>
 <td>Interface to automatically create VMI PO &amp; IB delivery in S/4 (IF and IP) via&hellip;</td>
 <td>10. Object Complete</td>
-<td>S/4 → E2Open</td>
-<td>E2open</td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2784,8 +2719,7 @@ flowchart TD
 <td>Interface</td>
 <td>Maintain Purchasing Info Record in IF from Pega PSI</td>
 <td>10. Object Complete</td>
-<td>PEGA PSI → S/4</td>
-<td>Equipment Item BOM Master Data-Factory Equipment Workflow-Pega PSI</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2793,8 +2727,7 @@ flowchart TD
 <td>Interface</td>
 <td>Get Material Master details from IF to Pega PSI</td>
 <td>10. Object Complete</td>
-<td>S/4 → PEGA PSI</td>
-<td>Equipment Item BOM Master Data-Factory Equipment Workflow-Pega PSI</td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2802,8 +2735,7 @@ flowchart TD
 <td>Interface</td>
 <td>Maintain Outline Agreement in IF from Pega PSI</td>
 <td>10. Object Complete</td>
-<td>PEGA PSI → S/4</td>
-<td>Equipment Item BOM Master Data-Factory Equipment Workflow-Pega PSI</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2811,8 +2743,7 @@ flowchart TD
 <td>Interface</td>
 <td>All Validation of Chemical purchases on non MRP PR by using integration betwe&hellip;</td>
 <td>10. Object Complete</td>
-<td>ICHEM → S/4</td>
-<td>I-CHEM - Chemical Management System</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2820,8 +2751,7 @@ flowchart TD
 <td>Interface</td>
 <td>All Validation of Chemical purchases on non MRP PR by using integration betwe&hellip;</td>
 <td>10. Object Complete</td>
-<td>ICHEM → S/4</td>
-<td>I-CHEM - Chemical Management System</td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -2829,8 +2759,7 @@ flowchart TD
 <td>Interface</td>
 <td>Maintain PO in IF from CWB</td>
 <td>10. Object Complete</td>
-<td>CWB → S/4</td>
-<td>Commercial Workbench</td>
+<td>01.S4</td>
 <td>01.Very High</td>
 </tr>
 <tr>
@@ -2838,8 +2767,7 @@ flowchart TD
 <td>Interface</td>
 <td>Demand Change - Automatic update of PR/PO/STR/STO/Scheduling agreement and Pr&hellip;</td>
 <td>09. FUT Overdue</td>
-<td>NA → NA</td>
-<td>NA</td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2847,8 +2775,7 @@ flowchart TD
 <td>Interface</td>
 <td>Payment Proposal after invoice posted from SAP S/4 HANA CFIN to Ariba</td>
 <td>10. Object Complete</td>
-<td>S/4 → SAP Ariba Network</td>
-<td>SAP Ariba Network; SAP Ariba Invoicing</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2856,8 +2783,7 @@ flowchart TD
 <td>Interface</td>
 <td>Payment Remittance after payment posted from CFIN to IP/IF and from IP/IF to &hellip;</td>
 <td>10. Object Complete</td>
-<td>S/4 → SAP Ariba Network</td>
-<td>SAP Ariba Network; SAP Ariba Invoicing</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2865,8 +2791,7 @@ flowchart TD
 <td>Interface</td>
 <td>Payment Status after payment is cancelled / Void from CFIN to IP / IF and Fro&hellip;</td>
 <td>10. Object Complete</td>
-<td>S/4 → SAP Ariba Network</td>
-<td>SAP Ariba Network; SAP Ariba Invoicing</td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2874,8 +2799,7 @@ flowchart TD
 <td>Interface</td>
 <td>Maintain Outline Agreement in IF from EMS</td>
 <td>10. Object Complete</td>
-<td>EMS → S/4</td>
-<td>Equipment Management System</td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2883,8 +2807,7 @@ flowchart TD
 <td>Interface</td>
 <td>Payment Remittance after payment posted from CFIN to IP/IF for Readsoft</td>
 <td>10. Object Complete</td>
-<td>S/4 → Readsoft</td>
-<td>Readsoft - WorkCycle; Readsoft - Process Director Accounts Payable IP</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2892,8 +2815,7 @@ flowchart TD
 <td>Interface</td>
 <td>Payment Remittance after payment posted from CFIN to IP/IF for Readsoft</td>
 <td>10. Object Complete</td>
-<td>S/4 → Readsoft</td>
-<td>Readsoft - WorkCycle; Readsoft - Process Director Accounts Payable IF</td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -2901,8 +2823,7 @@ flowchart TD
 <td>Interface</td>
 <td>GR Carbon Copy (Posted in S4)</td>
 <td>10. Object Complete</td>
-<td>S/4 → SAP Ariba Network</td>
-<td>SAP Ariba Network</td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2910,8 +2831,7 @@ flowchart TD
 <td>Interface</td>
 <td>GR Carbon Copy (Posted in S4)</td>
 <td>10. Object Complete</td>
-<td>S/4 → SAP Ariba Network</td>
-<td>SAP Ariba Network</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2919,8 +2839,7 @@ flowchart TD
 <td>Interface</td>
 <td>Get Material Master alternate UOM details from IF to CWB</td>
 <td>10. Object Complete</td>
-<td>S/4 → CWB</td>
-<td>Commercial Workbench</td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2928,8 +2847,7 @@ flowchart TD
 <td>Interface</td>
 <td>Maintain Outline Agreement in IF from CWB</td>
 <td>10. Object Complete</td>
-<td>CWB → S/4</td>
-<td>Commercial Workbench</td>
+<td>01.S4</td>
 <td>01.Very High</td>
 </tr>
 <tr>
@@ -2937,8 +2855,7 @@ flowchart TD
 <td>Interface</td>
 <td>Maintain Purchasing Info Record in IF from CWB</td>
 <td>10. Object Complete</td>
-<td>CWB → S/4</td>
-<td>Commercial Workbench</td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2946,8 +2863,7 @@ flowchart TD
 <td>Interface</td>
 <td>Custom program to send the Purchase order from SAP S4 system to Illumis</td>
 <td>10. Object Complete</td>
-<td>S/4 → Accounts Payable Recovery Tool</td>
-<td>Accounts Payable Recoveries (APR)</td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2955,8 +2871,7 @@ flowchart TD
 <td>Interface</td>
 <td>Custom program to send the Purchase order from SAP S4 system to Illumis</td>
 <td>10. Object Complete</td>
-<td>S/4 → Accounts Payable Recovery Tool</td>
-<td>Accounts Payable Recoveries (APR)</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2964,8 +2879,7 @@ flowchart TD
 <td>Interface</td>
 <td>Maintain Document Info Record in IF from CWB</td>
 <td>10. Object Complete</td>
-<td>CWB → S/4</td>
-<td>Commercial Workbench</td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2973,8 +2887,7 @@ flowchart TD
 <td>Interface</td>
 <td>Create Document Info Record in IF from EMS</td>
 <td>10. Object Complete</td>
-<td>Equipment Management System → S/4</td>
-<td>Equipment Management System</td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2982,8 +2895,7 @@ flowchart TD
 <td>Interface</td>
 <td>Get OA determination by material from IF to CWB</td>
 <td>10. Object Complete</td>
-<td>Commercial Workbench → S/4</td>
-<td>Commercial Workbench</td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2991,8 +2903,7 @@ flowchart TD
 <td>Interface</td>
 <td>Get OA determination by material from IF to EMS</td>
 <td>10. Object Complete</td>
-<td>S/4 → Equipment Management System</td>
-<td>Equipment Management System</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3000,8 +2911,7 @@ flowchart TD
 <td>Interface</td>
 <td>Develop an interface to send inventory reports and MRP parameters from S4(IF)&hellip;</td>
 <td>10. Object Complete</td>
-<td>S/4 → E2Open</td>
-<td>E2open</td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -3009,8 +2919,7 @@ flowchart TD
 <td>Interface</td>
 <td>Automatic creation of Discrete PO &amp; IB delivery when supplier initiates shipm&hellip;</td>
 <td>10. Object Complete</td>
-<td>E2open → S/4</td>
-<td>E2open</td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -3018,8 +2927,7 @@ flowchart TD
 <td>Interface</td>
 <td>Get Material Master details from IF to EMS</td>
 <td>10. Object Complete</td>
-<td>S/4 → EMS</td>
-<td>Equipment Management System</td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -3027,8 +2935,7 @@ flowchart TD
 <td>Interface</td>
 <td>Get Material Master details from IF to SIRFIS</td>
 <td>10. Object Complete</td>
-<td>S/4 → SIRFIS</td>
-<td>Supplier-Intel Resource, Forecast, Install System</td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -3036,8 +2943,7 @@ flowchart TD
 <td>Interface</td>
 <td>Supplier Onboarding Data - IF</td>
 <td>10. Object Complete</td>
-<td>Shopping@Intel → S/4</td>
-<td>Shopping@Intel</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3045,8 +2951,7 @@ flowchart TD
 <td>Interface</td>
 <td>Supplier Onboarding Data - IP</td>
 <td>10. Object Complete</td>
-<td>Shopping@Intel → S/4</td>
-<td>Shopping@Intel</td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3054,8 +2959,7 @@ flowchart TD
 <td>Interface</td>
 <td>Supplier Onboarding Data - CFIN</td>
 <td>10. Object Complete</td>
-<td>Shopping@Intel → S/4</td>
-<td>Shopping@Intel</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3063,8 +2967,7 @@ flowchart TD
 <td>Interface</td>
 <td>Get PO details from IF to EMS</td>
 <td>10. Object Complete</td>
-<td>S/4 → EMS</td>
-<td>Equipment Management System</td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -3072,8 +2975,7 @@ flowchart TD
 <td>Interface</td>
 <td>Maintain PR in IF from EMS</td>
 <td>10. Object Complete</td>
-<td>EMS → S/4</td>
-<td>Equipment Management System</td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -3081,8 +2983,7 @@ flowchart TD
 <td>Interface</td>
 <td>Get PR details from IF to EMS</td>
 <td>10. Object Complete</td>
-<td>S/4 → EMS</td>
-<td>Equipment Management System</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3090,8 +2991,7 @@ flowchart TD
 <td>Interface</td>
 <td>Get PR details from IF to SIRFIS</td>
 <td>10. Object Complete</td>
-<td>S/4 → SIRFIS</td>
-<td>Supplier-Intel Resource, Forecast, Install System</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3099,8 +2999,7 @@ flowchart TD
 <td>Interface</td>
 <td>Outbound interface to publish SAP Contracts details to Web Contract - IP</td>
 <td>10. Object Complete</td>
-<td>S/4 → WebContract</td>
-<td>Intel WebSuite - Web Contract; B2B Staging Database</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3108,8 +3007,7 @@ flowchart TD
 <td>Interface</td>
 <td>Outbound interface to publish SAP Contracts details to Web Contract - IF</td>
 <td>10. Object Complete</td>
-<td>S/4 → WebContract</td>
-<td>Intel WebSuite - Web Contract; B2B Staging Database</td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3117,8 +3015,7 @@ flowchart TD
 <td>Interface</td>
 <td>Interface from E2Open to S4 to publish supplier commits against Purchase Order</td>
 <td>10. Object Complete</td>
-<td>E2Open → S/4</td>
-<td>E2open</td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -3126,8 +3023,7 @@ flowchart TD
 <td>Interface</td>
 <td>Interface from E2Open to S4 to publish supplier commits against Purchase Order</td>
 <td>10. Object Complete</td>
-<td>E2Open → S/4</td>
-<td>E2open</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3135,8 +3031,7 @@ flowchart TD
 <td>Interface</td>
 <td>Interface from S4 to E2Open to send SA delivery schedule lines</td>
 <td>10. Object Complete</td>
-<td>S/4 → E2Open</td>
-<td>E2open</td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -3144,8 +3039,7 @@ flowchart TD
 <td>Interface</td>
 <td>Interface from S4 to E2Open to send SA delivery schedule lines</td>
 <td>10. Object Complete</td>
-<td>S/4 → E2Open</td>
-<td>E2open</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3153,8 +3047,7 @@ flowchart TD
 <td>Interface</td>
 <td>Interface from S4 to OpenText to send new purchase orders &amp; purchase order ch&hellip;</td>
 <td>10. Object Complete</td>
-<td>S/4 → GXS (Open text)</td>
-<td>OpenText</td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -3162,8 +3055,7 @@ flowchart TD
 <td>Interface</td>
 <td>Interface from S4 to E2open to send new purchase orders, purchase order chang&hellip;</td>
 <td>10. Object Complete</td>
-<td>S/4 → E2Open</td>
-<td>E2open</td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -3171,8 +3063,7 @@ flowchart TD
 <td>Interface</td>
 <td>Interface from S4 to E2open to send new purchase orders, purchase order chang&hellip;</td>
 <td>10. Object Complete</td>
-<td>S/4 → E2Open</td>
-<td>E2open</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3180,8 +3071,7 @@ flowchart TD
 <td>Interface</td>
 <td>Interface from S4 to E2Open for SIMS Master Data &amp; supply demand elements</td>
 <td>10. Object Complete</td>
-<td>S/4 → E2Open</td>
-<td>E2open</td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -3189,8 +3079,7 @@ flowchart TD
 <td>Interface</td>
 <td>Interface from S4 to E2Open for SIMS Master Data &amp; supply demand elements</td>
 <td>10. Object Complete</td>
-<td>S/4 → E2Open</td>
-<td>E2open</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3198,8 +3087,7 @@ flowchart TD
 <td>Interface</td>
 <td>Get OA determination by material from IF to SIRFIS</td>
 <td>10. Object Complete</td>
-<td>SIRFIS → S/4</td>
-<td>Supplier-Intel Resource, Forecast, Install System</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3207,8 +3095,7 @@ flowchart TD
 <td>Interface</td>
 <td>Get Outline Agreement data from IF to SIRFIS</td>
 <td>10. Object Complete</td>
-<td>SIRFIS → S/4</td>
-<td>Supplier-Intel Resource, Forecast, Install System</td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -3216,8 +3103,7 @@ flowchart TD
 <td>Interface</td>
 <td>PO change (Custom logic)</td>
 <td>10. Object Complete</td>
-<td>SAP Ariba Network → S/4</td>
-<td>Shopping@Intel</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3225,8 +3111,7 @@ flowchart TD
 <td>Interface</td>
 <td>PO change (Custom logic)</td>
 <td>10. Object Complete</td>
-<td>SAP Ariba Network → S/4</td>
-<td>Shopping@Intel</td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3234,8 +3119,7 @@ flowchart TD
 <td>Interface</td>
 <td>Get PO details from IF to SIRFIS</td>
 <td>10. Object Complete</td>
-<td>SIRFIS → S/4</td>
-<td>Supplier-Intel Resource, Forecast, Install System</td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -3243,8 +3127,7 @@ flowchart TD
 <td>Interface</td>
 <td>PO Cancel</td>
 <td>10. Object Complete</td>
-<td>SAP Ariba Network → S/4</td>
-<td>Shopping@Intel</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3252,8 +3135,7 @@ flowchart TD
 <td>Interface</td>
 <td>PO Cancel</td>
 <td>10. Object Complete</td>
-<td>SAP Ariba Network → S/4</td>
-<td>Shopping@Intel</td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3261,8 +3143,7 @@ flowchart TD
 <td>Interface</td>
 <td>PO create (Custom logic)</td>
 <td>10. Object Complete</td>
-<td>SAP Ariba Network → S/4</td>
-<td>Shopping@Intel</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3270,8 +3151,7 @@ flowchart TD
 <td>Interface</td>
 <td>PO create (Custom logic)</td>
 <td>10. Object Complete</td>
-<td>SAP Ariba Network → S/4</td>
-<td>Shopping@Intel</td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3279,8 +3159,7 @@ flowchart TD
 <td>Interface</td>
 <td>PR Cancel</td>
 <td>10. Object Complete</td>
-<td>SAP Ariba Network → S/4</td>
-<td>SAP Ariba Network; SAP Ariba Invoicing; SAP Ariba Mobile; SAP Ariba Cloud; SA&hellip;</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3288,8 +3167,7 @@ flowchart TD
 <td>Interface</td>
 <td>PR Cancel</td>
 <td>10. Object Complete</td>
-<td>SAP Ariba Network → S/4</td>
-<td>SAP Ariba Network; SAP Ariba Invoicing; SAP Ariba Mobile; SAP Ariba Cloud; SA&hellip;</td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3297,8 +3175,7 @@ flowchart TD
 <td>Interface</td>
 <td>PR change (Custom logic)</td>
 <td>10. Object Complete</td>
-<td>SAP Ariba Network → S/4</td>
-<td>SAP Ariba Network; SAP Ariba Invoicing; SAP Ariba Mobile; SAP Ariba Cloud; SA&hellip;</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3306,8 +3183,7 @@ flowchart TD
 <td>Interface</td>
 <td>PR change (Custom logic)</td>
 <td>10. Object Complete</td>
-<td>SAP Ariba Network → S/4</td>
-<td>SAP Ariba Network; SAP Ariba Invoicing; SAP Ariba Mobile; SAP Ariba Cloud; SA&hellip;</td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3315,8 +3191,7 @@ flowchart TD
 <td>Interface</td>
 <td>PR creation (budget check, custom logic)</td>
 <td>10. Object Complete</td>
-<td>SAP Ariba Network → S/4</td>
-<td>SAP Ariba Network; SAP Ariba Invoicing; SAP Ariba Mobile; SAP Ariba Cloud; SA&hellip;</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3324,8 +3199,7 @@ flowchart TD
 <td>Interface</td>
 <td>PR creation (budget check, custom logic)</td>
 <td>10. Object Complete</td>
-<td>SAP Ariba Network → S/4</td>
-<td>SAP Ariba Network; SAP Ariba Invoicing; SAP Ariba Mobile; SAP Ariba Cloud; SA&hellip;</td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3333,8 +3207,7 @@ flowchart TD
 <td>Interface</td>
 <td>validate and enrich (PR - master data and custom code)</td>
 <td>10. Object Complete</td>
-<td>S/4 → SAP Ariba Network</td>
-<td>SAP Ariba Network; SAP Ariba Invoicing; SAP Ariba Mobile; SAP Ariba Cloud; SA&hellip;</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3342,8 +3215,7 @@ flowchart TD
 <td>Interface</td>
 <td>validate and enrich (PR - master data and custom code)</td>
 <td>10. Object Complete</td>
-<td>S/4 → SAP Ariba Network</td>
-<td>SAP Ariba Network; SAP Ariba Invoicing; SAP Ariba Mobile; SAP Ariba Cloud; SA&hellip;</td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3351,8 +3223,7 @@ flowchart TD
 <td>Interface</td>
 <td>Transfer of Ownership (change Ariba PR/PO)</td>
 <td>10. Object Complete</td>
-<td>S/4 → SAP Ariba Network</td>
-<td>SAP Ariba Network; SAP Ariba Invoicing; SAP Ariba Mobile; SAP Ariba Cloud; SA&hellip;</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3360,8 +3231,7 @@ flowchart TD
 <td>Interface</td>
 <td>Transfer of Ownership (change Ariba PR/PO)</td>
 <td>10. Object Complete</td>
-<td>S/4 → SAP Ariba Network</td>
-<td>SAP Ariba Network; SAP Ariba Invoicing; SAP Ariba Mobile; SAP Ariba Cloud; SA&hellip;</td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3369,8 +3239,7 @@ flowchart TD
 <td>Interface</td>
 <td>SAP S4 IF Boundary App Interface for updating Requested Dock Date (RDD) for C&hellip;</td>
 <td>10. Object Complete</td>
-<td>S/4 → SIRFIS</td>
-<td>Supplier-Intel Resource, Forecast, Install System</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3378,8 +3247,7 @@ flowchart TD
 <td>Interface</td>
 <td>SAP S4 IF Boundary App Interface for updating POChange/PODeliveryDates - PO S&hellip;</td>
 <td>10. Object Complete</td>
-<td>S/4 → SIRFIS</td>
-<td>Supplier-Intel Resource, Forecast, Install System</td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -3387,8 +3255,7 @@ flowchart TD
 <td>Form</td>
 <td>Exception Notification – Label printing functionality – IF only</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3396,8 +3263,7 @@ flowchart TD
 <td>Form</td>
 <td>PO Output Form Customization - IP</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -3405,8 +3271,7 @@ flowchart TD
 <td>Form</td>
 <td>PO Output Form Customization - IF</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3414,8 +3279,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Enhancement required in the purchase order (change only) to validate if the u&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3423,8 +3287,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Enhancement required in the purchase requisition (change only) to validate if&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3432,8 +3295,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Automate Warranty Credit Memo Posting</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3441,8 +3303,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Enhancement to Update Invoice PAID Status from CFIN to IF &amp; IP ARIBA Standard&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3450,8 +3311,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>New Enhancement required for to make PO price updates for HVM OSAT and SIFO o&hellip;</td>
 <td>09. FUT Overdue</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -3459,8 +3319,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>INT-CR0941-Develop a custom enhancement in SAP S/4 for Subcon PO BOM comparis&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3468,8 +3327,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>INT-CR0941-Develop a custom enhancement in SAP S/4 for Subcon PO BOM comparis&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3477,8 +3335,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Enhancement to update Purchase document amount into USD when BAPP pull data f&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3486,8 +3343,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Enhancement to deleting all entries from ESH_SR_LTXT and ESH_SR_TXT_OBJ, runn&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3495,8 +3351,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Custom enhancement to edit the posted accounting document for Payment Term, B&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3504,8 +3359,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Custom enhancement to edit the posted accounting document for Payment Term, B&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3513,8 +3367,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Custom enhancement to edit the posted accounting document for Payment Term, B&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3522,8 +3375,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Enhancement to Auto block the Expired Batches in IM Locations</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3531,8 +3383,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Enhancement required in the purchase order (change only) to validate if the u&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3540,8 +3391,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Enhancement required in the purchase requisition (change only) to validate if&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3549,8 +3399,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Enhancement required for ORDERS05 IDOC applicable for PO outbound from S4 to &hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3558,8 +3407,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Enhancement required for ORDERS05 IDOC applicable for PO outbound from S4 to &hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3567,8 +3415,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Enhancement to trigger Output type which will generate IDOC once GR or GR rev&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3576,8 +3423,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Enhancement to trigger Output type which will generate IDOC once GR or GR rev&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3585,8 +3431,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Enhancement to Get Purchase order details like Payee, Supnam, Purchase group &hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3594,8 +3439,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Enhancement to Get Purchase order details like Payee, Supnam, Purchase group &hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3603,8 +3447,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Enhancement to create AMPL (Approved manufacturer part list ) in S/4 using ex&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -3612,8 +3455,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Enhancement to create AMPL (Approved manufacturer part list ) in S/4 using ex&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3621,8 +3463,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Custom program to generate a PDF printout of SAP self-billing invoices (ERS/C&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3630,8 +3471,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Custom program to generate a PDF printout of SAP self-billing invoices (ERS/C&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3639,8 +3479,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Enhancement required to populate custom logic for BLAORD (PTPI0211_IP_IF).</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3648,8 +3487,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Enhancement required to populate custom logic for BLAORD (PTPI0211_IP_IF).</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3657,8 +3495,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Enhancement required to populate custom logic for BLAOCH (PTPI0211_IP_IF).</td>
 <td>99. Rejected/Cancelled/On Hold</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3666,8 +3503,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Enhancement required to populate custom logic for BLAOCH (PTPI0211_IP_IF).</td>
 <td>99. Rejected/Cancelled/On Hold</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3675,8 +3511,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Enhancement for I-chem PR creation from Ariba until R5 go-live</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3684,8 +3519,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Enhancement for I-chem PR creation from Ariba until R5 go-live</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3693,8 +3527,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Enhancement to Update Invoice PAID Status from CFIN to IF &amp; IP ARIBA Standard&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3702,8 +3535,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Enhancement to Update Invoice PAID Status from CFIN to IF &amp; IP ARIBA Standard&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3711,8 +3543,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Enhancement required to maintain the list of approved suppliers for copper ma&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3720,8 +3551,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Enhancement to auto close Purchase Orders based on policy criteria , executed&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3729,8 +3559,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Enhancement to auto close Purchase Orders based on policy criteria , executed&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3738,8 +3567,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Custom Enhancements for Payment Proposal, payment remittance, payment status,&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3747,8 +3575,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Custom Enhancements for Payment Proposal, payment remittance, payment status,&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3756,8 +3583,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Custom Enhancements for Payment Proposal, payment remittance, payment status,&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3765,8 +3591,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Enhancement required while triggering the COND_A idoc for contracts (PTPI0211&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3774,8 +3599,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Enhancement required while triggering the COND_A idoc for contracts (PTPI0211&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3783,8 +3607,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Enhancement to Get Purchase group email address details from IF system to CWB.</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3792,8 +3615,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Enhancement required to automatically create and change subcon purchase requi&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3801,8 +3623,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Enhancement required to automatically create and change subcon purchase order&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3810,8 +3631,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Exception Notification – Label printing functionality – IF only</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3819,8 +3639,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>BADI Enhancement for PR PO Approval Workflow</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3828,8 +3647,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>BADI Enhancement for PR PO Approval Workflow</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3837,8 +3655,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Enhancement to create custom field on Purchase Order Header Table to store Ap&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3846,8 +3663,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Enhancement to create custom field on Purchase Order Header Table to store Ap&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3855,8 +3671,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Batch update Program</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3864,8 +3679,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>UD Enhancement</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3873,8 +3687,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Send email notification with details of task for Quality notification – IF only</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3882,8 +3695,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Creation of Return PO from Action box within Notification – IF only</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3891,8 +3703,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Creation of Notification as a follow up action with rejection codes – IF only</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -3900,8 +3711,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Returns to 3PL</td>
 <td>99. Rejected/Cancelled/On Hold</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3909,8 +3719,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Develop app/transaction to Automate the stock from ‘Unrestricted/Blocked to Q&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3918,8 +3727,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Enhancement required to automatically create return purchase orders based on &hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3927,8 +3735,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Enhancement required to automatically create rework or repair and replacement&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3936,8 +3743,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Activating the Final Invoice Indicator at PO Level SAP S/4 HANA - IP</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3945,8 +3751,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Activating the Final Invoice Indicator at PO Level - SAP S/4 HANA - IF</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3954,8 +3759,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Enhancement to capture material price from receiving plant in Intercompany STO.</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3963,8 +3767,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Enhancement to capture material price from receiving plant in Intercompany STO.</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3972,8 +3775,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Enhancement to trigger Output type which will generate IDOC once GR or GR rev&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3981,8 +3783,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Enhancement to trigger Output type which will generate IDOC once GR or GR rev&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -3990,8 +3791,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Enhancement required for FS-PTPI0017_IF, PTPI0018 to update the EKPO-VSART Field</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>Supplier-Intel Resource, Forecast, Install System</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -3999,8 +3799,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Enhancement to enrich or remove transactions from Intrastat arrival declarati&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4008,8 +3807,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Enhancement to enrich or remove transactions from Intrastat arrival declarati&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4017,8 +3815,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Quota Arrangement Mass Upload Tool Functionality IP</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -4026,8 +3823,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Quota Arrangement Mass Upload Tool Functionality IF</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4035,8 +3831,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>PIR Mass Upload Tool Functionality IP</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -4044,8 +3839,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>PIR Mass Upload Tool Functionality IF</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4053,8 +3847,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>OA Mass Upload Tool Functionality IP</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -4062,8 +3855,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>OA Mass Upload Tool Functionality IF</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4071,8 +3863,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Enhancement to validate the user that creates/edits the PO cannot make themse&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4080,8 +3871,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Enhancement to validate the user that creates/edits the PO cannot make themse&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -4089,8 +3879,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Pay@Accept Custom Program to release the invoice - SAP S/4 HANA IP and IF</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4098,8 +3887,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Enhancement on Goods Receipts created from S4 (IF-IP) to Ariba Network</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4107,8 +3895,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Enhancement on Goods Receipts created from S4 (IF-IP) to Ariba Network</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -4116,8 +3903,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>PR and PO interface enhancements to support Ariba Asset Interface</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4125,8 +3911,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>PR and PO interface enhancements to support Ariba Asset Interface</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -4134,8 +3919,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Enhancement - Transfer of ownership Interface</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4143,8 +3927,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Enhancement - Transfer of ownership Interface</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -4152,8 +3935,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Source List Data Mass Upload Tool Functionality IP</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -4161,8 +3943,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Source List Data Mass Upload Tool Functionality IF</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4170,8 +3951,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Enhancement to validate enabled supplier details to trigger Ariba relevant in&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -4179,8 +3959,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Enhancement to validate enabled supplier details to trigger Ariba relevant in&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -4188,8 +3967,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Enhancement to validate enabled supplier details to trigger Ariba relevant in&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4197,8 +3975,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>PR workflow Custom Table enhancement</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4206,8 +3983,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Enhancement to Post Goods Receipt for the converted Ariba Purchase Orders in &hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -4215,8 +3991,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Enhancement to Post Goods Receipt for the converted Ariba Purchase Orders in &hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4224,8 +3999,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Enhancement on Purchase Orders Created or Changed from Ariba to S4 (IF-IP)</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4233,8 +4007,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Enhancement on Purchase Orders Created or Changed from Ariba to S4 (IF-IP)</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -4242,8 +4015,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Enhancement to create idoc extension for payload header info to send data to &hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -4251,8 +4023,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Enhancement to create idoc extension for payload header info to send data to &hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4260,8 +4031,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Enhancements for chemical purchases on non MRP PR’s.</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4269,8 +4039,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Enhancements for chemical purchases on non MRP PR’s.</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -4278,8 +4047,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Enhancement required for ORDERS05 IDOC applicable for PO outbound from S4 to &hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4287,8 +4055,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Enhancement required for ORDERS05 IDOC applicable for PO outbound from S4 to &hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -4296,8 +4063,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Enhancement to map correct plant and user ID’s for Ariba PR replication in S4</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4305,8 +4071,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Enhancement to map correct plant and user ID’s for Ariba PR replication in S4</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -4314,8 +4079,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Review the auto reversal of payment documents, Reset clearing of invoice and &hellip;</td>
 <td>99. Rejected/Cancelled/On Hold</td>
-<td>NA → NA</td>
-<td></td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -4323,8 +4087,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Standard BTE for Manage Supplier Line items to add the PO and Supplier name -&hellip;</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -4332,8 +4095,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Standard BTE for Manage Supplier Line items to add the PO and Supplier name -&hellip;</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -4341,8 +4103,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Standard BTE for Manage Supplier Line items to add the PO and Supplier name -&hellip;</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4350,8 +4111,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Enhancement for populating DPAS data on Purchase Requisition (IF and IP)</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4359,8 +4119,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Custom program to block the vendor invoice based on the different business sc&hellip;</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -4368,8 +4127,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Custom program to block the vendor invoice based on the different business sc&hellip;</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4377,8 +4135,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Develop a routing logic to send Purchase Order to the Boundary apps from S/4 &hellip;</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4386,8 +4143,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Develop a routing logic to send Purchase Order to the Boundary apps from S/4 &hellip;</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4395,8 +4151,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Payment Term Mass change functionality in FBL1N Vendor Line item report</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4404,8 +4159,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Payment Term Mass change functionality in FBL1N Vendor Line item report</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -4413,8 +4167,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Develop a change utility for mass PR creation and change of purchase requisit&hellip;</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -4422,8 +4175,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Develop a change utility for mass PR creation and change of purchase requisit&hellip;</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4431,8 +4183,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>PO Mass Change - Upload Tool Functionality (IP)</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -4440,8 +4191,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>PO Mass Change - Upload Tool Functionality (IF)</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4449,8 +4199,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Attachment need to copy from PR to PO automatically</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4458,8 +4207,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Attachment need to copy from PR to PO automatically</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -4467,8 +4215,7 @@ flowchart TD
 <td>Conversion</td>
 <td>2379_Master Data Migration from ECC to S/4 to bring Approved Manufacturer Par&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>SPEED PDM (Legacy SPEED); SPEED PDM (Next Generation SPEED)</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4476,8 +4223,7 @@ flowchart TD
 <td>Conversion</td>
 <td>2379_Master Data Migration from ECC to S/4 to bring Approved Manufacturer Par&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>SPEED PDM (Legacy SPEED); SPEED PDM (Next Generation SPEED)</td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -4485,8 +4231,7 @@ flowchart TD
 <td>Conversion</td>
 <td>Purchase Requisition Conversion from ECC to S/4 - IF</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -4494,8 +4239,7 @@ flowchart TD
 <td>Conversion</td>
 <td>Purchasing Info Records Migration from ECC to S/4 – IF and IP</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4503,8 +4247,7 @@ flowchart TD
 <td>Conversion</td>
 <td>Purchasing Info Records Migration from ECC to S/4 – IF and IP</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4512,8 +4255,7 @@ flowchart TD
 <td>Conversion</td>
 <td>Source List Migration from ECC to S/4 – IF and IP</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4521,8 +4263,7 @@ flowchart TD
 <td>Conversion</td>
 <td>Source List Migration from ECC to S/4 – IF and IP</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4530,8 +4271,7 @@ flowchart TD
 <td>Conversion</td>
 <td>Open Contracts Migration from ECC to S/4 - IF and IP</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>01.Very High</td>
 </tr>
 <tr>
@@ -4539,8 +4279,7 @@ flowchart TD
 <td>Conversion</td>
 <td>Open Contracts Migration from ECC to S/4 - IF and IP</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>01.Very High</td>
 </tr>
 <tr>
@@ -4548,8 +4287,7 @@ flowchart TD
 <td>Conversion</td>
 <td>Quota Arrangement Migration from ECC to S/4 - IF and IP</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4557,8 +4295,7 @@ flowchart TD
 <td>Conversion</td>
 <td>Quota Arrangement Migration from ECC to S/4 - IF and IP</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4566,8 +4303,7 @@ flowchart TD
 <td>Conversion</td>
 <td>Open PO conversion from Legacy to SAP S/4</td>
 <td>10. Object Complete</td>
-<td>ECC → S4</td>
-<td>ECC</td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -4575,8 +4311,7 @@ flowchart TD
 <td>Conversion</td>
 <td>Open PO conversion from Legacy to SAP S/4</td>
 <td>10. Object Complete</td>
-<td>ECC → S4</td>
-<td>ECC</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4584,8 +4319,7 @@ flowchart TD
 <td>Workflow</td>
 <td>Workflow for processing Goods Receipt and tracking and tracing of non-invento&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4593,8 +4327,7 @@ flowchart TD
 <td>Workflow</td>
 <td>Workflow for processing Goods Receipt and tracking and tracing of non-invento&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4602,8 +4335,7 @@ flowchart TD
 <td>Report</td>
 <td>Capital Call Ahead GAP Report​</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4611,8 +4343,7 @@ flowchart TD
 <td>Interface</td>
 <td>GR replication for raw materials for Straddle Sites from ECC to S4 IP via ECA​</td>
 <td>06. Dev In Progress</td>
-<td></td>
-<td>NA</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4620,8 +4351,7 @@ flowchart TD
 <td>Interface</td>
 <td>Interface between S4 to Boundary Apps (PEGA-ISMQ) for real time data on Deliv&hellip;</td>
 <td>10. Object Complete</td>
-<td>S/4 → PEGA</td>
-<td>PEGA Integrated Shipping Memo Questionnaires</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4629,8 +4359,7 @@ flowchart TD
 <td>Interface</td>
 <td>Interface between S4 to Boundary Apps (PEGA-ISMQ) for real time data on Deliv&hellip;</td>
 <td>10. Object Complete</td>
-<td>S/4 → PEGA</td>
-<td>PEGA Integrated Shipping Memo Questionnaires</td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -4638,8 +4367,7 @@ flowchart TD
 <td>Interface</td>
 <td>Inbound interface to receive Finished Goods Advanced Shipping notifications f&hellip;</td>
 <td>10. Object Complete</td>
-<td>E2Open → S/4</td>
-<td>E2open</td>
+<td>01.S4</td>
 <td>01.Very High</td>
 </tr>
 <tr>
@@ -4647,8 +4375,7 @@ flowchart TD
 <td>Interface</td>
 <td>S4 sending 3B2 ASN information to supplier as outbound signal for return deli&hellip;</td>
 <td>10. Object Complete</td>
-<td>S/4 → E2Open</td>
-<td>E2open</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4656,8 +4383,7 @@ flowchart TD
 <td>Interface</td>
 <td>S4 sending 3B2 ASN information to supplier as outbound signal for return deli&hellip;</td>
 <td>10. Object Complete</td>
-<td>S/4 → E2Open</td>
-<td>E2open</td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -4665,8 +4391,7 @@ flowchart TD
 <td>Interface</td>
 <td>Interface between S4 to Boundary Apps (Customs Tracker) for real time data on&hellip;</td>
 <td>10. Object Complete</td>
-<td>S/4 → Boundary Apps (Customs Tracker)</td>
-<td>Customs Tracker</td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -4674,8 +4399,7 @@ flowchart TD
 <td>Interface</td>
 <td>Interface between S4 to Boundary Apps (Customs Tracker) for real time data on&hellip;</td>
 <td>10. Object Complete</td>
-<td>S/4 → Boundary Apps (Customs Tracker and PEGA-ISMQ</td>
-<td>Customs Tracker</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4683,8 +4407,7 @@ flowchart TD
 <td>Interface</td>
 <td>TM: RICEFW 1:Carrier selection and Charges calculation for IRG/ISCG( Intel ro&hellip;</td>
 <td>10. Object Complete</td>
-<td>IRG/IRSG → S/4</td>
-<td>SAP TM - IRG (Intel Routing Guide)</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4692,8 +4415,7 @@ flowchart TD
 <td>Interface</td>
 <td>Inbound interface to receive OSAT Finished Goods and Return rework FG “Goods &hellip;</td>
 <td>10. Object Complete</td>
-<td>OpenText → S/4</td>
-<td>OpenText</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4701,8 +4423,7 @@ flowchart TD
 <td>Interface</td>
 <td>Inbound interface to receive Box CPU Finished Goods and Return Rework FG “Goo&hellip;</td>
 <td>10. Object Complete</td>
-<td>OpenText → S/4</td>
-<td>OpenText</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4710,8 +4431,7 @@ flowchart TD
 <td>Interface</td>
 <td>Bailment Process: Inbound 4B2 from 3PL to IF via OpenText for Receipt of Bail&hellip;</td>
 <td>10. Object Complete</td>
-<td>OpenText → S/4</td>
-<td>OpenText</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4719,8 +4439,7 @@ flowchart TD
 <td>Interface</td>
 <td>Bailment Process: Generated Outbound 4B2 from IF to OpenText for Bailed Material</td>
 <td>10. Object Complete</td>
-<td>S/4 → OpenText</td>
-<td>OpenText</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4728,8 +4447,7 @@ flowchart TD
 <td>Interface</td>
 <td>Outbound Interface to send freight forwarder rates from TM to CTSI.</td>
 <td>10. Object Complete</td>
-<td>S/4 → CTSI</td>
-<td>CTSI Global</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4737,8 +4455,7 @@ flowchart TD
 <td>Interface</td>
 <td>Outbound Interface to send freight forwarder rates from TM to CTSI</td>
 <td>10. Object Complete</td>
-<td>S/4 → CTSI</td>
-<td>CTSI Global</td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -4746,8 +4463,7 @@ flowchart TD
 <td>Interface</td>
 <td>Inbound interface for WLA Hold scenario to trigger Outbound ASN with Non-Valu&hellip;</td>
 <td>10. Object Complete</td>
-<td>E2Open → S/4</td>
-<td>E2open</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4755,8 +4471,7 @@ flowchart TD
 <td>Interface</td>
 <td>PTP-LE: ASN (Inbound 3B2) from SIFO Suppliers - E2Open to S/4 IP</td>
 <td>10. Object Complete</td>
-<td>E2OPEN → S/4</td>
-<td>E2open</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4764,8 +4479,7 @@ flowchart TD
 <td>Interface</td>
 <td>The process involves sending a Real time consumption signal from a supplier o&hellip;</td>
 <td>10. Object Complete</td>
-<td>E2OPEN → S/4</td>
-<td>E2open</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4773,8 +4487,7 @@ flowchart TD
 <td>Interface</td>
 <td>TM –CTSI integration – Freight details to CTSI for Liability validation</td>
 <td>10. Object Complete</td>
-<td>S/4 → CTSI</td>
-<td>CTSI Global</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4782,8 +4495,7 @@ flowchart TD
 <td>Interface</td>
 <td>TM –CTSI integration – Freight details to CTSI for Liability validation</td>
 <td>10. Object Complete</td>
-<td>S/4 → CTSI</td>
-<td>CTSI Global</td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -4791,8 +4503,7 @@ flowchart TD
 <td>Interface</td>
 <td>PTP IF​Fetch Integrators rate in TM via an API call to Redwood and leverage i&hellip;</td>
 <td>10. Object Complete</td>
-<td>ECD → S/4</td>
-<td>Redwood</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4800,8 +4511,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>TM : Fetch Integrators rate in TM via an API call to Redwood and leverage it &hellip;</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -4809,8 +4519,7 @@ flowchart TD
 <td>Interface</td>
 <td>PTP IP​Fetch Integrators rate in TM via an API call to Redwood and leverage i&hellip;</td>
 <td>10. Object Complete</td>
-<td>ECD → S/4</td>
-<td>Redwood</td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -4818,8 +4527,7 @@ flowchart TD
 <td>Interface</td>
 <td>Outboundinterface GR data send to NIT as WIINGS gets replaced by S4</td>
 <td>10. Object Complete</td>
-<td>S/4 → NIT</td>
-<td>Non Inventory Tracking</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4827,8 +4535,7 @@ flowchart TD
 <td>Interface</td>
 <td>Outboundinterface GR data send to NIT as WIINGS gets replaced by S4</td>
 <td>10. Object Complete</td>
-<td>S/4 → NIT</td>
-<td>Non Inventory Tracking</td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -4836,8 +4543,7 @@ flowchart TD
 <td>Interface</td>
 <td>Inbound Interface to receive and process 4B2 Goods receipt signal from 3PL to&hellip;</td>
 <td>10. Object Complete</td>
-<td>E2Open → S/4</td>
-<td>OpenText</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4845,8 +4551,7 @@ flowchart TD
 <td>Interface</td>
 <td>Inbound interface to receive ASN (3B2) from fab material suppliers via E2Open&hellip;</td>
 <td>10. Object Complete</td>
-<td>E2Open → S/4</td>
-<td>E2open</td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -4854,8 +4559,7 @@ flowchart TD
 <td>Interface</td>
 <td>Inbound Interface to receive Advanced Shipment Notice (ASN) data in txt file &hellip;</td>
 <td>10. Object Complete</td>
-<td>GXS → S/4</td>
-<td>OpenText</td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -4863,8 +4567,7 @@ flowchart TD
 <td>Interface</td>
 <td>Inbound interface to receive Finished Goods Advanced Shipping notifications f&hellip;</td>
 <td>10. Object Complete</td>
-<td>E2Open → S/4</td>
-<td>E2open</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4872,8 +4575,7 @@ flowchart TD
 <td>Interface</td>
 <td>Inbound interface to receive “Goods Receipt” (4B2) signal for Raw Materials/F&hellip;</td>
 <td>10. Object Complete</td>
-<td>OpenText → S/4</td>
-<td>E2open</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4881,8 +4583,7 @@ flowchart TD
 <td>Interface</td>
 <td>Inbound interface to receive Realtime consumption (4B3) of raw materials/FG C&hellip;</td>
 <td>10. Object Complete</td>
-<td>OpenText → S/4</td>
-<td>E2open</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4890,8 +4591,7 @@ flowchart TD
 <td>Interface</td>
 <td>Inbound interface to receive Finished Goods ASN (3B2) from BOX CPU subcontrac&hellip;</td>
 <td>10. Object Complete</td>
-<td>OpenText → S/4</td>
-<td>E2open</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4899,8 +4599,7 @@ flowchart TD
 <td>Interface</td>
 <td>Inbound interface to receive ODM Finished Goods “Goods Receipt” (4B2) signal &hellip;</td>
 <td>10. Object Complete</td>
-<td>GSX → S/4</td>
-<td>OpenText</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4908,8 +4607,7 @@ flowchart TD
 <td>Interface</td>
 <td>Create Inbound Delivery Note from ASN in IP</td>
 <td>10. Object Complete</td>
-<td>WebASN → S/4</td>
-<td>Intel WebSuite - ASN; B2B Staging Database</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4917,8 +4615,7 @@ flowchart TD
 <td>Interface</td>
 <td>Create Inbound Delivery Note from ASN in IF</td>
 <td>10. Object Complete</td>
-<td>WebASN → S/4</td>
-<td>Intel WebSuite - ASN; B2B Staging Database</td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -4926,8 +4623,7 @@ flowchart TD
 <td>Interface</td>
 <td>Inbound interface to receive consignment inventory adjustments (manual postin&hellip;</td>
 <td>10. Object Complete</td>
-<td>E2Open → S/4</td>
-<td>E2open</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4935,8 +4631,7 @@ flowchart TD
 <td>Interface</td>
 <td>Inbound interface to receive consignment inventory adjustments (manual postin&hellip;</td>
 <td>10. Object Complete</td>
-<td>E2Open → S/4</td>
-<td>E2open</td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -4944,8 +4639,7 @@ flowchart TD
 <td>Interface</td>
 <td>Inbound interface to receive ODM Finished Goods “Goods Receipt” (4B2) signal &hellip;</td>
 <td>10. Object Complete</td>
-<td>E2Open → S/4</td>
-<td>E2open</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4953,8 +4647,7 @@ flowchart TD
 <td>Interface</td>
 <td>Inbound interface to receive “Goods Receipt” (4B2) signal from OSATs for semi&hellip;</td>
 <td>10. Object Complete</td>
-<td>E2Open → S/4</td>
-<td>E2open</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4962,8 +4655,7 @@ flowchart TD
 <td>Interface</td>
 <td>Inbound interface to receive raw materials “Goods Receipt” (4B2) signal for c&hellip;</td>
 <td>10. Object Complete</td>
-<td>E2Open → S/4</td>
-<td>E2open</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4971,8 +4663,7 @@ flowchart TD
 <td>Interface</td>
 <td>Inbound interface to receive raw materials “Goods Receipt” (4B2) signal for c&hellip;</td>
 <td>10. Object Complete</td>
-<td>E2Open → S/4</td>
-<td>E2open</td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -4980,8 +4671,7 @@ flowchart TD
 <td>Interface</td>
 <td>Outbound interface to send “Advanced Shipment Notification” signal (3B2) for &hellip;</td>
 <td>10. Object Complete</td>
-<td>S/4 → E2Open</td>
-<td>E2open</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -4989,8 +4679,7 @@ flowchart TD
 <td>Interface</td>
 <td>Inbound interface to receive Semi-Finished Goods Advanced Shipping notificati&hellip;</td>
 <td>10. Object Complete</td>
-<td>E2Open → S/4</td>
-<td>E2open</td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -4998,8 +4687,7 @@ flowchart TD
 <td>Interface</td>
 <td>Inbound interface to receive Finished Goods Advanced Shipping notifications f&hellip;</td>
 <td>10. Object Complete</td>
-<td>E2Open → S/4</td>
-<td>E2open</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -5007,8 +4695,7 @@ flowchart TD
 <td>Interface</td>
 <td>Outbound interface to send “Goods Receipt” signal (4B2) for Raw materials &amp; O&hellip;</td>
 <td>10. Object Complete</td>
-<td>S/4 → E2Open</td>
-<td>E2open</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -5016,8 +4703,7 @@ flowchart TD
 <td>Interface</td>
 <td>Outbound Interface to send 4B2 Goods receipt acknowledgement from S/4 to E2Op&hellip;</td>
 <td>10. Object Complete</td>
-<td>S/4 → E2Open</td>
-<td>E2open</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -5025,8 +4711,7 @@ flowchart TD
 <td>Form</td>
 <td>Enhancement to print the Bin Location label in SAP EWM.</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -5034,8 +4719,7 @@ flowchart TD
 <td>Form</td>
 <td>Goods Receipt Label Print triggered at the point of completion of the GR</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -5043,8 +4727,7 @@ flowchart TD
 <td>Form</td>
 <td>Form for printing Goods receipt label in IM - IP</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -5052,8 +4735,7 @@ flowchart TD
 <td>Form</td>
 <td>Form for printing Goods receipt label in IM - IF</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -5061,8 +4743,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Automate Outbound delivery note creation for 250K annual Subcon POs for repai&hellip;</td>
 <td>06. Dev In Progress</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -5070,8 +4751,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>CR0856 - Enhancement required (a report) to post the goods receipt for the ad&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -5079,8 +4759,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Enhancement to bring attachments of images from Material master (MM03) to the&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -5088,8 +4767,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Enhancement to generate outbound IDOC for 3B2 ASN information to RMA supplier&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -5097,8 +4775,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>S4 – Enhancement to stop GR for Purchase Order for which Delivery Completed i&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -5106,8 +4783,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>S4 – Enhancement to stop GR for Purchase Order for which Delivery Completed i&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -5115,8 +4791,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Enhancement on the RF screen to auto populate the HU number for receiving.</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -5124,8 +4799,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Enhancement on the RF screen for identifying the correct inbound delivery bas&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -5133,8 +4807,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>To Identify Priority Inbound Deliveries in EWM and display the details of the&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -5142,8 +4815,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>RF Scanner -Inbound Process Screen to enhanced to show the Delivery Priority &hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -5151,8 +4823,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Enhancement to capture Priority Indicator field in EWM Inbound Delivery from &hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -5160,8 +4831,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Inventory update program for Stock type updates</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -5169,8 +4839,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Delivery creation enhancement to update Stock type</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -5178,8 +4847,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Enhancement to enable delivery priority Indicator in Inbound delivery Documen&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -5187,8 +4855,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Enhancement to enable delivery priority Indicator in Inbound delivery Documen&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -5196,8 +4863,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Generate Outbound 3B2 Message from S4 to OSAT supplier E2Open onboarded Suppl&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -5205,8 +4871,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Determine mode in freight order and charge calculation​</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -5214,8 +4879,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Determine mode in freight order and charge calculation​</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -5223,8 +4887,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Capital Call Ahead Report​</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -5232,8 +4895,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Custom Fiori Application development to generate Call Ahead Reports for Capit&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -5241,8 +4903,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Inbound Carrier selection over-ride and exclusion rules to be considered duri&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -5250,8 +4911,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Inbound Carrier selection over-ride and exclusion rules to be considered duri&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -5259,8 +4919,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Enhancement to store + transform + trigger freight forwarder rates to CTSI.</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -5268,8 +4927,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Enhancement to store + transform + trigger freight forwarder rates to CTSI.</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -5277,8 +4935,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Order management for inbound ASN and Non ASN scenarios using automatic optimi&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -5286,8 +4943,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Order management for inbound ASN and Non ASN scenarios using automatic optimi&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -5295,8 +4951,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Introduce HAWB in Transportation Cockpit, FRO worklist and selection criteria&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -5304,8 +4959,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>introduce HAWB in Transportation Cockpit, FRO worklist and selection criteria&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -5313,8 +4967,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Planning for inbound ASN, Non ASN. ODM/OSAT scenarios using automatic optimiz&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -5322,8 +4975,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Planning for inbound ASN, Non ASN. ODM/OSAT scenarios using automatic optimiz&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -5331,8 +4983,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>TM: RICEFW 1:Carrier selection and Charges calculation for IRG/ISCG( Intel ro&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -5340,8 +4991,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>TM: Distribute the freight cost to R&amp;D/OCOS/PCOS/Capital cost objects based o&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -5349,8 +4999,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>TM: Distribute the freight cost to R&amp;D/OCOS/PCOS/Capital cost objects based o&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -5358,8 +5007,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>TM: Identify correct Company code, Purchase org, Purchase group, Virtual GLO &hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -5367,8 +5015,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>TM: Identify correct Company code, Purchase org, Purchase group, Virtual GLO &hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -5376,8 +5023,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>TM - GTT: GTT to S4 for IF and IP data split</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -5385,8 +5031,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>TM - GTT: GTT to S4 for IF and IP data split</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -5394,8 +5039,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Enhancement to enable Outbound Interface to send 4B2 Goods receipt acknowledg&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -5403,8 +5047,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Enhancement to enable Outbound Interface to send 4B2 Goods receipt acknowledg&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -5412,8 +5055,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>TM: Auto-approve dispute doc for CTSI based invoices to update pass invoice c&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -5421,8 +5063,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>TM: Auto-approve dispute doc for CTSI based invoices to update pass invoice c&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -5430,8 +5071,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>TM: Shortcut planning and optimizer-based planning for Capital PO to perform &hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -5439,8 +5079,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>TM: Shortcut planning and optimizer-based planning for Capital PO to perform &hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -5448,8 +5087,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>TM: Update Pass invoice amount including prompt payment discount from CTSI to&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>01.Very High</td>
 </tr>
 <tr>
@@ -5457,8 +5095,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>TM: Update Pass invoice amount including prompt payment discount from CTSI to&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -5466,8 +5103,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Calculation base and Associated charge calculation logic for field creation a&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -5475,8 +5111,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Calculation base and Associated charge calculation logic for field creation a&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -5484,8 +5119,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>TM :PTP IP/IF​ - Weekly Milk run Charge calculation (Local Trucking)​</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -5493,8 +5127,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>TM :PTP IP/IF​ - Weekly Milk run Charge calculation (Local Trucking)​</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -5502,8 +5135,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>TM : Fetch Integrators rate in TM via an API call to Redwood and leverage it &hellip;</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -5511,8 +5143,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>In SAP TM, Custom BRF+ and enhancement to populate the commodity code in the &hellip;</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -5520,8 +5151,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>In SAP TM, Custom BRF+ and enhancement to populate the commodity code in the &hellip;</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -5529,8 +5159,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Fair Market value Determination using custom code/logic during the replicatio&hellip;</td>
 <td>01. Pending Approval</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -5538,19 +5167,1403 @@ flowchart TD
 <td>Enhancement</td>
 <td>Enhancement requirement to read production order changes and automate text pu&hellip;</td>
 <td>02. FS Unplanned</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Summary</strong>: 3 Reports, 171 Interfaces, 16 Conversions, 172 Enhancements, 7 Forms, 10 Workflows</p>
-<h4 id="552-boundary-application-dependencies">5.5.2 Boundary Application Dependencies</h4>
-<p>The following RICEFW objects integrate with <strong>boundary applications</strong> (external systems outside the S/4 HANA core):</p>
+<h4 id="553-interface-objects">5.5.3 Interface Objects</h4>
+<p>Holistic view of all interface objects by L2 capability — includes ECA → S/4, S/4 → ECA, boundary system, and inter-platform interfaces with middleware and integration approach:</p>
 <table>
 <thead>
 <tr>
-<th>RICEFW ID</th>
+<th>Object ID</th>
+<th>Description</th>
+<th>Source → Target</th>
+<th>Middleware</th>
+<th>Approach</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PTPI1689</td>
+<td>New custom API needed to process GET and DELETE function for Document Info Re&hellip;</td>
+<td></td>
+<td>Apigee</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI1657</td>
+<td>Interface to send Invoice PAID Status from CFIN to IP</td>
+<td></td>
+<td>NA</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI1533</td>
+<td>Pay@accept – Inbound Interface to fetch the values from FCE ODS to SAP S/4 HA&hellip;</td>
+<td></td>
+<td>APIGEE</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI1529_IP</td>
+<td>An interface to retrieve the list of approvers from a custom MDG table(MDG sy&hellip;</td>
+<td></td>
+<td>NA</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI1529_IF</td>
+<td>An interface to retrieve the list of approvers from a custom MDG table(MDG sy&hellip;</td>
+<td></td>
+<td>NA</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI1458</td>
+<td>Develop an interface between PEGA and S/4 HANA system to transmit MSL informa&hellip;</td>
+<td></td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI1428_IP</td>
+<td>Setting Up Inbound Interface from SPT tool/GTT(Global Trade and Tax) system t&hellip;</td>
+<td>→ S/4</td>
+<td>APIGEE</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI1428_IF</td>
+<td>Setting Up Inbound Interface from SPT tool/GTT(Global Trade and Tax) system t&hellip;</td>
+<td>→ S/4</td>
+<td>APIGEE</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI1331_IP</td>
+<td>Ariba POs Goods Receipts to be sent from WIINGS to S/4 for R4 sites</td>
+<td>WIINGS → S/4</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI1331_IF</td>
+<td>Ariba POs Goods Receipts to be sent from WIINGS to S/4 for R4 sites</td>
+<td>WIINGS → S/4</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI1329_IP</td>
+<td>FSD to change Purchase Order information from B2B Staging DB ePO from S4 IP</td>
+<td>S/4 → Stagging DB</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI1329_IF</td>
+<td>FSD to change Purchase Order information from B2B Staging DB ePO from S4 IF</td>
+<td>S/4 → Stagging DB</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI1308_IP</td>
+<td>FSD to publish SAP Contracts pricing condition details to Web Contract - IP</td>
+<td>S/4 → WebContract</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI1308_IF</td>
+<td>FSD to publish SAP Contracts pricing condition details to Web Contract - IF</td>
+<td>S/4 → WebContract</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI1307_IP</td>
+<td>FSD to publish SAP Contracts changes details to Web Contract - IP</td>
+<td>S/4 → WebContract</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI1307_IF</td>
+<td>FSD to publish SAP Contracts changes details to Web Contract - IF</td>
+<td>S/4 → WebContract</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI1171</td>
+<td>Get Material details from IF to METs/SOM</td>
+<td>S/4 → METs/SOM</td>
+<td>APIGEE</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI1170</td>
+<td>Get Source List details from IF to METs/SOM</td>
+<td>METs/SOM → S/4</td>
+<td>APIGEE</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI1169</td>
+<td>Read Outline Agreement (OA) from IF in METs/SOM app.</td>
+<td>S/4 → METs/SOM</td>
+<td>APIGEE</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI1168</td>
+<td>Get PO details from IF to METs/SOM</td>
+<td>S/4 → METs/SOM</td>
+<td>APIGEE</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI1167</td>
+<td>Maintain PR in IF from METs/SOM</td>
+<td>METs/SOM → S/4</td>
+<td>APIGEE</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI1154</td>
+<td>ILM to SAP S4 Interface – Assigning Material to Inspection Plan</td>
+<td>ILM → S/4</td>
+<td>NA</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI1153</td>
+<td>Interface from ILM to SAP S/4 - Create/Modify Quality Info records</td>
+<td>ILM → S/4</td>
+<td>NA</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI1152</td>
+<td>Develop an interface to create PO/STO from IRIS Non-Standard Request to S/4 Hana</td>
+<td>IRIS → S/4</td>
+<td>APIGEE</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI1138</td>
+<td>This interface is required to trigger split account assigned Purchase Requisi&hellip;</td>
+<td>MySamples → S/4</td>
+<td>APIGEE</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI1137_IP</td>
+<td>Interface between S4 to Boundary Apps (Customs Tracker and PEGA-ISMQ) for rea&hellip;</td>
+<td>ILM → S/4</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI1137_IF</td>
+<td>Interface between S4 to Boundary Apps (Customs Tracker and PEGA-ISMQ) for rea&hellip;</td>
+<td>S/4 → Boundary Apps (Customs Tracker and PEGA-ISMQ</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI1134</td>
+<td>Inbound Interface from E2Open to IF – Intel Foundry in S/4 to bring shipping &hellip;</td>
+<td>E2Open → S/4</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI1128_IP</td>
+<td>Interface to send Ariba PO closure status information from S4 to Ariba</td>
+<td>S/4 → SAP Ariba Network</td>
+<td>NA</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI1128_IF</td>
+<td>Interface to send Ariba PO closure status information from S4 to Ariba</td>
+<td>S/4 → SAP Ariba Network</td>
+<td>NA</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI1032</td>
+<td>MQCS data pull Interface</td>
+<td>MQCS → S/4</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI0825</td>
+<td>Get Purchase Group details from IF to CWB</td>
+<td>S/4 → CWB</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI0823</td>
+<td>Get Purchase Req Details from IF to CWB</td>
+<td>S/4 → CWB</td>
+<td>APIGEE</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI0822_IP</td>
+<td>Ariba Invoice Integration through (CIG - Cloud Integration Gateway (Currently&hellip;</td>
+<td>SAP Ariba Network → S/4</td>
+<td>NA</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI0822_IF</td>
+<td>Ariba Invoice Integration through (CIG - Cloud Integration Gateway (Currently&hellip;</td>
+<td>SAP Ariba Network → S/4</td>
+<td>NA</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI0821_IP</td>
+<td>Invoice Status Update from SAP S/4 to Ariba Network through CIG - Cloud Integ&hellip;</td>
+<td>S/4 → SAP Ariba Network</td>
+<td>NA</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI0821_IF</td>
+<td>Invoice Status Update from SAP S/4 to Ariba Network through CIG - Cloud Integ&hellip;</td>
+<td>S/4 → SAP Ariba Network</td>
+<td>NA</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI0820_IP</td>
+<td>Carbon Copy Invoice Integration from SAP S/4 to Ariba Network</td>
+<td>S/4 → SAP Ariba Network</td>
+<td>NA</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI0820_IF</td>
+<td>Carbon Copy Invoice Integration from SAP S/4 to Ariba Network</td>
+<td>S/4 → SAP Ariba Network</td>
+<td>NA</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI0819_IP</td>
+<td>Intel B2B – XML (3C7) Notify of Self Billing Invoice – Interface to send noti&hellip;</td>
+<td>S/4 → OpenText</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI0819_IF</td>
+<td>Intel B2B – XML (3C7) Notify of Self Billing Invoice – Interface to send noti&hellip;</td>
+<td>S/4 → OpenText</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI0817_IP</td>
+<td>Purchasing Services Fiori Catalog</td>
+<td>S/4 → Shopping@Intel</td>
+<td>NA</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI0817_IF</td>
+<td>Purchasing Services Fiori Catalog</td>
+<td>S/4 → Shopping@Intel</td>
+<td>NA</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI0816_IP</td>
+<td>Intel WebSuite - Web PO – Interface to display Purchase Order information fro&hellip;</td>
+<td>Stagging DB → S/4</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI0816_IF</td>
+<td>Intel WebSuite - Web PO – Interface to display Purchase Order information fro&hellip;</td>
+<td>Stagging DB → S/4</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI0812_IP</td>
+<td>Intel WebSuite - Web Forecast – Interface to display Purchase Order informati&hellip;</td>
+<td>Intel WebSuite Web Contract → S/4</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI0812_IF</td>
+<td>Intel WebSuite - Web Forecast – Interface to display Purchase Order informati&hellip;</td>
+<td>Intel WebSuite Web Contract → S/4</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI0735_IP</td>
+<td>Ariba/Capital PO details to be retrieved from SAP S/4 at the time of receivin&hellip;</td>
+<td>WIINGS → S/4</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI0735_IF</td>
+<td>Ariba/Capital PO details to be retrieved from SAP S/4 at the time of receivin&hellip;</td>
+<td>WIINGS → S/4</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI0710_IP</td>
+<td>S4 Manual Invoice Release Blocking functionality requires connection with GTT&hellip;</td>
+<td>S/4 → GTT (Custom Tracker)</td>
+<td>NA</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI0710_IF</td>
+<td>S4 Manual Invoice Release Blocking functionality requires connection with GTT&hellip;</td>
+<td>S/4 → GTT (Custom Tracker)</td>
+<td>NA</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI0709_IP</td>
+<td>Ariba Asset Settlement Interface</td>
+<td>Shopping@Intel → S/4</td>
+<td>NA</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI0709_IF</td>
+<td>Ariba Asset Settlement Interface</td>
+<td>Shopping@Intel → S/4</td>
+<td>NA</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI0692_IP</td>
+<td>Custom program to send configurations from S4 system to Illumis</td>
+<td>S/4 → Accounts Payable Recovery Tool</td>
+<td>SFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI0692_IF</td>
+<td>Custom program to send configurations from S4 system to Illumis</td>
+<td>S/4 → Accounts Payable Recovery Tool</td>
+<td>SFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI0691_IP</td>
+<td>Custom program to send the supplier master data from S4 system to Illumis.</td>
+<td>S/4 → Accounts Payable Recovery Tool</td>
+<td>SFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI0691_IF</td>
+<td>Custom program to send the supplier master data from S4 system to Illumis.</td>
+<td>S/4 → Accounts Payable Recovery Tool</td>
+<td>SFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI0685</td>
+<td>Custom program to send the Transactions (Invoices) from IF system to Illumis</td>
+<td>S/4 → Accounts Payable Recovery Tool</td>
+<td>SFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI0671</td>
+<td>Interface to automatically create VMI PO &amp; IB delivery in S/4 (IF and IP) via&hellip;</td>
+<td>S/4 → E2Open</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI0568</td>
+<td>Maintain Purchasing Info Record in IF from Pega PSI</td>
+<td>PEGA PSI → S/4</td>
+<td>APIGEE</td>
+<td>01. Standard API</td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI0567</td>
+<td>Get Material Master details from IF to Pega PSI</td>
+<td>S/4 → PEGA PSI</td>
+<td>APIGEE</td>
+<td>01. Standard API</td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI0566</td>
+<td>Maintain Outline Agreement in IF from Pega PSI</td>
+<td>PEGA PSI → S/4</td>
+<td>APIGEE</td>
+<td>01. Standard API</td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI0559_IP</td>
+<td>All Validation of Chemical purchases on non MRP PR by using integration betwe&hellip;</td>
+<td>ICHEM → S/4</td>
+<td>NA</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI0559_IF</td>
+<td>All Validation of Chemical purchases on non MRP PR by using integration betwe&hellip;</td>
+<td>ICHEM → S/4</td>
+<td>NA</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI0494</td>
+<td>Maintain PO in IF from CWB</td>
+<td>CWB → S/4</td>
+<td>APIGEE</td>
+<td>01. Standard API</td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI0473</td>
+<td>Demand Change - Automatic update of PR/PO/STR/STO/Scheduling agreement and Pr&hellip;</td>
+<td>NA → NA</td>
+<td>Mulesoft</td>
+<td></td>
+<td>09. FUT Overdue</td>
+</tr>
+<tr>
+<td>PTPI0470</td>
+<td>Payment Proposal after invoice posted from SAP S/4 HANA CFIN to Ariba</td>
+<td>S/4 → SAP Ariba Network</td>
+<td>NA</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI0469</td>
+<td>Payment Remittance after payment posted from CFIN to IP/IF and from IP/IF to &hellip;</td>
+<td>S/4 → SAP Ariba Network</td>
+<td>NA</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI0468</td>
+<td>Payment Status after payment is cancelled / Void from CFIN to IP / IF and Fro&hellip;</td>
+<td>S/4 → SAP Ariba Network</td>
+<td>NA</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI0467</td>
+<td>Maintain Outline Agreement in IF from EMS</td>
+<td>EMS → S/4</td>
+<td>APIGEE</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI0466_IP</td>
+<td>Payment Remittance after payment posted from CFIN to IP/IF for Readsoft</td>
+<td>S/4 → Readsoft</td>
+<td>NA</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI0466_IF</td>
+<td>Payment Remittance after payment posted from CFIN to IP/IF for Readsoft</td>
+<td>S/4 → Readsoft</td>
+<td>NA</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI0463_IP</td>
+<td>GR Carbon Copy (Posted in S4)</td>
+<td>S/4 → SAP Ariba Network</td>
+<td>NA</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI0463_IF</td>
+<td>GR Carbon Copy (Posted in S4)</td>
+<td>S/4 → SAP Ariba Network</td>
+<td>NA</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI0452</td>
+<td>Get Material Master alternate UOM details from IF to CWB</td>
+<td>S/4 → CWB</td>
+<td>APIGEE</td>
+<td>01. Standard API</td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI0449</td>
+<td>Maintain Outline Agreement in IF from CWB</td>
+<td>CWB → S/4</td>
+<td>APIGEE</td>
+<td>01. Standard API</td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI0448</td>
+<td>Maintain Purchasing Info Record in IF from CWB</td>
+<td>CWB → S/4</td>
+<td>APIGEE</td>
+<td>01. Standard API</td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI0388_IP</td>
+<td>Custom program to send the Purchase order from SAP S4 system to Illumis</td>
+<td>S/4 → Accounts Payable Recovery Tool</td>
+<td>SFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI0388_IF</td>
+<td>Custom program to send the Purchase order from SAP S4 system to Illumis</td>
+<td>S/4 → Accounts Payable Recovery Tool</td>
+<td>SFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI0386</td>
+<td>Maintain Document Info Record in IF from CWB</td>
+<td>CWB → S/4</td>
+<td>APIGEE</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI0384</td>
+<td>Create Document Info Record in IF from EMS</td>
+<td>Equipment Management System → S/4</td>
+<td>APIGEE</td>
+<td>01. Standard API</td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI0382</td>
+<td>Get OA determination by material from IF to CWB</td>
+<td>Commercial Workbench → S/4</td>
+<td>APIGEE</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI0370</td>
+<td>Get OA determination by material from IF to EMS</td>
+<td>S/4 → Equipment Management System</td>
+<td>APIGEE</td>
+<td>01. Standard API</td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI0369</td>
+<td>Develop an interface to send inventory reports and MRP parameters from S4(IF)&hellip;</td>
+<td>S/4 → E2Open</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI0368</td>
+<td>Automatic creation of Discrete PO &amp; IB delivery when supplier initiates shipm&hellip;</td>
+<td>E2open → S/4</td>
+<td>MULESOFT</td>
+<td>05. Fully custom API</td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI0272</td>
+<td>Get Material Master details from IF to EMS</td>
+<td>S/4 → EMS</td>
+<td>APIGEE</td>
+<td>01. Standard API</td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI0271</td>
+<td>Get Material Master details from IF to SIRFIS</td>
+<td>S/4 → SIRFIS</td>
+<td>APIGEE</td>
+<td>01. Standard API</td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI0269_IP</td>
+<td>Supplier Onboarding Data - IF</td>
+<td>Shopping@Intel → S/4</td>
+<td>NA</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI0269_IF</td>
+<td>Supplier Onboarding Data - IP</td>
+<td>Shopping@Intel → S/4</td>
+<td>NA</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI0269_CFIN</td>
+<td>Supplier Onboarding Data - CFIN</td>
+<td>Shopping@Intel → S/4</td>
+<td>NA</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI0266</td>
+<td>Get PO details from IF to EMS</td>
+<td>S/4 → EMS</td>
+<td>APIGEE</td>
+<td>01. Standard API</td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI0263</td>
+<td>Maintain PR in IF from EMS</td>
+<td>EMS → S/4</td>
+<td>APIGEE</td>
+<td>01. Standard API</td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI0262</td>
+<td>Get PR details from IF to EMS</td>
+<td>S/4 → EMS</td>
+<td>APIGEE</td>
+<td>01. Standard API</td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI0261</td>
+<td>Get PR details from IF to SIRFIS</td>
+<td>S/4 → SIRFIS</td>
+<td>APIGEE</td>
+<td>01. Standard API</td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI0211_IP</td>
+<td>Outbound interface to publish SAP Contracts details to Web Contract - IP</td>
+<td>S/4 → WebContract</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI0211_IF</td>
+<td>Outbound interface to publish SAP Contracts details to Web Contract - IF</td>
+<td>S/4 → WebContract</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI0144_IP</td>
+<td>Interface from E2Open to S4 to publish supplier commits against Purchase Order</td>
+<td>E2Open → S/4</td>
+<td>MULESOFT</td>
+<td>05. Fully custom API</td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI0144_IF</td>
+<td>Interface from E2Open to S4 to publish supplier commits against Purchase Order</td>
+<td>E2Open → S/4</td>
+<td>MULESOFT</td>
+<td>05. Fully custom API</td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI0140_IP</td>
+<td>Interface from S4 to E2Open to send SA delivery schedule lines</td>
+<td>S/4 → E2Open</td>
+<td>MULESOFT</td>
+<td>04. Enhanced IDOC</td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI0140_IF</td>
+<td>Interface from S4 to E2Open to send SA delivery schedule lines</td>
+<td>S/4 → E2Open</td>
+<td>MULESOFT</td>
+<td>04. Enhanced IDOC</td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI0138</td>
+<td>Interface from S4 to OpenText to send new purchase orders &amp; purchase order ch&hellip;</td>
+<td>S/4 → GXS (Open text)</td>
+<td>MULESOFT</td>
+<td>04. Enhanced IDOC</td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI0136_IP</td>
+<td>Interface from S4 to E2open to send new purchase orders, purchase order chang&hellip;</td>
+<td>S/4 → E2Open</td>
+<td>MULESOFT</td>
+<td>04. Enhanced IDOC</td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI0136_IF</td>
+<td>Interface from S4 to E2open to send new purchase orders, purchase order chang&hellip;</td>
+<td>S/4 → E2Open</td>
+<td>MULESOFT</td>
+<td>04. Enhanced IDOC</td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI0134_IP</td>
+<td>Interface from S4 to E2Open for SIMS Master Data &amp; supply demand elements</td>
+<td>S/4 → E2Open</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI0134_IF</td>
+<td>Interface from S4 to E2Open for SIMS Master Data &amp; supply demand elements</td>
+<td>S/4 → E2Open</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI0133</td>
+<td>Get OA determination by material from IF to SIRFIS</td>
+<td>SIRFIS → S/4</td>
+<td>APIGEE</td>
+<td>01. Standard API</td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI0131</td>
+<td>Get Outline Agreement data from IF to SIRFIS</td>
+<td>SIRFIS → S/4</td>
+<td>APIGEE</td>
+<td>01. Standard API</td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI0111_IP</td>
+<td>PO change (Custom logic)</td>
+<td>SAP Ariba Network → S/4</td>
+<td>NA</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI0111_IF</td>
+<td>PO change (Custom logic)</td>
+<td>SAP Ariba Network → S/4</td>
+<td>NA</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI0110</td>
+<td>Get PO details from IF to SIRFIS</td>
+<td>SIRFIS → S/4</td>
+<td>APIGEE</td>
+<td>01. Standard API</td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI0107_IP</td>
+<td>PO Cancel</td>
+<td>SAP Ariba Network → S/4</td>
+<td>NA</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI0107_IF</td>
+<td>PO Cancel</td>
+<td>SAP Ariba Network → S/4</td>
+<td>NA</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI0103_IP</td>
+<td>PO create (Custom logic)</td>
+<td>SAP Ariba Network → S/4</td>
+<td>NA</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI0103_IF</td>
+<td>PO create (Custom logic)</td>
+<td>SAP Ariba Network → S/4</td>
+<td>NA</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI0100_IP</td>
+<td>PR Cancel</td>
+<td>SAP Ariba Network → S/4</td>
+<td>NA</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI0100_IF</td>
+<td>PR Cancel</td>
+<td>SAP Ariba Network → S/4</td>
+<td>NA</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI0098_IP</td>
+<td>PR change (Custom logic)</td>
+<td>SAP Ariba Network → S/4</td>
+<td>NA</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI0098_IF</td>
+<td>PR change (Custom logic)</td>
+<td>SAP Ariba Network → S/4</td>
+<td>NA</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI0096_IP</td>
+<td>PR creation (budget check, custom logic)</td>
+<td>SAP Ariba Network → S/4</td>
+<td>NA</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI0096_IF</td>
+<td>PR creation (budget check, custom logic)</td>
+<td>SAP Ariba Network → S/4</td>
+<td>NA</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI0094_IP</td>
+<td>validate and enrich (PR - master data and custom code)</td>
+<td>S/4 → SAP Ariba Network</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI0094_IF</td>
+<td>validate and enrich (PR - master data and custom code)</td>
+<td>S/4 → SAP Ariba Network</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI0092_IP</td>
+<td>Transfer of Ownership (change Ariba PR/PO)</td>
+<td>S/4 → SAP Ariba Network</td>
+<td>APIGEE</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI0092_IF</td>
+<td>Transfer of Ownership (change Ariba PR/PO)</td>
+<td>S/4 → SAP Ariba Network</td>
+<td>APIGEE</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI0018</td>
+<td>SAP S4 IF Boundary App Interface for updating Requested Dock Date (RDD) for C&hellip;</td>
+<td>S/4 → SIRFIS</td>
+<td>APIGEE</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>PTPI0017</td>
+<td>SAP S4 IF Boundary App Interface for updating POChange/PODeliveryDates - PO S&hellip;</td>
+<td>S/4 → SIRFIS</td>
+<td>APIGEE</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI1726</td>
+<td>GR replication for raw materials for Straddle Sites from ECC to S4 IP via ECA​</td>
+<td></td>
+<td>MULESOFT</td>
+<td></td>
+<td>06. Dev In Progress</td>
+</tr>
+<tr>
+<td>LOGI1427_IP</td>
+<td>Interface between S4 to Boundary Apps (PEGA-ISMQ) for real time data on Deliv&hellip;</td>
+<td>S/4 → PEGA</td>
+<td>APIGEE</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI1427_IF</td>
+<td>Interface between S4 to Boundary Apps (PEGA-ISMQ) for real time data on Deliv&hellip;</td>
+<td>S/4 → PEGA</td>
+<td>APIGEE</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI1309</td>
+<td>Inbound interface to receive Finished Goods Advanced Shipping notifications f&hellip;</td>
+<td>E2Open → S/4</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI1206_IP</td>
+<td>S4 sending 3B2 ASN information to supplier as outbound signal for return deli&hellip;</td>
+<td>S/4 → E2Open</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI1206_IF</td>
+<td>S4 sending 3B2 ASN information to supplier as outbound signal for return deli&hellip;</td>
+<td>S/4 → E2Open</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI1136_IP</td>
+<td>Interface between S4 to Boundary Apps (Customs Tracker) for real time data on&hellip;</td>
+<td>S/4 → Boundary Apps (Customs Tracker)</td>
+<td>APIGEE</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI1136_IF</td>
+<td>Interface between S4 to Boundary Apps (Customs Tracker) for real time data on&hellip;</td>
+<td>S/4 → Boundary Apps (Customs Tracker and PEGA-ISMQ</td>
+<td>APIGEE</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI1129</td>
+<td>TM: RICEFW 1:Carrier selection and Charges calculation for IRG/ISCG( Intel ro&hellip;</td>
+<td>IRG/IRSG → S/4</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI0956</td>
+<td>Inbound interface to receive OSAT Finished Goods and Return rework FG “Goods &hellip;</td>
+<td>OpenText → S/4</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI0955</td>
+<td>Inbound interface to receive Box CPU Finished Goods and Return Rework FG “Goo&hellip;</td>
+<td>OpenText → S/4</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI0954</td>
+<td>Bailment Process: Inbound 4B2 from 3PL to IF via OpenText for Receipt of Bail&hellip;</td>
+<td>OpenText → S/4</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI0953</td>
+<td>Bailment Process: Generated Outbound 4B2 from IF to OpenText for Bailed Material</td>
+<td>S/4 → OpenText</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI0852_IP</td>
+<td>Outbound Interface to send freight forwarder rates from TM to CTSI.</td>
+<td>S/4 → CTSI</td>
+<td>NA</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI0852_IF</td>
+<td>Outbound Interface to send freight forwarder rates from TM to CTSI</td>
+<td>S/4 → CTSI</td>
+<td>NA</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI0834</td>
+<td>Inbound interface for WLA Hold scenario to trigger Outbound ASN with Non-Valu&hellip;</td>
+<td>E2Open → S/4</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI0755</td>
+<td>PTP-LE: ASN (Inbound 3B2) from SIFO Suppliers - E2Open to S/4 IP</td>
+<td>E2OPEN → S/4</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI0753_IP</td>
+<td>The process involves sending a Real time consumption signal from a supplier o&hellip;</td>
+<td>E2OPEN → S/4</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI0749_IP</td>
+<td>TM –CTSI integration – Freight details to CTSI for Liability validation</td>
+<td>S/4 → CTSI</td>
+<td>SFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI0749_IF</td>
+<td>TM –CTSI integration – Freight details to CTSI for Liability validation</td>
+<td>S/4 → CTSI</td>
+<td>SFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI0516_IP</td>
+<td>PTP IF​Fetch Integrators rate in TM via an API call to Redwood and leverage i&hellip;</td>
+<td>ECD → S/4</td>
+<td>APIGEE</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI0516_IF</td>
+<td>PTP IP​Fetch Integrators rate in TM via an API call to Redwood and leverage i&hellip;</td>
+<td>ECD → S/4</td>
+<td>APIGEE</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI0503_IP</td>
+<td>Outboundinterface GR data send to NIT as WIINGS gets replaced by S4</td>
+<td>S/4 → NIT</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI0503_IF</td>
+<td>Outboundinterface GR data send to NIT as WIINGS gets replaced by S4</td>
+<td>S/4 → NIT</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI0502</td>
+<td>Inbound Interface to receive and process 4B2 Goods receipt signal from 3PL to&hellip;</td>
+<td>E2Open → S/4</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI0501</td>
+<td>Inbound interface to receive ASN (3B2) from fab material suppliers via E2Open&hellip;</td>
+<td>E2Open → S/4</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI0267</td>
+<td>Inbound Interface to receive Advanced Shipment Notice (ASN) data in txt file &hellip;</td>
+<td>GXS → S/4</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI0253</td>
+<td>Inbound interface to receive Finished Goods Advanced Shipping notifications f&hellip;</td>
+<td>E2Open → S/4</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI0252</td>
+<td>Inbound interface to receive “Goods Receipt” (4B2) signal for Raw Materials/F&hellip;</td>
+<td>OpenText → S/4</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI0249</td>
+<td>Inbound interface to receive Realtime consumption (4B3) of raw materials/FG C&hellip;</td>
+<td>OpenText → S/4</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI0245</td>
+<td>Inbound interface to receive Finished Goods ASN (3B2) from BOX CPU subcontrac&hellip;</td>
+<td>OpenText → S/4</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI0244</td>
+<td>Inbound interface to receive ODM Finished Goods “Goods Receipt” (4B2) signal &hellip;</td>
+<td>GSX → S/4</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI0197_IP</td>
+<td>Create Inbound Delivery Note from ASN in IP</td>
+<td>WebASN → S/4</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI0197_IF</td>
+<td>Create Inbound Delivery Note from ASN in IF</td>
+<td>WebASN → S/4</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI0163_IP</td>
+<td>Inbound interface to receive consignment inventory adjustments (manual postin&hellip;</td>
+<td>E2Open → S/4</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI0163_IF</td>
+<td>Inbound interface to receive consignment inventory adjustments (manual postin&hellip;</td>
+<td>E2Open → S/4</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI0161</td>
+<td>Inbound interface to receive ODM Finished Goods “Goods Receipt” (4B2) signal &hellip;</td>
+<td>E2Open → S/4</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI0158</td>
+<td>Inbound interface to receive “Goods Receipt” (4B2) signal from OSATs for semi&hellip;</td>
+<td>E2Open → S/4</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI0157_IP</td>
+<td>Inbound interface to receive raw materials “Goods Receipt” (4B2) signal for c&hellip;</td>
+<td>E2Open → S/4</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI0157_IF</td>
+<td>Inbound interface to receive raw materials “Goods Receipt” (4B2) signal for c&hellip;</td>
+<td>E2Open → S/4</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI0156</td>
+<td>Outbound interface to send “Advanced Shipment Notification” signal (3B2) for &hellip;</td>
+<td>S/4 → E2Open</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI0155</td>
+<td>Inbound interface to receive Semi-Finished Goods Advanced Shipping notificati&hellip;</td>
+<td>E2Open → S/4</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI0154</td>
+<td>Inbound interface to receive Finished Goods Advanced Shipping notifications f&hellip;</td>
+<td>E2Open → S/4</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI0150_IP</td>
+<td>Outbound interface to send “Goods Receipt” signal (4B2) for Raw materials &amp; O&hellip;</td>
+<td>S/4 → E2Open</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI0150_IF</td>
+<td>Outbound Interface to send 4B2 Goods receipt acknowledgement from S/4 to E2Op&hellip;</td>
+<td>S/4 → E2Open</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+</tbody>
+</table>
+<h4 id="555-scheduling-batch-objects">5.5.5 Scheduling &amp; Batch Objects</h4>
+<p><em>Scheduling and batch job objects (AutoSys, CWA) will be populated when job scheduler metadata is available. This section will map batch dependencies to RICEFW and ECA objects.</em></p>
+<h4 id="556-boundary-application-dependencies">5.5.6 Boundary Application Dependencies</h4>
+<p>The following development objects integrate with <strong>boundary applications</strong> (external systems outside the S/4 HANA core):</p>
+<table>
+<thead>
+<tr>
+<th>Object ID</th>
 <th>Description</th>
 <th>Boundary Application</th>
 <th>Source → Target</th>
@@ -6760,6 +7773,8 @@ flowchart TD
 </tr>
 </tbody>
 </table>
+<h3 id="65-eca-development-object-status">6.5 ECA Development Object Status</h3>
+<p><em>ECA development object status will be auto-populated when Snowflake SELECT access is provisioned for the PDH-IF and PDH-IP curated layers. This section will provide a DEV/QAS/PRD maturity assessment equivalent to §6.2 for SAP objects.</em></p>
 <div class="page-footer"><span>Page 20</span><span><a href="#toc">↑ Back to TOC</a></span><span>PM-050 — Manage Quotation</span></div>
 
 </div>

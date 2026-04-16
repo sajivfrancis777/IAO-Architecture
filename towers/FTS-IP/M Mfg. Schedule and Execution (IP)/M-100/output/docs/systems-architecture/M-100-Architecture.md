@@ -70,10 +70,14 @@ nav.toc a:hover { text-decoration: underline; }
   <li><a href="#5-application-architecture-togaf-a">5. Application Architecture (TOGAF &ldquo;A&rdquo;)</a>
     <ul>
       <li><a href="#54-component-overview">5.4 Component Overview</a></li>
-      <li><a href="#55-ricefw-inventory">5.5 RICEFW Inventory</a>
+      <li><a href="#55-development-object-inventory">5.5 Development Object Inventory</a>
         <ul>
-          <li><a href="#551-eca-dependencies">5.5.1 ECA Dependencies</a></li>
-          <li><a href="#552-boundary-application-dependencies">5.5.2 Boundary Application Dependencies</a></li>
+          <li><a href="#551-sap-development-objects">5.5.1 SAP Development Objects</a></li>
+          <li><a href="#552-eca-development-objects">5.5.2 ECA Development Objects</a></li>
+          <li><a href="#553-interface-objects">5.5.3 Interface Objects</a></li>
+          <li><a href="#554-middleware-objects">5.5.4 Middleware Objects</a></li>
+          <li><a href="#555-scheduling-batch-objects">5.5.5 Scheduling &amp; Batch Objects</a></li>
+          <li><a href="#556-boundary-application-dependencies">5.5.6 Boundary Application Dependencies</a></li>
         </ul>
       </li>
       <li><a href="#56-integration-patterns">5.6 Integration Patterns</a></li>
@@ -85,6 +89,7 @@ nav.toc a:hover { text-decoration: underline; }
       <li><a href="#62-sap-development-object-status">6.2 SAP Development Object Status</a></li>
       <li><a href="#63-nfrs-design-principles">6.3 NFRs &amp; Design Principles</a></li>
       <li><a href="#64-security-governance">6.4 Security &amp; Governance</a></li>
+      <li><a href="#65-eca-development-object-status">6.5 ECA Development Object Status</a></li>
     </ul>
   </li>
   <li><a href="#7-project-context">7. Project Context</a>
@@ -500,120 +505,177 @@ Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
 | System | IAPM ID | Status |
 |--------|---------|--------|
 
-### 5.5 RICEFW Inventory
+### 5.5 Development Object Inventory
 
-| Object ID | Type | Description | Status | Source → Target | Boundary App | Complexity |
-|-----------|------|-------------|--------|----------------|-------------|----------|
-| LOGW1078_IP | Workflow | ISM Workflows - Capital/AMT | 10. Object Complete |  |  | 03.Medium |
-| LOGW1077_IP | Workflow | ISM Workflows - EIMS/Lab | 10. Object Complete |  |  | 03.Medium |
-| LOGW1076_IP | Workflow | ISM Workflows - Non-inventory | 10. Object Complete |  |  | 02.High |
-| LOGR1176_IP | Report | ISM - International Traffic Report | 10. Object Complete |  |  | 02.High |
-| LOGR0833_IP | Report | Email Notification for deletion of Shipping Memos | 10. Object Complete |  |  | 03.Medium |
-| LOGM024_IP | Conversion | Create/Upload Vehicle resource | 10. Object Complete |  |  | N/A |
-| LOGM023_IP | Conversion | Update Business Share | 10. Object Complete |  |  | N/A |
-| LOGM022_IP | Conversion | Upload Transportation Allocation | 10. Object Complete |  |  | N/A |
-| LOGM021_IP | Conversion | Upload Schedules | 10. Object Complete |  |  | N/A |
-| LOGM019_IP | Conversion | Default Routes | 10. Object Complete |  → S4 |  | N/A |
-| LOGM018_IP | Conversion | Upload Rate Table | 10. Object Complete |  |  | N/A |
-| LOGM016_IP | Conversion | Create and review Charge Calculation Sheet | 10. Object Complete |  → S4 |  | N/A |
-| LOGM015_IP | Conversion | Create and review Freight Agreement | 10. Object Complete |  → S4 |  | N/A |
-| LOGM012_IP | Conversion | Creation of Location based on BP, Shipping points, plants | 10. Object Complete | ECC → S4 |  | N/A |
-| LOGM008_IP | Conversion | Location creation-ocean ports, airports | 10. Object Complete |  |  | N/A |
-| LOGM005_IP | Conversion | UPLOAD TRANSPORTATION ZONES (TM) | 10. Object Complete | TMS → S4 | TMS | N/A |
-| LOGM004_IP | Conversion | UPLOAD TRANSPORTATION LANES | 10. Object Complete | TMS → S4 | TMS | N/A |
-| LOGI1679 | Interface | Receive 4C1 Inventory movement Stock type change and cycle count from IF | 10. Object Complete |  | NA | 03.Medium |
-| LOGI1678 | Interface | Receive 4C1 Inventory Reconciliation Snapshot from IF | 10. Object Complete |  | NA | 03.Medium |
-| LOGI1576 | Interface | ECD_Interface between S4 to ECD for inventory status response | 10. Object Complete |  | Excursion Containment Disposition | 03.Medium |
-| LOGI1575 | Interface | ECD_Interface between S4 to 3PL for inventory status webservice​ | 10. Object Complete |  | NA | 03.Medium |
-| LOGI1571 | Interface | ECD_Interface from ECD to S4 for Inventory status call​ | 10. Object Complete |  | Excursion Containment Disposition | 03.Medium |
-| LOGI1295 | Interface | ECD_Interface between S/4 and ECD for completion status | 10. Object Complete |  | Excursion Containment Disposition | 03.Medium |
-| LOGI1291 | Interface | ECD_Interface between S/4 and 3PL to send plant/batch level hold/unhold infor... | 10. Object Complete |  | NA | 03.Medium |
-| LOGI1290 | Interface | ECD_Interface from ECD to S4 for Inventory Hold/unhold request | 10. Object Complete |  | Excursion Containment Disposition | 03.Medium |
-| LOGI1272 | Interface | Response to goods receipt posting from SAP to 3PL - EDI 4C1B | 10. Object Complete | S/4 → WMS (3PL) | OpenText | 03.Medium |
-| LOGI1267 | Interface | Inventory Reconciliation with Consignment hub – EDI 4C1 with version control | 10. Object Complete | OpenText → S/4 | OpenText | 03.Medium |
-| LOGI1081_IP | Interface | Interface + Enhancement - Reprinting of Carrier Label | 10. Object Complete | S/4 → Redwood | Redwood | 03.Medium |
-| LOGI1079_IP | Interface | Interface from S4 ISM to Service Now | 10. Object Complete | S/4 ISM → Service Now | ServiceNow Cloud | 03.Medium |
-| LOGI1074_IP | Interface | Send data via API to retrieve the tracking ID - interface + Enhancement | 10. Object Complete | S/4 → Redwood | Redwood | 03.Medium |
-| LOGI0951 | Interface | Inbound interface to receive Finished Goods “Goods Receipt” (4B2) signal from... | 10. Object Complete | OpenText → S/4 | OpenText | 03.Medium |
-| LOGI0950 | Interface | Interface to receive 4B2 signal from Factory and return shipments from ODM/OS... | 10. Object Complete | OpenText → S/4 | OpenText | 03.Medium |
-| LOGI0933 | Interface | W-lot inventory error handling | 10. Object Complete |  | NA | 03.Medium |
-| LOGI0836_IP | Interface | Interface from S4 to NDA (IPLA –Intel Pre Release License Agreements) | 10. Object Complete | S/4 → NDA | LAWMAS Agiloft Contract Lifecycle Management | 03.Medium |
-| LOGI0335 | Interface | Outbound PIP signal to 3PL for material document transfer – EDI 4C1 | 10. Object Complete | S/4 → OpenText | OpenText | 02.High |
-| LOGI0237_IP | Interface | Inventory Reconciliation snapshot (4C1) from 3PL WMS to SAP S/4 | 10. Object Complete | 3PL → S/4 | OpenText | 02.High |
-| LOGF1614_IP | Form | TM-Bill of lading print output ( NSO/ Prospal STO's) | 10. Object Complete |  |  | 03.Medium |
-| LOGF1100_IP | Form | Printing of Standard Shipping Label | 10. Object Complete |  |  | 02.High |
-| LOGF0359_IP | Form | ISM - Generate Commercial Invoice - IF/IP | 10. Object Complete | NA → NA |  | 02.High |
-| LOGF0358_IP | Form | ISM - Generate Traveler Document - IF/IP | 10. Object Complete | NA → NA |  | 02.High |
-| LOGF0352_IP | Form | ISM - IPLA | 10. Object Complete |  |  | 02.High |
-| LOGF0351_IP | Form | ISM - Custom China Special label | 10. Object Complete |  |  | 02.High |
-| LOGF0350_IP | Form | ISM - India GST DC | 10. Object Complete |  |  | 02.High |
-| LOGE1686 | Enhancement | IP custom table for reconciliation data | 10. Object Complete |  |  | 03.Medium |
-| LOGE1572_IP | Enhancement | SAP GUI T-code to Move stock from Blocked to unblock Status | 10. Object Complete |  |  | 02.High |
-| LOGE1569_IP | Enhancement | Enhancement to change billing status based on ship reason in ISM | 10. Object Complete |  |  | 03.Medium |
-| LOGE1526_IP | Enhancement | Automatic HAWB assignment for Freight Forwarders( ISM/ Prospal STO's) | 10. Object Complete |  |  | 02.High |
-| LOGE1327 | Enhancement | ECD_Enhancement to retrieve plant details for material/batch and update custo... | 09. FUT Overdue |  |  | 02.High |
-| LOGE1276_IP | Enhancement | TM:Replace VTRC and integrate with parcel carrier to retrieve the package lev... | 10. Object Complete |  |  | 03.Medium |
-| LOGE1253 | Enhancement | Inventory Reconciliation with Consignment hub – EDI 4C1 with version control | 10. Object Complete |  |  | 03.Medium |
-| LOGE1177_IP | Enhancement | India GST E-invoicing | 10. Object Complete |  |  | 03.Medium |
-| LOGE1118_IP | Enhancement | ISM – MY Security Check Fiori app - IF | 10. Object Complete |  |  | 02.High |
-| LOGE1117_IP | Enhancement | ISM – Employee acknowledgement - IP | 10. Object Complete |  |  | 02.High |
-| LOGE1090_IP | Enhancement | PGI confirmation for non-inventory Intel freight shipments via email | 10. Object Complete |  |  | 03.Medium |
-| LOGE1080_IP | Enhancement | Email notifications to be triggered as part of ISM Workflows | 10. Object Complete |  |  | 02.High |
-| LOGE1052_IP | Enhancement | Custom fields required on delivery screen | 10. Object Complete |  |  | 03.Medium |
-| LOGE0945 | Enhancement | Update COF, COA and FVR in 3PL WMS - EDI 4C1B | 10. Object Complete |  |  | 03.Medium |
-| LOGE0936 | Enhancement | Validate receiving consigned materials into consignment hub – EDI 4B2 CSGN | 10. Object Complete |  |  | 03.Medium |
-| LOGE0935_IP | Enhancement | Fiori App - Shipping Memo | 09. FUT Overdue |  |  | 01.Very High |
-| LOGE0835_IF | Enhancement | Interface to get the AMT (Asset Management Tool) data on the ISM | 10. Object Complete |  | Asset Management Tool 2.0 | 04.Low |
-| LOGE0405_IP | Enhancement | Dangerous Goods indicator from the delivery header text to be transmitted to ... | 10. Object Complete | NA → NA |  | 03.Medium |
-| LOGE0403_IP | Enhancement | In SAP TM, update FU and FO Transportation Cockpit w/ custom fields Purchase ... | 10. Object Complete | NA → NA |  | 02.High |
-| LOGE0239_IP | Enhancement | Inventory Reconciliation snapshot (4C1) from 3PL WMS to SAP S/4 - Table Creation | 10. Object Complete | NA → NA | NA | 03.Medium |
-| LOGE0190_IP | Enhancement | Delivery Split for STO in S/4 | 10. Object Complete | NA → NA | NA | 03.Medium |
-| LOGC1500 | Conversion | IM Stock conversion from Non SAP system to S4 system | 10. Object Complete |  |  | 02.High |
-| LOGC0972_IP | Conversion | Open Inventory Conversion for IP and IF (as applicable) , Batch Characteristi... | 10. Object Complete |  |  | 02.High |
-| LOGC0946_IP | Conversion | Open Inventory Conversion for IP and IF (as applicable) , ECC to S4 | 10. Object Complete |  |  | 02.High |
-| FTSM002_IP | Conversion | Work Center | 10. Object Complete | NA → S4 |  | N/A |
-| FTSI1693 | Interface | Interface for Reporting Scrap of Semi Finished Goods at OSAT and IF manufactu... | 06. Dev In Progress |  | NA | 03.Medium |
-| FTSI1692 | Interface | Interface for Reporting Scrap of Semi Finished Goods at OSAT and IF manufactu... | 10. Object Complete |  | PDF Sapience Manufacturing Hub Integration Platform - IP | 03.Medium |
-| FTSI1681 | Interface | Enhancement to create Zero Lead Time Order to convert Sorted Wafers into Sort... | 10. Object Complete |  | PDF Sapience Manufacturing Hub Integration Platform - IP | 03.Medium |
-| FTSI1631 | Interface | Interface to update Remnants in production order | 10. Object Complete |  | PDF Sapience Manufacturing Hub Integration Platform - IP | 03.Medium |
-| FTSI1619 | Interface | Interface to capture Sales Order 3B2 ASN and Virtual 3B2 ASN signals from Int... | 10. Object Complete |  | PDF Sapience Manufacturing Hub Integration Platform - IP | 02.High |
-| LOGI1584 | Interface | Interface to post inventory in SAP S/4HANA from ECA via MuleSoft. | 06. Dev In Progress |  | NA | 03.Medium |
-| FTSI1023 | Interface | Interface to Transfer stock from Unrestricted stock to Block stock and vice v... | 10. Object Complete | E2OPEN → S/4 | E2open; PDF Sapience Manufacturing Hub Integration Platform - IP | 03.Medium |
-| FTSI1022 | Interface | Inbound Interface to update projected release quantity and date for lots on q... | 10. Object Complete | FLAT FILE → S/4 | NA | 03.Medium |
-| FTSI0725 | Interface | Inbound interface to capture Yield Confirmation and Goods Receipt against Pro... | 10. Object Complete | E2OPEN → S/4 | E2open; PDF Sapience Manufacturing Hub Integration Platform - IP | 03.Medium |
-| FTSI0724 | Interface | Inbound interface from e2open to IP SAP S4 HANA system to update Die Quantity... | 10. Object Complete | E2OPEN → S/4 | E2open; PDF Sapience Manufacturing Hub Integration Platform - IP | 02.High |
-| FTSI0492 | Interface | Interface between E2Open and S4 for goods issue against production order | 10. Object Complete | E2Open → S/4 | E2open; PDF Sapience Manufacturing Hub Integration Platform - IP | 03.Medium |
-| FTSI0491 | Interface | Interface between E2Open and S4 for capturing confirmation of scrap against p... | 10. Object Complete | E2Open → S/4 | E2open; PDF Sapience Manufacturing Hub Integration Platform - IP | 03.Medium |
-| FTSI0268 | Interface | Interface to be developed from S/4 to E2Open to transmit Build Instruction​ d... | 10. Object Complete | S/4 → E2Open | E2open | 03.Medium |
-| FTSI0210 | Interface | Interface Function to Create Purchase Requisitions from ECA to S/4 | 10. Object Complete | ECA (PDH) → S/4 | NA | 03.Medium |
-| FTSI0209 | Interface | Interface to create Production Order from ECA to S/4 | 10. Object Complete | ECA (PDH) → S/4 | NA | 03.Medium |
-| FTSE1701 | Enhancement | Enhancement to automate updation of Routing_Prod versions with reference to S... | 10. Object Complete |  |  | 03.Medium |
-| FTSE1694 | Enhancement | Enhancement to Introduction of additional restrictions by MRP Area for S4 IP ... | 10. Object Complete |  |  | 03.Medium |
-| FTSE1653 | Enhancement | Enhancement to automate creation of Routing_Prod versions with reference to S... | 10. Object Complete |  |  | 02.High |
-| FTSE1642 | Enhancement | Enhancement to create a user exit (or) Business Add In to update Components a... | 10. Object Complete |  |  | 03.Medium |
-| FTSE1597 | Enhancement | Develop a utility for mass creation of production orders via load file in SAP... | 10. Object Complete |  |  | 02.High |
-| FTSE1586 | Enhancement | Text Purchase Requisition while creating with reference to Production Order O... | 10. Object Complete |  |  | 03.Medium |
-| FTSE1194 | Enhancement | Enhancement in IP SAP HANA system to re-assign the first operation plant to C... | 10. Object Complete |  | NA | 03.Medium |
-| FTSE1146 | Enhancement | Enhancement to link KB sales orders / STR to purchase requisition generated b... | 10. Object Complete |  | NA | 04.Low |
-| FTSE1144 | Enhancement | Total Quantity’ update for Parent Production Order with reference to Actual G... | 10. Object Complete |  | NA | 03.Medium |
-| FTSE1024 | Enhancement | Create a custom table and a custom Fiori app in S4 to manually update the rel... | 10. Object Complete |  |  | 03.Medium |
-| FTSE0593 | Enhancement | Enhancement of standard iDoc to capture and transfer Build Instructions from ... | 10. Object Complete |  | NA | 02.High |
-| FTSE0424 | Enhancement | Conversion of Production Versions data into S4 | 10. Object Complete | S4 HANA → S4 HANA |  | 03.Medium |
-| FTSE0198 | Enhancement | Conversion Program for Routings | 10. Object Complete | NA → S4 HANA | NA | 03.Medium |
-| FTSC1682 | Conversion | Conversion of Intel Products Bailed Inventory & Lot Attributes | 10. Object Complete |  |  | 03.Medium |
-| FTSC1559 | Conversion | Conversion of Open PO/Engineering/Rework Orders into Production orders from I... | 10. Object Complete |  |  | 03.Medium |
-| FTSC0434 | Conversion | Conversion of Open Production Orders from ECC purchase order data into S4 | 10. Object Complete | ECC → S4 HANA | NA | 03.Medium |
-| FTSC0052_IP | Conversion | Conversion of Reference Operation Sets to S/4 | 10. Object Complete | ECC → S4 | ECC | 03.Medium |
-| FTSE1739 | Enhancement | Develop Utility for mass change of Production Orders in SAP S4 system | 02. FS Unplanned |  |  | 03.Medium |
-
-**Summary**: 2 Reports, 34 Interfaces, 20 Conversions, 35 Enhancements, 7 Forms, 3 Workflows
+**Summary**: 99 SAP, 2 ECA, 34 Interfaces | RICEFW: 2 Reports, 34 Interfaces, 20 Conversions, 35 Enhancements, 7 Forms, 3 Workflows
 
 
-#### 5.5.2 Boundary Application Dependencies
+#### 5.5.1 SAP Development Objects
 
-The following RICEFW objects integrate with **boundary applications** (external systems outside the S/4 HANA core):
+SAP platform objects (Reports, Interfaces, Conversions, Enhancements, Forms, Workflows) developed on S/4, MDG, or S/4 BOT:
 
-| RICEFW ID | Description | Boundary Application | Source → Target |
+| Object ID | Type | Description | Status | Dev System | Complexity |
+|-----------|------|-------------|--------|-----------|----------|
+| LOGW1078_IP | Workflow | ISM Workflows - Capital/AMT | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGW1077_IP | Workflow | ISM Workflows - EIMS/Lab | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGW1076_IP | Workflow | ISM Workflows - Non-inventory | 10. Object Complete | 01.S4 | 02.High |
+| LOGR1176_IP | Report | ISM - International Traffic Report | 10. Object Complete | 01.S4 | 02.High |
+| LOGR0833_IP | Report | Email Notification for deletion of Shipping Memos | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGM024_IP | Conversion | Create/Upload Vehicle resource | 10. Object Complete | 01.S4 | N/A |
+| LOGM023_IP | Conversion | Update Business Share | 10. Object Complete | 01.S4 | N/A |
+| LOGM022_IP | Conversion | Upload Transportation Allocation | 10. Object Complete | 01.S4 | N/A |
+| LOGM021_IP | Conversion | Upload Schedules | 10. Object Complete | 01.S4 | N/A |
+| LOGM019_IP | Conversion | Default Routes | 10. Object Complete | 01.S4 | N/A |
+| LOGM018_IP | Conversion | Upload Rate Table | 10. Object Complete | 01.S4 | N/A |
+| LOGM016_IP | Conversion | Create and review Charge Calculation Sheet | 10. Object Complete | 01.S4 | N/A |
+| LOGM015_IP | Conversion | Create and review Freight Agreement | 10. Object Complete | 01.S4 | N/A |
+| LOGM012_IP | Conversion | Creation of Location based on BP, Shipping points, plants | 10. Object Complete | 01.S4 | N/A |
+| LOGM008_IP | Conversion | Location creation-ocean ports, airports | 10. Object Complete | 01.S4 | N/A |
+| LOGM005_IP | Conversion | UPLOAD TRANSPORTATION ZONES (TM) | 10. Object Complete | 01.S4 | N/A |
+| LOGM004_IP | Conversion | UPLOAD TRANSPORTATION LANES | 10. Object Complete | 01.S4 | N/A |
+| LOGI1679 | Interface | Receive 4C1 Inventory movement Stock type change and cycle count from IF | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGI1678 | Interface | Receive 4C1 Inventory Reconciliation Snapshot from IF | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGI1576 | Interface | ECD_Interface between S4 to ECD for inventory status response | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGI1575 | Interface | ECD_Interface between S4 to 3PL for inventory status webservice​ | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGI1571 | Interface | ECD_Interface from ECD to S4 for Inventory status call​ | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGI1295 | Interface | ECD_Interface between S/4 and ECD for completion status | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGI1291 | Interface | ECD_Interface between S/4 and 3PL to send plant/batch level hold/unhold infor... | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGI1290 | Interface | ECD_Interface from ECD to S4 for Inventory Hold/unhold request | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGI1272 | Interface | Response to goods receipt posting from SAP to 3PL - EDI 4C1B | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGI1267 | Interface | Inventory Reconciliation with Consignment hub – EDI 4C1 with version control | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGI1081_IP | Interface | Interface + Enhancement - Reprinting of Carrier Label | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGI1079_IP | Interface | Interface from S4 ISM to Service Now | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGI1074_IP | Interface | Send data via API to retrieve the tracking ID - interface + Enhancement | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGI0951 | Interface | Inbound interface to receive Finished Goods “Goods Receipt” (4B2) signal from... | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGI0950 | Interface | Interface to receive 4B2 signal from Factory and return shipments from ODM/OS... | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGI0933 | Interface | W-lot inventory error handling | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGI0836_IP | Interface | Interface from S4 to NDA (IPLA –Intel Pre Release License Agreements) | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGI0335 | Interface | Outbound PIP signal to 3PL for material document transfer – EDI 4C1 | 10. Object Complete | 01.S4 | 02.High |
+| LOGI0237_IP | Interface | Inventory Reconciliation snapshot (4C1) from 3PL WMS to SAP S/4 | 10. Object Complete | 01.S4 | 02.High |
+| LOGF1614_IP | Form | TM-Bill of lading print output ( NSO/ Prospal STO's) | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGF1100_IP | Form | Printing of Standard Shipping Label | 10. Object Complete | 01.S4 | 02.High |
+| LOGF0359_IP | Form | ISM - Generate Commercial Invoice - IF/IP | 10. Object Complete | 01.S4 | 02.High |
+| LOGF0358_IP | Form | ISM - Generate Traveler Document - IF/IP | 10. Object Complete | 01.S4 | 02.High |
+| LOGF0352_IP | Form | ISM - IPLA | 10. Object Complete | 01.S4 | 02.High |
+| LOGF0351_IP | Form | ISM - Custom China Special label | 10. Object Complete | 01.S4 | 02.High |
+| LOGF0350_IP | Form | ISM - India GST DC | 10. Object Complete | 01.S4 | 02.High |
+| LOGE1686 | Enhancement | IP custom table for reconciliation data | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGE1572_IP | Enhancement | SAP GUI T-code to Move stock from Blocked to unblock Status | 10. Object Complete | 01.S4 | 02.High |
+| LOGE1569_IP | Enhancement | Enhancement to change billing status based on ship reason in ISM | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGE1526_IP | Enhancement | Automatic HAWB assignment for Freight Forwarders( ISM/ Prospal STO's) | 10. Object Complete | 01.S4 | 02.High |
+| LOGE1327 | Enhancement | ECD_Enhancement to retrieve plant details for material/batch and update custo... | 09. FUT Overdue | 01.S4 | 02.High |
+| LOGE1276_IP | Enhancement | TM:Replace VTRC and integrate with parcel carrier to retrieve the package lev... | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGE1253 | Enhancement | Inventory Reconciliation with Consignment hub – EDI 4C1 with version control | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGE1177_IP | Enhancement | India GST E-invoicing | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGE1118_IP | Enhancement | ISM – MY Security Check Fiori app - IF | 10. Object Complete | 01.S4 | 02.High |
+| LOGE1117_IP | Enhancement | ISM – Employee acknowledgement - IP | 10. Object Complete | 01.S4 | 02.High |
+| LOGE1090_IP | Enhancement | PGI confirmation for non-inventory Intel freight shipments via email | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGE1080_IP | Enhancement | Email notifications to be triggered as part of ISM Workflows | 10. Object Complete | 01.S4 | 02.High |
+| LOGE1052_IP | Enhancement | Custom fields required on delivery screen | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGE0945 | Enhancement | Update COF, COA and FVR in 3PL WMS - EDI 4C1B | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGE0936 | Enhancement | Validate receiving consigned materials into consignment hub – EDI 4B2 CSGN | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGE0935_IP | Enhancement | Fiori App - Shipping Memo | 09. FUT Overdue | 01.S4 | 01.Very High |
+| LOGE0835_IF | Enhancement | Interface to get the AMT (Asset Management Tool) data on the ISM | 10. Object Complete | 01.S4 | 04.Low |
+| LOGE0405_IP | Enhancement | Dangerous Goods indicator from the delivery header text to be transmitted to ... | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGE0403_IP | Enhancement | In SAP TM, update FU and FO Transportation Cockpit w/ custom fields Purchase ... | 10. Object Complete | 01.S4 | 02.High |
+| LOGE0239_IP | Enhancement | Inventory Reconciliation snapshot (4C1) from 3PL WMS to SAP S/4 - Table Creation | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGE0190_IP | Enhancement | Delivery Split for STO in S/4 | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGC1500 | Conversion | IM Stock conversion from Non SAP system to S4 system | 10. Object Complete | 01.S4 | 02.High |
+| LOGC0972_IP | Conversion | Open Inventory Conversion for IP and IF (as applicable) , Batch Characteristi... | 10. Object Complete | 01.S4 | 02.High |
+| LOGC0946_IP | Conversion | Open Inventory Conversion for IP and IF (as applicable) , ECC to S4 | 10. Object Complete | 01.S4 | 02.High |
+| FTSM002_IP | Conversion | Work Center | 10. Object Complete | 01.S4 | N/A |
+| FTSI1693 | Interface | Interface for Reporting Scrap of Semi Finished Goods at OSAT and IF manufactu... | 06. Dev In Progress | 01.S4 | 03.Medium |
+| FTSI1692 | Interface | Interface for Reporting Scrap of Semi Finished Goods at OSAT and IF manufactu... | 10. Object Complete | 01.S4 | 03.Medium |
+| FTSI1681 | Interface | Enhancement to create Zero Lead Time Order to convert Sorted Wafers into Sort... | 10. Object Complete | 01.S4 | 03.Medium |
+| FTSI1631 | Interface | Interface to update Remnants in production order | 10. Object Complete | 01.S4 | 03.Medium |
+| FTSI1619 | Interface | Interface to capture Sales Order 3B2 ASN and Virtual 3B2 ASN signals from Int... | 10. Object Complete | 01.S4 | 02.High |
+| LOGI1584 | Interface | Interface to post inventory in SAP S/4HANA from ECA via MuleSoft. | 06. Dev In Progress | 01.S4 | 03.Medium |
+| FTSI1023 | Interface | Interface to Transfer stock from Unrestricted stock to Block stock and vice v... | 10. Object Complete | 01.S4 | 03.Medium |
+| FTSI1022 | Interface | Inbound Interface to update projected release quantity and date for lots on q... | 10. Object Complete | 01.S4 | 03.Medium |
+| FTSI0725 | Interface | Inbound interface to capture Yield Confirmation and Goods Receipt against Pro... | 10. Object Complete | 01.S4 | 03.Medium |
+| FTSI0724 | Interface | Inbound interface from e2open to IP SAP S4 HANA system to update Die Quantity... | 10. Object Complete | 01.S4 | 02.High |
+| FTSI0492 | Interface | Interface between E2Open and S4 for goods issue against production order | 10. Object Complete | 01.S4 | 03.Medium |
+| FTSI0491 | Interface | Interface between E2Open and S4 for capturing confirmation of scrap against p... | 10. Object Complete | 01.S4 | 03.Medium |
+| FTSI0268 | Interface | Interface to be developed from S/4 to E2Open to transmit Build Instruction​ d... | 10. Object Complete | 01.S4 | 03.Medium |
+| FTSE1701 | Enhancement | Enhancement to automate updation of Routing_Prod versions with reference to S... | 10. Object Complete | 01.S4 | 03.Medium |
+| FTSE1694 | Enhancement | Enhancement to Introduction of additional restrictions by MRP Area for S4 IP ... | 10. Object Complete | 01.S4 | 03.Medium |
+| FTSE1653 | Enhancement | Enhancement to automate creation of Routing_Prod versions with reference to S... | 10. Object Complete | 01.S4 | 02.High |
+| FTSE1642 | Enhancement | Enhancement to create a user exit (or) Business Add In to update Components a... | 10. Object Complete | 01.S4 | 03.Medium |
+| FTSE1597 | Enhancement | Develop a utility for mass creation of production orders via load file in SAP... | 10. Object Complete | 01.S4 | 02.High |
+| FTSE1586 | Enhancement | Text Purchase Requisition while creating with reference to Production Order O... | 10. Object Complete | 01.S4 | 03.Medium |
+| FTSE1194 | Enhancement | Enhancement in IP SAP HANA system to re-assign the first operation plant to C... | 10. Object Complete | 01.S4 | 03.Medium |
+| FTSE1146 | Enhancement | Enhancement to link KB sales orders / STR to purchase requisition generated b... | 10. Object Complete | 01.S4 | 04.Low |
+| FTSE1144 | Enhancement | Total Quantity’ update for Parent Production Order with reference to Actual G... | 10. Object Complete | 01.S4 | 03.Medium |
+| FTSE1024 | Enhancement | Create a custom table and a custom Fiori app in S4 to manually update the rel... | 10. Object Complete | 01.S4 | 03.Medium |
+| FTSE0593 | Enhancement | Enhancement of standard iDoc to capture and transfer Build Instructions from ... | 10. Object Complete | 01.S4 | 02.High |
+| FTSE0424 | Enhancement | Conversion of Production Versions data into S4 | 10. Object Complete | 01.S4 | 03.Medium |
+| FTSE0198 | Enhancement | Conversion Program for Routings | 10. Object Complete | 01.S4 | 03.Medium |
+| FTSC1682 | Conversion | Conversion of Intel Products Bailed Inventory & Lot Attributes | 10. Object Complete | 01.S4 | 03.Medium |
+| FTSC1559 | Conversion | Conversion of Open PO/Engineering/Rework Orders into Production orders from I... | 10. Object Complete | 01.S4 | 03.Medium |
+| FTSC0434 | Conversion | Conversion of Open Production Orders from ECC purchase order data into S4 | 10. Object Complete | 01.S4 | 03.Medium |
+| FTSC0052_IP | Conversion | Conversion of Reference Operation Sets to S/4 | 10. Object Complete | 01.S4 | 03.Medium |
+| FTSE1739 | Enhancement | Develop Utility for mass change of Production Orders in SAP S4 system | 02. FS Unplanned | 01.S4 | 03.Medium |
+
+#### 5.5.2 ECA Development Objects
+
+**Enterprise Cloud Analytics (ECA)** platform objects (Databricks/Snowflake) — views, tables, and ETL jobs with Source or Target System = ECA:
+
+| Object ID | Type | Description | Status | Source → Target | Complexity |
+|-----------|------|-------------|--------|----------------|----------|
+| FTSI0210 | Interface | Interface Function to Create Purchase Requisitions from ECA to S/4 | 10. Object Complete | ECA (PDH) → S/4 | 03.Medium |
+| FTSI0209 | Interface | Interface to create Production Order from ECA to S/4 | 10. Object Complete | ECA (PDH) → S/4 | 03.Medium |
+
+#### 5.5.3 Interface Objects
+
+Holistic view of all interface objects by L2 capability — includes ECA → S/4, S/4 → ECA, boundary system, and inter-platform interfaces with middleware and integration approach:
+
+| Object ID | Description | Source → Target | Middleware | Approach | Status |
+|-----------|-------------|----------------|-----------|----------|--------|
+| LOGI1679 | Receive 4C1 Inventory movement Stock type change and cycle count from IF |  | SFT |  | 10. Object Complete |
+| LOGI1678 | Receive 4C1 Inventory Reconciliation Snapshot from IF |  | SFT |  | 10. Object Complete |
+| LOGI1576 | ECD_Interface between S4 to ECD for inventory status response |  | MuleSoft |  | 10. Object Complete |
+| LOGI1575 | ECD_Interface between S4 to 3PL for inventory status webservice​ |  | MuleSoft |  | 10. Object Complete |
+| LOGI1571 | ECD_Interface from ECD to S4 for Inventory status call​ |  | MuleSoft |  | 10. Object Complete |
+| LOGI1295 | ECD_Interface between S/4 and ECD for completion status |  | MULESOFT |  | 10. Object Complete |
+| LOGI1291 | ECD_Interface between S/4 and 3PL to send plant/batch level hold/unhold infor... |  | MULESOFT |  | 10. Object Complete |
+| LOGI1290 | ECD_Interface from ECD to S4 for Inventory Hold/unhold request |  | MULESOFT |  | 10. Object Complete |
+| LOGI1272 | Response to goods receipt posting from SAP to 3PL - EDI 4C1B | S/4 → WMS (3PL) | MULESOFT |  | 10. Object Complete |
+| LOGI1267 | Inventory Reconciliation with Consignment hub – EDI 4C1 with version control | OpenText → S/4 | MULESOFT |  | 10. Object Complete |
+| LOGI1081_IP | Interface + Enhancement - Reprinting of Carrier Label | S/4 → Redwood | APIGEE |  | 10. Object Complete |
+| LOGI1079_IP | Interface from S4 ISM to Service Now | S/4 ISM → Service Now | NA |  | 10. Object Complete |
+| LOGI1074_IP | Send data via API to retrieve the tracking ID - interface + Enhancement | S/4 → Redwood | APIGEE |  | 10. Object Complete |
+| LOGI0951 | Inbound interface to receive Finished Goods “Goods Receipt” (4B2) signal from... | OpenText → S/4 | MULESOFT |  | 10. Object Complete |
+| LOGI0950 | Interface to receive 4B2 signal from Factory and return shipments from ODM/OS... | OpenText → S/4 | MULESOFT |  | 10. Object Complete |
+| LOGI0933 | W-lot inventory error handling |  | MULESOFT |  | 10. Object Complete |
+| LOGI0836_IP | Interface from S4 to NDA (IPLA –Intel Pre Release License Agreements) | S/4 → NDA | NA |  | 10. Object Complete |
+| LOGI0335 | Outbound PIP signal to 3PL for material document transfer – EDI 4C1 | S/4 → OpenText | MULESOFT |  | 10. Object Complete |
+| LOGI0237_IP | Inventory Reconciliation snapshot (4C1) from 3PL WMS to SAP S/4 | 3PL → S/4 | MULESOFT |  | 10. Object Complete |
+| FTSI1693 | Interface for Reporting Scrap of Semi Finished Goods at OSAT and IF manufactu... |  | BODS |  | 06. Dev In Progress |
+| FTSI1692 | Interface for Reporting Scrap of Semi Finished Goods at OSAT and IF manufactu... |  | APIGEE |  | 10. Object Complete |
+| FTSI1681 | Enhancement to create Zero Lead Time Order to convert Sorted Wafers into Sort... |  | MULESOFT |  | 10. Object Complete |
+| FTSI1631 | Interface to update Remnants in production order |  | APIGEE |  | 10. Object Complete |
+| FTSI1619 | Interface to capture Sales Order 3B2 ASN and Virtual 3B2 ASN signals from Int... |  | APIGEE |  | 10. Object Complete |
+| LOGI1584 | Interface to post inventory in SAP S/4HANA from ECA via MuleSoft. |  | MuleSoft |  | 06. Dev In Progress |
+| FTSI1023 | Interface to Transfer stock from Unrestricted stock to Block stock and vice v... | E2OPEN → S/4 | APIGEE |  | 10. Object Complete |
+| FTSI1022 | Inbound Interface to update projected release quantity and date for lots on q... | FLAT FILE → S/4 | NA |  | 10. Object Complete |
+| FTSI0725 | Inbound interface to capture Yield Confirmation and Goods Receipt against Pro... | E2OPEN → S/4 | APIGEE |  | 10. Object Complete |
+| FTSI0724 | Inbound interface from e2open to IP SAP S4 HANA system to update Die Quantity... | E2OPEN → S/4 | APIGEE |  | 10. Object Complete |
+| FTSI0492 | Interface between E2Open and S4 for goods issue against production order | E2Open → S/4 | APIGEE |  | 10. Object Complete |
+| FTSI0491 | Interface between E2Open and S4 for capturing confirmation of scrap against p... | E2Open → S/4 | APIGEE |  | 10. Object Complete |
+| FTSI0268 | Interface to be developed from S/4 to E2Open to transmit Build Instruction​ d... | S/4 → E2Open | MULESOFT |  | 10. Object Complete |
+| FTSI0210 | Interface Function to Create Purchase Requisitions from ECA to S/4 | ECA (PDH) → S/4 | BODS |  | 10. Object Complete |
+| FTSI0209 | Interface to create Production Order from ECA to S/4 | ECA (PDH) → S/4 | BODS |  | 10. Object Complete |
+
+
+#### 5.5.5 Scheduling & Batch Objects
+
+*Scheduling and batch job objects (AutoSys, CWA) will be populated when job scheduler metadata is available. This section will map batch dependencies to RICEFW and ECA objects.*
+
+#### 5.5.6 Boundary Application Dependencies
+
+The following development objects integrate with **boundary applications** (external systems outside the S/4 HANA core):
+
+| Object ID | Description | Boundary Application | Source → Target |
 |-----------|------------|---------------------|----------------|
 | LOGM005_IP | UPLOAD TRANSPORTATION ZONES (TM) | TMS | TMS → S4 |
 | LOGM004_IP | UPLOAD TRANSPORTATION LANES | TMS | TMS → S4 |
@@ -706,6 +768,14 @@ The following RICEFW objects integrate with **boundary applications** (external 
 | Audit Logging | Comprehensive audit trail for all data changes and user actions (SAP Security Audit Log) | SOX Compliance / Intel Audit Policy | Internal Audit |
 | Certificate Management | Automated certificate lifecycle management for system-to-system trust | Intel PKI Standard | Certificate Authority Team |
 | Compliance | SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR) | Intel Corporate Compliance Framework | Compliance Office |
+
+### 6.5 ECA Development Object Status
+
+| Metric | Count |
+|--------|-------|
+| ECA Objects (this capability) | 2 |
+| ECA Interfaces | 2 |
+| Total ECA + SAP Interface Dependencies | 34 |
 
 
 <div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>M-100 — Execute Production (IP)</span></div>

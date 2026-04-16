@@ -477,10 +477,14 @@ nav.toc a:hover { text-decoration: underline; }
   <li><a href="#5-application-architecture-togaf-a">5. Application Architecture (TOGAF &ldquo;A&rdquo;)</a>
     <ul>
       <li><a href="#54-component-overview">5.4 Component Overview</a></li>
-      <li><a href="#55-ricefw-inventory">5.5 RICEFW Inventory</a>
+      <li><a href="#55-development-object-inventory">5.5 Development Object Inventory</a>
         <ul>
-          <li><a href="#551-eca-dependencies">5.5.1 ECA Dependencies</a></li>
-          <li><a href="#552-boundary-application-dependencies">5.5.2 Boundary Application Dependencies</a></li>
+          <li><a href="#551-sap-development-objects">5.5.1 SAP Development Objects</a></li>
+          <li><a href="#552-eca-development-objects">5.5.2 ECA Development Objects</a></li>
+          <li><a href="#553-interface-objects">5.5.3 Interface Objects</a></li>
+          <li><a href="#554-middleware-objects">5.5.4 Middleware Objects</a></li>
+          <li><a href="#555-scheduling-batch-objects">5.5.5 Scheduling &amp; Batch Objects</a></li>
+          <li><a href="#556-boundary-application-dependencies">5.5.6 Boundary Application Dependencies</a></li>
         </ul>
       </li>
       <li><a href="#56-integration-patterns">5.6 Integration Patterns</a></li>
@@ -492,6 +496,7 @@ nav.toc a:hover { text-decoration: underline; }
       <li><a href="#62-sap-development-object-status">6.2 SAP Development Object Status</a></li>
       <li><a href="#63-nfrs-design-principles">6.3 NFRs &amp; Design Principles</a></li>
       <li><a href="#64-security-governance">6.4 Security &amp; Governance</a></li>
+      <li><a href="#65-eca-development-object-status">6.5 ECA Development Object Status</a></li>
     </ul>
   </li>
   <li><a href="#7-project-context">7. Project Context</a>
@@ -825,7 +830,10 @@ nav.toc a:hover { text-decoration: underline; }
 </tr>
 </tbody>
 </table>
-<h3 id="55-ricefw-inventory">5.5 RICEFW Inventory</h3>
+<h3 id="55-development-object-inventory">5.5 Development Object Inventory</h3>
+<p><strong>Summary</strong>: 51 SAP, 20 Interfaces | RICEFW: 2 Reports, 20 Interfaces, 3 Conversions, 17 Enhancements, 6 Forms, 3 Workflows</p>
+<h4 id="551-sap-development-objects">5.5.1 SAP Development Objects</h4>
+<p>SAP platform objects (Reports, Interfaces, Conversions, Enhancements, Forms, Workflows) developed on S/4, MDG, or S/4 BOT:</p>
 <table>
 <thead>
 <tr>
@@ -833,8 +841,7 @@ nav.toc a:hover { text-decoration: underline; }
 <th>Type</th>
 <th>Description</th>
 <th>Status</th>
-<th>Source → Target</th>
-<th>Boundary App</th>
+<th>Dev System</th>
 <th>Complexity</th>
 </tr>
 </thead>
@@ -844,8 +851,7 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Workflow</td>
 <td>ISM Workflows - Capital/AMT</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -853,8 +859,7 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Workflow</td>
 <td>ISM Workflows - EIMS/Lab</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -862,8 +867,7 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Workflow</td>
 <td>ISM Workflows - Non-inventory</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -871,8 +875,7 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Report</td>
 <td>ISM - International Traffic Report</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -880,8 +883,7 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Report</td>
 <td>Email Notification for deletion of Shipping Memos</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -889,8 +891,7 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Interface</td>
 <td>Receive 4C1 Inventory movement Stock type change and cycle count from IF</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -898,8 +899,7 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Interface</td>
 <td>Receive 4C1 Inventory Reconciliation Snapshot from IF</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -907,8 +907,7 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Interface</td>
 <td>ECD_Interface between S4 to ECD for inventory status response</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>Excursion Containment Disposition</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -916,8 +915,7 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Interface</td>
 <td>ECD_Interface between S4 to 3PL for inventory status webservice​</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -925,8 +923,7 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Interface</td>
 <td>ECD_Interface from ECD to S4 for Inventory status call​</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>Excursion Containment Disposition</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -934,8 +931,7 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Interface</td>
 <td>ECD_Interface between S/4 and ECD for completion status</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>Excursion Containment Disposition</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -943,8 +939,7 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Interface</td>
 <td>ECD_Interface between S/4 and 3PL to send plant/batch level hold/unhold infor&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -952,8 +947,7 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Interface</td>
 <td>ECD_Interface from ECD to S4 for Inventory Hold/unhold request</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>Excursion Containment Disposition</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -961,8 +955,7 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Interface</td>
 <td>Response to goods receipt posting from SAP to 3PL - EDI 4C1B</td>
 <td>10. Object Complete</td>
-<td>S/4 → WMS (3PL)</td>
-<td>OpenText</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -970,8 +963,7 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Interface</td>
 <td>Inventory Reconciliation with Consignment hub – EDI 4C1 with version control</td>
 <td>10. Object Complete</td>
-<td>OpenText → S/4</td>
-<td>OpenText</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -979,8 +971,7 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Interface</td>
 <td>Interface + Enhancement - Reprinting of Carrier Label</td>
 <td>10. Object Complete</td>
-<td>S/4 → Redwood</td>
-<td>Redwood</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -988,8 +979,7 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Interface</td>
 <td>Interface from S4 ISM to Service Now</td>
 <td>10. Object Complete</td>
-<td>S/4 ISM → Service Now</td>
-<td>ServiceNow Cloud</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -997,8 +987,7 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Interface</td>
 <td>Send data via API to retrieve the tracking ID - interface + Enhancement</td>
 <td>10. Object Complete</td>
-<td>S/4 → Redwood</td>
-<td>Redwood</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1006,8 +995,7 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Interface</td>
 <td>Inbound interface to receive Finished Goods “Goods Receipt” (4B2) signal from&hellip;</td>
 <td>10. Object Complete</td>
-<td>OpenText → S/4</td>
-<td>OpenText</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1015,8 +1003,7 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Interface</td>
 <td>Interface to receive 4B2 signal from Factory and return shipments from ODM/OS&hellip;</td>
 <td>10. Object Complete</td>
-<td>OpenText → S/4</td>
-<td>OpenText</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1024,8 +1011,7 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Interface</td>
 <td>W-lot inventory error handling</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1033,8 +1019,7 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Interface</td>
 <td>Interface from S4 to NDA (IPLA –Intel Pre Release License Agreements)</td>
 <td>10. Object Complete</td>
-<td>S/4 → NDA</td>
-<td>LAWMAS Agiloft Contract Lifecycle Management</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1042,8 +1027,7 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Interface</td>
 <td>Outbound PIP signal to 3PL for material document transfer – EDI 4C1</td>
 <td>10. Object Complete</td>
-<td>S/4 → OpenText</td>
-<td>OpenText</td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1051,8 +1035,7 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Interface</td>
 <td>Inventory Reconciliation snapshot (4C1) from 3PL WMS to SAP S/4</td>
 <td>10. Object Complete</td>
-<td>3PL → S/4</td>
-<td>OpenText</td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1060,8 +1043,7 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Form</td>
 <td>Printing of Standard Shipping Label</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1069,8 +1051,7 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Form</td>
 <td>ISM - Generate Commercial Invoice - IF/IP</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td></td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1078,8 +1059,7 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Form</td>
 <td>ISM - Generate Traveler Document - IF/IP</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td></td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1087,8 +1067,7 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Form</td>
 <td>ISM - IPLA</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1096,8 +1075,7 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Form</td>
 <td>ISM - Custom China Special label</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1105,8 +1083,7 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Form</td>
 <td>ISM - India GST DC</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1114,8 +1091,7 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Enhancement</td>
 <td>IP custom table for reconciliation data</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1123,8 +1099,7 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Enhancement</td>
 <td>SAP GUI T-code to Move stock from Blocked to unblock Status</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1132,8 +1107,7 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Enhancement</td>
 <td>Enhancement to change billing status based on ship reason in ISM</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1141,8 +1115,7 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Enhancement</td>
 <td>ECD_Enhancement to retrieve plant details for material/batch and update custo&hellip;</td>
 <td>09. FUT Overdue</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1150,8 +1123,7 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Enhancement</td>
 <td>Inventory Reconciliation with Consignment hub – EDI 4C1 with version control</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1159,8 +1131,7 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Enhancement</td>
 <td>India GST E-invoicing</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1168,8 +1139,7 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Enhancement</td>
 <td>ISM – MY Security Check Fiori app - IF</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1177,8 +1147,7 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Enhancement</td>
 <td>ISM – Employee acknowledgement - IP</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1186,8 +1155,7 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Enhancement</td>
 <td>PGI confirmation for non-inventory Intel freight shipments via email</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1195,8 +1163,7 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Enhancement</td>
 <td>Email notifications to be triggered as part of ISM Workflows</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1204,8 +1171,7 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Enhancement</td>
 <td>Custom fields required on delivery screen</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1213,8 +1179,7 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Enhancement</td>
 <td>Update COF, COA and FVR in 3PL WMS - EDI 4C1B</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1222,8 +1187,7 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Enhancement</td>
 <td>Validate receiving consigned materials into consignment hub – EDI 4B2 CSGN</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1231,8 +1195,7 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Enhancement</td>
 <td>Fiori App - Shipping Memo</td>
 <td>09. FUT Overdue</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>01.Very High</td>
 </tr>
 <tr>
@@ -1240,8 +1203,7 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Enhancement</td>
 <td>Interface to get the AMT (Asset Management Tool) data on the ISM</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>Asset Management Tool 2.0</td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -1249,8 +1211,7 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Enhancement</td>
 <td>Inventory Reconciliation snapshot (4C1) from 3PL WMS to SAP S/4 - Table Creation</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1258,8 +1219,7 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Enhancement</td>
 <td>Delivery Split for STO in S/4</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1267,8 +1227,7 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Conversion</td>
 <td>IM Stock conversion from Non SAP system to S4 system</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1276,8 +1235,7 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Conversion</td>
 <td>Open Inventory Conversion for IP and IF (as applicable) , Batch Characteristi&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1285,8 +1243,7 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Conversion</td>
 <td>Open Inventory Conversion for IP and IF (as applicable) , ECC to S4</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1294,19 +1251,195 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Interface</td>
 <td>Interface to post inventory in SAP S/4HANA from ECA via MuleSoft.</td>
 <td>06. Dev In Progress</td>
-<td></td>
-<td>NA</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Summary</strong>: 2 Reports, 20 Interfaces, 3 Conversions, 17 Enhancements, 6 Forms, 3 Workflows</p>
-<h4 id="552-boundary-application-dependencies">5.5.2 Boundary Application Dependencies</h4>
-<p>The following RICEFW objects integrate with <strong>boundary applications</strong> (external systems outside the S/4 HANA core):</p>
+<h4 id="553-interface-objects">5.5.3 Interface Objects</h4>
+<p>Holistic view of all interface objects by L2 capability — includes ECA → S/4, S/4 → ECA, boundary system, and inter-platform interfaces with middleware and integration approach:</p>
 <table>
 <thead>
 <tr>
-<th>RICEFW ID</th>
+<th>Object ID</th>
+<th>Description</th>
+<th>Source → Target</th>
+<th>Middleware</th>
+<th>Approach</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LOGI1679</td>
+<td>Receive 4C1 Inventory movement Stock type change and cycle count from IF</td>
+<td></td>
+<td>SFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI1678</td>
+<td>Receive 4C1 Inventory Reconciliation Snapshot from IF</td>
+<td></td>
+<td>SFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI1576</td>
+<td>ECD_Interface between S4 to ECD for inventory status response</td>
+<td></td>
+<td>MuleSoft</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI1575</td>
+<td>ECD_Interface between S4 to 3PL for inventory status webservice​</td>
+<td></td>
+<td>MuleSoft</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI1571</td>
+<td>ECD_Interface from ECD to S4 for Inventory status call​</td>
+<td></td>
+<td>MuleSoft</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI1295</td>
+<td>ECD_Interface between S/4 and ECD for completion status</td>
+<td></td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI1291</td>
+<td>ECD_Interface between S/4 and 3PL to send plant/batch level hold/unhold infor&hellip;</td>
+<td></td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI1290</td>
+<td>ECD_Interface from ECD to S4 for Inventory Hold/unhold request</td>
+<td></td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI1272</td>
+<td>Response to goods receipt posting from SAP to 3PL - EDI 4C1B</td>
+<td>S/4 → WMS (3PL)</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI1267</td>
+<td>Inventory Reconciliation with Consignment hub – EDI 4C1 with version control</td>
+<td>OpenText → S/4</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI1081_IP</td>
+<td>Interface + Enhancement - Reprinting of Carrier Label</td>
+<td>S/4 → Redwood</td>
+<td>APIGEE</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI1079_IP</td>
+<td>Interface from S4 ISM to Service Now</td>
+<td>S/4 ISM → Service Now</td>
+<td>NA</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI1074_IP</td>
+<td>Send data via API to retrieve the tracking ID - interface + Enhancement</td>
+<td>S/4 → Redwood</td>
+<td>APIGEE</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI0951</td>
+<td>Inbound interface to receive Finished Goods “Goods Receipt” (4B2) signal from&hellip;</td>
+<td>OpenText → S/4</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI0950</td>
+<td>Interface to receive 4B2 signal from Factory and return shipments from ODM/OS&hellip;</td>
+<td>OpenText → S/4</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI0933</td>
+<td>W-lot inventory error handling</td>
+<td></td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI0836_IP</td>
+<td>Interface from S4 to NDA (IPLA –Intel Pre Release License Agreements)</td>
+<td>S/4 → NDA</td>
+<td>NA</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI0335</td>
+<td>Outbound PIP signal to 3PL for material document transfer – EDI 4C1</td>
+<td>S/4 → OpenText</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI0237_IP</td>
+<td>Inventory Reconciliation snapshot (4C1) from 3PL WMS to SAP S/4</td>
+<td>3PL → S/4</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI1584</td>
+<td>Interface to post inventory in SAP S/4HANA from ECA via MuleSoft.</td>
+<td></td>
+<td>MuleSoft</td>
+<td></td>
+<td>06. Dev In Progress</td>
+</tr>
+</tbody>
+</table>
+<h4 id="555-scheduling-batch-objects">5.5.5 Scheduling &amp; Batch Objects</h4>
+<p><em>Scheduling and batch job objects (AutoSys, CWA) will be populated when job scheduler metadata is available. This section will map batch dependencies to RICEFW and ECA objects.</em></p>
+<h4 id="556-boundary-application-dependencies">5.5.6 Boundary Application Dependencies</h4>
+<p>The following development objects integrate with <strong>boundary applications</strong> (external systems outside the S/4 HANA core):</p>
+<table>
+<thead>
+<tr>
+<th>Object ID</th>
 <th>Description</th>
 <th>Boundary Application</th>
 <th>Source → Target</th>
@@ -1592,6 +1725,8 @@ nav.toc a:hover { text-decoration: underline; }
 </tr>
 </tbody>
 </table>
+<h3 id="65-eca-development-object-status">6.5 ECA Development Object Status</h3>
+<p><em>ECA development object status will be auto-populated when Snowflake SELECT access is provisioned for the PDH-IF and PDH-IP curated layers. This section will provide a DEV/QAS/PRD maturity assessment equivalent to §6.2 for SAP objects.</em></p>
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-190 — Ship/Deliver Orders - FTS (IP)</span></div>
 
 </div>

@@ -477,10 +477,14 @@ nav.toc a:hover { text-decoration: underline; }
   <li><a href="#5-application-architecture-togaf-a">5. Application Architecture (TOGAF &ldquo;A&rdquo;)</a>
     <ul>
       <li><a href="#54-component-overview">5.4 Component Overview</a></li>
-      <li><a href="#55-ricefw-inventory">5.5 RICEFW Inventory</a>
+      <li><a href="#55-development-object-inventory">5.5 Development Object Inventory</a>
         <ul>
-          <li><a href="#551-eca-dependencies">5.5.1 ECA Dependencies</a></li>
-          <li><a href="#552-boundary-application-dependencies">5.5.2 Boundary Application Dependencies</a></li>
+          <li><a href="#551-sap-development-objects">5.5.1 SAP Development Objects</a></li>
+          <li><a href="#552-eca-development-objects">5.5.2 ECA Development Objects</a></li>
+          <li><a href="#553-interface-objects">5.5.3 Interface Objects</a></li>
+          <li><a href="#554-middleware-objects">5.5.4 Middleware Objects</a></li>
+          <li><a href="#555-scheduling-batch-objects">5.5.5 Scheduling &amp; Batch Objects</a></li>
+          <li><a href="#556-boundary-application-dependencies">5.5.6 Boundary Application Dependencies</a></li>
         </ul>
       </li>
       <li><a href="#56-integration-patterns">5.6 Integration Patterns</a></li>
@@ -492,6 +496,7 @@ nav.toc a:hover { text-decoration: underline; }
       <li><a href="#62-sap-development-object-status">6.2 SAP Development Object Status</a></li>
       <li><a href="#63-nfrs-design-principles">6.3 NFRs &amp; Design Principles</a></li>
       <li><a href="#64-security-governance">6.4 Security &amp; Governance</a></li>
+      <li><a href="#65-eca-development-object-status">6.5 ECA Development Object Status</a></li>
     </ul>
   </li>
   <li><a href="#7-project-context">7. Project Context</a>
@@ -972,7 +977,10 @@ Returns"| n5
 </tr>
 </tbody>
 </table>
-<h3 id="55-ricefw-inventory">5.5 RICEFW Inventory</h3>
+<h3 id="55-development-object-inventory">5.5 Development Object Inventory</h3>
+<p><strong>Summary</strong>: 86 SAP, 11 Interfaces, 1 Middleware | RICEFW: 11 Interfaces, 64 Enhancements, 11 Forms, 1 Workflows</p>
+<h4 id="551-sap-development-objects">5.5.1 SAP Development Objects</h4>
+<p>SAP platform objects (Reports, Interfaces, Conversions, Enhancements, Forms, Workflows) developed on S/4, MDG, or S/4 BOT:</p>
 <table>
 <thead>
 <tr>
@@ -980,8 +988,7 @@ Returns"| n5
 <th>Type</th>
 <th>Description</th>
 <th>Status</th>
-<th>Source → Target</th>
-<th>Boundary App</th>
+<th>Dev System</th>
 <th>Complexity</th>
 </tr>
 </thead>
@@ -991,8 +998,7 @@ Returns"| n5
 <td>Workflow</td>
 <td>Dispute Write-off Workflow</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1000,17 +1006,7 @@ Returns"| n5
 <td>Interface</td>
 <td>Inbound interface to change the sales order via Build Instructions</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>OpenText</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>OTCI1161</td>
-<td>Interface</td>
-<td>Inbound interface from BY-PDH to S4 to update CMAD in IF sales orders</td>
-<td>10. Object Complete</td>
-<td>BY → S/4</td>
-<td>NA</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1018,8 +1014,7 @@ Returns"| n5
 <td>Interface</td>
 <td>Inbound interface to create and change sales order via Subcon, STO &amp; SIMS PO</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>OpenText</td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1027,8 +1022,7 @@ Returns"| n5
 <td>Interface</td>
 <td>IF: Interface requirement from SAC to S4</td>
 <td>10. Object Complete</td>
-<td>SAC → S/4</td>
-<td>NA</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1036,8 +1030,7 @@ Returns"| n5
 <td>Form</td>
 <td>Form development for Intercompany Invoice.</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1045,8 +1038,7 @@ Returns"| n5
 <td>Form</td>
 <td>Form Development for Invoice list.</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1054,8 +1046,7 @@ Returns"| n5
 <td>Form</td>
 <td>Generate Custom Late Payment Interest Charge Output Form</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1063,8 +1054,7 @@ Returns"| n5
 <td>Form</td>
 <td>Dunning output form customization</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1072,8 +1062,7 @@ Returns"| n5
 <td>Enhancement</td>
 <td>Additional material attributes for transfer from MDG to GTS to support produc&hellip;</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
+<td>02.MDG</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1081,8 +1070,7 @@ Returns"| n5
 <td>Enhancement</td>
 <td>Enhancement to transfer Customs value from S4 to GTS for Sales orders and del&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -1090,8 +1078,7 @@ Returns"| n5
 <td>Enhancement</td>
 <td>BADI Enhancement for Dispute Write off (workflow Trigger)</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1099,8 +1086,7 @@ Returns"| n5
 <td>Enhancement</td>
 <td>Dispute Write-off Enhancement</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -1108,8 +1094,7 @@ Returns"| n5
 <td>Enhancement</td>
 <td>Enhancement to AIF capabilities on access and notifications</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1117,8 +1102,7 @@ Returns"| n5
 <td>Enhancement</td>
 <td>Credit hold release dashboard at line-item level</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
+<td>01.S4</td>
 <td>01.Very High</td>
 </tr>
 <tr>
@@ -1126,8 +1110,7 @@ Returns"| n5
 <td>Enhancement</td>
 <td>Business users want the capability to have CMIR updated for the specific Mate&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1135,8 +1118,7 @@ Returns"| n5
 <td>Enhancement</td>
 <td>Business users want the capability to have sales order updated for the specif&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1144,8 +1126,7 @@ Returns"| n5
 <td>Enhancement</td>
 <td>Enhancement to transfer fields from Sales Orders to Purchase Requisition duri&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1153,8 +1134,7 @@ Returns"| n5
 <td>Enhancement</td>
 <td>Enhancement to support Inbound interface to change the ship to party record a&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1162,8 +1142,7 @@ Returns"| n5
 <td>Enhancement</td>
 <td>Determine Confirmed Delivery date in sales orders at schedule line level base&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1171,8 +1150,7 @@ Returns"| n5
 <td>Enhancement</td>
 <td>Enhancement for IMR to update the Repair Sales Order post Repair work order i&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1180,8 +1158,7 @@ Returns"| n5
 <td>Enhancement</td>
 <td>Enhancement to support Inbound interface and manual upload to create the sale&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1189,8 +1166,7 @@ Returns"| n5
 <td>Enhancement</td>
 <td>SIMS Enhancement to determine the order type based on the Material Characteri&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -1198,8 +1174,7 @@ Returns"| n5
 <td>Enhancement</td>
 <td>Screen enhancement to populate the assignment priority at SO line item</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -1207,8 +1182,7 @@ Returns"| n5
 <td>Enhancement</td>
 <td>IF : Apply a Delivery Block Hold for Items with Multiple Schedule lines (MSL)&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1216,8 +1190,7 @@ Returns"| n5
 <td>Enhancement</td>
 <td>Enrich the delivery data transfer data from S/4 IF to GTS with the &lsquo;new&rsquo; vs &lsquo;&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1225,8 +1198,7 @@ Returns"| n5
 <td>Enhancement</td>
 <td>Implement Standard Credit/Collection BADI</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -1234,8 +1206,7 @@ Returns"| n5
 <td>Enhancement</td>
 <td>Price Swamp: For Order Repricing</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1243,8 +1214,7 @@ Returns"| n5
 <td>Enhancement</td>
 <td>Credit and Collections - Credit Check Step Configuration</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -1252,8 +1222,7 @@ Returns"| n5
 <td>Enhancement</td>
 <td>Implement mapping between customer’s risk class and credit check steps</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1261,8 +1230,7 @@ Returns"| n5
 <td>Interface</td>
 <td>To capture correct Country of Assembly and Country of Fabrication on FVR and &hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>Supply Chain Trade Re-engineering Data Container for Intel Foundry</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1270,8 +1238,7 @@ Returns"| n5
 <td>Interface</td>
 <td>BRF+ Extractor( API interface) to fetch the data saved in the BRF+ decision t&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -1279,8 +1246,7 @@ Returns"| n5
 <td>Interface</td>
 <td>Interface for Label printing, So in this interface when user will click on pr&hellip;</td>
 <td>10. Object Complete</td>
-<td>SPECTRUM → S/4</td>
-<td>Loftware Spectrum (IF)</td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1288,8 +1254,7 @@ Returns"| n5
 <td>Interface</td>
 <td>Interface from SAP S4 to DBaaS to Fetch Actual COF for FVR batch and COA for &hellip;</td>
 <td>10. Object Complete</td>
-<td>S/4 → DBaaS</td>
-<td>Supply Chain Trade Re-engineering Data Container for Intel Foundry</td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -1297,8 +1262,7 @@ Returns"| n5
 <td>Interface</td>
 <td>Interface to send shipment information to custom broker</td>
 <td>10. Object Complete</td>
-<td>S/4 → OpenText</td>
-<td>OpenText</td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -1306,8 +1270,7 @@ Returns"| n5
 <td>Interface</td>
 <td>Trigger ZCUS (export customs clearance output) and ZXCI to send outputs - ZSI&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>OpenText</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1315,8 +1278,7 @@ Returns"| n5
 <td>Interface</td>
 <td>TM - GTT: GXS sending carrier events back to GTT app “Shipment Tracking”. IF.</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>OpenText</td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -1324,8 +1286,7 @@ Returns"| n5
 <td>Form</td>
 <td>Consolidated Export CI for Wafer Die (Ireland)</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1333,8 +1294,7 @@ Returns"| n5
 <td>Form</td>
 <td>Consolidated Export CI for Finished Goods (Ireland)</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1342,8 +1302,7 @@ Returns"| n5
 <td>Form</td>
 <td>Consolidated Packing list for Chengdu</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1351,8 +1310,7 @@ Returns"| n5
 <td>Form</td>
 <td>CI/PL document should be printed based on R3 process.</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1360,8 +1318,7 @@ Returns"| n5
 <td>Form</td>
 <td>Generate Consolidated Bailment Commercial Invoice - Finished Goods (IF and IP)</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td></td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1369,8 +1326,7 @@ Returns"| n5
 <td>Form</td>
 <td>Generate Consolidated Bailment Commercial Invoice - Wafer/Die (IF and IP)</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1378,8 +1334,7 @@ Returns"| n5
 <td>Form</td>
 <td>ISM - Generate Packing List - IF/IP</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>Integrated Shipping Memo</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1387,8 +1342,7 @@ Returns"| n5
 <td>Enhancement</td>
 <td>Development of LCSR tool in Fiori</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>01.Very High</td>
 </tr>
 <tr>
@@ -1396,8 +1350,7 @@ Returns"| n5
 <td>Enhancement</td>
 <td>Tendering- FIORI app for Approval Hierarchy (Assign Delegate)</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1405,8 +1358,7 @@ Returns"| n5
 <td>Enhancement</td>
 <td>Invoice notification- Notification to carrier for POD and internal notificati&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1414,8 +1366,7 @@ Returns"| n5
 <td>Enhancement</td>
 <td>Carrier notification- Carrier contact table BRF+ maintenance</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1423,8 +1374,7 @@ Returns"| n5
 <td>Enhancement</td>
 <td>Carrier notification- Cancellation email</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1432,8 +1382,7 @@ Returns"| n5
 <td>Enhancement</td>
 <td>Carrier notification- Acceptance and Rejection email</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1441,8 +1390,7 @@ Returns"| n5
 <td>Enhancement</td>
 <td>Invoice notification- Notification to carrier for Invoice</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1450,8 +1398,7 @@ Returns"| n5
 <td>Enhancement</td>
 <td>Invoice notification- Notification to carrier for dispute</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1459,8 +1406,7 @@ Returns"| n5
 <td>Enhancement</td>
 <td>Tendering- Internal Notification mail</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -1468,8 +1414,7 @@ Returns"| n5
 <td>Enhancement</td>
 <td>Tendering- Approval Process with Purchase group determination</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -1477,8 +1422,7 @@ Returns"| n5
 <td>Enhancement</td>
 <td>TM - GTT: Send Event # Estimated Time of Arrival (ETA) as a separate event fr&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -1486,8 +1430,7 @@ Returns"| n5
 <td>Enhancement</td>
 <td>TM - GTT: To propagate events to S/4 TM Freight order reported by GXS by Bypa&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -1495,8 +1438,7 @@ Returns"| n5
 <td>Enhancement</td>
 <td>TM - GTT: Additional field needs to be captured in S/4 TM Freight Order “Note&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -1504,8 +1446,7 @@ Returns"| n5
 <td>Enhancement</td>
 <td>TM - GTT: Additional field values sent by carrier through GXS are required in&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -1513,8 +1454,7 @@ Returns"| n5
 <td>Enhancement</td>
 <td>Disable the Amount field within Subcontracting tab in Freight Order for CW Lo&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -1522,8 +1462,7 @@ Returns"| n5
 <td>Enhancement</td>
 <td>TM - GTT: Document type T54 (House Airway Bill) number to GTT</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -1531,8 +1470,7 @@ Returns"| n5
 <td>Enhancement</td>
 <td>More determinization of input entry criteria to be added for dedicated carrie&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1540,8 +1478,7 @@ Returns"| n5
 <td>Enhancement</td>
 <td>Creating new Carrier selection strategy methods ZPRE_TAL and ZPOST_TAL to cal&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1549,8 +1486,7 @@ Returns"| n5
 <td>Enhancement</td>
 <td>Carrier notification- Tendering initiation email</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1558,8 +1494,7 @@ Returns"| n5
 <td>Enhancement</td>
 <td>Invoice notification- Notification to carrier for POD and internal notificati&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1567,8 +1502,7 @@ Returns"| n5
 <td>Enhancement</td>
 <td>Enhancement to display an error message in the pack transaction within SAP Ex&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1576,8 +1510,7 @@ Returns"| n5
 <td>Enhancement</td>
 <td>Pre alert notification to Customer</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -1585,8 +1518,7 @@ Returns"| n5
 <td>Enhancement</td>
 <td>Custom transaction to trigger CUSDEC</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1594,8 +1526,7 @@ Returns"| n5
 <td>Enhancement</td>
 <td>Enhancement to Update Custom Table form Master data and Manage SOP Data Commu&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -1603,8 +1534,7 @@ Returns"| n5
 <td>Enhancement</td>
 <td>Creation of Proforma Invoice ZF8 from Freight Order and Save ITN Number in De&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -1612,8 +1542,7 @@ Returns"| n5
 <td>Enhancement</td>
 <td>Enhancement to RF Loading Screen for 3PV Validation</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1621,8 +1550,7 @@ Returns"| n5
 <td>Enhancement</td>
 <td>Enhancement in packing transaction. Should allow user to launch Interface for&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1630,8 +1558,7 @@ Returns"| n5
 <td>Enhancement</td>
 <td>Develop Fiori app to View/Edit/Add SOP data(CMDB).</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1639,8 +1566,7 @@ Returns"| n5
 <td>Enhancement</td>
 <td>TM - GTT: Routing of events from GTT to correct S4 system</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -1648,8 +1574,7 @@ Returns"| n5
 <td>Enhancement</td>
 <td>Calling a new BRF+ for Carrier exclusion during Carrier Selection process. Eg&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -1657,8 +1582,7 @@ Returns"| n5
 <td>Enhancement</td>
 <td>Data code extractor to be extended on S4 TM side​</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -1666,8 +1590,7 @@ Returns"| n5
 <td>Enhancement</td>
 <td>TM: Custom Determination Class to access Source and Destination country in FU&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1675,8 +1598,7 @@ Returns"| n5
 <td>Enhancement</td>
 <td>CRF freight orders, should have a custom event type “Shipped –CRF&rdquo;. This cust&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1684,8 +1606,7 @@ Returns"| n5
 <td>Enhancement</td>
 <td>FO subcontracting screen for tendering enhancement. Fields include- send for &hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1693,8 +1614,7 @@ Returns"| n5
 <td>Enhancement</td>
 <td>Tendering- FIORI app for Approval Hierarchy (Assign Delegate)</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1702,8 +1622,7 @@ Returns"| n5
 <td>Enhancement</td>
 <td>Mass upload – Custom TM program for below items. Resource Downtime upload.Not&hellip;</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1711,8 +1630,7 @@ Returns"| n5
 <td>Enhancement</td>
 <td>Mass upload – Custom TM program for below items. Schedule and Default Routes &hellip;</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1720,8 +1638,7 @@ Returns"| n5
 <td>Enhancement</td>
 <td>Mass upload – Custom TM program for below items. Mass upload program to creat&hellip;</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1729,8 +1646,7 @@ Returns"| n5
 <td>Enhancement</td>
 <td>Generate Automated Carrier Pre-Alert (ZPRC) from SAP TM.</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -1738,8 +1654,7 @@ Returns"| n5
 <td>Enhancement</td>
 <td>In SAP TM, Custom carrier selection strategy - Carrier Selection -Custom Stra&hellip;</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -1747,8 +1662,7 @@ Returns"| n5
 <td>Enhancement</td>
 <td>In SAP TM, Custom carrier selection strategy - Carrier Selection -Custom Stra&hellip;</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -1756,8 +1670,7 @@ Returns"| n5
 <td>Enhancement</td>
 <td>In SAP TM, Custom carrier selection strategy - Carrier Selection -Custom Stra&hellip;</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -1765,19 +1678,145 @@ Returns"| n5
 <td>Enhancement</td>
 <td>In SAP TM, Custom carrier selection strategy - Carrier Selection UI enhanceme&hellip;</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Summary</strong>: 11 Interfaces, 64 Enhancements, 11 Forms, 1 Workflows</p>
-<h4 id="552-boundary-application-dependencies">5.5.2 Boundary Application Dependencies</h4>
-<p>The following RICEFW objects integrate with <strong>boundary applications</strong> (external systems outside the S/4 HANA core):</p>
+<h4 id="553-interface-objects">5.5.3 Interface Objects</h4>
+<p>Holistic view of all interface objects by L2 capability — includes ECA → S/4, S/4 → ECA, boundary system, and inter-platform interfaces with middleware and integration approach:</p>
 <table>
 <thead>
 <tr>
-<th>RICEFW ID</th>
+<th>Object ID</th>
+<th>Description</th>
+<th>Source → Target</th>
+<th>Middleware</th>
+<th>Approach</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OTCI1162</td>
+<td>Inbound interface to change the sales order via Build Instructions</td>
+<td></td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>OTCI1161</td>
+<td>Inbound interface from BY-PDH to S4 to update CMAD in IF sales orders</td>
+<td>BY → S/4</td>
+<td>BODS</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>OTCI1126</td>
+<td>Inbound interface to create and change sales order via Subcon, STO &amp; SIMS PO</td>
+<td></td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>OTCI0442</td>
+<td>IF: Interface requirement from SAC to S4</td>
+<td>SAC → S/4</td>
+<td>BODS</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI1688</td>
+<td>To capture correct Country of Assembly and Country of Fabrication on FVR and &hellip;</td>
+<td></td>
+<td>MuleSoft</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI1534_IF</td>
+<td>BRF+ Extractor( API interface) to fetch the data saved in the BRF+ decision t&hellip;</td>
+<td></td>
+<td>NA</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI0871</td>
+<td>Interface for Label printing, So in this interface when user will click on pr&hellip;</td>
+<td>SPECTRUM → S/4</td>
+<td>NA</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI0842_IF</td>
+<td>Interface from SAP S4 to DBaaS to Fetch Actual COF for FVR batch and COA for &hellip;</td>
+<td>S/4 → DBaaS</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI0800_IF</td>
+<td>Interface to send shipment information to custom broker</td>
+<td>S/4 → OpenText</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI0663_IF</td>
+<td>Trigger ZCUS (export customs clearance output) and ZXCI to send outputs - ZSI&hellip;</td>
+<td></td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI0630_IF</td>
+<td>TM - GTT: GXS sending carrier events back to GTT app “Shipment Tracking”. IF.</td>
+<td></td>
+<td>NA</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+</tbody>
+</table>
+<h4 id="554-middleware-objects">5.5.4 Middleware Objects</h4>
+<p><strong>MuleSoft</strong> integration objects (Development System = MuleSoft):</p>
+<table>
+<thead>
+<tr>
+<th>Object ID</th>
+<th>Description</th>
+<th>Status</th>
+<th>Source → Target</th>
+<th>Complexity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OTCI1161</td>
+<td>Inbound interface from BY-PDH to S4 to update CMAD in IF sales orders</td>
+<td>10. Object Complete</td>
+<td>BY → S/4</td>
+<td>03.Medium</td>
+</tr>
+</tbody>
+</table>
+<h4 id="555-scheduling-batch-objects">5.5.5 Scheduling &amp; Batch Objects</h4>
+<p><em>Scheduling and batch job objects (AutoSys, CWA) will be populated when job scheduler metadata is available. This section will map batch dependencies to RICEFW and ECA objects.</em></p>
+<h4 id="556-boundary-application-dependencies">5.5.6 Boundary Application Dependencies</h4>
+<p>The following development objects integrate with <strong>boundary applications</strong> (external systems outside the S/4 HANA core):</p>
+<table>
+<thead>
+<tr>
+<th>Object ID</th>
 <th>Description</th>
 <th>Boundary Application</th>
 <th>Source → Target</th>
@@ -2027,6 +2066,8 @@ Returns"| n5
 </tr>
 </tbody>
 </table>
+<h3 id="65-eca-development-object-status">6.5 ECA Development Object Status</h3>
+<p><em>ECA development object status will be auto-populated when Snowflake SELECT access is provisioned for the PDH-IF and PDH-IP curated layers. This section will provide a DEV/QAS/PRD maturity assessment equivalent to §6.2 for SAP objects.</em></p>
 <div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>R-200 — Receive Materials and Services (IF)</span></div>
 
 </div>

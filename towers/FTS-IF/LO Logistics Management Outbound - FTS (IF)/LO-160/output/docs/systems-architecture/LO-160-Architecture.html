@@ -477,10 +477,14 @@ nav.toc a:hover { text-decoration: underline; }
   <li><a href="#5-application-architecture-togaf-a">5. Application Architecture (TOGAF &ldquo;A&rdquo;)</a>
     <ul>
       <li><a href="#54-component-overview">5.4 Component Overview</a></li>
-      <li><a href="#55-ricefw-inventory">5.5 RICEFW Inventory</a>
+      <li><a href="#55-development-object-inventory">5.5 Development Object Inventory</a>
         <ul>
-          <li><a href="#551-eca-dependencies">5.5.1 ECA Dependencies</a></li>
-          <li><a href="#552-boundary-application-dependencies">5.5.2 Boundary Application Dependencies</a></li>
+          <li><a href="#551-sap-development-objects">5.5.1 SAP Development Objects</a></li>
+          <li><a href="#552-eca-development-objects">5.5.2 ECA Development Objects</a></li>
+          <li><a href="#553-interface-objects">5.5.3 Interface Objects</a></li>
+          <li><a href="#554-middleware-objects">5.5.4 Middleware Objects</a></li>
+          <li><a href="#555-scheduling-batch-objects">5.5.5 Scheduling &amp; Batch Objects</a></li>
+          <li><a href="#556-boundary-application-dependencies">5.5.6 Boundary Application Dependencies</a></li>
         </ul>
       </li>
       <li><a href="#56-integration-patterns">5.6 Integration Patterns</a></li>
@@ -492,6 +496,7 @@ nav.toc a:hover { text-decoration: underline; }
       <li><a href="#62-sap-development-object-status">6.2 SAP Development Object Status</a></li>
       <li><a href="#63-nfrs-design-principles">6.3 NFRs &amp; Design Principles</a></li>
       <li><a href="#64-security-governance">6.4 Security &amp; Governance</a></li>
+      <li><a href="#65-eca-development-object-status">6.5 ECA Development Object Status</a></li>
     </ul>
   </li>
   <li><a href="#7-project-context">7. Project Context</a>
@@ -1440,7 +1445,10 @@ flowchart TD
 </tr>
 </tbody>
 </table>
-<h3 id="55-ricefw-inventory">5.5 RICEFW Inventory</h3>
+<h3 id="55-development-object-inventory">5.5 Development Object Inventory</h3>
+<p><strong>Summary</strong>: 54 SAP, 18 Interfaces | RICEFW: 2 Reports, 18 Interfaces, 3 Conversions, 19 Enhancements, 9 Forms, 3 Workflows</p>
+<h4 id="551-sap-development-objects">5.5.1 SAP Development Objects</h4>
+<p>SAP platform objects (Reports, Interfaces, Conversions, Enhancements, Forms, Workflows) developed on S/4, MDG, or S/4 BOT:</p>
 <table>
 <thead>
 <tr>
@@ -1448,8 +1456,7 @@ flowchart TD
 <th>Type</th>
 <th>Description</th>
 <th>Status</th>
-<th>Source → Target</th>
-<th>Boundary App</th>
+<th>Dev System</th>
 <th>Complexity</th>
 </tr>
 </thead>
@@ -1459,8 +1466,7 @@ flowchart TD
 <td>Workflow</td>
 <td>ISM Workflows - Capital/AMT</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1468,8 +1474,7 @@ flowchart TD
 <td>Workflow</td>
 <td>ISM Workflows - EIMS/Lab</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1477,8 +1482,7 @@ flowchart TD
 <td>Workflow</td>
 <td>ISM Workflows - Non-inventory</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1486,8 +1490,7 @@ flowchart TD
 <td>Report</td>
 <td>ISM - International Traffic Report</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1495,8 +1498,7 @@ flowchart TD
 <td>Report</td>
 <td>Email Notification for deletion of Shipping Memos</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -1504,8 +1506,7 @@ flowchart TD
 <td>Interface</td>
 <td>To align on batch attributes for straddle in S4</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1513,8 +1514,7 @@ flowchart TD
 <td>Interface</td>
 <td>Send 4C1 Inventory Reconciliation Snapshot to IP</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1522,8 +1522,7 @@ flowchart TD
 <td>Interface</td>
 <td>Send 4C1 Inventory movement Stock type change and cycle count to IP</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1531,8 +1530,7 @@ flowchart TD
 <td>Interface</td>
 <td>Straddle Plant to be automatically complete the Goods Receipt and write of th&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1540,8 +1538,7 @@ flowchart TD
 <td>Interface</td>
 <td>STO based Outbound Delivery Notification Confirmation for Delivery Note Deletion</td>
 <td>10. Object Complete</td>
-<td>S/4 → OpenText</td>
-<td>OpenText</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1549,8 +1546,7 @@ flowchart TD
 <td>Interface</td>
 <td>Interface + Enhancement - Reprinting of Carrier Label</td>
 <td>10. Object Complete</td>
-<td>S/4 → Redwood</td>
-<td>Redwood</td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -1558,8 +1554,7 @@ flowchart TD
 <td>Interface</td>
 <td>Interface from S4 ISM to Service Now</td>
 <td>10. Object Complete</td>
-<td>S/4 ISM → Service Now</td>
-<td>ServiceNow Cloud</td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -1567,8 +1562,7 @@ flowchart TD
 <td>Interface</td>
 <td>Send data via API to retrieve the tracking ID - interface + Enhancement</td>
 <td>10. Object Complete</td>
-<td>S/4 → Redwood</td>
-<td>Redwood</td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -1576,8 +1570,7 @@ flowchart TD
 <td>Interface</td>
 <td>STO based outbound delivery notification request for delivery note cancellation</td>
 <td>10. Object Complete</td>
-<td>OpenText → S/4</td>
-<td>OpenText</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1585,8 +1578,7 @@ flowchart TD
 <td>Interface</td>
 <td>STO based Outbound Delivery Notification from 3PL to S/4 for confirming Pick/&hellip;</td>
 <td>10. Object Complete</td>
-<td>OpenText → S/4</td>
-<td>OpenText</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1594,8 +1586,7 @@ flowchart TD
 <td>Interface</td>
 <td>Inventory Movement from 3PL to S/4 - 4C1 Cycle Count</td>
 <td>10. Object Complete</td>
-<td>OpenText → S/4</td>
-<td>OpenText</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1603,8 +1594,7 @@ flowchart TD
 <td>Interface</td>
 <td>STO based Outbound Delivery PGI confirmation from 3PL to S/4 - 3B2</td>
 <td>10. Object Complete</td>
-<td>OpenText → S/4</td>
-<td>OpenText</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1612,8 +1602,7 @@ flowchart TD
 <td>Interface</td>
 <td>STO based Outbound Delivery PGI confirmation for returns from S/4 to 3PL - 3B2</td>
 <td>10. Object Complete</td>
-<td>S/4 → OpenText</td>
-<td>OpenText</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1621,8 +1610,7 @@ flowchart TD
 <td>Interface</td>
 <td>STO based Outbound Delivery Notification from S/4 to 3PL - 3B12</td>
 <td>10. Object Complete</td>
-<td>S/4 → OpenText</td>
-<td>OpenText</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1630,8 +1618,7 @@ flowchart TD
 <td>Interface</td>
 <td>Inventory Movement from S/4 to 3PL – 4C1 (Outbound)</td>
 <td>10. Object Complete</td>
-<td>S/4 → OpenText</td>
-<td>OpenText</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1639,8 +1626,7 @@ flowchart TD
 <td>Interface</td>
 <td>Interface from S4 to NDA (IPLA –Intel Pre Release License Agreements)</td>
 <td>10. Object Complete</td>
-<td>S/4 → NDA</td>
-<td>LAWMAS Agiloft Contract Lifecycle Management</td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -1648,8 +1634,7 @@ flowchart TD
 <td>Interface</td>
 <td>Inventory Reconciliation snapshot (4C1) from 3PL WMS to SAP S/4</td>
 <td>10. Object Complete</td>
-<td>3PL → S/4</td>
-<td>OpenText</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1657,8 +1642,7 @@ flowchart TD
 <td>Form</td>
 <td>Consolidated Commercial Invoice for WIP</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -1666,8 +1650,7 @@ flowchart TD
 <td>Form</td>
 <td>Commercial Invoice for WIP</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -1675,8 +1658,7 @@ flowchart TD
 <td>Form</td>
 <td>Packing list for WIP</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -1684,8 +1666,7 @@ flowchart TD
 <td>Form</td>
 <td>Printing of Standard Shipping Label</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1693,8 +1674,7 @@ flowchart TD
 <td>Form</td>
 <td>ISM - Generate Commercial Invoice - IF/IP</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1702,8 +1682,7 @@ flowchart TD
 <td>Form</td>
 <td>ISM - Generate Traveler Document - IF/IP</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1711,8 +1690,7 @@ flowchart TD
 <td>Form</td>
 <td>ISM - IPLA</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1720,8 +1698,7 @@ flowchart TD
 <td>Form</td>
 <td>ISM - Custom China Special label</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1729,8 +1706,7 @@ flowchart TD
 <td>Form</td>
 <td>ISM - India GST DC</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1738,8 +1714,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Custom Enhancement for Storage Location and Storage Type Restriction LOG IF a&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1747,8 +1722,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>SAP GUI T-code to Move stock from Blocked to unblock Status</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1756,8 +1730,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Enhancement to change billing status based on ship reason in ISM</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -1765,8 +1738,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Straddle Plant to be automatically complete the Goods Receipt and write of th&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1774,8 +1746,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Trigger the request for cancellation 3B14R and cancel the demand on STO based&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1783,8 +1754,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Inbound idoc processing logic during 3B2 and 3B13</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1792,8 +1762,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Suppress Batch and serial number validation in MIGO/MB26 for movement type 261</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1801,8 +1770,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Creation of outbound Delivery for WIP inventory from STO</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1810,8 +1778,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>India GST E-invoicing</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -1819,8 +1786,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>ISM – MY Security Check Fiori app - IF</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1828,8 +1794,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>ISM – Employee acknowledgement - IF</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1837,8 +1802,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>PGI confirmation for non-inventory Intel freight shipments via email</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -1846,8 +1810,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Email notifications to be triggered as part of ISM Workflows</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1855,8 +1818,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Email/Text Trigger to Factory Technician and Post Goods Issue upon all WO con&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1864,8 +1826,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Custom fields required on delivery screen</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -1873,8 +1834,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Fiori App - Shipping Memo</td>
 <td>09. FUT Overdue</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1882,8 +1842,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Interface to get the AMT (Asset Management Tool) data on the ISM</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>Asset Management Tool 2.0</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1891,8 +1850,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Inventory Reconciliation snapshot (4C1) from 3PL WMS to SAP S/4 - Table Creation</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -1900,8 +1858,7 @@ flowchart TD
 <td>Enhancement</td>
 <td>Delivery Split for STO in S/4</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -1909,8 +1866,7 @@ flowchart TD
 <td>Conversion</td>
 <td>Open Inventory Conversion for IP and IF (as applicable) , Batch Characteristi&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1918,8 +1874,7 @@ flowchart TD
 <td>Conversion</td>
 <td>Open Inventory Conversion for IP and IF (as applicable) , ECC to S4</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1927,8 +1882,7 @@ flowchart TD
 <td>Conversion</td>
 <td>Inventory Conversion</td>
 <td>02. FS Unplanned</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1936,19 +1890,179 @@ flowchart TD
 <td>Interface</td>
 <td>Interface to send data to Factory Comm to activate the Mobile text receiving &hellip;</td>
 <td>04. FS In Progress</td>
-<td></td>
-<td>Factory Communications</td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Summary</strong>: 2 Reports, 18 Interfaces, 3 Conversions, 19 Enhancements, 9 Forms, 3 Workflows</p>
-<h4 id="552-boundary-application-dependencies">5.5.2 Boundary Application Dependencies</h4>
-<p>The following RICEFW objects integrate with <strong>boundary applications</strong> (external systems outside the S/4 HANA core):</p>
+<h4 id="553-interface-objects">5.5.3 Interface Objects</h4>
+<p>Holistic view of all interface objects by L2 capability — includes ECA → S/4, S/4 → ECA, boundary system, and inter-platform interfaces with middleware and integration approach:</p>
 <table>
 <thead>
 <tr>
-<th>RICEFW ID</th>
+<th>Object ID</th>
+<th>Description</th>
+<th>Source → Target</th>
+<th>Middleware</th>
+<th>Approach</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LOGI1718</td>
+<td>To align on batch attributes for straddle in S4</td>
+<td></td>
+<td>NA</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI1677</td>
+<td>Send 4C1 Inventory Reconciliation Snapshot to IP</td>
+<td></td>
+<td>SFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI1676</td>
+<td>Send 4C1 Inventory movement Stock type change and cycle count to IP</td>
+<td></td>
+<td>SFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI1555</td>
+<td>Straddle Plant to be automatically complete the Goods Receipt and write of th&hellip;</td>
+<td></td>
+<td>MuleSoft</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI1091</td>
+<td>STO based Outbound Delivery Notification Confirmation for Delivery Note Deletion</td>
+<td>S/4 → OpenText</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI1081_IF</td>
+<td>Interface + Enhancement - Reprinting of Carrier Label</td>
+<td>S/4 → Redwood</td>
+<td>APIGEE</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI1079_IF</td>
+<td>Interface from S4 ISM to Service Now</td>
+<td>S/4 ISM → Service Now</td>
+<td>NA</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI1074_IF</td>
+<td>Send data via API to retrieve the tracking ID - interface + Enhancement</td>
+<td>S/4 → Redwood</td>
+<td>APIGEE</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI1062</td>
+<td>STO based outbound delivery notification request for delivery note cancellation</td>
+<td>OpenText → S/4</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI1053</td>
+<td>STO based Outbound Delivery Notification from 3PL to S/4 for confirming Pick/&hellip;</td>
+<td>OpenText → S/4</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI1043</td>
+<td>Inventory Movement from 3PL to S/4 - 4C1 Cycle Count</td>
+<td>OpenText → S/4</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI1041</td>
+<td>STO based Outbound Delivery PGI confirmation from 3PL to S/4 - 3B2</td>
+<td>OpenText → S/4</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI1040</td>
+<td>STO based Outbound Delivery PGI confirmation for returns from S/4 to 3PL - 3B2</td>
+<td>S/4 → OpenText</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI1038</td>
+<td>STO based Outbound Delivery Notification from S/4 to 3PL - 3B12</td>
+<td>S/4 → OpenText</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI1037</td>
+<td>Inventory Movement from S/4 to 3PL – 4C1 (Outbound)</td>
+<td>S/4 → OpenText</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI0836_IF</td>
+<td>Interface from S4 to NDA (IPLA –Intel Pre Release License Agreements)</td>
+<td>S/4 → NDA</td>
+<td>NA</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI0237_IF</td>
+<td>Inventory Reconciliation snapshot (4C1) from 3PL WMS to SAP S/4</td>
+<td>3PL → S/4</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI1738</td>
+<td>Interface to send data to Factory Comm to activate the Mobile text receiving &hellip;</td>
+<td></td>
+<td>NA</td>
+<td></td>
+<td>04. FS In Progress</td>
+</tr>
+</tbody>
+</table>
+<h4 id="555-scheduling-batch-objects">5.5.5 Scheduling &amp; Batch Objects</h4>
+<p><em>Scheduling and batch job objects (AutoSys, CWA) will be populated when job scheduler metadata is available. This section will map batch dependencies to RICEFW and ECA objects.</em></p>
+<h4 id="556-boundary-application-dependencies">5.5.6 Boundary Application Dependencies</h4>
+<p>The following development objects integrate with <strong>boundary applications</strong> (external systems outside the S/4 HANA core):</p>
+<table>
+<thead>
+<tr>
+<th>Object ID</th>
 <th>Description</th>
 <th>Boundary Application</th>
 <th>Source → Target</th>
@@ -2234,6 +2348,8 @@ flowchart TD
 </tr>
 </tbody>
 </table>
+<h3 id="65-eca-development-object-status">6.5 ECA Development Object Status</h3>
+<p><em>ECA development object status will be auto-populated when Snowflake SELECT access is provisioned for the PDH-IF and PDH-IP curated layers. This section will provide a DEV/QAS/PRD maturity assessment equivalent to §6.2 for SAP objects.</em></p>
 <div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-160 — Pick Orders - FTS (IF)</span></div>
 
 </div>

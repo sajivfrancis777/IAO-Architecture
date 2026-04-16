@@ -70,10 +70,14 @@ nav.toc a:hover { text-decoration: underline; }
   <li><a href="#5-application-architecture-togaf-a">5. Application Architecture (TOGAF &ldquo;A&rdquo;)</a>
     <ul>
       <li><a href="#54-component-overview">5.4 Component Overview</a></li>
-      <li><a href="#55-ricefw-inventory">5.5 RICEFW Inventory</a>
+      <li><a href="#55-development-object-inventory">5.5 Development Object Inventory</a>
         <ul>
-          <li><a href="#551-eca-dependencies">5.5.1 ECA Dependencies</a></li>
-          <li><a href="#552-boundary-application-dependencies">5.5.2 Boundary Application Dependencies</a></li>
+          <li><a href="#551-sap-development-objects">5.5.1 SAP Development Objects</a></li>
+          <li><a href="#552-eca-development-objects">5.5.2 ECA Development Objects</a></li>
+          <li><a href="#553-interface-objects">5.5.3 Interface Objects</a></li>
+          <li><a href="#554-middleware-objects">5.5.4 Middleware Objects</a></li>
+          <li><a href="#555-scheduling-batch-objects">5.5.5 Scheduling &amp; Batch Objects</a></li>
+          <li><a href="#556-boundary-application-dependencies">5.5.6 Boundary Application Dependencies</a></li>
         </ul>
       </li>
       <li><a href="#56-integration-patterns">5.6 Integration Patterns</a></li>
@@ -85,6 +89,7 @@ nav.toc a:hover { text-decoration: underline; }
       <li><a href="#62-sap-development-object-status">6.2 SAP Development Object Status</a></li>
       <li><a href="#63-nfrs-design-principles">6.3 NFRs &amp; Design Principles</a></li>
       <li><a href="#64-security-governance">6.4 Security &amp; Governance</a></li>
+      <li><a href="#65-eca-development-object-status">6.5 ECA Development Object Status</a></li>
     </ul>
   </li>
   <li><a href="#7-project-context">7. Project Context</a>
@@ -406,386 +411,501 @@ Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
 | System | IAPM ID | Status |
 |--------|---------|--------|
 
-### 5.5 RICEFW Inventory
+### 5.5 Development Object Inventory
 
-| Object ID | Type | Description | Status | Source → Target | Boundary App | Complexity |
-|-----------|------|-------------|--------|----------------|-------------|----------|
-| FPRW1449 | Workflow | TPR : Workflow to handle Memo creation and cancellation process | 10. Object Complete | NA → NA | NA | 03.Medium |
-| FPRW1444 | Workflow | TFR: Workflow to handle Memo creation and cancellation process | 10. Object Complete |  |  | 03.Medium |
-| FPRW1064_IP | Workflow | Custom Workflow will also be created with some predefined process/rules for a... | 10. Object Complete |  |  | 01.Very High |
-| FPRW1064_IF | Workflow | Custom Workflow will also be created with some predefined process/rules for a... | 10. Object Complete |  |  | 02.High |
-| FPRW0930 | Workflow | Workflow for Counterparty Approval | 10. Object Complete |  |  | 03.Medium |
-| FPRW0906_IP | Workflow | Custom workflow: Change Order Create and Change Approval | 10. Object Complete |  |  | 03.Medium |
-| FPRW0906_IF | Workflow | Custom workflow: Change Order Create and Change Approval | 10. Object Complete |  |  | 03.Medium |
-| FPRW0904_IP | Workflow | Custom Workflow - WBS Element Request approval with WBS Element creation | 10. Object Complete |  |  | 03.Medium |
-| FPRW0904_IF | Workflow | Custom Workflow - WBS Element Request approval with WBS Element creation | 10. Object Complete |  |  | 03.Medium |
-| FPRW0900_IP | Workflow | Custom Workflow: Approval for Project creation and create a Project def and l... | 10. Object Complete |  |  | 03.Medium |
-| FPRW0900_IF | Workflow | Custom Workflow: Approval for Project creation and create a Project def and l... | 10. Object Complete |  |  | 03.Medium |
-| FPRW0445_IP | Workflow | Project budget approval workflow (Capex)​ | 10. Object Complete |  |  | 03.Medium |
-| FPRW0445_IF | Workflow | Project budget approval workflow (Capex)​ | 10. Object Complete |  |  | 03.Medium |
-| FPRW0325_IP | Workflow | Custom workflow to manage the approval process in bulk/individual requests | 10. Object Complete | NA → NA | NA | 02.High |
-| FPRW0325_IF | Workflow | Custom workflow to manage the approval process in bulk/individual requests | 10. Object Complete | NA → NA | NA | 02.High |
-| FPRW0165_IP | Workflow | Workflow is required to trigger the approvers based on the business requireme... | 10. Object Complete | NA → NA | NA | 02.High |
-| FPRW0165_IF | Workflow | Workflow is required to trigger the approvers based on the business requireme... | 10. Object Complete | NA → NA | NA | 03.Medium |
-| FPRW0165_CFIN | Workflow | Workflow is required to trigger the approvers based on the business requireme... | 10. Object Complete | NA → NA | NA | 02.High |
-| FPRR1514_IP | Report | To generate reports out of the ITT documents that was created | 10. Object Complete |  |  | 03.Medium |
-| FPRR1514_IF | Report | To generate reports out of the ITT documents that was created | 10. Object Complete |  |  | 04.Low |
-| FPRR1240 | Report | Custom report for Revenue Recognition by Stage for Product/Services Sale​ act... | 10. Object Complete |  |  | 03.Medium |
-| FPRR1211 | Report | Report for searching on and viewing government contract timesheets for Intel ... | 10. Object Complete |  |  | 03.Medium |
-| FPRR1210 | Report | Report for searching on and viewing government contract timesheet changes for... | 10. Object Complete |  |  | 03.Medium |
-| FPRR0907_IP | Report | Workflow Status Report ( Order Request / Approval Request / Others ) | 10. Object Complete |  |  | 03.Medium |
-| FPRR0907_IF | Report | Workflow Status Report ( Order Request / Approval Request / Others ) | 10. Object Complete |  |  | 04.Low |
-| FPRR0497 | Report | CFR - Report to support multiple Treasury Funding requests from Multiple Inte... | 10. Object Complete |  |  | 03.Medium |
-| FPRR0496 | Report | TPR-Report to support multiple Treasury Payment Requests from Multiple Intel ... | 10. Object Complete |  |  | 03.Medium |
-| FPRR0461 | Report | Inter-company Outage Pre-consolidate Report (ACDOCA) | 10. Object Complete | NA → NA |  | 03.Medium |
-| FPRR0380 | Report | GL Interface – Reconciliation Report/Dashboard | 10. Object Complete | NA → NA | NA | 02.High |
-| FPRR0327_IP | Report | Report to display the requests/change IDs and status of the workflow approval... | 10. Object Complete | NA → NA | NA | 02.High |
-| FPRR0327_IF | Report | Report to display the requests/change IDs and status of the workflow approval... | 10. Object Complete | NA → NA | NA | 03.Medium |
-| FPRR0288_IP | Report | Operational Report to display whether supporting documents are attached to JEs | 10. Object Complete | NA → NA | NA | 03.Medium |
-| FPRR0288_IF | Report | Operational Report to display whether supporting documents are attached to JEs | 10. Object Complete | NA → NA | NA | 03.Medium |
-| FPRR0288_CFIN | Report | Operational Report to display whether supporting documents are attached to JEs | 10. Object Complete | NA → NA | NA | 02.High |
-| FPRR0027 | Report | In House Cash – Loan Account balance Detailed report | 10. Object Complete | NA → NA | NA | 01.Very High |
-| FPRM003 | Conversion | Revenue Recognition Rules | 10. Object Complete |  |  | N/A |
-| FPRM002 | Conversion | Revenue Contracts | 10. Object Complete |  |  | N/A |
-| FPRM001 | Conversion | Bank Master | 10. Object Complete | ECC → CFIN |  | N/A |
-| FPRI1725_IP | Interface | Interface to be developed to transfer the files from Denodo to FS share path ... | 10. Object Complete |  | Workday | 03.Medium |
-| FPRI1725_IF | Interface | Interface to be developed to transfer the files from Denodo to FS share path ... | 10. Object Complete |  | Workday | 04.Low |
-| FPRI1704 | Interface | Automated Tool MUP Excess Capacity calculation and associated PCOS/OCOS Split... | 10. Object Complete |  | NA | 03.Medium |
-| FPRI1670 | Interface | Import Dot process/stage details from MDG into S4. ​ | 10. Object Complete |  | NA | 03.Medium |
-| FPRI1669 | Interface | Import Xeus/Mars volumes from ECA into S4.​ | 10. Object Complete |  | NA | 03.Medium |
-| FPRI1504 | Interface | Asset Delete from EMS to S4 through APIGEE | 10. Object Complete |  | Equipment Management System | 03.Medium |
-| FPRI1503 | Interface | Asset Display from EMS to S4 through APIGEE | 10. Object Complete |  | Equipment Management System | 03.Medium |
-| FPRI1502 | Interface | Asset Change from EMS to S4 through APIGEE | 10. Object Complete |  | Equipment Management System | 03.Medium |
-| FPRI1463 | Interface | Interface to upload payroll data from Workday to S/4 IP for legal entity 199 ... | 10. Object Complete |  | Workday | 03.Medium |
-| FPRI1447 | Interface | GL Interface –Create Inbound IDOCs to CFIN from IF system | 10. Object Complete | IF → CFIN | NA | 03.Medium |
-| FPRI1446 | Interface | GL Interface –Create Inbound IDOCs to CFIN from IP system | 10. Object Complete | IP → CFIN | NA | 03.Medium |
-| FPRI1439 | Interface | Receive planned production quantities per production version from ECA to S/4 ... | 10. Object Complete |  | NA | 03.Medium |
-| FPRI1338 | Interface | Outbound Interface to view the Cleared Customer Invoices from CFIN System to ... | 10. Object Complete | S/4 → WOM | SAP Commerce Cloud | 03.Medium |
-| FPRI1315 | Interface | Asset Create from EMS to S4 through APIGEE | 10. Object Complete |  | Equipment Management System | 03.Medium |
-| FPRI1306 | Interface | Interface for importing GL transactional data from SAP CFIN system into SAP IF | 10. Object Complete | CFIN → S/4 | NA | 03.Medium |
-| FPRI1305 | Interface | Interface for importing GL transactional data from SAP CFIN system into SAP IP | 10. Object Complete | CFIN → S/4 | NA | 03.Medium |
-| FPRI1288 | Interface | Activity Inbound interface from ECA to S4 IP | 10. Object Complete | ECA → S/4 | NA | 03.Medium |
-| FPRI1287 | Interface | Production quantity update in WAC custom table from ECA to S4 IF | 10. Object Complete | ECA → S/4 | NA | 03.Medium |
-| FPRI1286_IP | Interface | Interface between SAP IP and IF boxes for Outbound IDOC flow_IP | 10. Object Complete | MULESOFT → S/4 | NA | 03.Medium |
-| FPRI1286_IF | Interface | Interface between SAP IP and IF boxes for Outbound IDOC flow_IF | 10. Object Complete | MULESOFT → S/4 | NA | 04.Low |
-| FPRI1273 | Interface | Activity Quantity Inbound interface from ECA to S4 IF | 10. Object Complete | ECA → S/4 | NA | 03.Medium |
-| FPRI1241 | Interface | Disti Rebate percentage of gross for Unissued Returns and Intransit Deferral | 10. Object Complete | ECA → S/4 | NA | 03.Medium |
-| FPRI1238 | Interface | Pull Foundry WBS from HAT and create in LE 199 in IP S/4 for Foundry Employee... | 10. Object Complete | Head Count Assignment Tool → S/4 | Head Count Assignment Tool | 03.Medium |
-| FPRI1105 | Interface | Interface for automatic creation of B2B customer related payment advice | 10. Object Complete |  | OpenText | 03.Medium |
-| FPRI0981_IP | Interface | Interface of SAP PPM module to SPEED | 10. Object Complete | ECA → S/4 | SPEED | 03.Medium |
-| FPRI0981_IF | Interface | Interface of SAP PPM module to SPEED | 10. Object Complete | ECA → S/4 | SPEED | 04.Low |
-| FPRI0913_IP | Interface | Export the Planning data from the SAC table to PPM standard tables using the ... | 10. Object Complete | SAC → S/4 | NA | 02.High |
-| FPRI0913_IF | Interface | Export the Planning data from the SAC table to PPM standard tables using the ... | 10. Object Complete | SAC → S/4 | NA | 03.Medium |
-| FPRI0909_IP | Interface | Interface for importing the Headcount details by Person# and WBS element comb... | 10. Object Complete | ECA → S/4 | Head Count Assignment Tool | 03.Medium |
-| FPRI0909_IF | Interface | Interface for importing the Headcount details by Person# and WBS element comb... | 10. Object Complete | ECA → S/4 | Head Count Assignment Tool | 04.Low |
-| FPRI0895 | Interface | Import Tool Sharing Forecasted Data from FCS to S4 & derive FTQ data by Capex... | 10. Object Complete | FCS → S/4 | MOR/FCS/SCS | 02.High |
-| FPRI0894 | Interface | Planned Volume from IP-BY will be utilized as a KP26 quantity to split 'Overh... | 10. Object Complete | ICS → S/4 | JDA/Blue Yonder ESP/OP (ALTR); Module Planning for Supply Chain on Blue Yonde... | 02.High |
-| FPRI0869 | Interface | Interface for automatic creation of WOM related payment advice | 10. Object Complete | S/4 → WOM | SAP Commerce Cloud | 03.Medium |
-| FPRI0867 | Interface | Outbound Interface to view the open & Cleared Customer Invoices from CFIN Sys... | 10. Object Complete | S/4 → WOM | SAP Commerce Cloud | 03.Medium |
-| FPRI0866 | Interface | Interface to Obtains the payer associated to the sold to from CFIN System to ... | 10. Object Complete | S/4 → WOM | SAP Commerce Cloud | 03.Medium |
-| FPRI0865 | Interface | Interface to transfer the Uploaded WCP Grant Amount from CFIN to WOM and Defe... | 10. Object Complete | S/4 → WOM | SAP Commerce Cloud | 03.Medium |
-| FPRI0864_IP | Interface | Interface between SAP IP and IF boxes for Inbound IDOC flow_IP | 10. Object Complete | MULESOFT → S/4 | NA | 03.Medium |
-| FPRI0864_IF | Interface | Interface between SAP IP and IF boxes for Inbound IDOC flow_IF | 10. Object Complete | MULESOFT → S/4 | NA | 04.Low |
-| FPRI0863_IP | Interface | Interface between SAP & ECA to provide information for auto certification in ... | 10. Object Complete | ECA → BLACKLINE | Task - Blackline | 03.Medium |
-| FPRI0863_IF | Interface | Interface between SAP & ECA to provide information for auto certification in ... | 10. Object Complete | ECA → BLACKLINE | Task - Blackline | 04.Low |
-| FPRI0863_CFIN | Interface | Interface between SAP & ECA to provide information for auto certification in ... | 10. Object Complete | ECA → BLACKLINE | Task - Blackline | 03.Medium |
-| FPRI0862 | Interface | Interface to transfer the details of selected invoice from WOM to CFIN ( Inbo... | 10. Object Complete | WOM → S/4 | SAP Commerce Cloud | 03.Medium |
-| FPRI0778_IP | Interface | Continue to auto-certify a BL task when the related JE is approved | 10. Object Complete | BLACKLINE → S/4 | Task - Blackline | 03.Medium |
-| FPRI0778_IF | Interface | Continue to auto-certify a BL task when the related JE is approved | 10. Object Complete | BLACKLINE → S/4 | Task - Blackline | 03.Medium |
-| FPRI0778_CFIN | Interface | Continue to auto-certify a BL task when the related JE is approved | 10. Object Complete | BLACKLINE → S/4 | Task - Blackline | 02.High |
-| FPRI0770_IP | Interface | To enable auto-certify a BL [Blackline] task when the related JE is approved | 10. Object Complete | BLACKLINE → ECA | Task - Blackline | 03.Medium |
-| FPRI0770_IF | Interface | To enable auto-certify a BL [Blackline] task when the related JE is approved | 10. Object Complete | BLACKLINE → ECA | Task - Blackline | 03.Medium |
-| FPRI0770_CFIN | Interface | To enable auto-certify a BL [Blackline] task when the related JE is approved | 10. Object Complete | BLACKLINE → ECA | Task - Blackline | 02.High |
-| FPRI0704 | Interface | IF-IP Integration Actual Cost - Inbound Interface | 10. Object Complete | OpenText → S/4 | NA | 02.High |
-| FPRI0703 | Interface | IF-IP Integration Actual Cost - Outbound Interface | 10. Object Complete | S/4 → OpenText | NA | 02.High |
-| FPRI0696_IP | Interface | Interface between ONESOURCE and Readsoft Process Director built on the back o... | 10. Object Complete | ONESOURCE → READSOFT | OneSource Indirect Tax Suite; Readsoft - Process Director Accounts Payable IP | 02.High |
-| FPRI0696_IF | Interface | Interface between ONESOURCE and Readsoft Process Director built on the back o... | 10. Object Complete | ONESOURCE → READSOFT | OneSource Indirect Tax Suite; Readsoft - Process Director Accounts Payable IF | 03.Medium |
-| FPRI0695 | Interface | Reference Interest Rates - S4 converted data from MDG to CFIN | 10. Object Complete | S/4 MDG → CFIN | Treasury Suite | 03.Medium |
-| FPRI0694 | Interface | Exchange Rates N - S4 converted data from MuleSoft to Treasury Suite | 10. Object Complete | MULESOFT → TREASURY SUITE | Treasury Suite | 03.Medium |
-| FPRI0693 | Interface | Exchange Rates L - S4 converted data from MuleSoft to Treasury Suite | 10. Object Complete | Treasury Suite → MULESOFT | Treasury Suite | 03.Medium |
-| FPRI0600_IP | Interface | Continuation to use Blackline Account Reconciliations Tool (ART), Blackline M... | 10. Object Complete | BLACKLINE → S/4 | Matching - Blackline; Close Reconciliation Tool - Blackline; Task - Blackline | 04.Low |
-| FPRI0600_IF | Interface | Continuation to use Blackline Account Reconciliations Tool (ART), Blackline M... | 10. Object Complete | BLACKLINE → S/4 | Matching - Blackline; Close Reconciliation Tool - Blackline; Task - Blackline | 04.Low |
-| FPRI0600_CFIN | Interface | Continuation to use Blackline Account Reconciliations Tool (ART), Blackline M... | 10. Object Complete | BLACKLINE → S/4 | Matching - Blackline; Close Reconciliation Tool - Blackline; Task - Blackline | 03.Medium |
-| FPRI0599_IP | Interface | ServiceNow Asset change | 10. Object Complete | SERVICENOW → S/4 | ServiceNow Cloud Lab | 03.Medium |
-| FPRI0599_IF | Interface | ServiceNow Asset change | 10. Object Complete | SERVICENOW → S/4 | ServiceNow Cloud Lab | 04.Low |
-| FPRI0598 | Interface | N rate from Mulesoft to MDG | 10. Object Complete | MULESOFT → S/4 MDG | Bloomberg Professional | 04.Low |
-| FPRI0597 | Interface | N rate from Mulesoft to Bloomberg | 10. Object Complete | MULESOFT → BLOOMBERG | Bloomberg Professional | 03.Medium |
-| FPRI0596 | Interface | N rate from Mulesoft to Treasury Suite | 10. Object Complete | MULESOFT → TREASURY SUITE | Treasury Suite | 03.Medium |
-| FPRI0554 | Interface | SKF Interface to get file from ECA and send to S4 via BODS - IF | 10. Object Complete | ECA → S/4 | Wafer Starts Per Week; ISA-VS2012 US (MAPPS); ISA-VS2008 Asia (ATMPS CR and D... | 02.High |
-| FPRI0545 | Interface | IF-IP Integration - Interface to send Cost Idoc from S4 If to S4 IP | 10. Object Complete | S/4 → S/4 | NA | 03.Medium |
-| FPRI0544 | Interface | IF-IP Integration - Interface to receive Cost Idoc from S4 If to S4 IP | 10. Object Complete | S/4 → S/4 | NA | 03.Medium |
-| FPRI0533 | Interface | Reference Interest Rates from MuleSoft to S4 MDG | 10. Object Complete | Bloomberg → S/4 MDG | Bloomberg Professional | 03.Medium |
-| FPRI0532 | Interface | Request for Reference Interest Rates from MuleSoft to Bloomberg | 10. Object Complete | MULESOFT → BLOOMBERG | Bloomberg Professional | 03.Medium |
-| FPRI0531 | Interface | L Rates from MuleSoft to S4 MDG | 10. Object Complete | Bloomberg → S/4 MDG | Bloomberg Professional | 03.Medium |
-| FPRI0530 | Interface | Request for L Rates from MuleSoft to Bloomberg | 10. Object Complete | MULESOFT → BLOOMBERG | Bloomberg Professional | 03.Medium |
-| FPRI0529 | Interface | L Rates from MuleSoft to Quantum | 10. Object Complete | MULESOFT → QUANTUM | FIS Quantum | 03.Medium |
-| FPRI0528 | Interface | L Rates from MuleSoft to Treasury Suite | 10. Object Complete | MULESOFT → TREASURY SUITE | Treasury Suite | 03.Medium |
-| FPRI0527 | Interface | Reference Interest Rates from MuleSoft to Quantum | 10. Object Complete | MULESOFT → QUANTUM | FIS Quantum | 03.Medium |
-| FPRI0526 | Interface | Reference Interest Rates from MuleSoft to Treasury Suite | 10. Object Complete | MULESOFT → TREASURY SUITE | Treasury Suite | 03.Medium |
-| FPRI0505 | Interface | Interface – Copp Clark Holiday Calendar Integration with SAP | 10. Object Complete | Copp Clark → S/4 | Copp Clark Holiday Data Service | 03.Medium |
-| FPRI0379 | Interface | GL Interface – File processing in MuleSoft-Payroll | 10. Object Complete | PAYROLL → S/4 | NA | 02.High |
-| FPRI0378_IP | Interface | GL Interface - SAP API IP | 10. Object Complete | API → S/4 | Design and Sales Acceleration E-Commerce (Demo Depot); Flex One-Stop Tool | 02.High |
-| FPRI0378_IF | Interface | GL Interface - SAP API IF | 10. Object Complete | API → S/4 | Design and Sales Acceleration E-Commerce (Demo Depot); Flex One-Stop Tool | 03.Medium |
-| FPRI0377 | Interface | GL Interface - File Processing in Mulesoft | 10. Object Complete | CONCUR → S/4 | Workday; ADP Payroll GAR; ADP Payroll EMEA; ICOST - Integrated Cost of Sales ... | 02.High |
-| FPRI0376 | Interface | GL Interface - File Processing in Mulesoft | 10. Object Complete | ICOST → S/4 | Workday; ADP Payroll GAR; ADP Payroll EMEA; ICOST - Integrated Cost of Sales ... | 02.High |
-| FPRI0323_IP | Interface | Create a common API for Asset updates, transfer, retire and Mass upload | 10. Object Complete |  | ServiceNow Cloud | 02.High |
-| FPRI0323_IF | Interface | Create a common API for Asset updates, transfer, retire and Mass upload | 10. Object Complete |  | ServiceNow Cloud | 03.Medium |
-| FPRI0227 | Interface | Outbound Interface from CFIN to QTM in relation to not only QTM payment ackno... | 10. Object Complete | S/4 → Quantum | FIS Quantum | 03.Medium |
-| FPRI0226 | Interface | Inbound Interface from QTM to CFIN in relation to QTM payment files and MT me... | 10. Object Complete | Quantum → S/4 | FIS Quantum | 03.Medium |
-| FPRI0224 | Interface | Outbound Interface - SAP to Quantum for Transmitting Cash Management Relevant... | 10. Object Complete | S/4 → Quantum | FIS Quantum | 02.High |
-| FPRI0188 | Interface | Inbound Interface from EMS to S/4 to create WBS element and Update WBS elemen... | 10. Object Complete | XEUS → S/4 | Equipment Management System | 02.High |
-| FPRF0230 | Form | Invoice output Layout - America | 10. Object Complete | NA → NA | NA | 02.High |
-| FPRE1723_IP | Enhancement | Intel BRF+ - Create Function Modules in S/4HANA(FM and BRF+) | 10. Object Complete |  |  | 04.Low |
-| FPRE1723_IF | Enhancement | Intel BRF+ - Create Function Modules in S/4HANA(FM and BRF+) | 10. Object Complete |  |  | 04.Low |
-| FPRE1722_IP | Enhancement | Intel BRF+ - Create Function Modules in S/4HANA (FM and components) | 10. Object Complete |  |  | 04.Low |
-| FPRE1722_IF | Enhancement | Intel BRF+ - Create Function Modules in S/4HANA (FM and components) | 10. Object Complete |  |  | 04.Low |
-| FPRE1711 | Enhancement | BADI Enhancement to change Order Type from Product cost Collector from IP & I... | 10. Object Complete |  |  | 03.Medium |
-| FPRE1706 | Enhancement | Enhancement to create Cash Management relevant data from F110 Payment Run for... | 10. Object Complete |  |  | 03.Medium |
-| FPRE1705 | Enhancement | Enhancement to do Cash App post EBS load with the corresponding payment advice. | 10. Object Complete |  |  | 03.Medium |
-| FPRE1695 | Enhancement | Custom Fiori app - Change WBS Element Request Form with ALV Input​ | 10. Object Complete |  |  | 03.Medium |
-| FPRE1671_IP | Enhancement | S4, Perform required calculations, summarizations, mappings and post the allo... | 10. Object Complete |  |  | 03.Medium |
-| FPRE1671_IF | Enhancement | S4, Perform required calculations, summarizations, mappings and post the allo... | 10. Object Complete |  |  | 04.Low |
-| FPRE1661_IP | Enhancement | WBS transfer tool | 10. Object Complete |  |  | 02.High |
-| FPRE1661_IF | Enhancement | WBS transfer tool | 09. FUT Overdue |  |  | 03.Medium |
-| FPRE1660 | Enhancement | Enhancement for Revenue Recognition by Stage postings for Product/Services Sa... | 10. Object Complete |  |  | 02.High |
-| FPRE1659 | Enhancement | Enhancement for Revenue Recognition by Stage postings for Product/Services Sa... | 10. Object Complete |  |  | 02.High |
-| FPRE1650_IP | Enhancement | (FTQ Input to drive Disaggregation to Allocation Cycle) for Forecast.​ | 10. Object Complete |  |  | 03.Medium |
-| FPRE1650_IF | Enhancement | (FTQ Input to drive Disaggregation to Allocation Cycle) for Forecast.​ | 10. Object Complete |  |  | 04.Low |
-| FPRE1620_IP | Enhancement | Implement OSS Note 2358961 to allow COGS split based on Aux CCS at time of de... | 99. Rejected/Cancelled/On Hold |  |  | 03.Medium |
-| FPRE1620_IF | Enhancement | Implement OSS Note 2358961 to allow COGS split based on Aux CCS at time of de... | 99. Rejected/Cancelled/On Hold |  |  | 04.Low |
-| FPRE1600 | Enhancement | Custom Fiori app - Create WBS Element Request Form with ALV Input​ | 10. Object Complete |  |  | 03.Medium |
-| FPRE1599_IP | Enhancement | Update existing custom table ZTFPR_ACRENG02 to store the calculation of PO li... | 09. FUT Overdue |  |  | 03.Medium |
-| FPRE1599_IF | Enhancement | Update existing custom table ZTFPR_ACRENG02 to store the calculation of PO li... | 09. FUT Overdue |  |  | 04.Low |
-| FPRE1564 | Enhancement | Employee Notification for timesheet entry | 10. Object Complete |  |  | 03.Medium |
-| FPRE1563 | Enhancement | Manager notification for timesheet approval | 10. Object Complete |  |  | 03.Medium |
-| FPRE1562 | Enhancement | Manage Delegates for approval | 10. Object Complete |  |  | 03.Medium |
-| FPRE1561 | Enhancement | Timesheet approval | 10. Object Complete |  |  | 02.High |
-| FPRE1560 | Enhancement | Timesheet entry for Intel Federal employees | 10. Object Complete |  |  | 01.Very High |
-| FPRE1553 | Enhancement | Custom Fiori app - Change WBS Element Request Form with ALV Input​ | 10. Object Complete |  |  | 03.Medium |
-| FPRE1519_IP | Enhancement | Project Change Order - Edit and Submit of draft request with change functiona... | 10. Object Complete |  |  | 02.High |
-| FPRE1519_IF | Enhancement | Project Change Order - Edit and Submit of draft request with change functiona... | 10. Object Complete |  |  | 03.Medium |
-| FPRE1518_IP | Enhancement | Project Change Order - Change existing Purchase Orders during creation of Pro... | 10. Object Complete |  |  | 02.High |
-| FPRE1518_IF | Enhancement | Project Change Order - Change existing Purchase Orders during creation of Pro... | 10. Object Complete |  |  | 03.Medium |
-| FPRE1517_IP | Enhancement | Project Change Order - Create Purchase Orders during creation of Project Chan... | 10. Object Complete |  |  | 02.High |
-| FPRE1517_IF | Enhancement | Project Change Order - Create Purchase Orders during creation of Project Chan... | 10. Object Complete |  |  | 03.Medium |
-| FPRE1516_IP | Enhancement | Enhancement to enable user decision action to be taken from email directly fo... | 10. Object Complete |  |  | 03.Medium |
-| FPRE1516_IF | Enhancement | Enhancement to enable user decision action to be taken from email directly fo... | 10. Object Complete |  |  | 04.Low |
-| FPRE1515_IP | Enhancement | Enhancement to display popup screen to trigger project creation workflow | 10. Object Complete |  |  | 03.Medium |
-| FPRE1515_IF | Enhancement | Enhancement to display popup screen to trigger project creation workflow | 10. Object Complete |  |  | 04.Low |
-| FPRE1513_IP | Enhancement | Generate and download JV file for JE posting | 10. Object Complete |  |  | 03.Medium |
-| FPRE1513_IF | Enhancement | Generate and download JV file for JE posting | 10. Object Complete |  |  | 04.Low |
-| FPRE1513_CFIN | Enhancement | Generate and download JV file for JE posting | 99. Rejected/Cancelled/On Hold |  |  | 03.Medium |
-| FPRE1512_IP | Enhancement | Query confirm ITT document to determine the Capital/Expense and tax code manu... | 10. Object Complete |  |  | 03.Medium |
-| FPRE1512_IF | Enhancement | Query confirm ITT document to determine the Capital/Expense and tax code manu... | 10. Object Complete |  |  | 04.Low |
-| FPRE1511_IP | Enhancement | Query existing draft ITT document and make changes | 10. Object Complete |  |  | 03.Medium |
-| FPRE1511_IF | Enhancement | Query existing draft ITT document and make changes | 10. Object Complete |  |  | 04.Low |
-| FPRE1510_IP | Enhancement | ITT document creation | 10. Object Complete |  |  | 03.Medium |
-| FPRE1510_IF | Enhancement | ITT document creation | 10. Object Complete |  |  | 04.Low |
-| FPRE1448 | Enhancement | FIORI screen to take care of TPR Display/ Change/ cancellation options | 10. Object Complete | NA → NA | NA | 03.Medium |
-| FPRE1443 | Enhancement | FIORI screen to take care of TFR Display/ Change/ cancellation options | 10. Object Complete |  |  | 03.Medium |
-| FPRE1438 | Enhancement | Update mixing ratio for Procurement alternative for Cross site transfer based... | 10. Object Complete |  |  | 03.Medium |
-| FPRE1419 | Enhancement | Update Procurement alternatives based on production version & PIR for cross s... | 10. Object Complete |  |  | 03.Medium |
-| FPRE1328 | Enhancement | Legal Valuation standard cost calculation enhancement | 99. Rejected/Cancelled/On Hold |  |  | 03.Medium |
-| FPRE1239 | Enhancement | Enhancement for Revenue Recognition by Stage postings for Product/Services Sa... | 10. Object Complete |  |  | 02.High |
-| FPRE1235_IP | Enhancement | Add custom fields to CJI3 and CJI5 reports (SAP S/4HANA Project Systems modul... | 10. Object Complete |  |  | 03.Medium |
-| FPRE1235_IF | Enhancement | Add custom fields to CJI3 and CJI5 reports (SAP S/4HANA Project Systems modul... | 10. Object Complete |  |  | 04.Low |
-| FPRE1209 | Enhancement | Upload adjustments to time sheet entries in bulk for Intel Federal. | 10. Object Complete |  |  | 02.High |
-| FPRE1104_IP | Enhancement | WBS with custom attributes will be created in the PS module. The master data ... | 10. Object Complete |  |  | 02.High |
-| FPRE1104_IF | Enhancement | WBS with custom attributes will be created in the PS module. The master data ... | 10. Object Complete |  |  | 03.Medium |
-| FPRE1025_IP | Enhancement | Custom Fiori app will be created using Free style model to display WBS/AUC re... | 10. Object Complete |  |  | 03.Medium |
-| FPRE1025_IF | Enhancement | Custom Fiori app will be created using Free style model to display WBS/AUC re... | 10. Object Complete |  |  | 04.Low |
-| FPRE0942_IP | Enhancement | Interface of SAP PPM module to ATLAS | 10. Object Complete | S4 → ATLAS | NA | 03.Medium |
-| FPRE0942_IF | Enhancement | Interface of SAP PPM module to ATLAS | 10. Object Complete | S4 → ATLAS | NA | 04.Low |
-| FPRE0931_IP | Enhancement | Rebuild Boundary Application ITT in S/4 | 10. Object Complete |  |  | 03.Medium |
-| FPRE0931_IF | Enhancement | Rebuild Boundary Application ITT in S/4 | 10. Object Complete |  |  | 03.Medium |
-| FPRE0931_CFIN | Enhancement | Rebuild Boundary Application ITT in S/4 | 10. Object Complete |  |  | 02.High |
-| FPRE0929 | Enhancement | Fiori UI for Counterparty Maintenance and User Exit to trigger replication to... | 10. Object Complete |  |  | 02.High |
-| FPRE0928 | Enhancement | Enhancement for automatic derivation and population of Purpose Of Payment (PO... | 10. Object Complete |  |  | 03.Medium |
-| FPRE0899_IP | Enhancement | Custom Enhancement to disaggregate: Owner CC-DPN $ to WBS elements using Cape... | 10. Object Complete |  |  | 02.High |
-| FPRE0899_IF | Enhancement | Custom Enhancement to disaggregate:Owner CC-DPN $ to WBS elements using Capex... | 10. Object Complete |  |  | 03.Medium |
-| FPRE0892 | Enhancement | Derive ICS FTQ data by Capex WBS L2 & Mfr. Process Node CC​ | 10. Object Complete |  |  | 03.Medium |
-| FPRE0891 | Enhancement | Split from primary Cost centers to PCOS & R&D/OCOS | 99. Rejected/Cancelled/On Hold |  |  | 04.Low |
-| FPRE0890_IP | Enhancement | Investment type creation and automatic settlement rule generation for Opex Pr... | 10. Object Complete |  |  | 03.Medium |
-| FPRE0890_IF | Enhancement | Investment type creation and automatic settlement rule generation for Opex Pr... | 10. Object Complete |  |  | 04.Low |
-| FPRE0889_IP | Enhancement | Custom table needs to be created to hold allocation %s based on LOB Profit ce... | 10. Object Complete |  |  | 04.Low |
-| FPRE0889_IF | Enhancement | Custom table needs to be created to hold allocation %s based on LOB Profit ce... | 10. Object Complete |  |  | 04.Low |
-| FPRE0888_IP | Enhancement | Mass Update Fields in WBS Elements | 10. Object Complete |  |  | 02.High |
-| FPRE0888_IF | Enhancement | Mass Update Fields in WBS Elements | 10. Object Complete |  |  | 03.Medium |
-| FPRE0887_IP | Enhancement | WBS Element field synchronization to AUC and Fixed assets - Construction ID -... | 10. Object Complete |  |  | 03.Medium |
-| FPRE0887_IF | Enhancement | WBS Element field synchronization to AUC and Fixed assets - Construction ID -... | 10. Object Complete |  |  | 04.Low |
-| FPRE0886_IP | Enhancement | Project Change Order - Create Project Change Order via custom Fiori Screens w... | 10. Object Complete |  |  | 02.High |
-| FPRE0886_IF | Enhancement | Project Change Order - Create Project Change Order via custom Fiori Screens w... | 10. Object Complete |  |  | 03.Medium |
-| FPRE0885 | Enhancement | Custom Fiori app - Create WBS Element Request Form with ALV Input​ | 10. Object Complete |  |  | 03.Medium |
-| FPRE0884_IP | Enhancement | Custom Fiori app - CPA (Project Budget) approval request using PPM Item decis... | 10. Object Complete |  |  | 02.High |
-| FPRE0884_IF | Enhancement | Custom Fiori app - CPA (Project Budget) approval request using PPM Item decis... | 10. Object Complete |  |  | 03.Medium |
-| FPRE0883_IP | Enhancement | (FTQ Input to drive Disaggregation to Allocation Cycle) for Actuals.​ | 10. Object Complete |  |  | 03.Medium |
-| FPRE0883_IF | Enhancement | (FTQ Input to drive Disaggregation to Allocation Cycle) for Actuals.​ | 10. Object Complete |  |  | 04.Low |
-| FPRE0882 | Enhancement | Derive FCS FTQ data by Capex WBS L2 & Mfr. Process Node CC​ | 10. Object Complete |  |  | 03.Medium |
-| FPRE0881 | Enhancement | DMEE User Exits Required in the payment files- APAC​ | 10. Object Complete |  |  | 04.Low |
-| FPRE0880 | Enhancement | Cash concentration functionality for cross-currency current accounts | 09. FUT Overdue |  |  | 04.Low |
-| FPRE0879 | Enhancement | File Formatting and processing to support MBC and APM integration | 10. Object Complete |  |  | 04.Low |
-| FPRE0877_IP | Enhancement | Automation to set TECO and CLSD status on Project/ WBS | 10. Object Complete |  |  | 02.High |
-| FPRE0877_IF | Enhancement | Automation to set TECO and CLSD status on Project/ WBS | 10. Object Complete |  |  | 03.Medium |
-| FPRE0870 | Enhancement | Smart Exporter Interface to CFIN | 10. Object Complete | EY Smart Exporter Tool → S4 | EY Smart Exporter Tool | 04.Low |
-| FPRE0827 | Enhancement | MT3xx and MT5xx Files - Adjust SWIFT Parameters for MBC | 10. Object Complete |  |  | 04.Low |
-| FPRE0786 | Enhancement | Enhancement to Mass upload of WOM payment advice. | 10. Object Complete |  |  | 03.Medium |
-| FPRE0785 | Enhancement | Enhancement to upload WCP Grant Amount in CFIN sys | 10. Object Complete |  |  | 03.Medium |
-| FPRE0784_IP | Enhancement | Reclass program for XIU/ SIU to reclass expense to inventory accounts (cost c... | 10. Object Complete |  |  | 03.Medium |
-| FPRE0784_IF | Enhancement | Reclass program for XIU/ SIU to reclass expense to inventory accounts (cost c... | 10. Object Complete |  |  | 04.Low |
-| FPRE0783_IP | Enhancement | Asset creation from PO (S4 / Ariba / EMS, etc.) | 10. Object Complete | Ariba → S4 |  | 03.Medium |
-| FPRE0783_IF | Enhancement | Asset creation from PO (S4 / Ariba / EMS, etc.) | 10. Object Complete | Ariba → S4 |  | 04.Low |
-| FPRE0781_IP | Enhancement | Import Standard Cost from S4 tables into SAC using Custom CDS view. | 10. Object Complete |  |  | 03.Medium |
-| FPRE0781_IF | Enhancement | Import Standard Cost from S4 tables into SAC using Custom CDS view. | 10. Object Complete |  |  | 04.Low |
-| FPRE0780_IP | Enhancement | Read the workday file from AL11 in IP, IF | 10. Object Complete |  |  | 03.Medium |
-| FPRE0780_IF | Enhancement | Read the workday file from AL11 in IP, IF | 10. Object Complete |  |  | 04.Low |
-| FPRE0779_IP | Enhancement | Enhance the details in workday file to meet AE format in IP, IF | 10. Object Complete |  |  | 03.Medium |
-| FPRE0779_IF | Enhancement | Enhance the details in workday file to meet AE format in IP, IF | 10. Object Complete |  |  | 04.Low |
-| FPRE0777_IP | Enhancement | Add a field in ACDOCA to store Cert ID to continue auto-certify a BL task whe... | 10. Object Complete |  |  | 04.Low |
-| FPRE0777_IF | Enhancement | Add a field in ACDOCA to store Cert ID to continue auto-certify a BL task whe... | 10. Object Complete |  |  | 04.Low |
-| FPRE0777_CFIN | Enhancement | Add a field in ACDOCA to store Cert ID to continue auto-certify a BL task whe... | 10. Object Complete |  |  | 04.Low |
-| FPRE0764_IP | Enhancement | Import Headcount details by cost center and update in S4 for HR benefits spen... | 10. Object Complete |  |  | 03.Medium |
-| FPRE0764_IF | Enhancement | Import Headcount details by cost center and update in S4 for HR benefits spen... | 10. Object Complete |  |  | 04.Low |
-| FPRE0763 | Enhancement | Placeholder - BADI for Memo Records with different Planning Levels/Types gene... | 10. Object Complete |  |  | 03.Medium |
-| FPRE0761 | Enhancement | Branch Name and Address for Payments instead of entity Name and Address | 10. Object Complete |  |  | 03.Medium |
-| FPRE0760_IP | Enhancement | SAP RAR and TM Integration to trigger POD Event | 10. Object Complete |  |  | 03.Medium |
-| FPRE0760_IF | Enhancement | SAP RAR and TM Integration to trigger POD Event | 10. Object Complete |  |  | 04.Low |
-| FPRE0702 | Enhancement | Calculation of variance to be loaded for Group Actual Costing | 10. Object Complete |  |  | 03.Medium |
-| FPRE0701_IP | Enhancement | Mixed Costing ratio auto update | 10. Object Complete |  |  | 03.Medium |
-| FPRE0701_IF | Enhancement | Mixed Costing ratio auto update | 10. Object Complete |  |  | 04.Low |
-| FPRE0700_IP | Enhancement | Representative material ID – Q2-Q8 Forecast | 10. Object Complete |  |  | 03.Medium |
-| FPRE0700_IF | Enhancement | Representative material ID – Q2-Q8 Forecast | 10. Object Complete |  |  | 04.Low |
-| FPRE0699 | Enhancement | Enhancement for Excess Capacity – Fixed Spending Adjustment | 10. Object Complete |  |  | 02.High |
-| FPRE0698 | Enhancement | Legal Valuation standard cost calculation enhancement | 10. Object Complete |  |  | 04.Low |
-| FPRE0697 | Enhancement | RAR Balance sheet posting with MM & Sold To ID | 10. Object Complete |  |  | 03.Medium |
-| FPRE0648_IP | Enhancement | RD04 - Intercompany invoice billing posting to different GL accounts | 10. Object Complete |  |  | 03.Medium |
-| FPRE0648_IF | Enhancement | RD04 - Intercompany invoice billing posting to different GL accounts | 10. Object Complete |  |  | 04.Low |
-| FPRE0647_IP | Enhancement | Intercompany - Subledger Posting template & Approval Workflow | 10. Object Complete |  |  | 03.Medium |
-| FPRE0647_IF | Enhancement | Intercompany - Subledger Posting template & Approval Workflow | 10. Object Complete |  |  | 04.Low |
-| FPRE0647_CFIN | Enhancement | Intercompany - Subledger Posting template & Approval Workflow | 10. Object Complete |  |  | 03.Medium |
-| FPRE0646_IP | Enhancement | An automated solution to record the depreciation amount in a monthly basis fo... | 10. Object Complete |  |  | 03.Medium |
-| FPRE0646_IF | Enhancement | An automated solution to record the depreciation amount in a monthly basis fo... | 10. Object Complete |  |  | 04.Low |
-| FPRE0645_IP | Enhancement | Need to identify a Mass settlement upload tool. Today, the capital life cycle... | 10. Object Complete |  |  | 01.Very High |
-| FPRE0645_IF | Enhancement | Need to identify a Mass settlement upload tool. Today, the capital life cycle... | 10. Object Complete |  |  | 03.Medium |
-| FPRE0624 | Enhancement | Portal Remittance Automation- Retrofitting | 10. Object Complete |  |  | 04.Low |
-| FPRE0623 | Enhancement | Payment Advice Bot Success & Exception Report | 10. Object Complete |  |  | 04.Low |
-| FPRE0622 | Enhancement | Exception Handling & Trigger Set up | 10. Object Complete |  |  | 04.Low |
-| FPRE0621 | Enhancement | Payment Advice CSV Creation & Upload | 10. Object Complete |  |  | 04.Low |
-| FPRE0620 | Enhancement | Model Integration & Export | 10. Object Complete |  |  | 04.Low |
-| FPRE0619 | Enhancement | UiPath OCR - Model Validation | 10. Object Complete |  |  | 04.Low |
-| FPRE0618 | Enhancement | UiPath OCR - Iterative Model Training | 10. Object Complete |  |  | 04.Low |
-| FPRE0617 | Enhancement | UiPath OCR - Classification & Extraction | 10. Object Complete |  |  | 04.Low |
-| FPRE0616 | Enhancement | UiPath OCR - Taxonomy & Digitize | 10. Object Complete |  |  | 04.Low |
-| FPRE0605_IP | Enhancement | H2RA - 13th month bonus & Quarterly Performance Bonus (QPB) bonus accrual pos... | 10. Object Complete |  |  | 03.Medium |
-| FPRE0605_IF | Enhancement | H2RA - 13th month bonus & Quarterly Performance Bonus (QPB) bonus accrual pos... | 10. Object Complete |  |  | 04.Low |
-| FPRE0604_IP | Enhancement | H2RA - Annual Performance Bonus (APB) ER taxes accrual & Quarterly Performanc... | 10. Object Complete |  |  | 03.Medium |
-| FPRE0604_IF | Enhancement | H2RA - Annual Performance Bonus (APB) ER taxes accrual & Quarterly Performanc... | 10. Object Complete |  |  | 04.Low |
-| FPRE0602 | Enhancement | Reclassification of Vendor transactions from Default to Actual within CFIN | 10. Object Complete |  |  | 03.Medium |
-| FPRE0601 | Enhancement | Reclassification of Customer transactions from Default to Actual within CFIN | 10. Object Complete |  |  | 03.Medium |
-| FPRE0574_IP | Enhancement | Margin analysis Dimensions creation | 10. Object Complete |  |  | 04.Low |
-| FPRE0573_IP | Enhancement | Mass Asset Documents Reversal | 10. Object Complete |  |  | 02.High |
-| FPRE0573_IF | Enhancement | Mass Asset Documents Reversal | 10. Object Complete |  |  | 03.Medium |
-| FPRE0572_IP | Enhancement | Mass Asset Capitalization | 10. Object Complete |  |  | 02.High |
-| FPRE0572_IF | Enhancement | Mass Asset Capitalization | 10. Object Complete |  |  | 03.Medium |
-| FPRE0571_IP | Enhancement | DSD Matrix Rules to Update Depreciation Start Date in the Direct Cap Asset Ma... | 10. Object Complete |  |  | 03.Medium |
-| FPRE0571_IF | Enhancement | DSD Matrix Rules to Update Depreciation Start Date in the Direct Cap Asset Ma... | 10. Object Complete |  |  | 03.Medium |
-| FPRE0551 | Enhancement | SKF Actual Driver volume update from actual activity confirmation Automation | 10. Object Complete |  |  | 03.Medium |
-| FPRE0550 | Enhancement | Enhancement to update additive cost in IP based on Idoc of IF cost | 10. Object Complete |  |  | 03.Medium |
-| FPRE0549 | Enhancement | Enhancement to a) update Cost and Production volume in custom table, b) calcu... | 10. Object Complete |  | BY-PDH | 03.Medium |
-| FPRE0500_IP | Enhancement | Rule for Transaction Price Allocation in BRIM vs SD | 10. Object Complete |  |  | 03.Medium |
-| FPRE0500_IF | Enhancement | Rule for Transaction Price Allocation in BRIM vs SD | 10. Object Complete |  |  | 03.Medium |
-| FPRE0499_IP | Enhancement | Substitution and Validation rule user exit | 10. Object Complete |  |  | 03.Medium |
-| FPRE0499_IF | Enhancement | Substitution and Validation rule user exit | 10. Object Complete |  |  | 04.Low |
-| FPRE0495_IP | Enhancement | Custom Fields in WBS element Master Data | 10. Object Complete |  |  | 03.Medium |
-| FPRE0495_IF | Enhancement | Custom Fields in WBS element Master Data | 10. Object Complete |  |  | 04.Low |
-| FPRE0477 | Enhancement | Rebate for Direct Customer to Rebate of Intransit deferrals for Direct & Dist... | 10. Object Complete | NA → NA |  | 03.Medium |
-| FPRE0476 | Enhancement | Accounting for Stock Rotation | 10. Object Complete | NA → NA |  | 03.Medium |
-| FPRE0475 | Enhancement | Accounting for reserves for unissued returns credit note & Rebate Return Accr... | 10. Object Complete | NA → NA |  | 03.Medium |
-| FPRE0474 | Enhancement | Accounting for technical return reserve | 10. Object Complete | NA → NA |  | 03.Medium |
-| FPRE0462 | Enhancement | Enhancement to develop automatic creation of payment advice number in the AR ... | 10. Object Complete | NA → NA |  | 03.Medium |
-| FPRE0430 | Enhancement | Enhancement for automatic creation of MT210 (pre-advice) message for IC settl... | 10. Object Complete | NA → NA | NA | 03.Medium |
-| FPRE0429_IP | Enhancement | Utility program to look up inactive cost center and derive replacement cost c... | 10. Object Complete | NA → NA | NA | 04.Low |
-| FPRE0429_IF | Enhancement | Utility program to look up inactive cost center and derive replacement cost c... | 10. Object Complete | NA → NA | NA | 04.Low |
-| FPRE0429_CFIN | Enhancement | Utility program to look up inactive cost center and derive replacement cost c... | 10. Object Complete | NA → NA | NA | 03.Medium |
-| FPRE0428_IP | Enhancement | Program to replace inactive cost centers in Assets | 10. Object Complete | NA → NA | NA | 03.Medium |
-| FPRE0428_IF | Enhancement | Program to replace inactive cost centers in Assets | 10. Object Complete | NA → NA | NA | 04.Low |
-| FPRE0425 | Enhancement | Treasury Funding - Enhancement to support multiple Treasury Funding scenarios... | 10. Object Complete |  |  | 02.High |
-| FPRE0407_IP | Enhancement | Period Close in CFin, IP & IF | 10. Object Complete |  | NA | 04.Low |
-| FPRE0407_IF | Enhancement | Period Close in CFin, IP & IF | 10. Object Complete |  | NA | 04.Low |
-| FPRE0407_CFIN | Enhancement | Period Close in CFin, IP & IF | 10. Object Complete |  | NA | 03.Medium |
-| FPRE0375_IP | Enhancement | GL Interface – IDOC status from IF & IP | 10. Object Complete | NA → NA |  | 03.Medium |
-| FPRE0375_IF | Enhancement | GL Interface – IDOC status from IF & IP | 10. Object Complete | NA → NA |  | 04.Low |
-| FPRE0375_CFIN | Enhancement | GL Interface – IDOC status from IF & IP | 10. Object Complete | NA → NA |  | 03.Medium |
-| FPRE0374_IP | Enhancement | GL Interface- Managing 999+ GL line items | 10. Object Complete | NA → NA |  | 04.Low |
-| FPRE0374_IF | Enhancement | GL Interface- Managing 999+ GL line items | 10. Object Complete | NA → NA |  | 04.Low |
-| FPRE0374_CFIN | Enhancement | GL Interface- Managing 999+ GL line items | 10. Object Complete | NA → NA |  | 03.Medium |
-| FPRE0373 | Enhancement | GL Interface – Splitting of enriched files and populating staging table | 10. Object Complete | NA → NA |  | 02.High |
-| FPRE0372 | Enhancement | GL Interface - Incoming file processing and Simulation | 10. Object Complete | NA → NA |  | 02.High |
-| FPRE0360_IP | Enhancement | Reclassify GL Accounts for Balance Carryforwards - IP | 10. Object Complete |  |  | 04.Low |
-| FPRE0360_IF | Enhancement | Reclassify GL Accounts for Balance Carryforwards - IF | 10. Object Complete |  |  | 04.Low |
-| FPRE0328_IP | Enhancement | Validations on Asset updates, transfer and retirement | 10. Object Complete | NA → NA | NA | 03.Medium |
-| FPRE0328_IF | Enhancement | Validations on Asset updates, transfer and retirement | 10. Object Complete | NA → NA | NA | 04.Low |
-| FPRE0326_IP | Enhancement | Mass upload tool to asset update, transfer and retire (S4 Fiori functionality... | 10. Object Complete | NA → NA | NA | 03.Medium |
-| FPRE0326_IF | Enhancement | Mass upload tool to asset update, transfer and retire (S4 Fiori functionality... | 10. Object Complete | NA → NA | NA | 04.Low |
-| FPRE0324_IP | Enhancement | Custom Fiori App for Asset update, transfer, scrap, and retire based on Repor... | 10. Object Complete | NA → NA | NA | 02.High |
-| FPRE0324_IF | Enhancement | Custom Fiori App for Asset update, transfer, scrap, and retire based on Repor... | 10. Object Complete | NA → NA | NA | 03.Medium |
-| FPRE0322_IP | Enhancement | Fiori Dashboard to display/edit pre-paid amortization for PO​ | 10. Object Complete | NA → NA | NA | 02.High |
-| FPRE0322_IF | Enhancement | Fiori Dashboard to display/edit pre-paid amortization for PO​ | 10. Object Complete | NA → NA | NA | 03.Medium |
-| FPRE0321_IP | Enhancement | Fiori Dashboard to display/edit accruals for PO​ | 10. Object Complete | NA → NA | NA | 02.High |
-| FPRE0321_IF | Enhancement | Fiori Dashboard to display/edit accruals for PO​ | 10. Object Complete | NA → NA | NA | 03.Medium |
-| FPRE0320_IP | Enhancement | Enhancement to read PO data and create manual accrual object​ | 10. Object Complete | NA → NA | NA | 03.Medium |
-| FPRE0320_IF | Enhancement | Enhancement to read PO data and create manual accrual object​ | 10. Object Complete | NA → NA | NA | 04.Low |
-| FPRE0319_IP | Enhancement | Enhancement for accrual posting notification​ | 10. Object Complete | NA → NA | NA | 03.Medium |
-| FPRE0319_IF | Enhancement | Enhancement for accrual posting notification​ | 10. Object Complete | NA → NA | NA | 03.Medium |
-| FPRE0315_IP | Enhancement | Activation of custom enhancement tab on portfolio bucket for custom fields. | 10. Object Complete | NA → NA | NA | 03.Medium |
-| FPRE0315_IF | Enhancement | Activation of custom enhancement tab on portfolio bucket for custom fields. | 10. Object Complete | NA → NA | NA | 04.Low |
-| FPRE0314_IP | Enhancement | Smart numbering for portfolio items. | 10. Object Complete | NA → NA | NA | 03.Medium |
-| FPRE0314_IF | Enhancement | Smart numbering for portfolio items. | 10. Object Complete | NA → NA | NA | 04.Low |
-| FPRE0289_IP | Enhancement | Update XREF1, XREF2 and XREF3 fields in subledger line items | 10. Object Complete | NA → NA | NA | 04.Low |
-| FPRE0289_IF | Enhancement | Update XREF1, XREF2 and XREF3 fields in subledger line items | 10. Object Complete | NA → NA | NA | 04.Low |
-| FPRE0289_CFIN | Enhancement | Update XREF1, XREF2 and XREF3 fields in subledger line items | 10. Object Complete | NA → NA | NA | 03.Medium |
-| FPRE0287_IP | Enhancement | Need to enhance Fiori screen to capture business process and the approver whi... | 10. Object Complete | NA → NA | NA | 04.Low |
-| FPRE0287_IF | Enhancement | Need to enhance Fiori screen to capture business process and the approver whi... | 10. Object Complete | NA → NA | NA | 04.Low |
-| FPRE0287_CFIN | Enhancement | Need to enhance Fiori screen to capture business process and the approver whi... | 10. Object Complete | NA → NA | NA | 03.Medium |
-| FPRE0286_IP | Enhancement | Mass upload of the same supporting document as an attachment to multiple JEs | 10. Object Complete | NA → NA |  | 04.Low |
-| FPRE0286_IF | Enhancement | Mass upload of the same supporting document as an attachment to multiple JEs | 10. Object Complete | NA → NA |  | 04.Low |
-| FPRE0286_CFIN | Enhancement | Mass upload of the same supporting document as an attachment to multiple JEs | 10. Object Complete | NA → NA |  | 03.Medium |
-| FPRE0285 | Enhancement | Cash App rules engine for matching incoming payments with payment advice | 10. Object Complete |  | NA | 01.Very High |
-| FPRE0284 | Enhancement | Mass upload of payment advice | 10. Object Complete |  | NA | 03.Medium |
-| FPRE0282 | Enhancement | RPA BOT for collecting and transforming customer payment advice into standard... | 10. Object Complete |  | NA | 04.Low |
-| FPRE0240 | Enhancement | Treasury Payment/funding Request - Enhancement to support multiple Treasury P... | 10. Object Complete | NA → NA | NA | 02.High |
-| FPRE0049 | Enhancement | Enhancement - Custom Fields in Manage bank Accounts | 10. Object Complete | NA → NA | NA | 03.Medium |
-| FPRC1724_IP | Conversion | Creation of output template with consumption data | 06. Dev In Progress |  |  | 02.High |
-| FPRC1724_IF | Conversion | Creation of output template with consumption data | 06. Dev In Progress |  |  | 03.Medium |
-| FPRC1565 | Conversion | Convert active delegate relationships for Timesheet approval | 10. Object Complete |  |  | 02.High |
-| FPRC1493 | Conversion | Conversion of WIP values as per Component structure in S/4 - IP | 10. Object Complete |  |  | 02.High |
-| FPRC1491 | Conversion | Conversion of WIP values as per Component structure in S/4 - Back End IF | 10. Object Complete |  |  | 02.High |
-| FPRC1464_IP | Conversion | Project Actuals Conversion (Non- Intel Federal) | 10. Object Complete |  |  | 02.High |
-| FPRC1464_IF | Conversion | Project Actuals Conversion (Non- Intel Federal) | 10. Object Complete |  |  | 02.High |
-| FPRC1442 | Conversion | Conversion of Actual Labor hours for Intel Federal Projects | 10. Object Complete |  |  | 02.High |
-| FPRC1441 | Conversion | Conversion of ECC project hierarchy (WBS element master data) to S/4HANA proj... | 10. Object Complete |  |  | 02.High |
-| FPRC1212 | Conversion | Project Actuals Conversion including Intel Federal | 10. Object Complete |  |  | 03.Medium |
-| FPRC0908_IP | Conversion | Project Budget Conversion | 10. Object Complete |  |  | 03.Medium |
-| FPRC0908_IF | Conversion | Project Budget Conversion | 10. Object Complete |  |  | 03.Medium |
-| FPRC0196_IP | Conversion | Asset Transaction data conversion | 10. Object Complete | NA → NA | NA | 02.High |
-| FPRC0196_IF | Conversion | Asset Transaction data conversion | 10. Object Complete | NA → NA | NA | 02.High |
-| FPRC0195_IP | Conversion | Asset Master data conversion | 10. Object Complete | NA → NA | NA | 03.Medium |
-| FPRC0195_IF | Conversion | Asset Master data conversion | 10. Object Complete | NA → NA | NA | 03.Medium |
-| FPRC0174_IP | Conversion | Conversion of ECC project hierarchy (WBS element master data) to S/4HANA proj... | 10. Object Complete | ECC → S4 | ECC | 02.High |
-| FPRC0174_IF | Conversion | Conversion of ECC project hierarchy (WBS element master data) to S/4HANA proj... | 10. Object Complete | ECC → S4 | ECC | 03.Medium |
-| FPRC0117 | Conversion | Conversion – In House Cash: Current Account creation and Current Account Bala... | 10. Object Complete | ECC → CFIN | ECC | 02.High |
-| FPRC0116 | Conversion | Conversion – Migration of Existing Bank Guarantees and Intercompany Loans to ... | 10. Object Complete | Quantum → CFIN | Quantum | 03.Medium |
-| FPRC0035_IP | Conversion | Convert existing ECC & MDG hierarchy to S4HANA PPM hierarchy (Portfolio & buc... | 10. Object Complete |  → MDG |  | 03.Medium |
-| FPRC0035_IF | Conversion | Convert existing ECC & MDG hierarchy to S4HANA PPM hierarchy (Portfolio & buc... | 10. Object Complete |  → MDG |  | 04.Low |
-| FPRE1741 | Enhancement | Mobile timesheet approval for Intel Federal employees. | 01. Pending Approval |  |  | 01.Very High |
-
-**Summary**: 17 Reports, 86 Interfaces, 25 Conversions, 220 Enhancements, 1 Forms, 18 Workflows
+**Summary**: 337 SAP, 15 ECA, 86 Interfaces, 15 Middleware | RICEFW: 17 Reports, 86 Interfaces, 25 Conversions, 220 Enhancements, 1 Forms, 18 Workflows
 
 
-#### 5.5.2 Boundary Application Dependencies
+#### 5.5.1 SAP Development Objects
 
-The following RICEFW objects integrate with **boundary applications** (external systems outside the S/4 HANA core):
+SAP platform objects (Reports, Interfaces, Conversions, Enhancements, Forms, Workflows) developed on S/4, MDG, or S/4 BOT:
 
-| RICEFW ID | Description | Boundary Application | Source → Target |
+| Object ID | Type | Description | Status | Dev System | Complexity |
+|-----------|------|-------------|--------|-----------|----------|
+| FPRW1449 | Workflow | TPR : Workflow to handle Memo creation and cancellation process | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRW1444 | Workflow | TFR: Workflow to handle Memo creation and cancellation process | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRW1064_IP | Workflow | Custom Workflow will also be created with some predefined process/rules for a... | 10. Object Complete | 01.S4 | 01.Very High |
+| FPRW1064_IF | Workflow | Custom Workflow will also be created with some predefined process/rules for a... | 10. Object Complete | 01.S4 | 02.High |
+| FPRW0930 | Workflow | Workflow for Counterparty Approval | 10. Object Complete | 02.MDG | 03.Medium |
+| FPRW0906_IP | Workflow | Custom workflow: Change Order Create and Change Approval | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRW0906_IF | Workflow | Custom workflow: Change Order Create and Change Approval | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRW0904_IP | Workflow | Custom Workflow - WBS Element Request approval with WBS Element creation | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRW0904_IF | Workflow | Custom Workflow - WBS Element Request approval with WBS Element creation | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRW0900_IP | Workflow | Custom Workflow: Approval for Project creation and create a Project def and l... | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRW0900_IF | Workflow | Custom Workflow: Approval for Project creation and create a Project def and l... | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRW0445_IP | Workflow | Project budget approval workflow (Capex)​ | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRW0445_IF | Workflow | Project budget approval workflow (Capex)​ | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRW0325_IP | Workflow | Custom workflow to manage the approval process in bulk/individual requests | 10. Object Complete | 01.S4 | 02.High |
+| FPRW0325_IF | Workflow | Custom workflow to manage the approval process in bulk/individual requests | 10. Object Complete | 01.S4 | 02.High |
+| FPRW0165_IP | Workflow | Workflow is required to trigger the approvers based on the business requireme... | 10. Object Complete | 01.S4 | 02.High |
+| FPRW0165_IF | Workflow | Workflow is required to trigger the approvers based on the business requireme... | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRW0165_CFIN | Workflow | Workflow is required to trigger the approvers based on the business requireme... | 10. Object Complete | 01.S4 | 02.High |
+| FPRR1514_IP | Report | To generate reports out of the ITT documents that was created | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRR1514_IF | Report | To generate reports out of the ITT documents that was created | 10. Object Complete | 01.S4 | 04.Low |
+| FPRR1240 | Report | Custom report for Revenue Recognition by Stage for Product/Services Sale​ act... | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRR1211 | Report | Report for searching on and viewing government contract timesheets for Intel ... | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRR1210 | Report | Report for searching on and viewing government contract timesheet changes for... | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRR0907_IP | Report | Workflow Status Report ( Order Request / Approval Request / Others ) | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRR0907_IF | Report | Workflow Status Report ( Order Request / Approval Request / Others ) | 10. Object Complete | 01.S4 | 04.Low |
+| FPRR0497 | Report | CFR - Report to support multiple Treasury Funding requests from Multiple Inte... | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRR0496 | Report | TPR-Report to support multiple Treasury Payment Requests from Multiple Intel ... | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRR0461 | Report | Inter-company Outage Pre-consolidate Report (ACDOCA) | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRR0380 | Report | GL Interface – Reconciliation Report/Dashboard | 10. Object Complete | 01.S4 | 02.High |
+| FPRR0327_IP | Report | Report to display the requests/change IDs and status of the workflow approval... | 10. Object Complete | 01.S4 | 02.High |
+| FPRR0327_IF | Report | Report to display the requests/change IDs and status of the workflow approval... | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRR0288_IP | Report | Operational Report to display whether supporting documents are attached to JEs | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRR0288_IF | Report | Operational Report to display whether supporting documents are attached to JEs | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRR0288_CFIN | Report | Operational Report to display whether supporting documents are attached to JEs | 10. Object Complete | 01.S4 | 02.High |
+| FPRR0027 | Report | In House Cash – Loan Account balance Detailed report | 10. Object Complete | 01.S4 | 01.Very High |
+| FPRM003 | Conversion | Revenue Recognition Rules | 10. Object Complete | 01.S4 | N/A |
+| FPRM002 | Conversion | Revenue Contracts | 10. Object Complete | 01.S4 | N/A |
+| FPRM001 | Conversion | Bank Master | 10. Object Complete | 01.S4 | N/A |
+| FPRI1725_IP | Interface | Interface to be developed to transfer the files from Denodo to FS share path ... | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRI1725_IF | Interface | Interface to be developed to transfer the files from Denodo to FS share path ... | 10. Object Complete | 01.S4 | 04.Low |
+| FPRI1704 | Interface | Automated Tool MUP Excess Capacity calculation and associated PCOS/OCOS Split... | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRI1670 | Interface | Import Dot process/stage details from MDG into S4. ​ | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRI1669 | Interface | Import Xeus/Mars volumes from ECA into S4.​ | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRI1504 | Interface | Asset Delete from EMS to S4 through APIGEE | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRI1503 | Interface | Asset Display from EMS to S4 through APIGEE | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRI1502 | Interface | Asset Change from EMS to S4 through APIGEE | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRI1463 | Interface | Interface to upload payroll data from Workday to S/4 IP for legal entity 199 ... | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRI1447 | Interface | GL Interface –Create Inbound IDOCs to CFIN from IF system | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRI1446 | Interface | GL Interface –Create Inbound IDOCs to CFIN from IP system | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRI1439 | Interface | Receive planned production quantities per production version from ECA to S/4 ... | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRI1338 | Interface | Outbound Interface to view the Cleared Customer Invoices from CFIN System to ... | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRI1315 | Interface | Asset Create from EMS to S4 through APIGEE | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRI1306 | Interface | Interface for importing GL transactional data from SAP CFIN system into SAP IF | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRI1305 | Interface | Interface for importing GL transactional data from SAP CFIN system into SAP IP | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRI1286_IP | Interface | Interface between SAP IP and IF boxes for Outbound IDOC flow_IP | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRI1286_IF | Interface | Interface between SAP IP and IF boxes for Outbound IDOC flow_IF | 10. Object Complete | 01.S4 | 04.Low |
+| FPRI1238 | Interface | Pull Foundry WBS from HAT and create in LE 199 in IP S/4 for Foundry Employee... | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRI1105 | Interface | Interface for automatic creation of B2B customer related payment advice | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRI0913_IP | Interface | Export the Planning data from the SAC table to PPM standard tables using the ... | 10. Object Complete | 01.S4 | 02.High |
+| FPRI0913_IF | Interface | Export the Planning data from the SAC table to PPM standard tables using the ... | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRI0895 | Interface | Import Tool Sharing Forecasted Data from FCS to S4 & derive FTQ data by Capex... | 10. Object Complete | 01.S4 | 02.High |
+| FPRI0894 | Interface | Planned Volume from IP-BY will be utilized as a KP26 quantity to split 'Overh... | 10. Object Complete | 01.S4 | 02.High |
+| FPRI0869 | Interface | Interface for automatic creation of WOM related payment advice | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRI0867 | Interface | Outbound Interface to view the open & Cleared Customer Invoices from CFIN Sys... | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRI0866 | Interface | Interface to Obtains the payer associated to the sold to from CFIN System to ... | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRI0865 | Interface | Interface to transfer the Uploaded WCP Grant Amount from CFIN to WOM and Defe... | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRI0864_IP | Interface | Interface between SAP IP and IF boxes for Inbound IDOC flow_IP | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRI0864_IF | Interface | Interface between SAP IP and IF boxes for Inbound IDOC flow_IF | 10. Object Complete | 01.S4 | 04.Low |
+| FPRI0862 | Interface | Interface to transfer the details of selected invoice from WOM to CFIN ( Inbo... | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRI0778_IP | Interface | Continue to auto-certify a BL task when the related JE is approved | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRI0778_IF | Interface | Continue to auto-certify a BL task when the related JE is approved | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRI0778_CFIN | Interface | Continue to auto-certify a BL task when the related JE is approved | 10. Object Complete | 01.S4 | 02.High |
+| FPRI0704 | Interface | IF-IP Integration Actual Cost - Inbound Interface | 10. Object Complete | 01.S4 | 02.High |
+| FPRI0703 | Interface | IF-IP Integration Actual Cost - Outbound Interface | 10. Object Complete | 01.S4 | 02.High |
+| FPRI0696_IP | Interface | Interface between ONESOURCE and Readsoft Process Director built on the back o... | 10. Object Complete | 01.S4 | 02.High |
+| FPRI0696_IF | Interface | Interface between ONESOURCE and Readsoft Process Director built on the back o... | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRI0695 | Interface | Reference Interest Rates - S4 converted data from MDG to CFIN | 10. Object Complete | 02.MDG | 03.Medium |
+| FPRI0600_IP | Interface | Continuation to use Blackline Account Reconciliations Tool (ART), Blackline M... | 10. Object Complete | 01.S4 | 04.Low |
+| FPRI0600_IF | Interface | Continuation to use Blackline Account Reconciliations Tool (ART), Blackline M... | 10. Object Complete | 01.S4 | 04.Low |
+| FPRI0600_CFIN | Interface | Continuation to use Blackline Account Reconciliations Tool (ART), Blackline M... | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRI0599_IP | Interface | ServiceNow Asset change | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRI0599_IF | Interface | ServiceNow Asset change | 10. Object Complete | 01.S4 | 04.Low |
+| FPRI0598 | Interface | N rate from Mulesoft to MDG | 10. Object Complete | 02.MDG | 04.Low |
+| FPRI0545 | Interface | IF-IP Integration - Interface to send Cost Idoc from S4 If to S4 IP | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRI0544 | Interface | IF-IP Integration - Interface to receive Cost Idoc from S4 If to S4 IP | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRI0533 | Interface | Reference Interest Rates from MuleSoft to S4 MDG | 10. Object Complete | 02.MDG | 03.Medium |
+| FPRI0531 | Interface | L Rates from MuleSoft to S4 MDG | 10. Object Complete | 02.MDG | 03.Medium |
+| FPRI0505 | Interface | Interface – Copp Clark Holiday Calendar Integration with SAP | 10. Object Complete | 02.MDG | 03.Medium |
+| FPRI0378_IP | Interface | GL Interface - SAP API IP | 10. Object Complete | 01.S4 | 02.High |
+| FPRI0378_IF | Interface | GL Interface - SAP API IF | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRI0323_IP | Interface | Create a common API for Asset updates, transfer, retire and Mass upload | 10. Object Complete | 01.S4 | 02.High |
+| FPRI0323_IF | Interface | Create a common API for Asset updates, transfer, retire and Mass upload | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRI0224 | Interface | Outbound Interface - SAP to Quantum for Transmitting Cash Management Relevant... | 10. Object Complete | 01.S4 | 02.High |
+| FPRI0188 | Interface | Inbound Interface from EMS to S/4 to create WBS element and Update WBS elemen... | 10. Object Complete | 01.S4 | 02.High |
+| FPRF0230 | Form | Invoice output Layout - America | 10. Object Complete | 01.S4 | 02.High |
+| FPRE1723_IP | Enhancement | Intel BRF+ - Create Function Modules in S/4HANA(FM and BRF+) | 10. Object Complete | 01.S4 | 04.Low |
+| FPRE1723_IF | Enhancement | Intel BRF+ - Create Function Modules in S/4HANA(FM and BRF+) | 10. Object Complete | 01.S4 | 04.Low |
+| FPRE1722_IP | Enhancement | Intel BRF+ - Create Function Modules in S/4HANA (FM and components) | 10. Object Complete | 01.S4 | 04.Low |
+| FPRE1722_IF | Enhancement | Intel BRF+ - Create Function Modules in S/4HANA (FM and components) | 10. Object Complete | 01.S4 | 04.Low |
+| FPRE1711 | Enhancement | BADI Enhancement to change Order Type from Product cost Collector from IP & I... | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE1706 | Enhancement | Enhancement to create Cash Management relevant data from F110 Payment Run for... | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE1705 | Enhancement | Enhancement to do Cash App post EBS load with the corresponding payment advice. | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE1695 | Enhancement | Custom Fiori app - Change WBS Element Request Form with ALV Input​ | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE1671_IP | Enhancement | S4, Perform required calculations, summarizations, mappings and post the allo... | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE1671_IF | Enhancement | S4, Perform required calculations, summarizations, mappings and post the allo... | 10. Object Complete | 01.S4 | 04.Low |
+| FPRE1661_IP | Enhancement | WBS transfer tool | 10. Object Complete | 01.S4 | 02.High |
+| FPRE1661_IF | Enhancement | WBS transfer tool | 09. FUT Overdue | 01.S4 | 03.Medium |
+| FPRE1660 | Enhancement | Enhancement for Revenue Recognition by Stage postings for Product/Services Sa... | 10. Object Complete | 01.S4 | 02.High |
+| FPRE1659 | Enhancement | Enhancement for Revenue Recognition by Stage postings for Product/Services Sa... | 10. Object Complete | 01.S4 | 02.High |
+| FPRE1650_IP | Enhancement | (FTQ Input to drive Disaggregation to Allocation Cycle) for Forecast.​ | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE1650_IF | Enhancement | (FTQ Input to drive Disaggregation to Allocation Cycle) for Forecast.​ | 10. Object Complete | 01.S4 | 04.Low |
+| FPRE1620_IP | Enhancement | Implement OSS Note 2358961 to allow COGS split based on Aux CCS at time of de... | 99. Rejected/Cancelled/On Hold | 01.S4 | 03.Medium |
+| FPRE1620_IF | Enhancement | Implement OSS Note 2358961 to allow COGS split based on Aux CCS at time of de... | 99. Rejected/Cancelled/On Hold | 01.S4 | 04.Low |
+| FPRE1600 | Enhancement | Custom Fiori app - Create WBS Element Request Form with ALV Input​ | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE1599_IP | Enhancement | Update existing custom table ZTFPR_ACRENG02 to store the calculation of PO li... | 09. FUT Overdue | 01.S4 | 03.Medium |
+| FPRE1599_IF | Enhancement | Update existing custom table ZTFPR_ACRENG02 to store the calculation of PO li... | 09. FUT Overdue | 01.S4 | 04.Low |
+| FPRE1564 | Enhancement | Employee Notification for timesheet entry | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE1563 | Enhancement | Manager notification for timesheet approval | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE1562 | Enhancement | Manage Delegates for approval | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE1561 | Enhancement | Timesheet approval | 10. Object Complete | 01.S4 | 02.High |
+| FPRE1560 | Enhancement | Timesheet entry for Intel Federal employees | 10. Object Complete | 01.S4 | 01.Very High |
+| FPRE1553 | Enhancement | Custom Fiori app - Change WBS Element Request Form with ALV Input​ | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE1519_IP | Enhancement | Project Change Order - Edit and Submit of draft request with change functiona... | 10. Object Complete | 01.S4 | 02.High |
+| FPRE1519_IF | Enhancement | Project Change Order - Edit and Submit of draft request with change functiona... | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE1518_IP | Enhancement | Project Change Order - Change existing Purchase Orders during creation of Pro... | 10. Object Complete | 01.S4 | 02.High |
+| FPRE1518_IF | Enhancement | Project Change Order - Change existing Purchase Orders during creation of Pro... | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE1517_IP | Enhancement | Project Change Order - Create Purchase Orders during creation of Project Chan... | 10. Object Complete | 01.S4 | 02.High |
+| FPRE1517_IF | Enhancement | Project Change Order - Create Purchase Orders during creation of Project Chan... | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE1516_IP | Enhancement | Enhancement to enable user decision action to be taken from email directly fo... | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE1516_IF | Enhancement | Enhancement to enable user decision action to be taken from email directly fo... | 10. Object Complete | 01.S4 | 04.Low |
+| FPRE1515_IP | Enhancement | Enhancement to display popup screen to trigger project creation workflow | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE1515_IF | Enhancement | Enhancement to display popup screen to trigger project creation workflow | 10. Object Complete | 01.S4 | 04.Low |
+| FPRE1513_IP | Enhancement | Generate and download JV file for JE posting | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE1513_IF | Enhancement | Generate and download JV file for JE posting | 10. Object Complete | 01.S4 | 04.Low |
+| FPRE1513_CFIN | Enhancement | Generate and download JV file for JE posting | 99. Rejected/Cancelled/On Hold | 01.S4 | 03.Medium |
+| FPRE1512_IP | Enhancement | Query confirm ITT document to determine the Capital/Expense and tax code manu... | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE1512_IF | Enhancement | Query confirm ITT document to determine the Capital/Expense and tax code manu... | 10. Object Complete | 01.S4 | 04.Low |
+| FPRE1511_IP | Enhancement | Query existing draft ITT document and make changes | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE1511_IF | Enhancement | Query existing draft ITT document and make changes | 10. Object Complete | 01.S4 | 04.Low |
+| FPRE1510_IP | Enhancement | ITT document creation | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE1510_IF | Enhancement | ITT document creation | 10. Object Complete | 01.S4 | 04.Low |
+| FPRE1448 | Enhancement | FIORI screen to take care of TPR Display/ Change/ cancellation options | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE1443 | Enhancement | FIORI screen to take care of TFR Display/ Change/ cancellation options | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE1438 | Enhancement | Update mixing ratio for Procurement alternative for Cross site transfer based... | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE1419 | Enhancement | Update Procurement alternatives based on production version & PIR for cross s... | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE1328 | Enhancement | Legal Valuation standard cost calculation enhancement | 99. Rejected/Cancelled/On Hold | 01.S4 | 03.Medium |
+| FPRE1239 | Enhancement | Enhancement for Revenue Recognition by Stage postings for Product/Services Sa... | 10. Object Complete | 01.S4 | 02.High |
+| FPRE1235_IP | Enhancement | Add custom fields to CJI3 and CJI5 reports (SAP S/4HANA Project Systems modul... | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE1235_IF | Enhancement | Add custom fields to CJI3 and CJI5 reports (SAP S/4HANA Project Systems modul... | 10. Object Complete | 01.S4 | 04.Low |
+| FPRE1209 | Enhancement | Upload adjustments to time sheet entries in bulk for Intel Federal. | 10. Object Complete | 01.S4 | 02.High |
+| FPRE1104_IP | Enhancement | WBS with custom attributes will be created in the PS module. The master data ... | 10. Object Complete | 01.S4 | 02.High |
+| FPRE1104_IF | Enhancement | WBS with custom attributes will be created in the PS module. The master data ... | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE1025_IP | Enhancement | Custom Fiori app will be created using Free style model to display WBS/AUC re... | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE1025_IF | Enhancement | Custom Fiori app will be created using Free style model to display WBS/AUC re... | 10. Object Complete | 01.S4 | 04.Low |
+| FPRE0942_IP | Enhancement | Interface of SAP PPM module to ATLAS | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE0942_IF | Enhancement | Interface of SAP PPM module to ATLAS | 10. Object Complete | 01.S4 | 04.Low |
+| FPRE0931_IP | Enhancement | Rebuild Boundary Application ITT in S/4 | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE0931_IF | Enhancement | Rebuild Boundary Application ITT in S/4 | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE0931_CFIN | Enhancement | Rebuild Boundary Application ITT in S/4 | 10. Object Complete | 01.S4 | 02.High |
+| FPRE0929 | Enhancement | Fiori UI for Counterparty Maintenance and User Exit to trigger replication to... | 10. Object Complete | 02.MDG | 02.High |
+| FPRE0928 | Enhancement | Enhancement for automatic derivation and population of Purpose Of Payment (PO... | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE0899_IP | Enhancement | Custom Enhancement to disaggregate: Owner CC-DPN $ to WBS elements using Cape... | 10. Object Complete | 01.S4 | 02.High |
+| FPRE0899_IF | Enhancement | Custom Enhancement to disaggregate:Owner CC-DPN $ to WBS elements using Capex... | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE0892 | Enhancement | Derive ICS FTQ data by Capex WBS L2 & Mfr. Process Node CC​ | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE0891 | Enhancement | Split from primary Cost centers to PCOS & R&D/OCOS | 99. Rejected/Cancelled/On Hold | 01.S4 | 04.Low |
+| FPRE0890_IP | Enhancement | Investment type creation and automatic settlement rule generation for Opex Pr... | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE0890_IF | Enhancement | Investment type creation and automatic settlement rule generation for Opex Pr... | 10. Object Complete | 01.S4 | 04.Low |
+| FPRE0889_IP | Enhancement | Custom table needs to be created to hold allocation %s based on LOB Profit ce... | 10. Object Complete | 01.S4 | 04.Low |
+| FPRE0889_IF | Enhancement | Custom table needs to be created to hold allocation %s based on LOB Profit ce... | 10. Object Complete | 01.S4 | 04.Low |
+| FPRE0888_IP | Enhancement | Mass Update Fields in WBS Elements | 10. Object Complete | 01.S4 | 02.High |
+| FPRE0888_IF | Enhancement | Mass Update Fields in WBS Elements | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE0887_IP | Enhancement | WBS Element field synchronization to AUC and Fixed assets - Construction ID -... | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE0887_IF | Enhancement | WBS Element field synchronization to AUC and Fixed assets - Construction ID -... | 10. Object Complete | 01.S4 | 04.Low |
+| FPRE0886_IP | Enhancement | Project Change Order - Create Project Change Order via custom Fiori Screens w... | 10. Object Complete | 01.S4 | 02.High |
+| FPRE0886_IF | Enhancement | Project Change Order - Create Project Change Order via custom Fiori Screens w... | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE0885 | Enhancement | Custom Fiori app - Create WBS Element Request Form with ALV Input​ | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE0884_IP | Enhancement | Custom Fiori app - CPA (Project Budget) approval request using PPM Item decis... | 10. Object Complete | 01.S4 | 02.High |
+| FPRE0884_IF | Enhancement | Custom Fiori app - CPA (Project Budget) approval request using PPM Item decis... | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE0883_IP | Enhancement | (FTQ Input to drive Disaggregation to Allocation Cycle) for Actuals.​ | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE0883_IF | Enhancement | (FTQ Input to drive Disaggregation to Allocation Cycle) for Actuals.​ | 10. Object Complete | 01.S4 | 04.Low |
+| FPRE0882 | Enhancement | Derive FCS FTQ data by Capex WBS L2 & Mfr. Process Node CC​ | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE0881 | Enhancement | DMEE User Exits Required in the payment files- APAC​ | 10. Object Complete | 01.S4 | 04.Low |
+| FPRE0880 | Enhancement | Cash concentration functionality for cross-currency current accounts | 09. FUT Overdue | 01.S4 | 04.Low |
+| FPRE0879 | Enhancement | File Formatting and processing to support MBC and APM integration | 10. Object Complete | 01.S4 | 04.Low |
+| FPRE0877_IP | Enhancement | Automation to set TECO and CLSD status on Project/ WBS | 10. Object Complete | 01.S4 | 02.High |
+| FPRE0877_IF | Enhancement | Automation to set TECO and CLSD status on Project/ WBS | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE0870 | Enhancement | Smart Exporter Interface to CFIN | 10. Object Complete | 01.S4 | 04.Low |
+| FPRE0827 | Enhancement | MT3xx and MT5xx Files - Adjust SWIFT Parameters for MBC | 10. Object Complete | 01.S4 | 04.Low |
+| FPRE0786 | Enhancement | Enhancement to Mass upload of WOM payment advice. | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE0785 | Enhancement | Enhancement to upload WCP Grant Amount in CFIN sys | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE0784_IP | Enhancement | Reclass program for XIU/ SIU to reclass expense to inventory accounts (cost c... | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE0784_IF | Enhancement | Reclass program for XIU/ SIU to reclass expense to inventory accounts (cost c... | 10. Object Complete | 01.S4 | 04.Low |
+| FPRE0783_IP | Enhancement | Asset creation from PO (S4 / Ariba / EMS, etc.) | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE0783_IF | Enhancement | Asset creation from PO (S4 / Ariba / EMS, etc.) | 10. Object Complete | 01.S4 | 04.Low |
+| FPRE0781_IP | Enhancement | Import Standard Cost from S4 tables into SAC using Custom CDS view. | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE0781_IF | Enhancement | Import Standard Cost from S4 tables into SAC using Custom CDS view. | 10. Object Complete | 01.S4 | 04.Low |
+| FPRE0780_IP | Enhancement | Read the workday file from AL11 in IP, IF | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE0780_IF | Enhancement | Read the workday file from AL11 in IP, IF | 10. Object Complete | 01.S4 | 04.Low |
+| FPRE0779_IP | Enhancement | Enhance the details in workday file to meet AE format in IP, IF | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE0779_IF | Enhancement | Enhance the details in workday file to meet AE format in IP, IF | 10. Object Complete | 01.S4 | 04.Low |
+| FPRE0777_IP | Enhancement | Add a field in ACDOCA to store Cert ID to continue auto-certify a BL task whe... | 10. Object Complete | 01.S4 | 04.Low |
+| FPRE0777_IF | Enhancement | Add a field in ACDOCA to store Cert ID to continue auto-certify a BL task whe... | 10. Object Complete | 01.S4 | 04.Low |
+| FPRE0777_CFIN | Enhancement | Add a field in ACDOCA to store Cert ID to continue auto-certify a BL task whe... | 10. Object Complete | 01.S4 | 04.Low |
+| FPRE0764_IP | Enhancement | Import Headcount details by cost center and update in S4 for HR benefits spen... | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE0764_IF | Enhancement | Import Headcount details by cost center and update in S4 for HR benefits spen... | 10. Object Complete | 01.S4 | 04.Low |
+| FPRE0763 | Enhancement | Placeholder - BADI for Memo Records with different Planning Levels/Types gene... | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE0761 | Enhancement | Branch Name and Address for Payments instead of entity Name and Address | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE0760_IP | Enhancement | SAP RAR and TM Integration to trigger POD Event | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE0760_IF | Enhancement | SAP RAR and TM Integration to trigger POD Event | 10. Object Complete | 01.S4 | 04.Low |
+| FPRE0702 | Enhancement | Calculation of variance to be loaded for Group Actual Costing | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE0701_IP | Enhancement | Mixed Costing ratio auto update | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE0701_IF | Enhancement | Mixed Costing ratio auto update | 10. Object Complete | 01.S4 | 04.Low |
+| FPRE0700_IP | Enhancement | Representative material ID – Q2-Q8 Forecast | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE0700_IF | Enhancement | Representative material ID – Q2-Q8 Forecast | 10. Object Complete | 01.S4 | 04.Low |
+| FPRE0699 | Enhancement | Enhancement for Excess Capacity – Fixed Spending Adjustment | 10. Object Complete | 01.S4 | 02.High |
+| FPRE0698 | Enhancement | Legal Valuation standard cost calculation enhancement | 10. Object Complete | 01.S4 | 04.Low |
+| FPRE0697 | Enhancement | RAR Balance sheet posting with MM & Sold To ID | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE0648_IP | Enhancement | RD04 - Intercompany invoice billing posting to different GL accounts | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE0648_IF | Enhancement | RD04 - Intercompany invoice billing posting to different GL accounts | 10. Object Complete | 01.S4 | 04.Low |
+| FPRE0647_IP | Enhancement | Intercompany - Subledger Posting template & Approval Workflow | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE0647_IF | Enhancement | Intercompany - Subledger Posting template & Approval Workflow | 10. Object Complete | 01.S4 | 04.Low |
+| FPRE0647_CFIN | Enhancement | Intercompany - Subledger Posting template & Approval Workflow | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE0646_IP | Enhancement | An automated solution to record the depreciation amount in a monthly basis fo... | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE0646_IF | Enhancement | An automated solution to record the depreciation amount in a monthly basis fo... | 10. Object Complete | 01.S4 | 04.Low |
+| FPRE0645_IP | Enhancement | Need to identify a Mass settlement upload tool. Today, the capital life cycle... | 10. Object Complete | 01.S4 | 01.Very High |
+| FPRE0645_IF | Enhancement | Need to identify a Mass settlement upload tool. Today, the capital life cycle... | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE0624 | Enhancement | Portal Remittance Automation- Retrofitting | 10. Object Complete | 04.S4 BOT | 04.Low |
+| FPRE0623 | Enhancement | Payment Advice Bot Success & Exception Report | 10. Object Complete | 04.S4 BOT | 04.Low |
+| FPRE0622 | Enhancement | Exception Handling & Trigger Set up | 10. Object Complete | 04.S4 BOT | 04.Low |
+| FPRE0621 | Enhancement | Payment Advice CSV Creation & Upload | 10. Object Complete | 04.S4 BOT | 04.Low |
+| FPRE0620 | Enhancement | Model Integration & Export | 10. Object Complete | 04.S4 BOT | 04.Low |
+| FPRE0619 | Enhancement | UiPath OCR - Model Validation | 10. Object Complete | 04.S4 BOT | 04.Low |
+| FPRE0618 | Enhancement | UiPath OCR - Iterative Model Training | 10. Object Complete | 04.S4 BOT | 04.Low |
+| FPRE0617 | Enhancement | UiPath OCR - Classification & Extraction | 10. Object Complete | 04.S4 BOT | 04.Low |
+| FPRE0616 | Enhancement | UiPath OCR - Taxonomy & Digitize | 10. Object Complete | 04.S4 BOT | 04.Low |
+| FPRE0605_IP | Enhancement | H2RA - 13th month bonus & Quarterly Performance Bonus (QPB) bonus accrual pos... | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE0605_IF | Enhancement | H2RA - 13th month bonus & Quarterly Performance Bonus (QPB) bonus accrual pos... | 10. Object Complete | 01.S4 | 04.Low |
+| FPRE0604_IP | Enhancement | H2RA - Annual Performance Bonus (APB) ER taxes accrual & Quarterly Performanc... | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE0604_IF | Enhancement | H2RA - Annual Performance Bonus (APB) ER taxes accrual & Quarterly Performanc... | 10. Object Complete | 01.S4 | 04.Low |
+| FPRE0602 | Enhancement | Reclassification of Vendor transactions from Default to Actual within CFIN | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE0601 | Enhancement | Reclassification of Customer transactions from Default to Actual within CFIN | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE0574_IP | Enhancement | Margin analysis Dimensions creation | 10. Object Complete | 01.S4 | 04.Low |
+| FPRE0573_IP | Enhancement | Mass Asset Documents Reversal | 10. Object Complete | 01.S4 | 02.High |
+| FPRE0573_IF | Enhancement | Mass Asset Documents Reversal | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE0572_IP | Enhancement | Mass Asset Capitalization | 10. Object Complete | 01.S4 | 02.High |
+| FPRE0572_IF | Enhancement | Mass Asset Capitalization | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE0571_IP | Enhancement | DSD Matrix Rules to Update Depreciation Start Date in the Direct Cap Asset Ma... | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE0571_IF | Enhancement | DSD Matrix Rules to Update Depreciation Start Date in the Direct Cap Asset Ma... | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE0551 | Enhancement | SKF Actual Driver volume update from actual activity confirmation Automation | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE0550 | Enhancement | Enhancement to update additive cost in IP based on Idoc of IF cost | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE0549 | Enhancement | Enhancement to a) update Cost and Production volume in custom table, b) calcu... | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE0500_IP | Enhancement | Rule for Transaction Price Allocation in BRIM vs SD | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE0500_IF | Enhancement | Rule for Transaction Price Allocation in BRIM vs SD | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE0499_IP | Enhancement | Substitution and Validation rule user exit | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE0499_IF | Enhancement | Substitution and Validation rule user exit | 10. Object Complete | 01.S4 | 04.Low |
+| FPRE0495_IP | Enhancement | Custom Fields in WBS element Master Data | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE0495_IF | Enhancement | Custom Fields in WBS element Master Data | 10. Object Complete | 01.S4 | 04.Low |
+| FPRE0477 | Enhancement | Rebate for Direct Customer to Rebate of Intransit deferrals for Direct & Dist... | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE0476 | Enhancement | Accounting for Stock Rotation | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE0475 | Enhancement | Accounting for reserves for unissued returns credit note & Rebate Return Accr... | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE0474 | Enhancement | Accounting for technical return reserve | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE0462 | Enhancement | Enhancement to develop automatic creation of payment advice number in the AR ... | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE0430 | Enhancement | Enhancement for automatic creation of MT210 (pre-advice) message for IC settl... | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE0429_IP | Enhancement | Utility program to look up inactive cost center and derive replacement cost c... | 10. Object Complete | 01.S4 | 04.Low |
+| FPRE0429_IF | Enhancement | Utility program to look up inactive cost center and derive replacement cost c... | 10. Object Complete | 01.S4 | 04.Low |
+| FPRE0429_CFIN | Enhancement | Utility program to look up inactive cost center and derive replacement cost c... | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE0428_IP | Enhancement | Program to replace inactive cost centers in Assets | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE0428_IF | Enhancement | Program to replace inactive cost centers in Assets | 10. Object Complete | 01.S4 | 04.Low |
+| FPRE0425 | Enhancement | Treasury Funding - Enhancement to support multiple Treasury Funding scenarios... | 10. Object Complete | 01.S4 | 02.High |
+| FPRE0407_IP | Enhancement | Period Close in CFin, IP & IF | 10. Object Complete | 01.S4 | 04.Low |
+| FPRE0407_IF | Enhancement | Period Close in CFin, IP & IF | 10. Object Complete | 01.S4 | 04.Low |
+| FPRE0407_CFIN | Enhancement | Period Close in CFin, IP & IF | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE0375_IP | Enhancement | GL Interface – IDOC status from IF & IP | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE0375_IF | Enhancement | GL Interface – IDOC status from IF & IP | 10. Object Complete | 01.S4 | 04.Low |
+| FPRE0375_CFIN | Enhancement | GL Interface – IDOC status from IF & IP | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE0374_IP | Enhancement | GL Interface- Managing 999+ GL line items | 10. Object Complete | 01.S4 | 04.Low |
+| FPRE0374_IF | Enhancement | GL Interface- Managing 999+ GL line items | 10. Object Complete | 01.S4 | 04.Low |
+| FPRE0374_CFIN | Enhancement | GL Interface- Managing 999+ GL line items | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE0373 | Enhancement | GL Interface – Splitting of enriched files and populating staging table | 10. Object Complete | 01.S4 | 02.High |
+| FPRE0372 | Enhancement | GL Interface - Incoming file processing and Simulation | 10. Object Complete | 01.S4 | 02.High |
+| FPRE0360_IP | Enhancement | Reclassify GL Accounts for Balance Carryforwards - IP | 10. Object Complete | 01.S4 | 04.Low |
+| FPRE0360_IF | Enhancement | Reclassify GL Accounts for Balance Carryforwards - IF | 10. Object Complete | 01.S4 | 04.Low |
+| FPRE0328_IP | Enhancement | Validations on Asset updates, transfer and retirement | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE0328_IF | Enhancement | Validations on Asset updates, transfer and retirement | 10. Object Complete | 01.S4 | 04.Low |
+| FPRE0326_IP | Enhancement | Mass upload tool to asset update, transfer and retire (S4 Fiori functionality... | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE0326_IF | Enhancement | Mass upload tool to asset update, transfer and retire (S4 Fiori functionality... | 10. Object Complete | 01.S4 | 04.Low |
+| FPRE0324_IP | Enhancement | Custom Fiori App for Asset update, transfer, scrap, and retire based on Repor... | 10. Object Complete | 01.S4 | 02.High |
+| FPRE0324_IF | Enhancement | Custom Fiori App for Asset update, transfer, scrap, and retire based on Repor... | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE0322_IP | Enhancement | Fiori Dashboard to display/edit pre-paid amortization for PO​ | 10. Object Complete | 01.S4 | 02.High |
+| FPRE0322_IF | Enhancement | Fiori Dashboard to display/edit pre-paid amortization for PO​ | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE0321_IP | Enhancement | Fiori Dashboard to display/edit accruals for PO​ | 10. Object Complete | 01.S4 | 02.High |
+| FPRE0321_IF | Enhancement | Fiori Dashboard to display/edit accruals for PO​ | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE0320_IP | Enhancement | Enhancement to read PO data and create manual accrual object​ | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE0320_IF | Enhancement | Enhancement to read PO data and create manual accrual object​ | 10. Object Complete | 01.S4 | 04.Low |
+| FPRE0319_IP | Enhancement | Enhancement for accrual posting notification​ | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE0319_IF | Enhancement | Enhancement for accrual posting notification​ | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE0315_IP | Enhancement | Activation of custom enhancement tab on portfolio bucket for custom fields. | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE0315_IF | Enhancement | Activation of custom enhancement tab on portfolio bucket for custom fields. | 10. Object Complete | 01.S4 | 04.Low |
+| FPRE0314_IP | Enhancement | Smart numbering for portfolio items. | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE0314_IF | Enhancement | Smart numbering for portfolio items. | 10. Object Complete | 01.S4 | 04.Low |
+| FPRE0289_IP | Enhancement | Update XREF1, XREF2 and XREF3 fields in subledger line items | 10. Object Complete | 01.S4 | 04.Low |
+| FPRE0289_IF | Enhancement | Update XREF1, XREF2 and XREF3 fields in subledger line items | 10. Object Complete | 01.S4 | 04.Low |
+| FPRE0289_CFIN | Enhancement | Update XREF1, XREF2 and XREF3 fields in subledger line items | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE0287_IP | Enhancement | Need to enhance Fiori screen to capture business process and the approver whi... | 10. Object Complete | 01.S4 | 04.Low |
+| FPRE0287_IF | Enhancement | Need to enhance Fiori screen to capture business process and the approver whi... | 10. Object Complete | 01.S4 | 04.Low |
+| FPRE0287_CFIN | Enhancement | Need to enhance Fiori screen to capture business process and the approver whi... | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE0286_IP | Enhancement | Mass upload of the same supporting document as an attachment to multiple JEs | 10. Object Complete | 01.S4 | 04.Low |
+| FPRE0286_IF | Enhancement | Mass upload of the same supporting document as an attachment to multiple JEs | 10. Object Complete | 01.S4 | 04.Low |
+| FPRE0286_CFIN | Enhancement | Mass upload of the same supporting document as an attachment to multiple JEs | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE0285 | Enhancement | Cash App rules engine for matching incoming payments with payment advice | 10. Object Complete | 01.S4 | 01.Very High |
+| FPRE0284 | Enhancement | Mass upload of payment advice | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRE0282 | Enhancement | RPA BOT for collecting and transforming customer payment advice into standard... | 10. Object Complete | 04.S4 BOT | 04.Low |
+| FPRE0240 | Enhancement | Treasury Payment/funding Request - Enhancement to support multiple Treasury P... | 10. Object Complete | 01.S4 | 02.High |
+| FPRE0049 | Enhancement | Enhancement - Custom Fields in Manage bank Accounts | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRC1724_IP | Conversion | Creation of output template with consumption data | 06. Dev In Progress | 01.S4 | 02.High |
+| FPRC1724_IF | Conversion | Creation of output template with consumption data | 06. Dev In Progress | 01.S4 | 03.Medium |
+| FPRC1565 | Conversion | Convert active delegate relationships for Timesheet approval | 10. Object Complete | 01.S4 | 02.High |
+| FPRC1493 | Conversion | Conversion of WIP values as per Component structure in S/4 - IP | 10. Object Complete | 01.S4 | 02.High |
+| FPRC1491 | Conversion | Conversion of WIP values as per Component structure in S/4 - Back End IF | 10. Object Complete | 01.S4 | 02.High |
+| FPRC1464_IP | Conversion | Project Actuals Conversion (Non- Intel Federal) | 10. Object Complete | 01.S4 | 02.High |
+| FPRC1464_IF | Conversion | Project Actuals Conversion (Non- Intel Federal) | 10. Object Complete | 01.S4 | 02.High |
+| FPRC1442 | Conversion | Conversion of Actual Labor hours for Intel Federal Projects | 10. Object Complete | 01.S4 | 02.High |
+| FPRC1441 | Conversion | Conversion of ECC project hierarchy (WBS element master data) to S/4HANA proj... | 10. Object Complete | 01.S4 | 02.High |
+| FPRC1212 | Conversion | Project Actuals Conversion including Intel Federal | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRC0908_IP | Conversion | Project Budget Conversion | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRC0908_IF | Conversion | Project Budget Conversion | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRC0196_IP | Conversion | Asset Transaction data conversion | 10. Object Complete | 01.S4 | 02.High |
+| FPRC0196_IF | Conversion | Asset Transaction data conversion | 10. Object Complete | 01.S4 | 02.High |
+| FPRC0195_IP | Conversion | Asset Master data conversion | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRC0195_IF | Conversion | Asset Master data conversion | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRC0174_IP | Conversion | Conversion of ECC project hierarchy (WBS element master data) to S/4HANA proj... | 10. Object Complete | 01.S4 | 02.High |
+| FPRC0174_IF | Conversion | Conversion of ECC project hierarchy (WBS element master data) to S/4HANA proj... | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRC0117 | Conversion | Conversion – In House Cash: Current Account creation and Current Account Bala... | 10. Object Complete | 01.S4 | 02.High |
+| FPRC0116 | Conversion | Conversion – Migration of Existing Bank Guarantees and Intercompany Loans to ... | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRC0035_IP | Conversion | Convert existing ECC & MDG hierarchy to S4HANA PPM hierarchy (Portfolio & buc... | 10. Object Complete | 01.S4 | 03.Medium |
+| FPRC0035_IF | Conversion | Convert existing ECC & MDG hierarchy to S4HANA PPM hierarchy (Portfolio & buc... | 10. Object Complete | 01.S4 | 04.Low |
+| FPRE1741 | Enhancement | Mobile timesheet approval for Intel Federal employees. | 01. Pending Approval | 01.S4 | 01.Very High |
+
+#### 5.5.2 ECA Development Objects
+
+**Enterprise Cloud Analytics (ECA)** platform objects (Databricks/Snowflake) — views, tables, and ETL jobs with Source or Target System = ECA:
+
+| Object ID | Type | Description | Status | Source → Target | Complexity |
+|-----------|------|-------------|--------|----------------|----------|
+| FPRI1288 | Interface | Activity Inbound interface from ECA to S4 IP | 10. Object Complete | ECA → S/4 | 03.Medium |
+| FPRI1287 | Interface | Production quantity update in WAC custom table from ECA to S4 IF | 10. Object Complete | ECA → S/4 | 03.Medium |
+| FPRI1273 | Interface | Activity Quantity Inbound interface from ECA to S4 IF | 10. Object Complete | ECA → S/4 | 03.Medium |
+| FPRI1241 | Interface | Disti Rebate percentage of gross for Unissued Returns and Intransit Deferral | 10. Object Complete | ECA → S/4 | 03.Medium |
+| FPRI0981_IP | Interface | Interface of SAP PPM module to SPEED | 10. Object Complete | ECA → S/4 | 03.Medium |
+| FPRI0981_IF | Interface | Interface of SAP PPM module to SPEED | 10. Object Complete | ECA → S/4 | 04.Low |
+| FPRI0909_IP | Interface | Interface for importing the Headcount details by Person# and WBS element comb... | 10. Object Complete | ECA → S/4 | 03.Medium |
+| FPRI0909_IF | Interface | Interface for importing the Headcount details by Person# and WBS element comb... | 10. Object Complete | ECA → S/4 | 04.Low |
+| FPRI0863_IP | Interface | Interface between SAP & ECA to provide information for auto certification in ... | 10. Object Complete | ECA → BLACKLINE | 03.Medium |
+| FPRI0863_IF | Interface | Interface between SAP & ECA to provide information for auto certification in ... | 10. Object Complete | ECA → BLACKLINE | 04.Low |
+| FPRI0863_CFIN | Interface | Interface between SAP & ECA to provide information for auto certification in ... | 10. Object Complete | ECA → BLACKLINE | 03.Medium |
+| FPRI0770_IP | Interface | To enable auto-certify a BL [Blackline] task when the related JE is approved | 10. Object Complete | BLACKLINE → ECA | 03.Medium |
+| FPRI0770_IF | Interface | To enable auto-certify a BL [Blackline] task when the related JE is approved | 10. Object Complete | BLACKLINE → ECA | 03.Medium |
+| FPRI0770_CFIN | Interface | To enable auto-certify a BL [Blackline] task when the related JE is approved | 10. Object Complete | BLACKLINE → ECA | 02.High |
+| FPRI0554 | Interface | SKF Interface to get file from ECA and send to S4 via BODS - IF | 10. Object Complete | ECA → S/4 | 02.High |
+
+#### 5.5.3 Interface Objects
+
+Holistic view of all interface objects by L2 capability — includes ECA → S/4, S/4 → ECA, boundary system, and inter-platform interfaces with middleware and integration approach:
+
+| Object ID | Description | Source → Target | Middleware | Approach | Status |
+|-----------|-------------|----------------|-----------|----------|--------|
+| FPRI1725_IP | Interface to be developed to transfer the files from Denodo to FS share path ... |  | Intel MW |  | 10. Object Complete |
+| FPRI1725_IF | Interface to be developed to transfer the files from Denodo to FS share path ... |  | Intel MW |  | 10. Object Complete |
+| FPRI1704 | Automated Tool MUP Excess Capacity calculation and associated PCOS/OCOS Split... |  | BODS |  | 10. Object Complete |
+| FPRI1670 | Import Dot process/stage details from MDG into S4. ​ |  | NA |  | 10. Object Complete |
+| FPRI1669 | Import Xeus/Mars volumes from ECA into S4.​ |  | BODS |  | 10. Object Complete |
+| FPRI1504 | Asset Delete from EMS to S4 through APIGEE |  | APIGEE |  | 10. Object Complete |
+| FPRI1503 | Asset Display from EMS to S4 through APIGEE |  | APIGEE |  | 10. Object Complete |
+| FPRI1502 | Asset Change from EMS to S4 through APIGEE |  | APIGEE |  | 10. Object Complete |
+| FPRI1463 | Interface to upload payroll data from Workday to S/4 IP for legal entity 199 ... |  | MULESOFT |  | 10. Object Complete |
+| FPRI1447 | GL Interface –Create Inbound IDOCs to CFIN from IF system | IF → CFIN | NA |  | 10. Object Complete |
+| FPRI1446 | GL Interface –Create Inbound IDOCs to CFIN from IP system | IP → CFIN | NA |  | 10. Object Complete |
+| FPRI1439 | Receive planned production quantities per production version from ECA to S/4 ... |  | APIGEE |  | 10. Object Complete |
+| FPRI1338 | Outbound Interface to view the Cleared Customer Invoices from CFIN System to ... | S/4 → WOM | MULESOFT |  | 10. Object Complete |
+| FPRI1315 | Asset Create from EMS to S4 through APIGEE |  | APIGEE |  | 10. Object Complete |
+| FPRI1306 | Interface for importing GL transactional data from SAP CFIN system into SAP IF | CFIN → S/4 | NA |  | 10. Object Complete |
+| FPRI1305 | Interface for importing GL transactional data from SAP CFIN system into SAP IP | CFIN → S/4 | NA |  | 10. Object Complete |
+| FPRI1288 | Activity Inbound interface from ECA to S4 IP | ECA → S/4 | MuleSoft |  | 10. Object Complete |
+| FPRI1287 | Production quantity update in WAC custom table from ECA to S4 IF | ECA → S/4 | MuleSoft |  | 10. Object Complete |
+| FPRI1286_IP | Interface between SAP IP and IF boxes for Outbound IDOC flow_IP | MULESOFT → S/4 | SFT |  | 10. Object Complete |
+| FPRI1286_IF | Interface between SAP IP and IF boxes for Outbound IDOC flow_IF | MULESOFT → S/4 | SFT |  | 10. Object Complete |
+| FPRI1273 | Activity Quantity Inbound interface from ECA to S4 IF | ECA → S/4 | MuleSoft |  | 10. Object Complete |
+| FPRI1241 | Disti Rebate percentage of gross for Unissued Returns and Intransit Deferral | ECA → S/4 | BODS |  | 10. Object Complete |
+| FPRI1238 | Pull Foundry WBS from HAT and create in LE 199 in IP S/4 for Foundry Employee... | Head Count Assignment Tool → S/4 | BODS |  | 10. Object Complete |
+| FPRI1105 | Interface for automatic creation of B2B customer related payment advice |  | MULESOFT |  | 10. Object Complete |
+| FPRI0981_IP | Interface of SAP PPM module to SPEED | ECA → S/4 | BODS |  | 10. Object Complete |
+| FPRI0981_IF | Interface of SAP PPM module to SPEED | ECA → S/4 | BODS |  | 10. Object Complete |
+| FPRI0913_IP | Export the Planning data from the SAC table to PPM standard tables using the ... | SAC → S/4 | NA |  | 10. Object Complete |
+| FPRI0913_IF | Export the Planning data from the SAC table to PPM standard tables using the ... | SAC → S/4 | NA |  | 10. Object Complete |
+| FPRI0909_IP | Interface for importing the Headcount details by Person# and WBS element comb... | ECA → S/4 | BODS |  | 10. Object Complete |
+| FPRI0909_IF | Interface for importing the Headcount details by Person# and WBS element comb... | ECA → S/4 | BODS |  | 10. Object Complete |
+| FPRI0895 | Import Tool Sharing Forecasted Data from FCS to S4 & derive FTQ data by Capex... | FCS → S/4 | BODS |  | 10. Object Complete |
+| FPRI0894 | Planned Volume from IP-BY will be utilized as a KP26 quantity to split 'Overh... | ICS → S/4 | BODS |  | 10. Object Complete |
+| FPRI0869 | Interface for automatic creation of WOM related payment advice | S/4 → WOM | MULESOFT |  | 10. Object Complete |
+| FPRI0867 | Outbound Interface to view the open & Cleared Customer Invoices from CFIN Sys... | S/4 → WOM | MULESOFT |  | 10. Object Complete |
+| FPRI0866 | Interface to Obtains the payer associated to the sold to from CFIN System to ... | S/4 → WOM | MULESOFT |  | 10. Object Complete |
+| FPRI0865 | Interface to transfer the Uploaded WCP Grant Amount from CFIN to WOM and Defe... | S/4 → WOM | MULESOFT |  | 10. Object Complete |
+| FPRI0864_IP | Interface between SAP IP and IF boxes for Inbound IDOC flow_IP | MULESOFT → S/4 | SFT |  | 10. Object Complete |
+| FPRI0864_IF | Interface between SAP IP and IF boxes for Inbound IDOC flow_IF | MULESOFT → S/4 | SFT |  | 10. Object Complete |
+| FPRI0863_IP | Interface between SAP & ECA to provide information for auto certification in ... | ECA → BLACKLINE | APIGEE;DENODO |  | 10. Object Complete |
+| FPRI0863_IF | Interface between SAP & ECA to provide information for auto certification in ... | ECA → BLACKLINE | APIGEE;DENODO |  | 10. Object Complete |
+| FPRI0863_CFIN | Interface between SAP & ECA to provide information for auto certification in ... | ECA → BLACKLINE | APIGEE;DENODO |  | 10. Object Complete |
+| FPRI0862 | Interface to transfer the details of selected invoice from WOM to CFIN ( Inbo... | WOM → S/4 | MULESOFT |  | 10. Object Complete |
+| FPRI0778_IP | Continue to auto-certify a BL task when the related JE is approved | BLACKLINE → S/4 | MULESOFT |  | 10. Object Complete |
+| FPRI0778_IF | Continue to auto-certify a BL task when the related JE is approved | BLACKLINE → S/4 | MULESOFT |  | 10. Object Complete |
+| FPRI0778_CFIN | Continue to auto-certify a BL task when the related JE is approved | BLACKLINE → S/4 | MULESOFT |  | 10. Object Complete |
+| FPRI0770_IP | To enable auto-certify a BL [Blackline] task when the related JE is approved | BLACKLINE → ECA | NA |  | 10. Object Complete |
+| FPRI0770_IF | To enable auto-certify a BL [Blackline] task when the related JE is approved | BLACKLINE → ECA | NA |  | 10. Object Complete |
+| FPRI0770_CFIN | To enable auto-certify a BL [Blackline] task when the related JE is approved | BLACKLINE → ECA | NA |  | 10. Object Complete |
+| FPRI0704 | IF-IP Integration Actual Cost - Inbound Interface | OpenText → S/4 | SFT |  | 10. Object Complete |
+| FPRI0703 | IF-IP Integration Actual Cost - Outbound Interface | S/4 → OpenText | SFT |  | 10. Object Complete |
+| FPRI0696_IP | Interface between ONESOURCE and Readsoft Process Director built on the back o... | ONESOURCE → READSOFT | NA |  | 10. Object Complete |
+| FPRI0696_IF | Interface between ONESOURCE and Readsoft Process Director built on the back o... | ONESOURCE → READSOFT | NA |  | 10. Object Complete |
+| FPRI0695 | Reference Interest Rates - S4 converted data from MDG to CFIN | S/4 MDG → CFIN | NA |  | 10. Object Complete |
+| FPRI0694 | Exchange Rates N - S4 converted data from MuleSoft to Treasury Suite | MULESOFT → TREASURY SUITE | MULESOFT |  | 10. Object Complete |
+| FPRI0693 | Exchange Rates L - S4 converted data from MuleSoft to Treasury Suite | Treasury Suite → MULESOFT | MULESOFT |  | 10. Object Complete |
+| FPRI0600_IP | Continuation to use Blackline Account Reconciliations Tool (ART), Blackline M... | BLACKLINE → S/4 | MULESOFT |  | 10. Object Complete |
+| FPRI0600_IF | Continuation to use Blackline Account Reconciliations Tool (ART), Blackline M... | BLACKLINE → S/4 | MULESOFT |  | 10. Object Complete |
+| FPRI0600_CFIN | Continuation to use Blackline Account Reconciliations Tool (ART), Blackline M... | BLACKLINE → S/4 | MULESOFT |  | 10. Object Complete |
+| FPRI0599_IP | ServiceNow Asset change | SERVICENOW → S/4 | MULESOFT |  | 10. Object Complete |
+| FPRI0599_IF | ServiceNow Asset change | SERVICENOW → S/4 | MULESOFT |  | 10. Object Complete |
+| FPRI0598 | N rate from Mulesoft to MDG | MULESOFT → S/4 MDG | MULESOFT |  | 10. Object Complete |
+| FPRI0597 | N rate from Mulesoft to Bloomberg | MULESOFT → BLOOMBERG | MULESOFT |  | 10. Object Complete |
+| FPRI0596 | N rate from Mulesoft to Treasury Suite | MULESOFT → TREASURY SUITE | MULESOFT |  | 10. Object Complete |
+| FPRI0554 | SKF Interface to get file from ECA and send to S4 via BODS - IF | ECA → S/4 | MuleSoft |  | 10. Object Complete |
+| FPRI0545 | IF-IP Integration - Interface to send Cost Idoc from S4 If to S4 IP | S/4 → S/4 | SFT |  | 10. Object Complete |
+| FPRI0544 | IF-IP Integration - Interface to receive Cost Idoc from S4 If to S4 IP | S/4 → S/4 | SFT |  | 10. Object Complete |
+| FPRI0533 | Reference Interest Rates from MuleSoft to S4 MDG | Bloomberg → S/4 MDG | MULESOFT |  | 10. Object Complete |
+| FPRI0532 | Request for Reference Interest Rates from MuleSoft to Bloomberg | MULESOFT → BLOOMBERG | MULESOFT |  | 10. Object Complete |
+| FPRI0531 | L Rates from MuleSoft to S4 MDG | Bloomberg → S/4 MDG | MULESOFT |  | 10. Object Complete |
+| FPRI0530 | Request for L Rates from MuleSoft to Bloomberg | MULESOFT → BLOOMBERG | MULESOFT |  | 10. Object Complete |
+| FPRI0529 | L Rates from MuleSoft to Quantum | MULESOFT → QUANTUM | MULESOFT |  | 10. Object Complete |
+| FPRI0528 | L Rates from MuleSoft to Treasury Suite | MULESOFT → TREASURY SUITE | MULESOFT |  | 10. Object Complete |
+| FPRI0527 | Reference Interest Rates from MuleSoft to Quantum | MULESOFT → QUANTUM | MULESOFT |  | 10. Object Complete |
+| FPRI0526 | Reference Interest Rates from MuleSoft to Treasury Suite | MULESOFT → TREASURY SUITE | MULESOFT |  | 10. Object Complete |
+| FPRI0505 | Interface – Copp Clark Holiday Calendar Integration with SAP | Copp Clark → S/4 | SFT |  | 10. Object Complete |
+| FPRI0379 | GL Interface – File processing in MuleSoft-Payroll | PAYROLL → S/4 | MULESOFT |  | 10. Object Complete |
+| FPRI0378_IP | GL Interface - SAP API IP | API → S/4 | MULESOFT |  | 10. Object Complete |
+| FPRI0378_IF | GL Interface - SAP API IF | API → S/4 | MULESOFT |  | 10. Object Complete |
+| FPRI0377 | GL Interface - File Processing in Mulesoft | CONCUR → S/4 | MULESOFT |  | 10. Object Complete |
+| FPRI0376 | GL Interface - File Processing in Mulesoft | ICOST → S/4 | MULESOFT |  | 10. Object Complete |
+| FPRI0323_IP | Create a common API for Asset updates, transfer, retire and Mass upload |  | NA |  | 10. Object Complete |
+| FPRI0323_IF | Create a common API for Asset updates, transfer, retire and Mass upload |  | NA |  | 10. Object Complete |
+| FPRI0227 | Outbound Interface from CFIN to QTM in relation to not only QTM payment ackno... | S/4 → Quantum | SFT |  | 10. Object Complete |
+| FPRI0226 | Inbound Interface from QTM to CFIN in relation to QTM payment files and MT me... | Quantum → S/4 | SFT |  | 10. Object Complete |
+| FPRI0224 | Outbound Interface - SAP to Quantum for Transmitting Cash Management Relevant... | S/4 → Quantum | SFT |  | 10. Object Complete |
+| FPRI0188 | Inbound Interface from EMS to S/4 to create WBS element and Update WBS elemen... | XEUS → S/4 | APIGEE |  | 10. Object Complete |
+
+#### 5.5.4 Middleware Objects
+
+**MuleSoft** integration objects (Development System = MuleSoft):
+
+| Object ID | Description | Status | Source → Target | Complexity |
+|-----------|-------------|--------|----------------|----------|
+| FPRI0694 | Exchange Rates N - S4 converted data from MuleSoft to Treasury Suite | 10. Object Complete | MULESOFT → TREASURY SUITE | 03.Medium |
+| FPRI0693 | Exchange Rates L - S4 converted data from MuleSoft to Treasury Suite | 10. Object Complete | Treasury Suite → MULESOFT | 03.Medium |
+| FPRI0597 | N rate from Mulesoft to Bloomberg | 10. Object Complete | MULESOFT → BLOOMBERG | 03.Medium |
+| FPRI0596 | N rate from Mulesoft to Treasury Suite | 10. Object Complete | MULESOFT → TREASURY SUITE | 03.Medium |
+| FPRI0532 | Request for Reference Interest Rates from MuleSoft to Bloomberg | 10. Object Complete | MULESOFT → BLOOMBERG | 03.Medium |
+| FPRI0530 | Request for L Rates from MuleSoft to Bloomberg | 10. Object Complete | MULESOFT → BLOOMBERG | 03.Medium |
+| FPRI0529 | L Rates from MuleSoft to Quantum | 10. Object Complete | MULESOFT → QUANTUM | 03.Medium |
+| FPRI0528 | L Rates from MuleSoft to Treasury Suite | 10. Object Complete | MULESOFT → TREASURY SUITE | 03.Medium |
+| FPRI0527 | Reference Interest Rates from MuleSoft to Quantum | 10. Object Complete | MULESOFT → QUANTUM | 03.Medium |
+| FPRI0526 | Reference Interest Rates from MuleSoft to Treasury Suite | 10. Object Complete | MULESOFT → TREASURY SUITE | 03.Medium |
+| FPRI0379 | GL Interface – File processing in MuleSoft-Payroll | 10. Object Complete | PAYROLL → S/4 | 02.High |
+| FPRI0377 | GL Interface - File Processing in Mulesoft | 10. Object Complete | CONCUR → S/4 | 02.High |
+| FPRI0376 | GL Interface - File Processing in Mulesoft | 10. Object Complete | ICOST → S/4 | 02.High |
+| FPRI0227 | Outbound Interface from CFIN to QTM in relation to not only QTM payment ackno... | 10. Object Complete | S/4 → Quantum | 03.Medium |
+| FPRI0226 | Inbound Interface from QTM to CFIN in relation to QTM payment files and MT me... | 10. Object Complete | Quantum → S/4 | 03.Medium |
+
+#### 5.5.5 Scheduling & Batch Objects
+
+*Scheduling and batch job objects (AutoSys, CWA) will be populated when job scheduler metadata is available. This section will map batch dependencies to RICEFW and ECA objects.*
+
+#### 5.5.6 Boundary Application Dependencies
+
+The following development objects integrate with **boundary applications** (external systems outside the S/4 HANA core):
+
+| Object ID | Description | Boundary Application | Source → Target |
 |-----------|------------|---------------------|----------------|
 | FPRI1725_IP | Interface to be developed to transfer the files from Denodo to FS share path ... | Workday |  |
 | FPRI1725_IF | Interface to be developed to transfer the files from Denodo to FS share path ... | Workday |  |
@@ -919,6 +1039,14 @@ The following RICEFW objects integrate with **boundary applications** (external 
 | Audit Logging | Comprehensive audit trail for all data changes and user actions (SAP Security Audit Log) | SOX Compliance / Intel Audit Policy | Internal Audit |
 | Certificate Management | Automated certificate lifecycle management for system-to-system trust | Intel PKI Standard | Certificate Authority Team |
 | Compliance | SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR) | Intel Corporate Compliance Framework | Compliance Office |
+
+### 6.5 ECA Development Object Status
+
+| Metric | Count |
+|--------|-------|
+| ECA Objects (this capability) | 15 |
+| ECA Interfaces | 15 |
+| Total ECA + SAP Interface Dependencies | 86 |
 
 
 <div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>MR-030 — Manage Financial Risk</span></div>

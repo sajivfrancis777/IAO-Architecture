@@ -477,10 +477,14 @@ nav.toc a:hover { text-decoration: underline; }
   <li><a href="#5-application-architecture-togaf-a">5. Application Architecture (TOGAF &ldquo;A&rdquo;)</a>
     <ul>
       <li><a href="#54-component-overview">5.4 Component Overview</a></li>
-      <li><a href="#55-ricefw-inventory">5.5 RICEFW Inventory</a>
+      <li><a href="#55-development-object-inventory">5.5 Development Object Inventory</a>
         <ul>
-          <li><a href="#551-eca-dependencies">5.5.1 ECA Dependencies</a></li>
-          <li><a href="#552-boundary-application-dependencies">5.5.2 Boundary Application Dependencies</a></li>
+          <li><a href="#551-sap-development-objects">5.5.1 SAP Development Objects</a></li>
+          <li><a href="#552-eca-development-objects">5.5.2 ECA Development Objects</a></li>
+          <li><a href="#553-interface-objects">5.5.3 Interface Objects</a></li>
+          <li><a href="#554-middleware-objects">5.5.4 Middleware Objects</a></li>
+          <li><a href="#555-scheduling-batch-objects">5.5.5 Scheduling &amp; Batch Objects</a></li>
+          <li><a href="#556-boundary-application-dependencies">5.5.6 Boundary Application Dependencies</a></li>
         </ul>
       </li>
       <li><a href="#56-integration-patterns">5.6 Integration Patterns</a></li>
@@ -492,6 +496,7 @@ nav.toc a:hover { text-decoration: underline; }
       <li><a href="#62-sap-development-object-status">6.2 SAP Development Object Status</a></li>
       <li><a href="#63-nfrs-design-principles">6.3 NFRs &amp; Design Principles</a></li>
       <li><a href="#64-security-governance">6.4 Security &amp; Governance</a></li>
+      <li><a href="#65-eca-development-object-status">6.5 ECA Development Object Status</a></li>
     </ul>
   </li>
   <li><a href="#7-project-context">7. Project Context</a>
@@ -1638,7 +1643,10 @@ flowchart LR
 </tr>
 </tbody>
 </table>
-<h3 id="55-ricefw-inventory">5.5 RICEFW Inventory</h3>
+<h3 id="55-development-object-inventory">5.5 Development Object Inventory</h3>
+<p><strong>Summary</strong>: 43 SAP, 12 Interfaces | RICEFW: 4 Reports, 12 Interfaces, 18 Enhancements, 9 Forms</p>
+<h4 id="551-sap-development-objects">5.5.1 SAP Development Objects</h4>
+<p>SAP platform objects (Reports, Interfaces, Conversions, Enhancements, Forms, Workflows) developed on S/4, MDG, or S/4 BOT:</p>
 <table>
 <thead>
 <tr>
@@ -1646,8 +1654,7 @@ flowchart LR
 <th>Type</th>
 <th>Description</th>
 <th>Status</th>
-<th>Source → Target</th>
-<th>Boundary App</th>
+<th>Dev System</th>
 <th>Complexity</th>
 </tr>
 </thead>
@@ -1657,8 +1664,7 @@ flowchart LR
 <td>Report</td>
 <td>2DN - Inbound Escort Report</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1666,8 +1672,7 @@ flowchart LR
 <td>Report</td>
 <td>2DN - Outbound Escort Report</td>
 <td>06. Dev In Progress</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1675,8 +1680,7 @@ flowchart LR
 <td>Report</td>
 <td>2DN - Outbound Manifest Report</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1684,8 +1688,7 @@ flowchart LR
 <td>Report</td>
 <td>2DN - Inbound Manifest Report</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1693,8 +1696,7 @@ flowchart LR
 <td>Interface</td>
 <td>2DN - S4 – Interface from S/4 to MPL for packing list.</td>
 <td>10. Object Complete</td>
-<td>S/4 → MPL</td>
-<td>Mark Pack Label Suite (IP)</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1702,8 +1704,7 @@ flowchart LR
 <td>Interface</td>
 <td>2DN - Interface to capture Data for 1st Delivery in 2DN X-Dock Model</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>OpenText</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1711,8 +1712,7 @@ flowchart LR
 <td>Interface</td>
 <td>Interface from WOM to S4 HANA to fetch the list of Deliveries for a particula&hellip;</td>
 <td>10. Object Complete</td>
-<td>WOM → S/4</td>
-<td>SAP Commerce Cloud</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1720,8 +1720,7 @@ flowchart LR
 <td>Interface</td>
 <td>Interface from WOM to S4 HANA to fetch the ASN information of delivery.</td>
 <td>10. Object Complete</td>
-<td>WOM → S/4</td>
-<td>SAP Commerce Cloud</td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1729,8 +1728,7 @@ flowchart LR
 <td>Interface</td>
 <td>Interface from SAP S4 to DBaaS to Fetch Actual COF for FVR batch and COA for &hellip;</td>
 <td>10. Object Complete</td>
-<td>S/4 → DBaaS</td>
-<td>Supply Chain Trade Re-engineering Data Container for Intel Products</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1738,8 +1736,7 @@ flowchart LR
 <td>Interface</td>
 <td>Interface to send shipment information to custom broker</td>
 <td>10. Object Complete</td>
-<td>S/4 → OpenText</td>
-<td>OpenText</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1747,8 +1744,7 @@ flowchart LR
 <td>Interface</td>
 <td>Customer ASN interface from outbound delivery</td>
 <td>10. Object Complete</td>
-<td>S/4 → OpenText</td>
-<td>OpenText</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1756,8 +1752,7 @@ flowchart LR
 <td>Interface</td>
 <td>3B2 Post goods issue interface for Outbound delivery to SAP</td>
 <td>10. Object Complete</td>
-<td>S/4 → OpenText</td>
-<td>OpenText</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1765,8 +1760,7 @@ flowchart LR
 <td>Interface</td>
 <td>3B13 interface for pick/pack updates for outbound delivery to SAP</td>
 <td>10. Object Complete</td>
-<td>S/4 → OpenText</td>
-<td>OpenText</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1774,8 +1768,7 @@ flowchart LR
 <td>Interface</td>
 <td>3B14R Cancellation Request from S/4 to 3PL</td>
 <td>10. Object Complete</td>
-<td>S/4 → 3PL</td>
-<td>Logistics Customers Service Request; OpenText; Customer Master Database</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1783,8 +1776,7 @@ flowchart LR
 <td>Interface</td>
 <td>3B12 Request to 3PL on FO creation</td>
 <td>10. Object Complete</td>
-<td>3PL → S/4</td>
-<td>OpenText</td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1792,8 +1784,7 @@ flowchart LR
 <td>Interface</td>
 <td>3B14C Cancellation Confirmation from 3PL to S/4</td>
 <td>10. Object Complete</td>
-<td>3PL → S/4</td>
-<td>OpenText</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1801,8 +1792,7 @@ flowchart LR
 <td>Form</td>
 <td>Consolidated Export Commercial Invoice – Finished Goods (IP)</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1810,8 +1800,7 @@ flowchart LR
 <td>Form</td>
 <td>Consolidated Packing list for Chengdu</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1819,8 +1808,7 @@ flowchart LR
 <td>Form</td>
 <td>EIAJ form to be generated for OEM customers (Japan)</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1828,8 +1816,7 @@ flowchart LR
 <td>Form</td>
 <td>Generate Consolidated Export Commercial Invoice - Finished Goods (IF and IP)</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1837,8 +1824,7 @@ flowchart LR
 <td>Form</td>
 <td>Shipper Letter of instruction (Localization requirement for US)</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td></td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1846,8 +1832,7 @@ flowchart LR
 <td>Form</td>
 <td>Bailment CI and End-Customer CI for IF/IP</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1855,8 +1840,7 @@ flowchart LR
 <td>Form</td>
 <td>Generate Export CI for IF/IP</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td></td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1864,8 +1848,7 @@ flowchart LR
 <td>Form</td>
 <td>Generate Itemised Packing Lists</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1873,8 +1856,7 @@ flowchart LR
 <td>Form</td>
 <td>Generate Packing Lists for Finished Goods - IP and IF</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td></td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1882,8 +1864,7 @@ flowchart LR
 <td>Enhancement</td>
 <td>Copy Control Routine for Customer Master Special Instructions</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1891,8 +1872,7 @@ flowchart LR
 <td>Enhancement</td>
 <td>2DN - Trigger Auto packing in 2nd DN of 2DN X-Dock Model</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1900,8 +1880,7 @@ flowchart LR
 <td>Enhancement</td>
 <td>2DN - S4 – Error Handling program in 2DN X-Dock Model</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1909,8 +1888,7 @@ flowchart LR
 <td>Enhancement</td>
 <td>2DN - Enhancement to capture required fields of 1st Delivery in 2DN X-Dock Model</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1918,8 +1896,7 @@ flowchart LR
 <td>Enhancement</td>
 <td>2DN - Post 3PL 3B2 or manual Goods Issue from CW or IW - Wrapper Program to c&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1927,8 +1904,7 @@ flowchart LR
 <td>Enhancement</td>
 <td>Pre-alert summary report for the EMEA customer</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1936,8 +1912,7 @@ flowchart LR
 <td>Enhancement</td>
 <td>Pre alert notification to Customer</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1945,8 +1920,7 @@ flowchart LR
 <td>Enhancement</td>
 <td>Custom transaction to trigger CUSDEC</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1954,8 +1928,7 @@ flowchart LR
 <td>Enhancement</td>
 <td>Upload program to update pick/pack information in sap in case of 3B13 PIP fai&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1963,8 +1936,7 @@ flowchart LR
 <td>Enhancement</td>
 <td>Enhancement to Update Custom Table form Master data and Manage SOP Data Commu&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1972,8 +1944,7 @@ flowchart LR
 <td>Enhancement</td>
 <td>Creation of Proforma Invoice ZF8 from Freight Order and Save ITN Number in De&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1981,8 +1952,7 @@ flowchart LR
 <td>Enhancement</td>
 <td>Develop Fiori app to View/Edit/Add SOP data(CMDB).</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1990,8 +1960,7 @@ flowchart LR
 <td>Enhancement</td>
 <td>Development of LCSR tool in Fiori</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>Logistics Customers Service Request</td>
+<td>01.S4</td>
 <td>01.Very High</td>
 </tr>
 <tr>
@@ -1999,8 +1968,7 @@ flowchart LR
 <td>Enhancement</td>
 <td>1. Custom fields in Delivery to store Number of Pallets &amp; IPLA indicator fiel&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2008,8 +1976,7 @@ flowchart LR
 <td>Enhancement</td>
 <td>Custom logic to fetch the details from different source and save in the custo&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2017,8 +1984,7 @@ flowchart LR
 <td>Enhancement</td>
 <td>Incoterm Location 1 ID field update for Outbound delivery</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -2026,8 +1992,7 @@ flowchart LR
 <td>Enhancement</td>
 <td>Billing document creation to be triggered from the Output of outbound delivery</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2035,19 +2000,131 @@ flowchart LR
 <td>Enhancement</td>
 <td>Create single line delivery for a confirmed sales order confirmed schedule line</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Summary</strong>: 4 Reports, 12 Interfaces, 18 Enhancements, 9 Forms</p>
-<h4 id="552-boundary-application-dependencies">5.5.2 Boundary Application Dependencies</h4>
-<p>The following RICEFW objects integrate with <strong>boundary applications</strong> (external systems outside the S/4 HANA core):</p>
+<h4 id="553-interface-objects">5.5.3 Interface Objects</h4>
+<p>Holistic view of all interface objects by L2 capability — includes ECA → S/4, S/4 → ECA, boundary system, and inter-platform interfaces with middleware and integration approach:</p>
 <table>
 <thead>
 <tr>
-<th>RICEFW ID</th>
+<th>Object ID</th>
+<th>Description</th>
+<th>Source → Target</th>
+<th>Middleware</th>
+<th>Approach</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LOGI1067</td>
+<td>2DN - S4 – Interface from S/4 to MPL for packing list.</td>
+<td>S/4 → MPL</td>
+<td>SFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI1066</td>
+<td>2DN - Interface to capture Data for 1st Delivery in 2DN X-Dock Model</td>
+<td></td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI0875</td>
+<td>Interface from WOM to S4 HANA to fetch the list of Deliveries for a particula&hellip;</td>
+<td>WOM → S/4</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI0874</td>
+<td>Interface from WOM to S4 HANA to fetch the ASN information of delivery.</td>
+<td>WOM → S/4</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI0842_IP</td>
+<td>Interface from SAP S4 to DBaaS to Fetch Actual COF for FVR batch and COA for &hellip;</td>
+<td>S/4 → DBaaS</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI0800_IP</td>
+<td>Interface to send shipment information to custom broker</td>
+<td>S/4 → OpenText</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI0612_IP</td>
+<td>Customer ASN interface from outbound delivery</td>
+<td>S/4 → OpenText</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI0610</td>
+<td>3B2 Post goods issue interface for Outbound delivery to SAP</td>
+<td>S/4 → OpenText</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI0609</td>
+<td>3B13 interface for pick/pack updates for outbound delivery to SAP</td>
+<td>S/4 → OpenText</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI0607</td>
+<td>3B14R Cancellation Request from S/4 to 3PL</td>
+<td>S/4 → 3PL</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI0418</td>
+<td>3B12 Request to 3PL on FO creation</td>
+<td>3PL → S/4</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI0415</td>
+<td>3B14C Cancellation Confirmation from 3PL to S/4</td>
+<td>3PL → S/4</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+</tbody>
+</table>
+<h4 id="555-scheduling-batch-objects">5.5.5 Scheduling &amp; Batch Objects</h4>
+<p><em>Scheduling and batch job objects (AutoSys, CWA) will be populated when job scheduler metadata is available. This section will map batch dependencies to RICEFW and ECA objects.</em></p>
+<h4 id="556-boundary-application-dependencies">5.5.6 Boundary Application Dependencies</h4>
+<p>The following development objects integrate with <strong>boundary applications</strong> (external systems outside the S/4 HANA core):</p>
+<table>
+<thead>
+<tr>
+<th>Object ID</th>
 <th>Description</th>
 <th>Boundary Application</th>
 <th>Source → Target</th>
@@ -2321,6 +2398,8 @@ flowchart LR
 </tr>
 </tbody>
 </table>
+<h3 id="65-eca-development-object-status">6.5 ECA Development Object Status</h3>
+<p><em>ECA development object status will be auto-populated when Snowflake SELECT access is provisioned for the PDH-IF and PDH-IP curated layers. This section will provide a DEV/QAS/PRD maturity assessment equivalent to §6.2 for SAP objects.</em></p>
 <div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - OTC (IP)</span></div>
 
 </div>

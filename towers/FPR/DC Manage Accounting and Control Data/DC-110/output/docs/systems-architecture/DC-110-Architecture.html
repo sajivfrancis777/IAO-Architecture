@@ -477,10 +477,14 @@ nav.toc a:hover { text-decoration: underline; }
   <li><a href="#5-application-architecture-togaf-a">5. Application Architecture (TOGAF &ldquo;A&rdquo;)</a>
     <ul>
       <li><a href="#54-component-overview">5.4 Component Overview</a></li>
-      <li><a href="#55-ricefw-inventory">5.5 RICEFW Inventory</a>
+      <li><a href="#55-development-object-inventory">5.5 Development Object Inventory</a>
         <ul>
-          <li><a href="#551-eca-dependencies">5.5.1 ECA Dependencies</a></li>
-          <li><a href="#552-boundary-application-dependencies">5.5.2 Boundary Application Dependencies</a></li>
+          <li><a href="#551-sap-development-objects">5.5.1 SAP Development Objects</a></li>
+          <li><a href="#552-eca-development-objects">5.5.2 ECA Development Objects</a></li>
+          <li><a href="#553-interface-objects">5.5.3 Interface Objects</a></li>
+          <li><a href="#554-middleware-objects">5.5.4 Middleware Objects</a></li>
+          <li><a href="#555-scheduling-batch-objects">5.5.5 Scheduling &amp; Batch Objects</a></li>
+          <li><a href="#556-boundary-application-dependencies">5.5.6 Boundary Application Dependencies</a></li>
         </ul>
       </li>
       <li><a href="#56-integration-patterns">5.6 Integration Patterns</a></li>
@@ -492,6 +496,7 @@ nav.toc a:hover { text-decoration: underline; }
       <li><a href="#62-sap-development-object-status">6.2 SAP Development Object Status</a></li>
       <li><a href="#63-nfrs-design-principles">6.3 NFRs &amp; Design Principles</a></li>
       <li><a href="#64-security-governance">6.4 Security &amp; Governance</a></li>
+      <li><a href="#65-eca-development-object-status">6.5 ECA Development Object Status</a></li>
     </ul>
   </li>
   <li><a href="#7-project-context">7. Project Context</a>
@@ -793,7 +798,10 @@ nav.toc a:hover { text-decoration: underline; }
 </tr>
 </tbody>
 </table>
-<h3 id="55-ricefw-inventory">5.5 RICEFW Inventory</h3>
+<h3 id="55-development-object-inventory">5.5 Development Object Inventory</h3>
+<p><strong>Summary</strong>: 15 SAP, 4 Interfaces | RICEFW: 1 Reports, 4 Interfaces, 9 Enhancements, 1 Forms</p>
+<h4 id="551-sap-development-objects">5.5.1 SAP Development Objects</h4>
+<p>SAP platform objects (Reports, Interfaces, Conversions, Enhancements, Forms, Workflows) developed on S/4, MDG, or S/4 BOT:</p>
 <table>
 <thead>
 <tr>
@@ -801,8 +809,7 @@ nav.toc a:hover { text-decoration: underline; }
 <th>Type</th>
 <th>Description</th>
 <th>Status</th>
-<th>Source → Target</th>
-<th>Boundary App</th>
+<th>Dev System</th>
 <th>Complexity</th>
 </tr>
 </thead>
@@ -812,8 +819,7 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Report</td>
 <td>Inter-company Outage Pre-consolidate Report (ACDOCA)</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -821,8 +827,7 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Interface</td>
 <td>Interface between SAP IP and IF boxes for Outbound IDOC flow_IP</td>
 <td>10. Object Complete</td>
-<td>MULESOFT → S/4</td>
-<td>NA</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -830,8 +835,7 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Interface</td>
 <td>Interface between SAP IP and IF boxes for Outbound IDOC flow_IF</td>
 <td>10. Object Complete</td>
-<td>MULESOFT → S/4</td>
-<td>NA</td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -839,8 +843,7 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Interface</td>
 <td>Interface between SAP IP and IF boxes for Inbound IDOC flow_IP</td>
 <td>10. Object Complete</td>
-<td>MULESOFT → S/4</td>
-<td>NA</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -848,8 +851,7 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Interface</td>
 <td>Interface between SAP IP and IF boxes for Inbound IDOC flow_IF</td>
 <td>10. Object Complete</td>
-<td>MULESOFT → S/4</td>
-<td>NA</td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -857,8 +859,7 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Form</td>
 <td>Invoice output Layout - America</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -866,8 +867,7 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Enhancement</td>
 <td>RD04 - Intercompany invoice billing posting to different GL accounts</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -875,8 +875,7 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Enhancement</td>
 <td>RD04 - Intercompany invoice billing posting to different GL accounts</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -884,8 +883,7 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Enhancement</td>
 <td>Intercompany - Subledger Posting template &amp; Approval Workflow</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -893,8 +891,7 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Enhancement</td>
 <td>Intercompany - Subledger Posting template &amp; Approval Workflow</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -902,8 +899,7 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Enhancement</td>
 <td>Intercompany - Subledger Posting template &amp; Approval Workflow</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -911,8 +907,7 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Enhancement</td>
 <td>Enhancement to develop automatic creation of payment advice number in the AR &hellip;</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -920,8 +915,7 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Enhancement</td>
 <td>Update XREF1, XREF2 and XREF3 fields in subledger line items</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -929,8 +923,7 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Enhancement</td>
 <td>Update XREF1, XREF2 and XREF3 fields in subledger line items</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -938,13 +931,61 @@ nav.toc a:hover { text-decoration: underline; }
 <td>Enhancement</td>
 <td>Update XREF1, XREF2 and XREF3 fields in subledger line items</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Summary</strong>: 1 Reports, 4 Interfaces, 9 Enhancements, 1 Forms</p>
+<h4 id="553-interface-objects">5.5.3 Interface Objects</h4>
+<p>Holistic view of all interface objects by L2 capability — includes ECA → S/4, S/4 → ECA, boundary system, and inter-platform interfaces with middleware and integration approach:</p>
+<table>
+<thead>
+<tr>
+<th>Object ID</th>
+<th>Description</th>
+<th>Source → Target</th>
+<th>Middleware</th>
+<th>Approach</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FPRI1286_IP</td>
+<td>Interface between SAP IP and IF boxes for Outbound IDOC flow_IP</td>
+<td>MULESOFT → S/4</td>
+<td>SFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI1286_IF</td>
+<td>Interface between SAP IP and IF boxes for Outbound IDOC flow_IF</td>
+<td>MULESOFT → S/4</td>
+<td>SFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI0864_IP</td>
+<td>Interface between SAP IP and IF boxes for Inbound IDOC flow_IP</td>
+<td>MULESOFT → S/4</td>
+<td>SFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FPRI0864_IF</td>
+<td>Interface between SAP IP and IF boxes for Inbound IDOC flow_IF</td>
+<td>MULESOFT → S/4</td>
+<td>SFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+</tbody>
+</table>
+<h4 id="555-scheduling-batch-objects">5.5.5 Scheduling &amp; Batch Objects</h4>
+<p><em>Scheduling and batch job objects (AutoSys, CWA) will be populated when job scheduler metadata is available. This section will map batch dependencies to RICEFW and ECA objects.</em></p>
 <div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-110 — Manage Intercompany</span></div>
 
 </div>
@@ -1132,6 +1173,8 @@ nav.toc a:hover { text-decoration: underline; }
 </tr>
 </tbody>
 </table>
+<h3 id="65-eca-development-object-status">6.5 ECA Development Object Status</h3>
+<p><em>ECA development object status will be auto-populated when Snowflake SELECT access is provisioned for the PDH-IF and PDH-IP curated layers. This section will provide a DEV/QAS/PRD maturity assessment equivalent to §6.2 for SAP objects.</em></p>
 <div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-110 — Manage Intercompany</span></div>
 
 </div>

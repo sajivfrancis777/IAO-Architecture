@@ -477,10 +477,14 @@ nav.toc a:hover { text-decoration: underline; }
   <li><a href="#5-application-architecture-togaf-a">5. Application Architecture (TOGAF &ldquo;A&rdquo;)</a>
     <ul>
       <li><a href="#54-component-overview">5.4 Component Overview</a></li>
-      <li><a href="#55-ricefw-inventory">5.5 RICEFW Inventory</a>
+      <li><a href="#55-development-object-inventory">5.5 Development Object Inventory</a>
         <ul>
-          <li><a href="#551-eca-dependencies">5.5.1 ECA Dependencies</a></li>
-          <li><a href="#552-boundary-application-dependencies">5.5.2 Boundary Application Dependencies</a></li>
+          <li><a href="#551-sap-development-objects">5.5.1 SAP Development Objects</a></li>
+          <li><a href="#552-eca-development-objects">5.5.2 ECA Development Objects</a></li>
+          <li><a href="#553-interface-objects">5.5.3 Interface Objects</a></li>
+          <li><a href="#554-middleware-objects">5.5.4 Middleware Objects</a></li>
+          <li><a href="#555-scheduling-batch-objects">5.5.5 Scheduling &amp; Batch Objects</a></li>
+          <li><a href="#556-boundary-application-dependencies">5.5.6 Boundary Application Dependencies</a></li>
         </ul>
       </li>
       <li><a href="#56-integration-patterns">5.6 Integration Patterns</a></li>
@@ -492,6 +496,7 @@ nav.toc a:hover { text-decoration: underline; }
       <li><a href="#62-sap-development-object-status">6.2 SAP Development Object Status</a></li>
       <li><a href="#63-nfrs-design-principles">6.3 NFRs &amp; Design Principles</a></li>
       <li><a href="#64-security-governance">6.4 Security &amp; Governance</a></li>
+      <li><a href="#65-eca-development-object-status">6.5 ECA Development Object Status</a></li>
     </ul>
   </li>
   <li><a href="#7-project-context">7. Project Context</a>
@@ -1209,7 +1214,10 @@ flowchart LR
 </tr>
 </tbody>
 </table>
-<h3 id="55-ricefw-inventory">5.5 RICEFW Inventory</h3>
+<h3 id="55-development-object-inventory">5.5 Development Object Inventory</h3>
+<p><strong>Summary</strong>: 258 SAP, 5 ECA, 92 Interfaces, 2 Middleware | RICEFW: 5 Reports, 92 Interfaces, 31 Conversions, 118 Enhancements, 15 Forms, 4 Workflows</p>
+<h4 id="551-sap-development-objects">5.5.1 SAP Development Objects</h4>
+<p>SAP platform objects (Reports, Interfaces, Conversions, Enhancements, Forms, Workflows) developed on S/4, MDG, or S/4 BOT:</p>
 <table>
 <thead>
 <tr>
@@ -1217,8 +1225,7 @@ flowchart LR
 <th>Type</th>
 <th>Description</th>
 <th>Status</th>
-<th>Source → Target</th>
-<th>Boundary App</th>
+<th>Dev System</th>
 <th>Complexity</th>
 </tr>
 </thead>
@@ -1228,8 +1235,7 @@ flowchart LR
 <td>Workflow</td>
 <td>ISM Workflows - Capital/AMT</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1237,8 +1243,7 @@ flowchart LR
 <td>Workflow</td>
 <td>ISM Workflows - EIMS/Lab</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1246,8 +1251,7 @@ flowchart LR
 <td>Workflow</td>
 <td>ISM Workflows - Non-inventory</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1255,8 +1259,7 @@ flowchart LR
 <td>Report</td>
 <td>ISM - International Traffic Report</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1264,8 +1267,7 @@ flowchart LR
 <td>Report</td>
 <td>Email Notification for deletion of Shipping Memos</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -1273,8 +1275,7 @@ flowchart LR
 <td>Conversion</td>
 <td>Create/Upload Vehicle resource</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>N/A</td>
 </tr>
 <tr>
@@ -1282,8 +1283,7 @@ flowchart LR
 <td>Conversion</td>
 <td>Update Business Share</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>N/A</td>
 </tr>
 <tr>
@@ -1291,8 +1291,7 @@ flowchart LR
 <td>Conversion</td>
 <td>Upload Transportation Allocation</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>N/A</td>
 </tr>
 <tr>
@@ -1300,8 +1299,7 @@ flowchart LR
 <td>Conversion</td>
 <td>Upload Schedules</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>N/A</td>
 </tr>
 <tr>
@@ -1309,8 +1307,7 @@ flowchart LR
 <td>Conversion</td>
 <td>Default Routes</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>N/A</td>
 </tr>
 <tr>
@@ -1318,8 +1315,7 @@ flowchart LR
 <td>Conversion</td>
 <td>Upload Rate Table</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>N/A</td>
 </tr>
 <tr>
@@ -1327,8 +1323,7 @@ flowchart LR
 <td>Conversion</td>
 <td>Create and review Charge Calculation Sheet</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>N/A</td>
 </tr>
 <tr>
@@ -1336,8 +1331,7 @@ flowchart LR
 <td>Conversion</td>
 <td>Create and review Freight Agreement</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>N/A</td>
 </tr>
 <tr>
@@ -1345,8 +1339,7 @@ flowchart LR
 <td>Conversion</td>
 <td>Creation of Location based on BP, Shipping points, plants</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>N/A</td>
 </tr>
 <tr>
@@ -1354,8 +1347,7 @@ flowchart LR
 <td>Conversion</td>
 <td>Location creation-ocean ports, airports</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>N/A</td>
 </tr>
 <tr>
@@ -1363,8 +1355,7 @@ flowchart LR
 <td>Conversion</td>
 <td>Storage Bin Upload</td>
 <td>10. Object Complete</td>
-<td>WIINGS → EWM</td>
-<td>WIINGS</td>
+<td>01.S4</td>
 <td>N/A</td>
 </tr>
 <tr>
@@ -1372,8 +1363,7 @@ flowchart LR
 <td>Conversion</td>
 <td>Product Master conversion (additional EWM attribution)</td>
 <td>10. Object Complete</td>
-<td>WIINGS, ECC WM → EWM</td>
-<td>WIINGS</td>
+<td>01.S4</td>
 <td>N/A</td>
 </tr>
 <tr>
@@ -1381,8 +1371,7 @@ flowchart LR
 <td>Conversion</td>
 <td>UPLOAD TRANSPORTATION ZONES (TM)</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>N/A</td>
 </tr>
 <tr>
@@ -1390,8 +1379,7 @@ flowchart LR
 <td>Conversion</td>
 <td>UPLOAD TRANSPORTATION LANES</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>N/A</td>
 </tr>
 <tr>
@@ -1399,17 +1387,7 @@ flowchart LR
 <td>Interface</td>
 <td>To align on batch attributes for straddle in S4</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>LOGI1708</td>
-<td>Interface</td>
-<td>Wrapper program for Inbound interface from Kommand AS to SAP</td>
-<td>10. Object Complete</td>
-<td></td>
-<td>Kommand Autostore</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1417,8 +1395,7 @@ flowchart LR
 <td>Interface</td>
 <td>Send 4C1 Inventory Reconciliation Snapshot to IP</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1426,8 +1403,7 @@ flowchart LR
 <td>Interface</td>
 <td>Send 4C1 Inventory movement Stock type change and cycle count to IP</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1435,8 +1411,7 @@ flowchart LR
 <td>Interface</td>
 <td>Interface for SiGaC to extract inventory data from EWM to meet their existing&hellip;</td>
 <td>06. Dev In Progress</td>
-<td></td>
-<td>SiGaC (Site Gas and Chemical)</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1444,8 +1419,7 @@ flowchart LR
 <td>Interface</td>
 <td>Inventory adjustment data in XML format from Kommand auto-store to SAP EWM</td>
 <td>06. Dev In Progress</td>
-<td></td>
-<td>Kommand Autostore</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1453,8 +1427,7 @@ flowchart LR
 <td>Interface</td>
 <td>Summary Reconciliation and Inventory Snapshot data in XML format from SAP EWM&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>Kommand Autostore</td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1462,8 +1435,7 @@ flowchart LR
 <td>Interface</td>
 <td>Pickresult(Pick Warehouse task confirmation) data in XML format from SAP EWM &hellip;</td>
 <td>06. Dev In Progress</td>
-<td></td>
-<td>Kommand Autostore</td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1471,8 +1443,7 @@ flowchart LR
 <td>Interface</td>
 <td>Replenresult(Putaway warehouse task confirmation) data in XML format from SAP&hellip;</td>
 <td>06. Dev In Progress</td>
-<td></td>
-<td>Kommand Autostore</td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1480,8 +1451,7 @@ flowchart LR
 <td>Interface</td>
 <td>MergePick (Pick Warehouse task)data in XML format from SAP EWM to Kommand aut&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>Kommand Autostore</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1489,8 +1459,7 @@ flowchart LR
 <td>Interface</td>
 <td>MergeReplen(Putaway Warehouse task) data in XML format from SAP EWM to Komman&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>Kommand Autostore</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1498,8 +1467,7 @@ flowchart LR
 <td>Interface</td>
 <td>MergeItem (Product master)data in XML format from SAP EWM to Kommand auto-store</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>Kommand Autostore</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1507,8 +1475,7 @@ flowchart LR
 <td>Interface</td>
 <td>Straddle Plant to be automatically complete the Goods Receipt and write of th&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1516,8 +1483,7 @@ flowchart LR
 <td>Interface</td>
 <td>STO based Outbound Delivery Notification Confirmation for Delivery Note Deletion</td>
 <td>10. Object Complete</td>
-<td>S/4 → OpenText</td>
-<td>OpenText</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1525,8 +1491,7 @@ flowchart LR
 <td>Interface</td>
 <td>Interface to SiGac for capturing the consumption of Chems and Gases against a&hellip;</td>
 <td>10. Object Complete</td>
-<td>SIGAC → S/4</td>
-<td>SiGaC (Site Gas and Chemical)</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1534,8 +1499,7 @@ flowchart LR
 <td>Interface</td>
 <td>Interface + Enhancement - Reprinting of Carrier Label</td>
 <td>10. Object Complete</td>
-<td>S/4 → Redwood</td>
-<td>Redwood</td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -1543,8 +1507,7 @@ flowchart LR
 <td>Interface</td>
 <td>Interface from S4 ISM to Service Now</td>
 <td>10. Object Complete</td>
-<td>S/4 ISM → Service Now</td>
-<td>ServiceNow Cloud</td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -1552,8 +1515,7 @@ flowchart LR
 <td>Interface</td>
 <td>Send data via API to retrieve the tracking ID - interface + Enhancement</td>
 <td>10. Object Complete</td>
-<td>S/4 → Redwood</td>
-<td>Redwood</td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -1561,8 +1523,7 @@ flowchart LR
 <td>Interface</td>
 <td>STO based outbound delivery notification request for delivery note cancellation</td>
 <td>10. Object Complete</td>
-<td>OpenText → S/4</td>
-<td>OpenText</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1570,8 +1531,7 @@ flowchart LR
 <td>Interface</td>
 <td>STO based Outbound Delivery Notification from 3PL to S/4 for confirming Pick/&hellip;</td>
 <td>10. Object Complete</td>
-<td>OpenText → S/4</td>
-<td>OpenText</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1579,8 +1539,7 @@ flowchart LR
 <td>Interface</td>
 <td>Inventory Movement from 3PL to S/4 - 4C1 Cycle Count</td>
 <td>10. Object Complete</td>
-<td>OpenText → S/4</td>
-<td>OpenText</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1588,8 +1547,7 @@ flowchart LR
 <td>Interface</td>
 <td>STO based Outbound Delivery PGI confirmation from 3PL to S/4 - 3B2</td>
 <td>10. Object Complete</td>
-<td>OpenText → S/4</td>
-<td>OpenText</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1597,8 +1555,7 @@ flowchart LR
 <td>Interface</td>
 <td>STO based Outbound Delivery PGI confirmation for returns from S/4 to 3PL - 3B2</td>
 <td>10. Object Complete</td>
-<td>S/4 → OpenText</td>
-<td>OpenText</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1606,8 +1563,7 @@ flowchart LR
 <td>Interface</td>
 <td>STO based Outbound Delivery Notification from S/4 to 3PL - 3B12</td>
 <td>10. Object Complete</td>
-<td>S/4 → OpenText</td>
-<td>OpenText</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1615,8 +1571,7 @@ flowchart LR
 <td>Interface</td>
 <td>Inventory Movement from S/4 to 3PL – 4C1 (Outbound)</td>
 <td>10. Object Complete</td>
-<td>S/4 → OpenText</td>
-<td>OpenText</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1624,8 +1579,7 @@ flowchart LR
 <td>Interface</td>
 <td>Interface from S4 to NDA (IPLA –Intel Pre Release License Agreements)</td>
 <td>10. Object Complete</td>
-<td>S/4 → NDA</td>
-<td>LAWMAS Agiloft Contract Lifecycle Management</td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -1633,8 +1587,7 @@ flowchart LR
 <td>Interface</td>
 <td>Inventory Reconciliation snapshot (4C1) from 3PL WMS to SAP S/4</td>
 <td>10. Object Complete</td>
-<td>3PL → S/4</td>
-<td>OpenText</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1642,8 +1595,7 @@ flowchart LR
 <td>Form</td>
 <td>TM-Bill of lading print output ( NSO/ Prospal STO&rsquo;s)</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -1651,8 +1603,7 @@ flowchart LR
 <td>Form</td>
 <td>Consolidated Commercial Invoice for WIP</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -1660,8 +1611,7 @@ flowchart LR
 <td>Form</td>
 <td>Commercial Invoice for WIP</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -1669,8 +1619,7 @@ flowchart LR
 <td>Form</td>
 <td>Packing list for WIP</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -1678,8 +1627,7 @@ flowchart LR
 <td>Form</td>
 <td>Printing of Standard Shipping Label</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1687,8 +1635,7 @@ flowchart LR
 <td>Form</td>
 <td>Creation of Forms for Cycle count</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1696,8 +1643,7 @@ flowchart LR
 <td>Form</td>
 <td>Print Pick List</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1705,8 +1651,7 @@ flowchart LR
 <td>Form</td>
 <td>Print Return Label</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1714,8 +1659,7 @@ flowchart LR
 <td>Form</td>
 <td>Print Pick Label (PM-EWM)</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1723,8 +1667,7 @@ flowchart LR
 <td>Form</td>
 <td>ISM - Generate Commercial Invoice - IF/IP</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1732,8 +1675,7 @@ flowchart LR
 <td>Form</td>
 <td>ISM - Generate Traveler Document - IF/IP</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1741,8 +1683,7 @@ flowchart LR
 <td>Form</td>
 <td>ISM - IPLA</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1750,8 +1691,7 @@ flowchart LR
 <td>Form</td>
 <td>ISM - Custom China Special label</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1759,8 +1699,7 @@ flowchart LR
 <td>Form</td>
 <td>ISM - India GST DC</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1768,8 +1707,7 @@ flowchart LR
 <td>Enhancement</td>
 <td>Custom Enhancement for Storage Location and Storage Type Restriction LOG IF a&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1777,8 +1715,7 @@ flowchart LR
 <td>Enhancement</td>
 <td>Custom Enhancement for Storage Location and Storage Type Restriction LOG IF a&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1786,8 +1723,7 @@ flowchart LR
 <td>Enhancement</td>
 <td>Interface between ECD (Excursion Containment Disposition) and SAP S/4 EWM for&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -1795,8 +1731,7 @@ flowchart LR
 <td>Enhancement</td>
 <td>Summary Reconciliation and Inventory Snapshot data in XML format from SAP EWM&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1804,8 +1739,7 @@ flowchart LR
 <td>Enhancement</td>
 <td>MergePick (Pick Warehouse task)data in XML format from SAP EWM to Kommand aut&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1813,8 +1747,7 @@ flowchart LR
 <td>Enhancement</td>
 <td>MergeReplen(Putaway Warehouse task) data in XML format from SAP EWM to Komman&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1822,8 +1755,7 @@ flowchart LR
 <td>Enhancement</td>
 <td>MergeItem (Product master)data in XML format from SAP EWM to Kommand auto-store</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1831,8 +1763,7 @@ flowchart LR
 <td>Enhancement</td>
 <td>SAP GUI T-code to Move stock from Blocked to unblock Status</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1840,8 +1771,7 @@ flowchart LR
 <td>Enhancement</td>
 <td>Enhancement to change billing status based on ship reason in ISM</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -1849,8 +1779,7 @@ flowchart LR
 <td>Enhancement</td>
 <td>Straddle Plant to be automatically complete the Goods Receipt and write of th&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1858,8 +1787,7 @@ flowchart LR
 <td>Enhancement</td>
 <td>Automatic HAWB assignment for Freight Forwarders( ISM/ Prospal STO&rsquo;s)</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1867,8 +1795,7 @@ flowchart LR
 <td>Enhancement</td>
 <td>WIP HU overpacking validation for unique TU</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1876,8 +1803,7 @@ flowchart LR
 <td>Enhancement</td>
 <td>WIP Overpack Label Printing</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1885,8 +1811,7 @@ flowchart LR
 <td>Enhancement</td>
 <td>Enhancement to enable WIP movement for receiving between Factory to EWM Wareh&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1894,8 +1819,7 @@ flowchart LR
 <td>Enhancement</td>
 <td>Trigger the request for cancellation 3B14R and cancel the demand on STO based&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1903,8 +1827,7 @@ flowchart LR
 <td>Enhancement</td>
 <td>Inbound idoc processing logic during 3B2 and 3B13</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1912,8 +1835,7 @@ flowchart LR
 <td>Enhancement</td>
 <td>Suppress Batch and serial number validation in MIGO/MB26 for movement type 261</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1921,8 +1843,7 @@ flowchart LR
 <td>Enhancement</td>
 <td>Creation of outbound Delivery for WIP inventory from STO</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1930,8 +1851,7 @@ flowchart LR
 <td>Enhancement</td>
 <td>TM:Replace VTRC and integrate with parcel carrier to retrieve the package lev&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -1939,8 +1859,7 @@ flowchart LR
 <td>Enhancement</td>
 <td>Visibility of New &amp; Old Part Number during RF picking/ issue process</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1948,8 +1867,7 @@ flowchart LR
 <td>Enhancement</td>
 <td>Print Product Label in SAP EWM after physical inventory document posting</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1957,8 +1875,7 @@ flowchart LR
 <td>Enhancement</td>
 <td>India GST E-invoicing</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -1966,8 +1883,7 @@ flowchart LR
 <td>Enhancement</td>
 <td>ISM – MY Security Check Fiori app - IF</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1975,8 +1891,7 @@ flowchart LR
 <td>Enhancement</td>
 <td>ISM – Employee acknowledgement - IF</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -1984,8 +1899,7 @@ flowchart LR
 <td>Enhancement</td>
 <td>PGI confirmation for non-inventory Intel freight shipments via email</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -1993,8 +1907,7 @@ flowchart LR
 <td>Enhancement</td>
 <td>Email notifications to be triggered as part of ISM Workflows</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2002,8 +1915,7 @@ flowchart LR
 <td>Enhancement</td>
 <td>Enhancement for Pop-Up message during Decontamination Process (Copper to Non-&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2011,8 +1923,7 @@ flowchart LR
 <td>Enhancement</td>
 <td>RF Capability for Rejection of the Returns to Factory and send notification</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2020,8 +1931,7 @@ flowchart LR
 <td>Enhancement</td>
 <td>Determine Warehouse Process type for PM Returns</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -2029,8 +1939,7 @@ flowchart LR
 <td>Enhancement</td>
 <td>Email/Text Trigger to Factory Technician and Post Goods Issue upon all WO con&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2038,8 +1947,7 @@ flowchart LR
 <td>Enhancement</td>
 <td>Custom fields required on delivery screen</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -2047,8 +1955,7 @@ flowchart LR
 <td>Enhancement</td>
 <td>Fiori App - Shipping Memo</td>
 <td>09. FUT Overdue</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2056,8 +1963,7 @@ flowchart LR
 <td>Enhancement</td>
 <td>Interface to get the AMT (Asset Management Tool) data on the ISM</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>Asset Management Tool 2.0</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2065,8 +1971,7 @@ flowchart LR
 <td>Enhancement</td>
 <td>Dangerous Goods indicator from the delivery header text to be transmitted to &hellip;</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td></td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -2074,8 +1979,7 @@ flowchart LR
 <td>Enhancement</td>
 <td>In SAP TM, update FU and FO Transportation Cockpit w/ custom fields Purchase &hellip;</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2083,8 +1987,7 @@ flowchart LR
 <td>Enhancement</td>
 <td>Inventory Reconciliation snapshot (4C1) from 3PL WMS to SAP S/4 - Table Creation</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -2092,8 +1995,7 @@ flowchart LR
 <td>Enhancement</td>
 <td>Delivery Split for STO in S/4</td>
 <td>10. Object Complete</td>
-<td>NA → NA</td>
-<td>NA</td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -2101,8 +2003,7 @@ flowchart LR
 <td>Conversion</td>
 <td>Open Inventory Conversion for IP and IF (as applicable) , Batch Characteristi&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2110,8 +2011,7 @@ flowchart LR
 <td>Conversion</td>
 <td>Open Inventory Conversion for IP and IF (as applicable) , WIINGs to EWM</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2119,8 +2019,7 @@ flowchart LR
 <td>Conversion</td>
 <td>Open Inventory Conversion for IP and IF (as applicable) , ECC/WM to EWM</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2128,8 +2027,7 @@ flowchart LR
 <td>Conversion</td>
 <td>Open Inventory Conversion for IP and IF (as applicable) , ECC to S4</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2137,8 +2035,7 @@ flowchart LR
 <td>Workflow</td>
 <td>Factory Portal - Equipment to Parts Management (Custom Fields – Part Check ou&hellip;</td>
 <td>03. FS Not Started</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2146,8 +2043,7 @@ flowchart LR
 <td>Report</td>
 <td>Custom ABAP report for SIMS PO Exceptions​</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2155,8 +2051,7 @@ flowchart LR
 <td>Report</td>
 <td>Factory Portal - Warranty Claim (Warranty Dashboard​​)</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2164,8 +2059,7 @@ flowchart LR
 <td>Report</td>
 <td>Report- Custom Fiori report to show full parts tracking status dashboard (wor&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2173,8 +2067,7 @@ flowchart LR
 <td>Conversion</td>
 <td>Convert Equipment Warranty information to SAP S/4 Equipment Master – reusable&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2182,8 +2075,7 @@ flowchart LR
 <td>Conversion</td>
 <td>Conversion of Inflight Work Orders</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>ME, XEUS, MARS</td>
+<td>01.S4</td>
 <td>N/A</td>
 </tr>
 <tr>
@@ -2191,8 +2083,7 @@ flowchart LR
 <td>Conversion</td>
 <td>Conversion of General Task List</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>ME, EMS</td>
+<td>01.S4</td>
 <td>N/A</td>
 </tr>
 <tr>
@@ -2200,8 +2091,7 @@ flowchart LR
 <td>Conversion</td>
 <td>Manual Conversion of Functional Locations (FLOC)</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>ME, EMS</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2209,8 +2099,7 @@ flowchart LR
 <td>Conversion</td>
 <td>Equipment Master</td>
 <td>10. Object Complete</td>
-<td>MES, SAP ME, EMS, EDFIT, Workstream, NIT, ECM → S4</td>
-<td>MES, SAP ME, EMS, EDFIT, Workstream, NIT, ECM</td>
+<td>01.S4</td>
 <td>N/A</td>
 </tr>
 <tr>
@@ -2218,8 +2107,7 @@ flowchart LR
 <td>Conversion</td>
 <td>Catalogs</td>
 <td>10. Object Complete</td>
-<td>→ S4</td>
-<td></td>
+<td>01.S4</td>
 <td>N/A</td>
 </tr>
 <tr>
@@ -2227,8 +2115,7 @@ flowchart LR
 <td>Conversion</td>
 <td>Maintenance Plans</td>
 <td>10. Object Complete</td>
-<td>ME → S4</td>
-<td>ME</td>
+<td>01.S4</td>
 <td>N/A</td>
 </tr>
 <tr>
@@ -2236,8 +2123,7 @@ flowchart LR
 <td>Conversion</td>
 <td>Maintenance Items</td>
 <td>10. Object Complete</td>
-<td>NA → S4</td>
-<td></td>
+<td>01.S4</td>
 <td>N/A</td>
 </tr>
 <tr>
@@ -2245,8 +2131,7 @@ flowchart LR
 <td>Conversion</td>
 <td>Equipment Class</td>
 <td>10. Object Complete</td>
-<td>NA → S4</td>
-<td></td>
+<td>01.S4</td>
 <td>N/A</td>
 </tr>
 <tr>
@@ -2254,8 +2139,7 @@ flowchart LR
 <td>Conversion</td>
 <td>Characteristics</td>
 <td>10. Object Complete</td>
-<td>NA → S4</td>
-<td></td>
+<td>01.S4</td>
 <td>N/A</td>
 </tr>
 <tr>
@@ -2263,8 +2147,7 @@ flowchart LR
 <td>Conversion</td>
 <td>Work Center</td>
 <td>10. Object Complete</td>
-<td>Fuzion, ME, Manual → S4</td>
-<td>ME</td>
+<td>01.S4</td>
 <td>N/A</td>
 </tr>
 <tr>
@@ -2272,8 +2155,7 @@ flowchart LR
 <td>Interface</td>
 <td>Interface to transfer Vendor details from S4 to DMRA on a daily basis</td>
 <td>02. FS Unplanned</td>
-<td>S/4 → DMRA</td>
-<td>Direct Materials Replenishment Automation - DMRA</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2281,8 +2163,7 @@ flowchart LR
 <td>Interface</td>
 <td>An interface from Prospal to create lot level STO in S4 for the straddle solu&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>Prospal-Product Shipment Planning and Logistics; Global Master Production Con&hellip;</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2290,8 +2171,7 @@ flowchart LR
 <td>Interface</td>
 <td>Interface to transfer BOM details from S4 to DMRA on a daily basis</td>
 <td>02. FS Unplanned</td>
-<td>S/4 → DMRA</td>
-<td>Direct Materials Replenishment Automation - DMRA</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2299,8 +2179,7 @@ flowchart LR
 <td>Interface</td>
 <td>Interface to transfer Material Master details from S4 to DMRA on a daily basis</td>
 <td>02. FS Unplanned</td>
-<td>S/4 → DMRA</td>
-<td>Direct Materials Replenishment Automation - DMRA</td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -2308,8 +2187,7 @@ flowchart LR
 <td>Interface</td>
 <td>Interface to transfer STO Change &amp; Delete from S4 to DMRA on a daily basis</td>
 <td>02. FS Unplanned</td>
-<td>S/4 → DMRA</td>
-<td>Direct Materials Replenishment Automation - DMRA</td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -2317,8 +2195,7 @@ flowchart LR
 <td>Interface</td>
 <td>Interface to transfer STO details from S4 to DMRA on a daily basis - STO create</td>
 <td>02. FS Unplanned</td>
-<td>S/4 → DMRA</td>
-<td>Direct Materials Replenishment Automation - DMRA</td>
+<td>01.S4</td>
 <td>04.Low</td>
 </tr>
 <tr>
@@ -2326,8 +2203,7 @@ flowchart LR
 <td>Interface</td>
 <td>New Interface required from APPS/XEUS for each different site with S/4 using &hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>FFS / APPS</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2335,8 +2211,7 @@ flowchart LR
 <td>Interface</td>
 <td>New Interface required from FFS/MARS for each different site with S/4 using B&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>FFS / APPS</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2344,8 +2219,7 @@ flowchart LR
 <td>Interface</td>
 <td>Interface from SMH to S/4 to Transfer DP and Stack Orders from Interim Locati&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>PDF-SMH (Sapience Manufacturing Hub) Integration Platform - IF</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2353,8 +2227,7 @@ flowchart LR
 <td>Interface</td>
 <td>Interface from SGP to S4 to get Inventory status</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>Starts Game Planner</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2362,26 +2235,15 @@ flowchart LR
 <td>Interface</td>
 <td>Interface between SMH to S/4 to Trigger UNDO START event, which will Reverse &hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>PDF-SMH (Sapience Manufacturing Hub) Integration Platform - IF</td>
+<td>01.S4</td>
 <td>03.Medium</td>
-</tr>
-<tr>
-<td>FTSI1578</td>
-<td>Interface</td>
-<td>Interface to send Lot attribute signal to Workstream from SAP S4 - Mulesoft R&hellip;</td>
-<td>06. Dev In Progress</td>
-<td></td>
-<td>Workstream</td>
-<td>02.High</td>
 </tr>
 <tr>
 <td>FTSI1574</td>
 <td>Interface</td>
 <td>A new interface for the Believe Handheld application will allow users to fetc&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>Believe</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2389,8 +2251,7 @@ flowchart LR
 <td>Interface</td>
 <td>interface between S4 and ECA via BODS to post consumption of DTC and EMIB Die&hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2398,8 +2259,7 @@ flowchart LR
 <td>Interface</td>
 <td>CMMS – get location info from CMMS</td>
 <td>02. FS Unplanned</td>
-<td></td>
-<td>Collateral MMS</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2407,8 +2267,7 @@ flowchart LR
 <td>Interface</td>
 <td>CMMS – Get Collateral Details</td>
 <td>02. FS Unplanned</td>
-<td></td>
-<td>Collateral MMS</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2416,8 +2275,7 @@ flowchart LR
 <td>Interface</td>
 <td>CMMS – Collateral Conversion</td>
 <td>02. FS Unplanned</td>
-<td></td>
-<td>Collateral MMS</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2425,8 +2283,7 @@ flowchart LR
 <td>Interface</td>
 <td>Interface to get Cu flag from XEUS</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>XEUS Loader Framework</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2434,8 +2291,7 @@ flowchart LR
 <td>Interface</td>
 <td>MDG to S4 for SFP, Stage, UPI</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2443,8 +2299,7 @@ flowchart LR
 <td>Interface</td>
 <td>MDG to S4 for MES Site Code to Plant</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2452,8 +2307,7 @@ flowchart LR
 <td>Interface</td>
 <td>Inventory Conversion for R3</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>PDF-SMH (Sapience Manufacturing Hub) Integration Platform - IF</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2461,8 +2315,7 @@ flowchart LR
 <td>Interface</td>
 <td>Interface from FSCO for lot level material staging by shift​</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>FSM Tactical Planning+FS (Potential: FSCO)</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2470,8 +2323,7 @@ flowchart LR
 <td>Interface</td>
 <td>Interface from PDH to S4 for lot level STR assignment​</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>NA</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2479,8 +2331,7 @@ flowchart LR
 <td>Interface</td>
 <td>Interface to transfer batch SLED details from S4 to DMRA on a daily basis</td>
 <td>06. Dev In Progress</td>
-<td>S/4 → DMRA</td>
-<td>Direct Materials Replenishment Automation - DMRA</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2488,8 +2339,7 @@ flowchart LR
 <td>Interface</td>
 <td>CMMS – Equipment create and update (status and collateral name)</td>
 <td>04. FS In Progress</td>
-<td>→ S/4</td>
-<td>Collateral MMS</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2497,8 +2347,7 @@ flowchart LR
 <td>Interface</td>
 <td>Factory Portal - Equipment to Parts Management (Custom Fields – Part Check ou&hellip;</td>
 <td>04. FS In Progress</td>
-<td>→ S/4</td>
-<td>Factory Communications</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2506,8 +2355,7 @@ flowchart LR
 <td>Interface</td>
 <td>CMMS – Equipment with MMS flag (S4 to CMMS)</td>
 <td>06. Dev Not Started</td>
-<td>→ S/4</td>
-<td>Collateral MMS</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2515,8 +2363,7 @@ flowchart LR
 <td>Interface</td>
 <td>Interface to send Lot create &amp; Lot attribute signal to Workstream from SAP S4</td>
 <td>06. Dev In Progress</td>
-<td></td>
-<td>Workstream</td>
+<td>01.S4</td>
 <td>02.High</td>
 </tr>
 <tr>
@@ -2524,8 +2371,7 @@ flowchart LR
 <td>Interface</td>
 <td>M-100-170_API 9 is to provide Shipping details Ship Server</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>ShipServer</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2533,8 +2379,7 @@ flowchart LR
 <td>Interface</td>
 <td>M-100-170_API 6 is to get Shippable lots from Work Stream</td>
 <td>06. Dev In Progress</td>
-<td></td>
-<td>Workstream</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2542,8 +2387,7 @@ flowchart LR
 <td>Interface</td>
 <td>M-100-170_API 7 is for Precheck Request and Response to Ship Server</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>ShipServer</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2551,8 +2395,7 @@ flowchart LR
 <td>Interface</td>
 <td>M-100-170_API4 is to provide Shipping details to ULT from S4</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>Unit Level Traceability</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2560,8 +2403,7 @@ flowchart LR
 <td>Interface</td>
 <td>M-100-170_API3 is to provide Shipping details to WorkStream from S4</td>
 <td>06. Dev In Progress</td>
-<td></td>
-<td>Workstream</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2569,17 +2411,7 @@ flowchart LR
 <td>Interface</td>
 <td>M-100-170_API 11 is to get Shippable lots from Ship server</td>
 <td>10. Object Complete</td>
-<td></td>
-<td>ShipServer</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FTSI1159</td>
-<td>Interface</td>
-<td>Interface from ECA to S4 to maintain POLP table</td>
-<td>10. Object Complete</td>
-<td>ECA → S/4</td>
-<td>NA</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2587,8 +2419,7 @@ flowchart LR
 <td>Interface</td>
 <td>Interface from SMH to S4 to handle movement of lots from Revenue to TD</td>
 <td>10. Object Complete</td>
-<td>PDF → S/4</td>
-<td>PDF-SMH (Sapience Manufacturing Hub) Integration Platform - IF</td>
+<td>01.S4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2596,8 +2427,895 @@ flowchart LR
 <td>Interface</td>
 <td>Custom program for STO generation for Raw Silicon</td>
 <td>10. Object Complete</td>
-<td>3PL → S/4</td>
-<td>Starts Game Planner</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSI1020</td>
+<td>Interface</td>
+<td>IMO - Interface from NBS to S4 to induct stock from IMO plant to S4</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSI1016</td>
+<td>Interface</td>
+<td>IMR - Interface between SAP S/4 and SAP ME to replicate production orders. Th&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSI1008</td>
+<td>Interface</td>
+<td>Interface S/4 with EMS</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSI1007</td>
+<td>Interface</td>
+<td>Interface S/4 with XEUS</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FTSI0985</td>
+<td>Interface</td>
+<td>Claim Status Update from e2open to SAP S4 (Inbound Interface)</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSI0983</td>
+<td>Interface</td>
+<td>SAP Warranty Claim Document to e2open (Outbound Interface)</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSI0924</td>
+<td>Interface</td>
+<td>Interface: SAP ME to S/4 to Create &amp; Maintain Notifications</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSI0860</td>
+<td>Interface</td>
+<td>Interface to create Kanban trigger from DMRA and get Reservation created and &hellip;</td>
+<td>06. Dev In Progress</td>
+<td>01.S4</td>
+<td>01.Very High</td>
+</tr>
+<tr>
+<td>FTSI0830</td>
+<td>Interface</td>
+<td>Shipserver Interface to S4 to get handling units for the logical ship</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSI0689</td>
+<td>Interface</td>
+<td>Interface between PDF and S4 to handle DLCP update in S4 based on the DLCP UP&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSI0686</td>
+<td>Interface</td>
+<td>Interface between PDF and S4 to handle production order merge events in S4 ba&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FTSI0677</td>
+<td>Interface</td>
+<td>API from SHIP server to validate shipment readiness”</td>
+<td>09. FUT Overdue</td>
+<td>01.S4</td>
+<td>01.Very High</td>
+</tr>
+<tr>
+<td>FTSI0676</td>
+<td>Interface</td>
+<td>Interface between PDF and S4 to handle undo complete in S4 based on the UNDO &hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSI0675</td>
+<td>Interface</td>
+<td>Interface between PDF and S4 to handle mid stage transfers in S4 based on the&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSI0674</td>
+<td>Interface</td>
+<td>Interface between PDF and S4 to handle undo move and scrap in S4 based on the&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSI0484</td>
+<td>Interface</td>
+<td>Interface between PDF and S4 to handle quantity or batch attribute updates ba&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSI0483</td>
+<td>Interface</td>
+<td>Interface between PDF and S4 to handle production order split events in S4 ba&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FTSI0481</td>
+<td>Interface</td>
+<td>Interface between PDF and S4 to handle production order complete events in S4&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSI0422</td>
+<td>Interface</td>
+<td>Interface between PDF and S4 for production order process in S4 based on the &hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FTSI0421</td>
+<td>Interface</td>
+<td>Custom RFC triggered in S4 by PDF to determine activity values and post confi&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSI0420</td>
+<td>Interface</td>
+<td>Custom RFC triggered in S4 by PDF to post goods movement in S4 based on the R&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSI0338</td>
+<td>Interface</td>
+<td>Interface from MES staging database to S/4 to create/update reference operati&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FTSI0308</td>
+<td>Interface</td>
+<td>Interface from PDF to S/4 to update Lot level out date on Production orders</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FTSF1361</td>
+<td>Form</td>
+<td>Factory Portal - Returns Order Flow (Form-Based (CRD) Return Order​)</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSE1645</td>
+<td>Enhancement</td>
+<td>Wafer Stock management for Reclaim Purposes</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSE1641</td>
+<td>Enhancement</td>
+<td>Enhancement to create a program which can query on Master Data, Batch &amp; STO d&hellip;</td>
+<td>02. FS Unplanned</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSE1582</td>
+<td>Enhancement</td>
+<td>A Custom table to map and capture the relationship between RSQ Batch ID/STO# &hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FTSE1581</td>
+<td>Enhancement</td>
+<td>Automated Batch Status Update Based on MRB Release Date using custom program.</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSE1579</td>
+<td>Enhancement</td>
+<td>Custom tables to store Board Failure Form details</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSE1577</td>
+<td>Enhancement</td>
+<td>Perform Auto batch determination at the time of STO creation – DMRA</td>
+<td>09. FUT Overdue</td>
+<td>01.S4</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FTSE1549</td>
+<td>Enhancement</td>
+<td>Custom Attributes for AMT/ISM</td>
+<td>02. FS Unplanned</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSE1548</td>
+<td>Enhancement</td>
+<td>Automation for Product Conversions – Equipment Structure update</td>
+<td>02. FS Unplanned</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSE1547</td>
+<td>Enhancement</td>
+<td>Automation for Product Conversions – Work Order Closure</td>
+<td>02. FS Unplanned</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSE1546</td>
+<td>Enhancement</td>
+<td>Automation for Product Conversions – Parts Request and Return</td>
+<td>02. FS Unplanned</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSE1545</td>
+<td>Enhancement</td>
+<td>Automation for Product Conversions – Explode BOM</td>
+<td>02. FS Unplanned</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSE1544</td>
+<td>Enhancement</td>
+<td>Automation for Product Conversions – create Work Order</td>
+<td>02. FS Unplanned</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSE1543</td>
+<td>Enhancement</td>
+<td>PM inbound from AMT</td>
+<td>02. FS Unplanned</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSE1542</td>
+<td>Enhancement</td>
+<td>PM outbound to AMT</td>
+<td>02. FS Unplanned</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSE1541</td>
+<td>Enhancement</td>
+<td>Send SAP notification on Work Order update</td>
+<td>02. FS Unplanned</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSE1540</td>
+<td>Enhancement</td>
+<td>Send SAP notification on Equipment update</td>
+<td>02. FS Unplanned</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSE1539</td>
+<td>Enhancement</td>
+<td>Custom Fiori UI – Move Equipment SRoom to SRoom (screen)</td>
+<td>02. FS Unplanned</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSE1528</td>
+<td>Enhancement</td>
+<td>Warranty claim for non E2O supplier</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSE1480</td>
+<td>Enhancement</td>
+<td>B2B SLOC Mapping Table</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FTSE1479</td>
+<td>Enhancement</td>
+<td>Table for SFP/Operation for KM2/KM5</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FTSE1478</td>
+<td>Enhancement</td>
+<td>Table for All Shippable Mid Stage and End Stage Operations</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FTSE1477</td>
+<td>Enhancement</td>
+<td>Enhancement - Lot Level Exception UI</td>
+<td>09. FUT Overdue</td>
+<td>01.S4</td>
+<td>01.Very High</td>
+</tr>
+<tr>
+<td>FTSE1476</td>
+<td>Enhancement</td>
+<td>Lot to STR Mapping table</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FTSE1475</td>
+<td>Enhancement</td>
+<td>Non Revenue Shipping Demand Screen (Custom Table)</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FTSE1474</td>
+<td>Enhancement</td>
+<td>Non Revenue Shipping Demand Screen</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FTSE1472</td>
+<td>Enhancement</td>
+<td>Custom Table for SFP, Stage, UPI Mapping</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FTSE1470</td>
+<td>Enhancement</td>
+<td>Custom Table for MES Facility, MES Site Code to Plant</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FTSE1468</td>
+<td>Enhancement</td>
+<td>Custom table to store PO Lot Pegging (POLP)</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FTSE1467</td>
+<td>Enhancement</td>
+<td>Custom Report for Operating Supplies Reservations​</td>
+<td>06. Dev In Progress</td>
+<td>01.S4</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FTSE1456</td>
+<td>Enhancement</td>
+<td>Custom Table to store FSCO lot level material staging​</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FTSE1451</td>
+<td>Enhancement</td>
+<td>Enhancement required for triggering Interface between S4 and SAP ME from the &hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSE1435</td>
+<td>Enhancement</td>
+<td>Custom Table - Cross Site Ref Op sets will be maintained at a higher level in&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSE1433</td>
+<td>Enhancement</td>
+<td>Custom Program to assign Routings to Items based on Item Characteristics​​</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSE1432</td>
+<td>Enhancement</td>
+<td>Custom Enhancement to Issue out stock in S4</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSE1413</td>
+<td>Enhancement</td>
+<td>Reusable Mass Upload Program for Equipment Master Warranty</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSE1385</td>
+<td>Enhancement</td>
+<td>Factory Portal - Preventative Maintenance (AT) (Schedule Maintenance Plan)</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>01.Very High</td>
+</tr>
+<tr>
+<td>FTSE1383</td>
+<td>Enhancement</td>
+<td>Factory Portal - Preventative Maintenance (AT) (Set Maintenance Counte)</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>01.Very High</td>
+</tr>
+<tr>
+<td>FTSE1382</td>
+<td>Enhancement</td>
+<td>Factory Portal - Preventative Maintenance (AT) (Set Maintenance Cycle​)</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>01.Very High</td>
+</tr>
+<tr>
+<td>FTSE1381</td>
+<td>Enhancement</td>
+<td>Factory Portal - Preventative Maintenance (AT) (Create Maintenance Plan)</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>01.Very High</td>
+</tr>
+<tr>
+<td>FTSE1379</td>
+<td>Enhancement</td>
+<td>Factory Portal - Part list (Part list creation / modify (IA05​)</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>01.Very High</td>
+</tr>
+<tr>
+<td>FTSE1378</td>
+<td>Enhancement</td>
+<td>Factory Portal - Functional Location​ (FLOC creation / Update (IL01 and IL02)​​)</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>01.Very High</td>
+</tr>
+<tr>
+<td>FTSE1376</td>
+<td>Enhancement</td>
+<td>Factory Portal - Admin (Notifications​)</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>01.Very High</td>
+</tr>
+<tr>
+<td>FTSE1374</td>
+<td>Enhancement</td>
+<td>Factory Portal - Admin (Admin Screen - My Profile) - Contacts custom Table En&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>01.Very High</td>
+</tr>
+<tr>
+<td>FTSE1373</td>
+<td>Enhancement</td>
+<td>Factory Portal - Admin (Admin Screen - My Profile) - Fiori Enhancement</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>01.Very High</td>
+</tr>
+<tr>
+<td>FTSE1369</td>
+<td>Enhancement</td>
+<td>Factory Portal - Equipment to Parts Management (Custom Fields – Part Check ou&hellip;</td>
+<td>04. FS In Progress</td>
+<td>01.S4</td>
+<td>01.Very High</td>
+</tr>
+<tr>
+<td>FTSE1368</td>
+<td>Enhancement</td>
+<td>Factory Portal - Equipment to Parts Management (Equipment Management (details&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>01.Very High</td>
+</tr>
+<tr>
+<td>FTSE1367</td>
+<td>Enhancement</td>
+<td>Factory Portal - Equipment to Parts Management (Equipment/ Entity/ Sub-Entity&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>01.Very High</td>
+</tr>
+<tr>
+<td>FTSE1366</td>
+<td>Enhancement</td>
+<td>Factory Portal - Operating Supply (Reserve Ops Suppl​​​)</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>01.Very High</td>
+</tr>
+<tr>
+<td>FTSE1365</td>
+<td>Enhancement</td>
+<td>Factory Portal - Operating Supply (Search for Ops Supply​​​)</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>01.Very High</td>
+</tr>
+<tr>
+<td>FTSE1363</td>
+<td>Enhancement</td>
+<td>Factory Portal - Warranty Claim (Create Warranty Claim – Detailed Vie​)</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>01.Very High</td>
+</tr>
+<tr>
+<td>FTSE1360</td>
+<td>Enhancement</td>
+<td>Custom Fiori UI – HAZMAT Enhancement to pull data</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSE1359</td>
+<td>Enhancement</td>
+<td>Factory Portal - Returns Order Flow (Prevent TECO until after parts have been&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>01.Very High</td>
+</tr>
+<tr>
+<td>FTSE1358</td>
+<td>Enhancement</td>
+<td>Factory Portal - Returns Order Flow (Form-Based (CRD) Return Order​)</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>01.Very High</td>
+</tr>
+<tr>
+<td>FTSE1354</td>
+<td>Enhancement</td>
+<td>Factory Portal - Work Order Flow ( Confirm and Submit Parts (Table Extension &hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>01.Very High</td>
+</tr>
+<tr>
+<td>FTSE1353</td>
+<td>Enhancement</td>
+<td>Factory Portal - Work Order Flow ( Confirm and Submit Parts (Fiori Enhancemen&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>01.Very High</td>
+</tr>
+<tr>
+<td>FTSE1351</td>
+<td>Enhancement</td>
+<td>Factory Portal - Work Order Flow ( Add component to work order )</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>01.Very High</td>
+</tr>
+<tr>
+<td>FTSE1350</td>
+<td>Enhancement</td>
+<td>Factory Portal - Work Order Flow ( Search Parts )</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>01.Very High</td>
+</tr>
+<tr>
+<td>FTSE1349</td>
+<td>Enhancement</td>
+<td>Factory Portal - Work Order Flow ( Change Color of WO, Equipment, and CRD &amp; e&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>01.Very High</td>
+</tr>
+<tr>
+<td>FTSE1348</td>
+<td>Enhancement</td>
+<td>Factory Portal - Work Order Flow ( Show Work Order – Single Work Order View +&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>01.Very High</td>
+</tr>
+<tr>
+<td>FTSE1347</td>
+<td>Enhancement</td>
+<td>Factory Portal - Work Order Flow ( Search work orders - ​List View )</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>01.Very High</td>
+</tr>
+<tr>
+<td>FTSE1344</td>
+<td>Enhancement</td>
+<td>Factory Portal - Work Order Flow ( Home Page - View S/4 work orders )</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>01.Very High</td>
+</tr>
+<tr>
+<td>FTSE1325</td>
+<td>Enhancement</td>
+<td>M-100-170_Create Manual ship FIORI UI in S4</td>
+<td>06. Dev In Progress</td>
+<td>01.S4</td>
+<td>01.Very High</td>
+</tr>
+<tr>
+<td>FTSE1160</td>
+<td>Enhancement</td>
+<td>Custom Utility for Engineering Planners to create Rev Eng Planned Orders in S4</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSE1125</td>
+<td>Enhancement</td>
+<td>Custom table in S4 to store merging orders and surviving order association fr&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FTSE1119</td>
+<td>Enhancement</td>
+<td>Custom Table required to support enhancement to store lot attributes when Lot&hellip;</td>
+<td>07. FUT Roadblock</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSE1019</td>
+<td>Enhancement</td>
+<td>WIINGS factory portal UI to send signal for raw material consumption in S4</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FTSE1010</td>
+<td>Enhancement</td>
+<td>Update the Copper/Heavy Metal flag (User Status) for the tools on placement a&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSE0996</td>
+<td>Enhancement</td>
+<td>Create Purchase Requisition with multiple purchase req document types from Wo&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSE0995</td>
+<td>Enhancement</td>
+<td>Enhancement to update rejection reason and text in maintenance work order fro&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSE0993</td>
+<td>Enhancement</td>
+<td>Auto Roll Function to add Item/Part through Batch job in Master Warranty</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSE0992</td>
+<td>Enhancement</td>
+<td>Custom Fields Enhancement in WTY Claim</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSE0991</td>
+<td>Enhancement</td>
+<td>Claim Generation from Maintenance Work Order per Item</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSE0990</td>
+<td>Enhancement</td>
+<td>Create PR with Free of Charge from approved claim status – MMID &amp; Non-MMID</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSE0989</td>
+<td>Enhancement</td>
+<td>Warranty validation at Equipment level &amp; Item/Part level in Work Order</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSE0988</td>
+<td>Enhancement</td>
+<td>Convert Item/Part Warranty information upload to SAP S/4 Master Warranty</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FTSE0984</td>
+<td>Enhancement</td>
+<td>SAP Warranty Claim Document to e2open (Outbound Interface)</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSE0982</td>
+<td>Enhancement</td>
+<td>SAP PM enhancement to capture reason codes for returns (dropdown)</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>FTSE0925</td>
+<td>Enhancement</td>
+<td>Enhancement: Batch process to create Equipment from Material BOM after GR</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSE0507</td>
+<td>Enhancement</td>
+<td>Custom Program to read planned orders and build instruction data and generate&hellip;</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSE0506</td>
+<td>Enhancement</td>
+<td>Custom table to store planned orders and pegged sales orders in S4</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSE0423</td>
+<td>Enhancement</td>
+<td>Create custom table in SAP to store the build instruction data</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>04.Low</td>
+</tr>
+<tr>
+<td>FTSC1550</td>
+<td>Conversion</td>
+<td>Inventory Conversion</td>
+<td>02. FS Unplanned</td>
+<td>01.S4</td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSC0052_IF</td>
+<td>Conversion</td>
+<td>Conversion of Reference Operation Sets to S/4</td>
+<td>10. Object Complete</td>
+<td>01.S4</td>
+<td>02.High</td>
+</tr>
+<tr>
+<td>LOGI1738</td>
+<td>Interface</td>
+<td>Interface to send data to Factory Comm to activate the Mobile text receiving &hellip;</td>
+<td>04. FS In Progress</td>
+<td>01.S4</td>
+<td>02.High</td>
+</tr>
+</tbody>
+</table>
+<h4 id="552-eca-development-objects">5.5.2 ECA Development Objects</h4>
+<p><strong>Enterprise Cloud Analytics (ECA)</strong> platform objects (Databricks/Snowflake) — views, tables, and ETL jobs with Source or Target System = ECA:</p>
+<table>
+<thead>
+<tr>
+<th>Object ID</th>
+<th>Type</th>
+<th>Description</th>
+<th>Status</th>
+<th>Source → Target</th>
+<th>Complexity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FTSI1159</td>
+<td>Interface</td>
+<td>Interface from ECA to S4 to maintain POLP table</td>
+<td>10. Object Complete</td>
+<td>ECA → S/4</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2606,206 +3324,7 @@ flowchart LR
 <td>Interface to be developed from ECA to SAP which helps to upload PIR via BAPI</td>
 <td>06. Dev In Progress</td>
 <td>ECA → S/4</td>
-<td>SIMS BI Portal</td>
 <td>03.Medium</td>
-</tr>
-<tr>
-<td>FTSI1020</td>
-<td>Interface</td>
-<td>IMO - Interface from NBS to S4 to induct stock from IMO plant to S4</td>
-<td>10. Object Complete</td>
-<td>NBS → S/4</td>
-<td>IMO - NBS</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FTSI1016</td>
-<td>Interface</td>
-<td>IMR - Interface between SAP S/4 and SAP ME to replicate production orders. Th&hellip;</td>
-<td>10. Object Complete</td>
-<td>S/4 → SAP ME</td>
-<td>SAP Manufacturing Execution</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FTSI1008</td>
-<td>Interface</td>
-<td>Interface S/4 with EMS</td>
-<td>10. Object Complete</td>
-<td>EMS → S/4</td>
-<td>Equipment Management System</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FTSI1007</td>
-<td>Interface</td>
-<td>Interface S/4 with XEUS</td>
-<td>10. Object Complete</td>
-<td>XEUS/Mars → S/4</td>
-<td>XEUS Loader Framework; ATM MARS</td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>FTSI0985</td>
-<td>Interface</td>
-<td>Claim Status Update from e2open to SAP S4 (Inbound Interface)</td>
-<td>10. Object Complete</td>
-<td>E2Open → S/4</td>
-<td>E2open</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FTSI0983</td>
-<td>Interface</td>
-<td>SAP Warranty Claim Document to e2open (Outbound Interface)</td>
-<td>10. Object Complete</td>
-<td>S/4 → E2Open</td>
-<td>E2open</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FTSI0924</td>
-<td>Interface</td>
-<td>Interface: SAP ME to S/4 to Create &amp; Maintain Notifications</td>
-<td>10. Object Complete</td>
-<td>SAP ME → S/4</td>
-<td>SAP Manufacturing Execution</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FTSI0860</td>
-<td>Interface</td>
-<td>Interface to create Kanban trigger from DMRA and get Reservation created and &hellip;</td>
-<td>06. Dev In Progress</td>
-<td>DMRA → S/4</td>
-<td>Direct Materials Replenishment Automation - DMRA</td>
-<td>01.Very High</td>
-</tr>
-<tr>
-<td>FTSI0830</td>
-<td>Interface</td>
-<td>Shipserver Interface to S4 to get handling units for the logical ship</td>
-<td>10. Object Complete</td>
-<td>MPL → S/4</td>
-<td>ShipServer</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FTSI0689</td>
-<td>Interface</td>
-<td>Interface between PDF and S4 to handle DLCP update in S4 based on the DLCP UP&hellip;</td>
-<td>10. Object Complete</td>
-<td>MES → S/4</td>
-<td>PDF-SMH (Sapience Manufacturing Hub) Integration Platform - IF</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FTSI0686</td>
-<td>Interface</td>
-<td>Interface between PDF and S4 to handle production order merge events in S4 ba&hellip;</td>
-<td>10. Object Complete</td>
-<td>MES → S/4</td>
-<td>PDF-SMH (Sapience Manufacturing Hub) Integration Platform - IF</td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>FTSI0677</td>
-<td>Interface</td>
-<td>API from SHIP server to validate shipment readiness”</td>
-<td>09. FUT Overdue</td>
-<td>PDF → S/4</td>
-<td>ShipServer</td>
-<td>01.Very High</td>
-</tr>
-<tr>
-<td>FTSI0676</td>
-<td>Interface</td>
-<td>Interface between PDF and S4 to handle undo complete in S4 based on the UNDO &hellip;</td>
-<td>10. Object Complete</td>
-<td>PDF → S/4</td>
-<td>PDF-SMH (Sapience Manufacturing Hub) Integration Platform - IF</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FTSI0675</td>
-<td>Interface</td>
-<td>Interface between PDF and S4 to handle mid stage transfers in S4 based on the&hellip;</td>
-<td>10. Object Complete</td>
-<td>MES → S/4</td>
-<td>PDF-SMH (Sapience Manufacturing Hub) Integration Platform - IF</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FTSI0674</td>
-<td>Interface</td>
-<td>Interface between PDF and S4 to handle undo move and scrap in S4 based on the&hellip;</td>
-<td>10. Object Complete</td>
-<td>MES → S/4</td>
-<td>PDF-SMH (Sapience Manufacturing Hub) Integration Platform - IF</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FTSI0484</td>
-<td>Interface</td>
-<td>Interface between PDF and S4 to handle quantity or batch attribute updates ba&hellip;</td>
-<td>10. Object Complete</td>
-<td>MES → S/4</td>
-<td>PDF-SMH (Sapience Manufacturing Hub) Integration Platform - IF</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FTSI0483</td>
-<td>Interface</td>
-<td>Interface between PDF and S4 to handle production order split events in S4 ba&hellip;</td>
-<td>10. Object Complete</td>
-<td>MES → S/4</td>
-<td>PDF-SMH (Sapience Manufacturing Hub) Integration Platform - IF</td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>FTSI0481</td>
-<td>Interface</td>
-<td>Interface between PDF and S4 to handle production order complete events in S4&hellip;</td>
-<td>10. Object Complete</td>
-<td>MES → S/4</td>
-<td>PDF-SMH (Sapience Manufacturing Hub) Integration Platform - IF</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FTSI0422</td>
-<td>Interface</td>
-<td>Interface between PDF and S4 for production order process in S4 based on the &hellip;</td>
-<td>10. Object Complete</td>
-<td>PDF → S/4</td>
-<td>PDF-SMH (Sapience Manufacturing Hub) Integration Platform - IF</td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>FTSI0421</td>
-<td>Interface</td>
-<td>Custom RFC triggered in S4 by PDF to determine activity values and post confi&hellip;</td>
-<td>10. Object Complete</td>
-<td>PDF → S/4</td>
-<td>PDF-SMH (Sapience Manufacturing Hub) Integration Platform - IF</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FTSI0420</td>
-<td>Interface</td>
-<td>Custom RFC triggered in S4 by PDF to post goods movement in S4 based on the R&hellip;</td>
-<td>10. Object Complete</td>
-<td>PDF → S/4</td>
-<td>PDF-SMH (Sapience Manufacturing Hub) Integration Platform - IF</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FTSI0338</td>
-<td>Interface</td>
-<td>Interface from MES staging database to S/4 to create/update reference operati&hellip;</td>
-<td>10. Object Complete</td>
-<td>MES → S/4</td>
-<td>PDF-SMH (Sapience Manufacturing Hub) Integration Platform - IF</td>
-<td>02.High</td>
 </tr>
 <tr>
 <td>FTSI0311</td>
@@ -2813,7 +3332,6 @@ flowchart LR
 <td>Production plan from ECA planning data hub (PDH) to S/4 to create planned Orders</td>
 <td>10. Object Complete</td>
 <td>PDH (ECA) → S/4</td>
-<td>NA</td>
 <td>03.Medium</td>
 </tr>
 <tr>
@@ -2822,17 +3340,7 @@ flowchart LR
 <td>Network Plan from ECA Planning Data Hub to S/4 for STO Creation</td>
 <td>10. Object Complete</td>
 <td>PDH (ECA) → S/4</td>
-<td>NA</td>
 <td>03.Medium</td>
-</tr>
-<tr>
-<td>FTSI0308</td>
-<td>Interface</td>
-<td>Interface from PDF to S/4 to update Lot level out date on Production orders</td>
-<td>10. Object Complete</td>
-<td>MES → S/4</td>
-<td>PDF-SMH (Sapience Manufacturing Hub) Integration Platform - IF</td>
-<td>02.High</td>
 </tr>
 <tr>
 <td>FTSI0050</td>
@@ -2840,783 +3348,799 @@ flowchart LR
 <td>Interface to transfer Purchase Requisitions created in IBP/MAPPS/other system&hellip;</td>
 <td>10. Object Complete</td>
 <td>ECA → S/4</td>
+<td>03.Medium</td>
+</tr>
+</tbody>
+</table>
+<h4 id="553-interface-objects">5.5.3 Interface Objects</h4>
+<p>Holistic view of all interface objects by L2 capability — includes ECA → S/4, S/4 → ECA, boundary system, and inter-platform interfaces with middleware and integration approach:</p>
+<table>
+<thead>
+<tr>
+<th>Object ID</th>
+<th>Description</th>
+<th>Source → Target</th>
+<th>Middleware</th>
+<th>Approach</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LOGI1718</td>
+<td>To align on batch attributes for straddle in S4</td>
+<td></td>
 <td>NA</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FTSF1361</td>
-<td>Form</td>
-<td>Factory Portal - Returns Order Flow (Form-Based (CRD) Return Order​)</td>
+<td></td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
 </tr>
 <tr>
-<td>FTSE1645</td>
-<td>Enhancement</td>
-<td>Wafer Stock management for Reclaim Purposes</td>
+<td>LOGI1708</td>
+<td>Wrapper program for Inbound interface from Kommand AS to SAP</td>
+<td></td>
+<td>Apigee</td>
+<td></td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
 </tr>
 <tr>
-<td>FTSE1641</td>
-<td>Enhancement</td>
-<td>Enhancement to create a program which can query on Master Data, Batch &amp; STO d&hellip;</td>
-<td>02. FS Unplanned</td>
+<td>LOGI1677</td>
+<td>Send 4C1 Inventory Reconciliation Snapshot to IP</td>
 <td></td>
+<td>SFT</td>
 <td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FTSE1582</td>
-<td>Enhancement</td>
-<td>A Custom table to map and capture the relationship between RSQ Batch ID/STO# &hellip;</td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>04.Low</td>
 </tr>
 <tr>
-<td>FTSE1581</td>
-<td>Enhancement</td>
-<td>Automated Batch Status Update Based on MRB Release Date using custom program.</td>
+<td>LOGI1676</td>
+<td>Send 4C1 Inventory movement Stock type change and cycle count to IP</td>
+<td></td>
+<td>SFT</td>
+<td></td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
 </tr>
 <tr>
-<td>FTSE1579</td>
-<td>Enhancement</td>
-<td>Custom tables to store Board Failure Form details</td>
-<td>10. Object Complete</td>
+<td>LOGI1675</td>
+<td>Interface for SiGaC to extract inventory data from EWM to meet their existing&hellip;</td>
 <td></td>
+<td>NA</td>
 <td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FTSE1577</td>
-<td>Enhancement</td>
-<td>Perform Auto batch determination at the time of STO creation – DMRA</td>
-<td>09. FUT Overdue</td>
-<td></td>
-<td></td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>FTSE1549</td>
-<td>Enhancement</td>
-<td>Custom Attributes for AMT/ISM</td>
-<td>02. FS Unplanned</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FTSE1548</td>
-<td>Enhancement</td>
-<td>Automation for Product Conversions – Equipment Structure update</td>
-<td>02. FS Unplanned</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FTSE1547</td>
-<td>Enhancement</td>
-<td>Automation for Product Conversions – Work Order Closure</td>
-<td>02. FS Unplanned</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FTSE1546</td>
-<td>Enhancement</td>
-<td>Automation for Product Conversions – Parts Request and Return</td>
-<td>02. FS Unplanned</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FTSE1545</td>
-<td>Enhancement</td>
-<td>Automation for Product Conversions – Explode BOM</td>
-<td>02. FS Unplanned</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FTSE1544</td>
-<td>Enhancement</td>
-<td>Automation for Product Conversions – create Work Order</td>
-<td>02. FS Unplanned</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FTSE1543</td>
-<td>Enhancement</td>
-<td>PM inbound from AMT</td>
-<td>02. FS Unplanned</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FTSE1542</td>
-<td>Enhancement</td>
-<td>PM outbound to AMT</td>
-<td>02. FS Unplanned</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FTSE1541</td>
-<td>Enhancement</td>
-<td>Send SAP notification on Work Order update</td>
-<td>02. FS Unplanned</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FTSE1540</td>
-<td>Enhancement</td>
-<td>Send SAP notification on Equipment update</td>
-<td>02. FS Unplanned</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FTSE1539</td>
-<td>Enhancement</td>
-<td>Custom Fiori UI – Move Equipment SRoom to SRoom (screen)</td>
-<td>02. FS Unplanned</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FTSE1528</td>
-<td>Enhancement</td>
-<td>Warranty claim for non E2O supplier</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FTSE1480</td>
-<td>Enhancement</td>
-<td>B2B SLOC Mapping Table</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FTSE1479</td>
-<td>Enhancement</td>
-<td>Table for SFP/Operation for KM2/KM5</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FTSE1478</td>
-<td>Enhancement</td>
-<td>Table for All Shippable Mid Stage and End Stage Operations</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FTSE1477</td>
-<td>Enhancement</td>
-<td>Enhancement - Lot Level Exception UI</td>
-<td>09. FUT Overdue</td>
-<td></td>
-<td></td>
-<td>01.Very High</td>
-</tr>
-<tr>
-<td>FTSE1476</td>
-<td>Enhancement</td>
-<td>Lot to STR Mapping table</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FTSE1475</td>
-<td>Enhancement</td>
-<td>Non Revenue Shipping Demand Screen (Custom Table)</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FTSE1474</td>
-<td>Enhancement</td>
-<td>Non Revenue Shipping Demand Screen</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>02.High</td>
-</tr>
-<tr>
-<td>FTSE1472</td>
-<td>Enhancement</td>
-<td>Custom Table for SFP, Stage, UPI Mapping</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FTSE1470</td>
-<td>Enhancement</td>
-<td>Custom Table for MES Facility, MES Site Code to Plant</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FTSE1468</td>
-<td>Enhancement</td>
-<td>Custom table to store PO Lot Pegging (POLP)</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>04.Low</td>
-</tr>
-<tr>
-<td>FTSE1467</td>
-<td>Enhancement</td>
-<td>Custom Report for Operating Supplies Reservations​</td>
 <td>06. Dev In Progress</td>
-<td></td>
-<td></td>
-<td>02.High</td>
 </tr>
 <tr>
-<td>FTSE1456</td>
-<td>Enhancement</td>
-<td>Custom Table to store FSCO lot level material staging​</td>
+<td>LOGI1626</td>
+<td>Inventory adjustment data in XML format from Kommand auto-store to SAP EWM</td>
+<td></td>
+<td>APIGEE</td>
+<td></td>
+<td>06. Dev In Progress</td>
+</tr>
+<tr>
+<td>LOGI1595</td>
+<td>Summary Reconciliation and Inventory Snapshot data in XML format from SAP EWM&hellip;</td>
+<td></td>
+<td>APIGEE</td>
+<td></td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>04.Low</td>
 </tr>
 <tr>
-<td>FTSE1451</td>
-<td>Enhancement</td>
-<td>Enhancement required for triggering Interface between S4 and SAP ME from the &hellip;</td>
+<td>LOGI1594</td>
+<td>Pickresult(Pick Warehouse task confirmation) data in XML format from SAP EWM &hellip;</td>
+<td></td>
+<td>APIGEE</td>
+<td></td>
+<td>06. Dev In Progress</td>
+</tr>
+<tr>
+<td>LOGI1593</td>
+<td>Replenresult(Putaway warehouse task confirmation) data in XML format from SAP&hellip;</td>
+<td></td>
+<td>APIGEE</td>
+<td></td>
+<td>06. Dev In Progress</td>
+</tr>
+<tr>
+<td>LOGI1591</td>
+<td>MergePick (Pick Warehouse task)data in XML format from SAP EWM to Kommand aut&hellip;</td>
+<td></td>
+<td>APIGEE</td>
+<td></td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
 </tr>
 <tr>
-<td>FTSE1435</td>
-<td>Enhancement</td>
-<td>Custom Table - Cross Site Ref Op sets will be maintained at a higher level in&hellip;</td>
+<td>LOGI1589</td>
+<td>MergeReplen(Putaway Warehouse task) data in XML format from SAP EWM to Komman&hellip;</td>
+<td></td>
+<td>APIGEE</td>
+<td></td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
 </tr>
 <tr>
-<td>FTSE1433</td>
-<td>Enhancement</td>
-<td>Custom Program to assign Routings to Items based on Item Characteristics​​</td>
+<td>LOGI1587</td>
+<td>MergeItem (Product master)data in XML format from SAP EWM to Kommand auto-store</td>
+<td></td>
+<td>APIGEE</td>
+<td></td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
 </tr>
 <tr>
-<td>FTSE1432</td>
-<td>Enhancement</td>
-<td>Custom Enhancement to Issue out stock in S4</td>
+<td>LOGI1555</td>
+<td>Straddle Plant to be automatically complete the Goods Receipt and write of th&hellip;</td>
+<td></td>
+<td>MuleSoft</td>
+<td></td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
 </tr>
 <tr>
-<td>FTSE1413</td>
-<td>Enhancement</td>
-<td>Reusable Mass Upload Program for Equipment Master Warranty</td>
+<td>LOGI1091</td>
+<td>STO based Outbound Delivery Notification Confirmation for Delivery Note Deletion</td>
+<td>S/4 → OpenText</td>
+<td>MULESOFT</td>
+<td></td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
 </tr>
 <tr>
-<td>FTSE1385</td>
-<td>Enhancement</td>
-<td>Factory Portal - Preventative Maintenance (AT) (Schedule Maintenance Plan)</td>
+<td>LOGI1084</td>
+<td>Interface to SiGac for capturing the consumption of Chems and Gases against a&hellip;</td>
+<td>SIGAC → S/4</td>
+<td>APIGEE</td>
+<td></td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>01.Very High</td>
 </tr>
 <tr>
-<td>FTSE1383</td>
-<td>Enhancement</td>
-<td>Factory Portal - Preventative Maintenance (AT) (Set Maintenance Counte)</td>
+<td>LOGI1081_IF</td>
+<td>Interface + Enhancement - Reprinting of Carrier Label</td>
+<td>S/4 → Redwood</td>
+<td>APIGEE</td>
+<td></td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>01.Very High</td>
 </tr>
 <tr>
-<td>FTSE1382</td>
-<td>Enhancement</td>
-<td>Factory Portal - Preventative Maintenance (AT) (Set Maintenance Cycle​)</td>
+<td>LOGI1079_IF</td>
+<td>Interface from S4 ISM to Service Now</td>
+<td>S/4 ISM → Service Now</td>
+<td>NA</td>
+<td></td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>01.Very High</td>
 </tr>
 <tr>
-<td>FTSE1381</td>
-<td>Enhancement</td>
-<td>Factory Portal - Preventative Maintenance (AT) (Create Maintenance Plan)</td>
+<td>LOGI1074_IF</td>
+<td>Send data via API to retrieve the tracking ID - interface + Enhancement</td>
+<td>S/4 → Redwood</td>
+<td>APIGEE</td>
+<td></td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>01.Very High</td>
 </tr>
 <tr>
-<td>FTSE1379</td>
-<td>Enhancement</td>
-<td>Factory Portal - Part list (Part list creation / modify (IA05​)</td>
+<td>LOGI1062</td>
+<td>STO based outbound delivery notification request for delivery note cancellation</td>
+<td>OpenText → S/4</td>
+<td>MULESOFT</td>
+<td></td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>01.Very High</td>
 </tr>
 <tr>
-<td>FTSE1378</td>
-<td>Enhancement</td>
-<td>Factory Portal - Functional Location​ (FLOC creation / Update (IL01 and IL02)​​)</td>
+<td>LOGI1053</td>
+<td>STO based Outbound Delivery Notification from 3PL to S/4 for confirming Pick/&hellip;</td>
+<td>OpenText → S/4</td>
+<td>MULESOFT</td>
+<td></td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>01.Very High</td>
 </tr>
 <tr>
-<td>FTSE1376</td>
-<td>Enhancement</td>
-<td>Factory Portal - Admin (Notifications​)</td>
+<td>LOGI1043</td>
+<td>Inventory Movement from 3PL to S/4 - 4C1 Cycle Count</td>
+<td>OpenText → S/4</td>
+<td>MULESOFT</td>
+<td></td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>01.Very High</td>
 </tr>
 <tr>
-<td>FTSE1374</td>
-<td>Enhancement</td>
-<td>Factory Portal - Admin (Admin Screen - My Profile) - Contacts custom Table En&hellip;</td>
+<td>LOGI1041</td>
+<td>STO based Outbound Delivery PGI confirmation from 3PL to S/4 - 3B2</td>
+<td>OpenText → S/4</td>
+<td>MULESOFT</td>
+<td></td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>01.Very High</td>
 </tr>
 <tr>
-<td>FTSE1373</td>
-<td>Enhancement</td>
-<td>Factory Portal - Admin (Admin Screen - My Profile) - Fiori Enhancement</td>
+<td>LOGI1040</td>
+<td>STO based Outbound Delivery PGI confirmation for returns from S/4 to 3PL - 3B2</td>
+<td>S/4 → OpenText</td>
+<td>MULESOFT</td>
+<td></td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>01.Very High</td>
 </tr>
 <tr>
-<td>FTSE1369</td>
-<td>Enhancement</td>
-<td>Factory Portal - Equipment to Parts Management (Custom Fields – Part Check ou&hellip;</td>
+<td>LOGI1038</td>
+<td>STO based Outbound Delivery Notification from S/4 to 3PL - 3B12</td>
+<td>S/4 → OpenText</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI1037</td>
+<td>Inventory Movement from S/4 to 3PL – 4C1 (Outbound)</td>
+<td>S/4 → OpenText</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI0836_IF</td>
+<td>Interface from S4 to NDA (IPLA –Intel Pre Release License Agreements)</td>
+<td>S/4 → NDA</td>
+<td>NA</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>LOGI0237_IF</td>
+<td>Inventory Reconciliation snapshot (4C1) from 3PL WMS to SAP S/4</td>
+<td>3PL → S/4</td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FTSI1702</td>
+<td>Interface to transfer Vendor details from S4 to DMRA on a daily basis</td>
+<td>S/4 → DMRA</td>
+<td>MULESOFT</td>
+<td></td>
+<td>02. FS Unplanned</td>
+</tr>
+<tr>
+<td>FTSI1680</td>
+<td>An interface from Prospal to create lot level STO in S4 for the straddle solu&hellip;</td>
+<td></td>
+<td>APIGEE</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FTSI1667</td>
+<td>Interface to transfer BOM details from S4 to DMRA on a daily basis</td>
+<td>S/4 → DMRA</td>
+<td>MULESOFT</td>
+<td></td>
+<td>02. FS Unplanned</td>
+</tr>
+<tr>
+<td>FTSI1654</td>
+<td>Interface to transfer Material Master details from S4 to DMRA on a daily basis</td>
+<td>S/4 → DMRA</td>
+<td>MULESOFT</td>
+<td></td>
+<td>02. FS Unplanned</td>
+</tr>
+<tr>
+<td>FTSI1652</td>
+<td>Interface to transfer STO Change &amp; Delete from S4 to DMRA on a daily basis</td>
+<td>S/4 → DMRA</td>
+<td>MULESOFT</td>
+<td></td>
+<td>02. FS Unplanned</td>
+</tr>
+<tr>
+<td>FTSI1651</td>
+<td>Interface to transfer STO details from S4 to DMRA on a daily basis - STO create</td>
+<td>S/4 → DMRA</td>
+<td>MULESOFT</td>
+<td></td>
+<td>02. FS Unplanned</td>
+</tr>
+<tr>
+<td>FTSI1647</td>
+<td>New Interface required from APPS/XEUS for each different site with S/4 using &hellip;</td>
+<td></td>
+<td>BODS</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FTSI1646</td>
+<td>New Interface required from FFS/MARS for each different site with S/4 using B&hellip;</td>
+<td></td>
+<td>BODS</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FTSI1610</td>
+<td>Interface from SMH to S/4 to Transfer DP and Stack Orders from Interim Locati&hellip;</td>
+<td></td>
+<td>APIGEE</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FTSI1602</td>
+<td>Interface from SGP to S4 to get Inventory status</td>
+<td></td>
+<td>APIGEE</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FTSI1580</td>
+<td>Interface between SMH to S/4 to Trigger UNDO START event, which will Reverse &hellip;</td>
+<td></td>
+<td>APIGEE</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FTSI1578</td>
+<td>Interface to send Lot attribute signal to Workstream from SAP S4 - Mulesoft R&hellip;</td>
+<td></td>
+<td>MuleSoft</td>
+<td></td>
+<td>06. Dev In Progress</td>
+</tr>
+<tr>
+<td>FTSI1574</td>
+<td>A new interface for the Believe Handheld application will allow users to fetc&hellip;</td>
+<td></td>
+<td>APIGEE</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FTSI1573</td>
+<td>interface between S4 and ECA via BODS to post consumption of DTC and EMIB Die&hellip;</td>
+<td></td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FTSI1538</td>
+<td>CMMS – get location info from CMMS</td>
+<td></td>
+<td>NA</td>
+<td></td>
+<td>02. FS Unplanned</td>
+</tr>
+<tr>
+<td>FTSI1537</td>
+<td>CMMS – Get Collateral Details</td>
+<td></td>
+<td>NA</td>
+<td></td>
+<td>02. FS Unplanned</td>
+</tr>
+<tr>
+<td>FTSI1536</td>
+<td>CMMS – Collateral Conversion</td>
+<td></td>
+<td>NA</td>
+<td></td>
+<td>02. FS Unplanned</td>
+</tr>
+<tr>
+<td>FTSI1527</td>
+<td>Interface to get Cu flag from XEUS</td>
+<td></td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FTSI1473</td>
+<td>MDG to S4 for SFP, Stage, UPI</td>
+<td></td>
+<td>BODS</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FTSI1471</td>
+<td>MDG to S4 for MES Site Code to Plant</td>
+<td></td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FTSI1469</td>
+<td>Inventory Conversion for R3</td>
+<td></td>
+<td>APIGEE</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FTSI1455</td>
+<td>Interface from FSCO for lot level material staging by shift​</td>
+<td></td>
+<td>BODS</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FTSI1454</td>
+<td>Interface from PDH to S4 for lot level STR assignment​</td>
+<td></td>
+<td>MULESOFT</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FTSI1431</td>
+<td>Interface to transfer batch SLED details from S4 to DMRA on a daily basis</td>
+<td>S/4 → DMRA</td>
+<td>MULESOFT</td>
+<td></td>
+<td>06. Dev In Progress</td>
+</tr>
+<tr>
+<td>FTSI1371</td>
+<td>CMMS – Equipment create and update (status and collateral name)</td>
+<td>→ S/4</td>
+<td>MULESOFT</td>
+<td></td>
 <td>04. FS In Progress</td>
-<td></td>
-<td></td>
-<td>01.Very High</td>
 </tr>
 <tr>
-<td>FTSE1368</td>
-<td>Enhancement</td>
-<td>Factory Portal - Equipment to Parts Management (Equipment Management (details&hellip;</td>
-<td>10. Object Complete</td>
+<td>FTSI1370</td>
+<td>Factory Portal - Equipment to Parts Management (Custom Fields – Part Check ou&hellip;</td>
+<td>→ S/4</td>
+<td>MULESOFT</td>
 <td></td>
-<td></td>
-<td>01.Very High</td>
+<td>04. FS In Progress</td>
 </tr>
 <tr>
-<td>FTSE1367</td>
-<td>Enhancement</td>
-<td>Factory Portal - Equipment to Parts Management (Equipment/ Entity/ Sub-Entity&hellip;</td>
-<td>10. Object Complete</td>
+<td>FTSI1355</td>
+<td>CMMS – Equipment with MMS flag (S4 to CMMS)</td>
+<td>→ S/4</td>
+<td>MULESOFT</td>
 <td></td>
-<td></td>
-<td>01.Very High</td>
+<td>06. Dev Not Started</td>
 </tr>
 <tr>
-<td>FTSE1366</td>
-<td>Enhancement</td>
-<td>Factory Portal - Operating Supply (Reserve Ops Suppl​​​)</td>
-<td>10. Object Complete</td>
+<td>FTSI1326</td>
+<td>Interface to send Lot create &amp; Lot attribute signal to Workstream from SAP S4</td>
 <td></td>
+<td>MULESOFT</td>
 <td></td>
-<td>01.Very High</td>
-</tr>
-<tr>
-<td>FTSE1365</td>
-<td>Enhancement</td>
-<td>Factory Portal - Operating Supply (Search for Ops Supply​​​)</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>01.Very High</td>
-</tr>
-<tr>
-<td>FTSE1363</td>
-<td>Enhancement</td>
-<td>Factory Portal - Warranty Claim (Create Warranty Claim – Detailed Vie​)</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>01.Very High</td>
-</tr>
-<tr>
-<td>FTSE1360</td>
-<td>Enhancement</td>
-<td>Custom Fiori UI – HAZMAT Enhancement to pull data</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FTSE1359</td>
-<td>Enhancement</td>
-<td>Factory Portal - Returns Order Flow (Prevent TECO until after parts have been&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>01.Very High</td>
-</tr>
-<tr>
-<td>FTSE1358</td>
-<td>Enhancement</td>
-<td>Factory Portal - Returns Order Flow (Form-Based (CRD) Return Order​)</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>01.Very High</td>
-</tr>
-<tr>
-<td>FTSE1354</td>
-<td>Enhancement</td>
-<td>Factory Portal - Work Order Flow ( Confirm and Submit Parts (Table Extension &hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>01.Very High</td>
-</tr>
-<tr>
-<td>FTSE1353</td>
-<td>Enhancement</td>
-<td>Factory Portal - Work Order Flow ( Confirm and Submit Parts (Fiori Enhancemen&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>01.Very High</td>
-</tr>
-<tr>
-<td>FTSE1351</td>
-<td>Enhancement</td>
-<td>Factory Portal - Work Order Flow ( Add component to work order )</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>01.Very High</td>
-</tr>
-<tr>
-<td>FTSE1350</td>
-<td>Enhancement</td>
-<td>Factory Portal - Work Order Flow ( Search Parts )</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>01.Very High</td>
-</tr>
-<tr>
-<td>FTSE1349</td>
-<td>Enhancement</td>
-<td>Factory Portal - Work Order Flow ( Change Color of WO, Equipment, and CRD &amp; e&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>01.Very High</td>
-</tr>
-<tr>
-<td>FTSE1348</td>
-<td>Enhancement</td>
-<td>Factory Portal - Work Order Flow ( Show Work Order – Single Work Order View +&hellip;</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>01.Very High</td>
-</tr>
-<tr>
-<td>FTSE1347</td>
-<td>Enhancement</td>
-<td>Factory Portal - Work Order Flow ( Search work orders - ​List View )</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>01.Very High</td>
-</tr>
-<tr>
-<td>FTSE1344</td>
-<td>Enhancement</td>
-<td>Factory Portal - Work Order Flow ( Home Page - View S/4 work orders )</td>
-<td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>01.Very High</td>
-</tr>
-<tr>
-<td>FTSE1325</td>
-<td>Enhancement</td>
-<td>M-100-170_Create Manual ship FIORI UI in S4</td>
 <td>06. Dev In Progress</td>
-<td></td>
-<td></td>
-<td>01.Very High</td>
 </tr>
 <tr>
-<td>FTSE1160</td>
-<td>Enhancement</td>
-<td>Custom Utility for Engineering Planners to create Rev Eng Planned Orders in S4</td>
+<td>FTSI1323</td>
+<td>M-100-170_API 9 is to provide Shipping details Ship Server</td>
+<td></td>
+<td>MULESOFT</td>
+<td></td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
 </tr>
 <tr>
-<td>FTSE1125</td>
-<td>Enhancement</td>
-<td>Custom table in S4 to store merging orders and surviving order association fr&hellip;</td>
+<td>FTSI1321</td>
+<td>M-100-170_API 6 is to get Shippable lots from Work Stream</td>
+<td></td>
+<td>MULESOFT</td>
+<td></td>
+<td>06. Dev In Progress</td>
+</tr>
+<tr>
+<td>FTSI1320</td>
+<td>M-100-170_API 7 is for Precheck Request and Response to Ship Server</td>
+<td></td>
+<td>MULESOFT</td>
+<td></td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>04.Low</td>
 </tr>
 <tr>
-<td>FTSE1119</td>
-<td>Enhancement</td>
-<td>Custom Table required to support enhancement to store lot attributes when Lot&hellip;</td>
-<td>07. FUT Roadblock</td>
+<td>FTSI1319</td>
+<td>M-100-170_API4 is to provide Shipping details to ULT from S4</td>
 <td></td>
-<td>Workstream</td>
-<td>03.Medium</td>
-</tr>
-<tr>
-<td>FTSE1019</td>
-<td>Enhancement</td>
-<td>WIINGS factory portal UI to send signal for raw material consumption in S4</td>
+<td>MULESOFT</td>
+<td></td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>02.High</td>
 </tr>
 <tr>
-<td>FTSE1010</td>
-<td>Enhancement</td>
-<td>Update the Copper/Heavy Metal flag (User Status) for the tools on placement a&hellip;</td>
+<td>FTSI1318</td>
+<td>M-100-170_API3 is to provide Shipping details to WorkStream from S4</td>
+<td></td>
+<td>MULESOFT</td>
+<td></td>
+<td>06. Dev In Progress</td>
+</tr>
+<tr>
+<td>FTSI1317</td>
+<td>M-100-170_API 11 is to get Shippable lots from Ship server</td>
+<td></td>
+<td>MULESOFT</td>
+<td></td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
 </tr>
 <tr>
-<td>FTSE0996</td>
-<td>Enhancement</td>
-<td>Create Purchase Requisition with multiple purchase req document types from Wo&hellip;</td>
+<td>FTSI1159</td>
+<td>Interface from ECA to S4 to maintain POLP table</td>
+<td>ECA → S/4</td>
+<td>BODS</td>
+<td></td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
 </tr>
 <tr>
-<td>FTSE0995</td>
-<td>Enhancement</td>
-<td>Enhancement to update rejection reason and text in maintenance work order fro&hellip;</td>
+<td>FTSI1158</td>
+<td>Interface from SMH to S4 to handle movement of lots from Revenue to TD</td>
+<td>PDF → S/4</td>
+<td>MULESOFT</td>
+<td></td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
 </tr>
 <tr>
-<td>FTSE0993</td>
-<td>Enhancement</td>
-<td>Auto Roll Function to add Item/Part through Batch job in Master Warranty</td>
+<td>FTSI1157</td>
+<td>Custom program for STO generation for Raw Silicon</td>
+<td>3PL → S/4</td>
+<td>APIGEE</td>
+<td></td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
 </tr>
 <tr>
-<td>FTSE0992</td>
-<td>Enhancement</td>
-<td>Custom Fields Enhancement in WTY Claim</td>
+<td>FTSI1021</td>
+<td>Interface to be developed from ECA to SAP which helps to upload PIR via BAPI</td>
+<td>ECA → S/4</td>
+<td>APIGEE</td>
+<td></td>
+<td>06. Dev In Progress</td>
+</tr>
+<tr>
+<td>FTSI1020</td>
+<td>IMO - Interface from NBS to S4 to induct stock from IMO plant to S4</td>
+<td>NBS → S/4</td>
+<td>APIGEE</td>
+<td></td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
 </tr>
 <tr>
-<td>FTSE0991</td>
-<td>Enhancement</td>
-<td>Claim Generation from Maintenance Work Order per Item</td>
+<td>FTSI1016</td>
+<td>IMR - Interface between SAP S/4 and SAP ME to replicate production orders. Th&hellip;</td>
+<td>S/4 → SAP ME</td>
+<td>NA</td>
+<td></td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
 </tr>
 <tr>
-<td>FTSE0990</td>
-<td>Enhancement</td>
-<td>Create PR with Free of Charge from approved claim status – MMID &amp; Non-MMID</td>
+<td>FTSI1008</td>
+<td>Interface S/4 with EMS</td>
+<td>EMS → S/4</td>
+<td>MULESOFT</td>
+<td></td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
 </tr>
 <tr>
-<td>FTSE0989</td>
-<td>Enhancement</td>
-<td>Warranty validation at Equipment level &amp; Item/Part level in Work Order</td>
+<td>FTSI1007</td>
+<td>Interface S/4 with XEUS</td>
+<td>XEUS/Mars → S/4</td>
+<td>APIGEE</td>
+<td></td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
 </tr>
 <tr>
-<td>FTSE0988</td>
-<td>Enhancement</td>
-<td>Convert Item/Part Warranty information upload to SAP S/4 Master Warranty</td>
+<td>FTSI0985</td>
+<td>Claim Status Update from e2open to SAP S4 (Inbound Interface)</td>
+<td>E2Open → S/4</td>
+<td>MULESOFT</td>
+<td></td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>02.High</td>
 </tr>
 <tr>
-<td>FTSE0984</td>
-<td>Enhancement</td>
+<td>FTSI0983</td>
 <td>SAP Warranty Claim Document to e2open (Outbound Interface)</td>
+<td>S/4 → E2Open</td>
+<td>MULESOFT</td>
+<td></td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
 </tr>
 <tr>
-<td>FTSE0982</td>
-<td>Enhancement</td>
-<td>SAP PM enhancement to capture reason codes for returns (dropdown)</td>
+<td>FTSI0924</td>
+<td>Interface: SAP ME to S/4 to Create &amp; Maintain Notifications</td>
+<td>SAP ME → S/4</td>
+<td>NA</td>
+<td></td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>02.High</td>
 </tr>
 <tr>
-<td>FTSE0925</td>
-<td>Enhancement</td>
-<td>Enhancement: Batch process to create Equipment from Material BOM after GR</td>
-<td>10. Object Complete</td>
+<td>FTSI0860</td>
+<td>Interface to create Kanban trigger from DMRA and get Reservation created and &hellip;</td>
+<td>DMRA → S/4</td>
+<td>MULESOFT</td>
 <td></td>
-<td></td>
-<td>03.Medium</td>
+<td>06. Dev In Progress</td>
 </tr>
 <tr>
-<td>FTSE0507</td>
-<td>Enhancement</td>
-<td>Custom Program to read planned orders and build instruction data and generate&hellip;</td>
+<td>FTSI0830</td>
+<td>Shipserver Interface to S4 to get handling units for the logical ship</td>
+<td>MPL → S/4</td>
+<td>MULESOFT</td>
+<td></td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
 </tr>
 <tr>
-<td>FTSE0506</td>
-<td>Enhancement</td>
-<td>Custom table to store planned orders and pegged sales orders in S4</td>
+<td>FTSI0689</td>
+<td>Interface between PDF and S4 to handle DLCP update in S4 based on the DLCP UP&hellip;</td>
+<td>MES → S/4</td>
+<td>MULESOFT</td>
+<td></td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>03.Medium</td>
 </tr>
 <tr>
-<td>FTSE0423</td>
-<td>Enhancement</td>
-<td>Create custom table in SAP to store the build instruction data</td>
+<td>FTSI0686</td>
+<td>Interface between PDF and S4 to handle production order merge events in S4 ba&hellip;</td>
+<td>MES → S/4</td>
+<td>APIGEE</td>
+<td></td>
 <td>10. Object Complete</td>
-<td></td>
-<td></td>
-<td>04.Low</td>
 </tr>
 <tr>
-<td>FTSC1550</td>
-<td>Conversion</td>
-<td>Inventory Conversion</td>
-<td>02. FS Unplanned</td>
+<td>FTSI0677</td>
+<td>API from SHIP server to validate shipment readiness”</td>
+<td>PDF → S/4</td>
+<td>MULESOFT</td>
 <td></td>
-<td></td>
-<td>03.Medium</td>
+<td>09. FUT Overdue</td>
 </tr>
 <tr>
-<td>FTSC0052_IF</td>
-<td>Conversion</td>
-<td>Conversion of Reference Operation Sets to S/4</td>
+<td>FTSI0676</td>
+<td>Interface between PDF and S4 to handle undo complete in S4 based on the UNDO &hellip;</td>
+<td>PDF → S/4</td>
+<td>APIGEE</td>
+<td></td>
 <td>10. Object Complete</td>
-<td>ECC → S4</td>
-<td>ECC</td>
-<td>02.High</td>
+</tr>
+<tr>
+<td>FTSI0675</td>
+<td>Interface between PDF and S4 to handle mid stage transfers in S4 based on the&hellip;</td>
+<td>MES → S/4</td>
+<td>APIGEE</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FTSI0674</td>
+<td>Interface between PDF and S4 to handle undo move and scrap in S4 based on the&hellip;</td>
+<td>MES → S/4</td>
+<td>APIGEE</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FTSI0484</td>
+<td>Interface between PDF and S4 to handle quantity or batch attribute updates ba&hellip;</td>
+<td>MES → S/4</td>
+<td>APIGEE</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FTSI0483</td>
+<td>Interface between PDF and S4 to handle production order split events in S4 ba&hellip;</td>
+<td>MES → S/4</td>
+<td>APIGEE</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FTSI0481</td>
+<td>Interface between PDF and S4 to handle production order complete events in S4&hellip;</td>
+<td>MES → S/4</td>
+<td>APIGEE</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FTSI0422</td>
+<td>Interface between PDF and S4 for production order process in S4 based on the &hellip;</td>
+<td>PDF → S/4</td>
+<td>APIGEE</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FTSI0421</td>
+<td>Custom RFC triggered in S4 by PDF to determine activity values and post confi&hellip;</td>
+<td>PDF → S/4</td>
+<td>APIGEE</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FTSI0420</td>
+<td>Custom RFC triggered in S4 by PDF to post goods movement in S4 based on the R&hellip;</td>
+<td>PDF → S/4</td>
+<td>APIGEE</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FTSI0338</td>
+<td>Interface from MES staging database to S/4 to create/update reference operati&hellip;</td>
+<td>MES → S/4</td>
+<td>APIGEE</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FTSI0311</td>
+<td>Production plan from ECA planning data hub (PDH) to S/4 to create planned Orders</td>
+<td>PDH (ECA) → S/4</td>
+<td>BODS</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FTSI0310</td>
+<td>Network Plan from ECA Planning Data Hub to S/4 for STO Creation</td>
+<td>PDH (ECA) → S/4</td>
+<td>BODS</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FTSI0308</td>
+<td>Interface from PDF to S/4 to update Lot level out date on Production orders</td>
+<td>MES → S/4</td>
+<td>APIGEE</td>
+<td></td>
+<td>10. Object Complete</td>
+</tr>
+<tr>
+<td>FTSI0050</td>
+<td>Interface to transfer Purchase Requisitions created in IBP/MAPPS/other system&hellip;</td>
+<td>ECA → S/4</td>
+<td>BODS</td>
+<td></td>
+<td>10. Object Complete</td>
 </tr>
 <tr>
 <td>LOGI1738</td>
-<td>Interface</td>
 <td>Interface to send data to Factory Comm to activate the Mobile text receiving &hellip;</td>
-<td>04. FS In Progress</td>
 <td></td>
-<td>Factory Communications</td>
+<td>NA</td>
+<td></td>
+<td>04. FS In Progress</td>
+</tr>
+</tbody>
+</table>
+<h4 id="554-middleware-objects">5.5.4 Middleware Objects</h4>
+<p><strong>MuleSoft</strong> integration objects (Development System = MuleSoft):</p>
+<table>
+<thead>
+<tr>
+<th>Object ID</th>
+<th>Description</th>
+<th>Status</th>
+<th>Source → Target</th>
+<th>Complexity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LOGI1708</td>
+<td>Wrapper program for Inbound interface from Kommand AS to SAP</td>
+<td>10. Object Complete</td>
+<td></td>
+<td>03.Medium</td>
+</tr>
+<tr>
+<td>FTSI1578</td>
+<td>Interface to send Lot attribute signal to Workstream from SAP S4 - Mulesoft R&hellip;</td>
+<td>06. Dev In Progress</td>
+<td></td>
 <td>02.High</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Summary</strong>: 5 Reports, 92 Interfaces, 31 Conversions, 118 Enhancements, 15 Forms, 4 Workflows</p>
-<h4 id="552-boundary-application-dependencies">5.5.2 Boundary Application Dependencies</h4>
-<p>The following RICEFW objects integrate with <strong>boundary applications</strong> (external systems outside the S/4 HANA core):</p>
+<h4 id="555-scheduling-batch-objects">5.5.5 Scheduling &amp; Batch Objects</h4>
+<p><em>Scheduling and batch job objects (AutoSys, CWA) will be populated when job scheduler metadata is available. This section will map batch dependencies to RICEFW and ECA objects.</em></p>
+<h4 id="556-boundary-application-dependencies">5.5.6 Boundary Application Dependencies</h4>
+<p>The following development objects integrate with <strong>boundary applications</strong> (external systems outside the S/4 HANA core):</p>
 <table>
 <thead>
 <tr>
-<th>RICEFW ID</th>
+<th>Object ID</th>
 <th>Description</th>
 <th>Boundary Application</th>
 <th>Source → Target</th>
@@ -4355,6 +4879,29 @@ flowchart LR
 <td>SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR)</td>
 <td>Intel Corporate Compliance Framework</td>
 <td>Compliance Office</td>
+</tr>
+</tbody>
+</table>
+<h3 id="65-eca-development-object-status">6.5 ECA Development Object Status</h3>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ECA Objects (this capability)</td>
+<td>5</td>
+</tr>
+<tr>
+<td>ECA Interfaces</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Total ECA + SAP Interface Dependencies</td>
+<td>92</td>
 </tr>
 </tbody>
 </table>

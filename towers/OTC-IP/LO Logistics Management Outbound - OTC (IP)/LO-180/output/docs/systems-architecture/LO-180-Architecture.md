@@ -70,10 +70,14 @@ nav.toc a:hover { text-decoration: underline; }
   <li><a href="#5-application-architecture-togaf-a">5. Application Architecture (TOGAF &ldquo;A&rdquo;)</a>
     <ul>
       <li><a href="#54-component-overview">5.4 Component Overview</a></li>
-      <li><a href="#55-ricefw-inventory">5.5 RICEFW Inventory</a>
+      <li><a href="#55-development-object-inventory">5.5 Development Object Inventory</a>
         <ul>
-          <li><a href="#551-eca-dependencies">5.5.1 ECA Dependencies</a></li>
-          <li><a href="#552-boundary-application-dependencies">5.5.2 Boundary Application Dependencies</a></li>
+          <li><a href="#551-sap-development-objects">5.5.1 SAP Development Objects</a></li>
+          <li><a href="#552-eca-development-objects">5.5.2 ECA Development Objects</a></li>
+          <li><a href="#553-interface-objects">5.5.3 Interface Objects</a></li>
+          <li><a href="#554-middleware-objects">5.5.4 Middleware Objects</a></li>
+          <li><a href="#555-scheduling-batch-objects">5.5.5 Scheduling &amp; Batch Objects</a></li>
+          <li><a href="#556-boundary-application-dependencies">5.5.6 Boundary Application Dependencies</a></li>
         </ul>
       </li>
       <li><a href="#56-integration-patterns">5.6 Integration Patterns</a></li>
@@ -85,6 +89,7 @@ nav.toc a:hover { text-decoration: underline; }
       <li><a href="#62-sap-development-object-status">6.2 SAP Development Object Status</a></li>
       <li><a href="#63-nfrs-design-principles">6.3 NFRs &amp; Design Principles</a></li>
       <li><a href="#64-security-governance">6.4 Security &amp; Governance</a></li>
+      <li><a href="#65-eca-development-object-status">6.5 ECA Development Object Status</a></li>
     </ul>
   </li>
   <li><a href="#7-project-context">7. Project Context</a>
@@ -938,62 +943,91 @@ Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
 | System | IAPM ID | Status |
 |--------|---------|--------|
 
-### 5.5 RICEFW Inventory
+### 5.5 Development Object Inventory
 
-| Object ID | Type | Description | Status | Source → Target | Boundary App | Complexity |
-|-----------|------|-------------|--------|----------------|-------------|----------|
-| LOGR1252 | Report | 2DN - Inbound Escort Report | 10. Object Complete |  |  | 02.High |
-| LOGR1236 | Report | 2DN - Outbound Escort Report | 06. Dev In Progress |  |  | 02.High |
-| LOGR1173 | Report | 2DN - Outbound Manifest Report | 10. Object Complete |  |  | 03.Medium |
-| LOGR1172 | Report | 2DN - Inbound Manifest Report | 10. Object Complete |  |  | 03.Medium |
-| LOGI1067 | Interface | 2DN - S4 – Interface from S/4 to MPL for packing list. | 10. Object Complete | S/4 → MPL | Mark Pack Label Suite (IP) | 03.Medium |
-| LOGI1066 | Interface | 2DN - Interface to capture Data for 1st Delivery in 2DN X-Dock Model | 10. Object Complete |  | OpenText | 03.Medium |
-| LOGI0875 | Interface | Interface from WOM to S4 HANA to fetch the list of Deliveries for a particula... | 10. Object Complete | WOM → S/4 | SAP Commerce Cloud | 03.Medium |
-| LOGI0874 | Interface | Interface from WOM to S4 HANA to fetch the ASN information of delivery. | 10. Object Complete | WOM → S/4 | SAP Commerce Cloud | 02.High |
-| LOGI0842_IP | Interface | Interface from SAP S4 to DBaaS to Fetch Actual COF for FVR batch and COA for ... | 10. Object Complete | S/4 → DBaaS | Supply Chain Trade Re-engineering Data Container for Intel Products | 03.Medium |
-| LOGI0800_IP | Interface | Interface to send shipment information to custom broker | 10. Object Complete | S/4 → OpenText | OpenText | 03.Medium |
-| LOGI0612_IP | Interface | Customer ASN interface from outbound delivery | 10. Object Complete | S/4 → OpenText | OpenText | 03.Medium |
-| LOGI0610 | Interface | 3B2 Post goods issue interface for Outbound delivery to SAP | 10. Object Complete | S/4 → OpenText | OpenText | 03.Medium |
-| LOGI0609 | Interface | 3B13 interface for pick/pack updates for outbound delivery to SAP | 10. Object Complete | S/4 → OpenText | OpenText | 03.Medium |
-| LOGI0607 | Interface | 3B14R Cancellation Request from S/4 to 3PL | 10. Object Complete | S/4 → 3PL | Logistics Customers Service Request; OpenText; Customer Master Database | 03.Medium |
-| LOGI0418 | Interface | 3B12 Request to 3PL on FO creation | 10. Object Complete | 3PL → S/4 | OpenText | 02.High |
-| LOGI0415 | Interface | 3B14C Cancellation Confirmation from 3PL to S/4 | 10. Object Complete | 3PL → S/4 | OpenText | 03.Medium |
-| LOGF1583 | Form | Consolidated Export Commercial Invoice – Finished Goods (IP) | 10. Object Complete | NA → NA |  | 03.Medium |
-| LOGF1149_IP | Form | Consolidated Packing list for Chengdu | 10. Object Complete |  |  | 02.High |
-| LOGF0805 | Form | EIAJ form to be generated for OEM customers (Japan) | 10. Object Complete |  |  | 02.High |
-| LOGF0353_IP | Form | Generate Consolidated Export Commercial Invoice - Finished Goods (IF and IP) | 10. Object Complete | NA → NA |  | 03.Medium |
-| LOGF0348_IP | Form | Shipper Letter of instruction (Localization requirement for US) | 10. Object Complete | NA → NA |  | 02.High |
-| LOGF0345_IP | Form | Bailment CI and End-Customer CI for IF/IP | 10. Object Complete | NA → NA |  | 03.Medium |
-| LOGF0344_IP | Form | Generate Export CI for IF/IP | 10. Object Complete | NA → NA |  | 02.High |
-| LOGF0343_IP | Form | Generate Itemised Packing Lists | 10. Object Complete | NA → NA |  | 03.Medium |
-| LOGF0342_IP | Form | Generate Packing Lists for Finished Goods - IP and IF | 10. Object Complete | NA → NA |  | 02.High |
-| LOGE1713 | Enhancement | Copy Control Routine for Customer Master Special Instructions | 10. Object Complete |  |  | 03.Medium |
-| LOGE1148 | Enhancement | 2DN - Trigger Auto packing in 2nd DN of 2DN X-Dock Model | 10. Object Complete |  |  | 03.Medium |
-| LOGE1147 | Enhancement | 2DN - S4 – Error Handling program in 2DN X-Dock Model | 10. Object Complete |  |  | 02.High |
-| LOGE1116 | Enhancement | 2DN - Enhancement to capture required fields of 1st Delivery in 2DN X-Dock Model | 10. Object Complete |  |  | 03.Medium |
-| LOGE1114 | Enhancement | 2DN - Post 3PL 3B2 or manual Goods Issue from CW or IW - Wrapper Program to c... | 10. Object Complete |  |  | 03.Medium |
-| LOGE0979 | Enhancement | Pre-alert summary report for the EMEA customer | 10. Object Complete |  |  | 03.Medium |
-| LOGE0797_IP | Enhancement | Pre alert notification to Customer | 10. Object Complete |  |  | 03.Medium |
-| LOGE0796_IP | Enhancement | Custom transaction to trigger CUSDEC | 10. Object Complete |  |  | 02.High |
-| LOGE0793 | Enhancement | Upload program to update pick/pack information in sap in case of 3B13 PIP fai... | 10. Object Complete |  |  | 03.Medium |
-| LOGE0792_IP | Enhancement | Enhancement to Update Custom Table form Master data and Manage SOP Data Commu... | 10. Object Complete |  |  | 03.Medium |
-| LOGE0791_IP | Enhancement | Creation of Proforma Invoice ZF8 from Freight Order and Save ITN Number in De... | 10. Object Complete |  |  | 03.Medium |
-| LOGE0772_IP | Enhancement | Develop Fiori app to View/Edit/Add SOP data(CMDB). | 10. Object Complete |  |  | 02.High |
-| LOGE0613 | Enhancement | Development of LCSR tool in Fiori | 10. Object Complete |  | Logistics Customers Service Request | 01.Very High |
-| LOGE0611 | Enhancement | 1. Custom fields in Delivery to store Number of Pallets & IPLA indicator fiel... | 10. Object Complete |  |  | 03.Medium |
-| LOGE0608 | Enhancement | Custom logic to fetch the details from different source and save in the custo... | 10. Object Complete |  |  | 03.Medium |
-| LOGE0581 | Enhancement | Incoterm Location 1 ID field update for Outbound delivery | 10. Object Complete |  |  | 04.Low |
-| LOGE0341_IP | Enhancement | Billing document creation to be triggered from the Output of outbound delivery | 10. Object Complete | NA → NA | NA | 03.Medium |
-| LOGE0065_IP | Enhancement | Create single line delivery for a confirmed sales order confirmed schedule line | 10. Object Complete | NA → NA | NA | 04.Low |
-
-**Summary**: 4 Reports, 12 Interfaces, 18 Enhancements, 9 Forms
+**Summary**: 43 SAP, 12 Interfaces | RICEFW: 4 Reports, 12 Interfaces, 18 Enhancements, 9 Forms
 
 
-#### 5.5.2 Boundary Application Dependencies
+#### 5.5.1 SAP Development Objects
 
-The following RICEFW objects integrate with **boundary applications** (external systems outside the S/4 HANA core):
+SAP platform objects (Reports, Interfaces, Conversions, Enhancements, Forms, Workflows) developed on S/4, MDG, or S/4 BOT:
 
-| RICEFW ID | Description | Boundary Application | Source → Target |
+| Object ID | Type | Description | Status | Dev System | Complexity |
+|-----------|------|-------------|--------|-----------|----------|
+| LOGR1252 | Report | 2DN - Inbound Escort Report | 10. Object Complete | 01.S4 | 02.High |
+| LOGR1236 | Report | 2DN - Outbound Escort Report | 06. Dev In Progress | 01.S4 | 02.High |
+| LOGR1173 | Report | 2DN - Outbound Manifest Report | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGR1172 | Report | 2DN - Inbound Manifest Report | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGI1067 | Interface | 2DN - S4 – Interface from S/4 to MPL for packing list. | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGI1066 | Interface | 2DN - Interface to capture Data for 1st Delivery in 2DN X-Dock Model | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGI0875 | Interface | Interface from WOM to S4 HANA to fetch the list of Deliveries for a particula... | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGI0874 | Interface | Interface from WOM to S4 HANA to fetch the ASN information of delivery. | 10. Object Complete | 01.S4 | 02.High |
+| LOGI0842_IP | Interface | Interface from SAP S4 to DBaaS to Fetch Actual COF for FVR batch and COA for ... | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGI0800_IP | Interface | Interface to send shipment information to custom broker | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGI0612_IP | Interface | Customer ASN interface from outbound delivery | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGI0610 | Interface | 3B2 Post goods issue interface for Outbound delivery to SAP | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGI0609 | Interface | 3B13 interface for pick/pack updates for outbound delivery to SAP | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGI0607 | Interface | 3B14R Cancellation Request from S/4 to 3PL | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGI0418 | Interface | 3B12 Request to 3PL on FO creation | 10. Object Complete | 01.S4 | 02.High |
+| LOGI0415 | Interface | 3B14C Cancellation Confirmation from 3PL to S/4 | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGF1583 | Form | Consolidated Export Commercial Invoice – Finished Goods (IP) | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGF1149_IP | Form | Consolidated Packing list for Chengdu | 10. Object Complete | 01.S4 | 02.High |
+| LOGF0805 | Form | EIAJ form to be generated for OEM customers (Japan) | 10. Object Complete | 01.S4 | 02.High |
+| LOGF0353_IP | Form | Generate Consolidated Export Commercial Invoice - Finished Goods (IF and IP) | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGF0348_IP | Form | Shipper Letter of instruction (Localization requirement for US) | 10. Object Complete | 01.S4 | 02.High |
+| LOGF0345_IP | Form | Bailment CI and End-Customer CI for IF/IP | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGF0344_IP | Form | Generate Export CI for IF/IP | 10. Object Complete | 01.S4 | 02.High |
+| LOGF0343_IP | Form | Generate Itemised Packing Lists | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGF0342_IP | Form | Generate Packing Lists for Finished Goods - IP and IF | 10. Object Complete | 01.S4 | 02.High |
+| LOGE1713 | Enhancement | Copy Control Routine for Customer Master Special Instructions | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGE1148 | Enhancement | 2DN - Trigger Auto packing in 2nd DN of 2DN X-Dock Model | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGE1147 | Enhancement | 2DN - S4 – Error Handling program in 2DN X-Dock Model | 10. Object Complete | 01.S4 | 02.High |
+| LOGE1116 | Enhancement | 2DN - Enhancement to capture required fields of 1st Delivery in 2DN X-Dock Model | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGE1114 | Enhancement | 2DN - Post 3PL 3B2 or manual Goods Issue from CW or IW - Wrapper Program to c... | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGE0979 | Enhancement | Pre-alert summary report for the EMEA customer | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGE0797_IP | Enhancement | Pre alert notification to Customer | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGE0796_IP | Enhancement | Custom transaction to trigger CUSDEC | 10. Object Complete | 01.S4 | 02.High |
+| LOGE0793 | Enhancement | Upload program to update pick/pack information in sap in case of 3B13 PIP fai... | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGE0792_IP | Enhancement | Enhancement to Update Custom Table form Master data and Manage SOP Data Commu... | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGE0791_IP | Enhancement | Creation of Proforma Invoice ZF8 from Freight Order and Save ITN Number in De... | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGE0772_IP | Enhancement | Develop Fiori app to View/Edit/Add SOP data(CMDB). | 10. Object Complete | 01.S4 | 02.High |
+| LOGE0613 | Enhancement | Development of LCSR tool in Fiori | 10. Object Complete | 01.S4 | 01.Very High |
+| LOGE0611 | Enhancement | 1. Custom fields in Delivery to store Number of Pallets & IPLA indicator fiel... | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGE0608 | Enhancement | Custom logic to fetch the details from different source and save in the custo... | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGE0581 | Enhancement | Incoterm Location 1 ID field update for Outbound delivery | 10. Object Complete | 01.S4 | 04.Low |
+| LOGE0341_IP | Enhancement | Billing document creation to be triggered from the Output of outbound delivery | 10. Object Complete | 01.S4 | 03.Medium |
+| LOGE0065_IP | Enhancement | Create single line delivery for a confirmed sales order confirmed schedule line | 10. Object Complete | 01.S4 | 04.Low |
+
+
+#### 5.5.3 Interface Objects
+
+Holistic view of all interface objects by L2 capability — includes ECA → S/4, S/4 → ECA, boundary system, and inter-platform interfaces with middleware and integration approach:
+
+| Object ID | Description | Source → Target | Middleware | Approach | Status |
+|-----------|-------------|----------------|-----------|----------|--------|
+| LOGI1067 | 2DN - S4 – Interface from S/4 to MPL for packing list. | S/4 → MPL | SFT |  | 10. Object Complete |
+| LOGI1066 | 2DN - Interface to capture Data for 1st Delivery in 2DN X-Dock Model |  | MULESOFT |  | 10. Object Complete |
+| LOGI0875 | Interface from WOM to S4 HANA to fetch the list of Deliveries for a particula... | WOM → S/4 | MULESOFT |  | 10. Object Complete |
+| LOGI0874 | Interface from WOM to S4 HANA to fetch the ASN information of delivery. | WOM → S/4 | MULESOFT |  | 10. Object Complete |
+| LOGI0842_IP | Interface from SAP S4 to DBaaS to Fetch Actual COF for FVR batch and COA for ... | S/4 → DBaaS | MULESOFT |  | 10. Object Complete |
+| LOGI0800_IP | Interface to send shipment information to custom broker | S/4 → OpenText | MULESOFT |  | 10. Object Complete |
+| LOGI0612_IP | Customer ASN interface from outbound delivery | S/4 → OpenText | MULESOFT |  | 10. Object Complete |
+| LOGI0610 | 3B2 Post goods issue interface for Outbound delivery to SAP | S/4 → OpenText | MULESOFT |  | 10. Object Complete |
+| LOGI0609 | 3B13 interface for pick/pack updates for outbound delivery to SAP | S/4 → OpenText | MULESOFT |  | 10. Object Complete |
+| LOGI0607 | 3B14R Cancellation Request from S/4 to 3PL | S/4 → 3PL | MULESOFT |  | 10. Object Complete |
+| LOGI0418 | 3B12 Request to 3PL on FO creation | 3PL → S/4 | MULESOFT |  | 10. Object Complete |
+| LOGI0415 | 3B14C Cancellation Confirmation from 3PL to S/4 | 3PL → S/4 | MULESOFT |  | 10. Object Complete |
+
+
+#### 5.5.5 Scheduling & Batch Objects
+
+*Scheduling and batch job objects (AutoSys, CWA) will be populated when job scheduler metadata is available. This section will map batch dependencies to RICEFW and ECA objects.*
+
+#### 5.5.6 Boundary Application Dependencies
+
+The following development objects integrate with **boundary applications** (external systems outside the S/4 HANA core):
+
+| Object ID | Description | Boundary Application | Source → Target |
 |-----------|------------|---------------------|----------------|
 | LOGI1067 | 2DN - S4 – Interface from S/4 to MPL for packing list. | Mark Pack Label Suite (IP) | S/4 → MPL |
 | LOGI1066 | 2DN - Interface to capture Data for 1st Delivery in 2DN X-Dock Model | OpenText |  |
@@ -1071,6 +1105,10 @@ The following RICEFW objects integrate with **boundary applications** (external 
 | Audit Logging | Comprehensive audit trail for all data changes and user actions (SAP Security Audit Log) | SOX Compliance / Intel Audit Policy | Internal Audit |
 | Certificate Management | Automated certificate lifecycle management for system-to-system trust | Intel PKI Standard | Certificate Authority Team |
 | Compliance | SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR) | Intel Corporate Compliance Framework | Compliance Office |
+
+### 6.5 ECA Development Object Status
+
+*ECA development object status will be auto-populated when Snowflake SELECT access is provisioned for the PDH-IF and PDH-IP curated layers. This section will provide a DEV/QAS/PRD maturity assessment equivalent to §6.2 for SAP objects.*
 
 
 <div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - OTC (IP)</span></div>
