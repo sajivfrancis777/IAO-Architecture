@@ -16,6 +16,7 @@
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
+  p { orphans: 3; widows: 3; }
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
@@ -177,19 +178,11 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 *Business roles and responsibilities will be derived from BPMN swim lane assignments when process models are available.*
 
 
-<div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-110 — Manage Intercompany</span></div>
-<div style="page-break-before: always;"></div>
-
-
 ## 4. Data Architecture (TOGAF "D")
 
 ### 4.1 Data Flows — Source to Target
 
 *Data flows with DB platform details will be populated when tower architects complete the extended flow template columns (42-47) via the Input Portal.*
-
-
-<div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-110 — Manage Intercompany</span></div>
-<div style="page-break-before: always;"></div>
 
 
 ### 4.2 Data Flow Diagrams
@@ -222,7 +215,7 @@ Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
 | Data Quality | Validated at source; reconciliation at target |
 
 
-<div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-110 — Manage Intercompany</span></div>
+<div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-110 — Manage Intercompany</span></div>
 <div style="page-break-before: always;"></div>
 
 
@@ -237,11 +230,6 @@ Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
 
 | System | IAPM ID | Status |
 |--------|---------|--------|
-
-
-<div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-110 — Manage Intercompany</span></div>
-<div style="page-break-before: always;"></div>
-
 
 ### 5.5 RICEFW Inventory
 
@@ -268,17 +256,13 @@ Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
 
 
 
-<div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-110 — Manage Intercompany</span></div>
+<div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-110 — Manage Intercompany</span></div>
 <div style="page-break-before: always;"></div>
 
 
 ### 5.6 Integration Patterns
 
 *Integration patterns will be populated when tower architects provide validated middleware and protocol details via the extended flow template.*
-
-
-<div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-110 — Manage Intercompany</span></div>
-<div style="page-break-before: always;"></div>
 
 
 
@@ -294,10 +278,6 @@ Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
 #### Platform Inventory
 
 *Platform inventory will be populated when tower architects provide validated technology platform details via the extended flow template.*
-
-
-<div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-110 — Manage Intercompany</span></div>
-<div style="page-break-before: always;"></div>
 
 
 ### 6.2 SAP Development Object Status
@@ -338,7 +318,7 @@ Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
 | Compliance | SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR) | Intel Corporate Compliance Framework | Compliance Office |
 
 
-<div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-110 — Manage Intercompany</span></div>
+<div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-110 — Manage Intercompany</span></div>
 <div style="page-break-before: always;"></div>
 
 
@@ -365,7 +345,7 @@ Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
 | FPRE0289_CFIN | Update XREF1, XREF2 and XREF3 fields in subledger line items | 2025-03-21 00:00:00 (100%) | 2025-05-23 00:00:00 (100%) | 2025-05-23 00:00:00 (100%) | 2025-04-18 00:00:00 (100%) |  |
 
 
-<div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-110 — Manage Intercompany</span></div>
+<div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-110 — Manage Intercompany</span></div>
 <div style="page-break-before: always;"></div>
 
 
@@ -386,4 +366,4 @@ Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
 ---
 *DC-110 — Architecture Document (TOGAF BDAT) · Finance Plan To Report · Generated: April 2026*
 
-<div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-110 — Manage Intercompany</span></div>
+<div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>DC-110 — Manage Intercompany</span></div>

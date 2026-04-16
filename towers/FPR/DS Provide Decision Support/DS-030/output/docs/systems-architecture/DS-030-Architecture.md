@@ -16,6 +16,7 @@
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
+  p { orphans: 3; widows: 3; }
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
@@ -434,10 +435,6 @@ flowchart TD
 *Data flows with DB platform details will be populated when tower architects complete the extended flow template columns (42-47) via the Input Portal.*
 
 
-<div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-030 — Perform Customer and Product Profitability Analysis</span></div>
-<div style="page-break-before: always;"></div>
-
-
 ### 4.2 Data Flow Diagrams
 
 > **DATA ARCHITECTURE** — Database-to-database data flows. Applications (blue) sit above their hosting databases (green cylinders). Thick arrows show data movement between databases.
@@ -464,7 +461,7 @@ flowchart TD
 | Data Quality | Validated at source; reconciliation at target |
 
 
-<div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-030 — Perform Customer and Product Profitability Analysis</span></div>
+<div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-030 — Perform Customer and Product Profitability Analysis</span></div>
 <div style="page-break-before: always;"></div>
 
 
@@ -480,11 +477,6 @@ flowchart TD
 | System | IAPM ID | Status |
 |--------|---------|--------|
 
-
-<div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-030 — Perform Customer and Product Profitability Analysis</span></div>
-<div style="page-break-before: always;"></div>
-
-
 ### 5.5 RICEFW Inventory
 
 | Object ID | Type | Description | Status | Source → Target | Middleware | Boundary App | Interface Approach | Complexity |
@@ -498,17 +490,13 @@ flowchart TD
 
 
 
-<div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-030 — Perform Customer and Product Profitability Analysis</span></div>
+<div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-030 — Perform Customer and Product Profitability Analysis</span></div>
 <div style="page-break-before: always;"></div>
 
 
 ### 5.6 Integration Patterns
 
 *Integration patterns will be populated when tower architects provide validated middleware and protocol details via the extended flow template.*
-
-
-<div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-030 — Perform Customer and Product Profitability Analysis</span></div>
-<div style="page-break-before: always;"></div>
 
 
 
@@ -524,10 +512,6 @@ flowchart TD
 #### Platform Inventory
 
 *Platform inventory will be populated when tower architects provide validated technology platform details via the extended flow template.*
-
-
-<div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-030 — Perform Customer and Product Profitability Analysis</span></div>
-<div style="page-break-before: always;"></div>
 
 
 ### 6.2 SAP Development Object Status
@@ -568,7 +552,7 @@ flowchart TD
 | Compliance | SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR) | Intel Corporate Compliance Framework | Compliance Office |
 
 
-<div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-030 — Perform Customer and Product Profitability Analysis</span></div>
+<div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-030 — Perform Customer and Product Profitability Analysis</span></div>
 <div style="page-break-before: always;"></div>
 
 
@@ -583,7 +567,7 @@ flowchart TD
 | FPRE0574_IP | Margin analysis Dimensions creation | 2024-10-18 00:00:00 (100%) | 2025-01-17 00:00:00 (100%) | 2025-01-17 00:00:00 (100%) | 2024-11-08 00:00:00 (100%) |  |
 
 
-<div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-030 — Perform Customer and Product Profitability Analysis</span></div>
+<div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-030 — Perform Customer and Product Profitability Analysis</span></div>
 <div style="page-break-before: always;"></div>
 
 
@@ -604,4 +588,4 @@ flowchart TD
 ---
 *DS-030 — Architecture Document (TOGAF BDAT) · Finance Plan To Report · Generated: April 2026*
 
-<div class="page-footer"><span>Page 19</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-030 — Perform Customer and Product Profitability Analysis</span></div>
+<div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>DS-030 — Perform Customer and Product Profitability Analysis</span></div>

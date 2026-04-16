@@ -278,11 +278,14 @@ strong { color: #00285a; }
     }
 
     /* Tighten spacing in print for professional PDF output */
-    h2 { margin-top: 18px; margin-bottom: 8px; }
-    h3 { margin-top: 14px; margin-bottom: 6px; }
-    h4 { margin-top: 10px; margin-bottom: 4px; }
-    table { margin: 8px 0; }
-    blockquote { margin: 8px 0; padding: 6px 14px; }
+    h2 { margin-top: 14px; margin-bottom: 6px; font-size: 16pt; }
+    h3 { margin-top: 10px; margin-bottom: 4px; font-size: 13pt; }
+    h4 { margin-top: 8px; margin-bottom: 3px; font-size: 11pt; }
+    table { margin: 6px 0; font-size: 9pt; }
+    blockquote { margin: 6px 0; padding: 4px 12px; font-size: 9pt; }
+    p { margin: 4px 0; }
+    ul, ol { margin: 4px 0; }
+    .mermaid { margin: 6px 0; }
 }
 </style>
     
@@ -344,6 +347,23 @@ strong { color: #00285a; }
       fontFamily: 'Segoe UI, Arial, sans-serif'
     }
   });
+
+  // Wait for ALL diagrams to finish rendering, then trigger print.
+  // startOnLoad renders eagerly but asynchronously — some large diagrams
+  // may still be parsing when the user clicks "Download PDF".
+  window._printPDF = async function() {
+    // Re-run mermaid on any divs that haven't rendered yet (no SVG child)
+    var unrendered = [];
+    document.querySelectorAll('.mermaid').forEach(function(el) {
+      if (!el.querySelector('svg')) unrendered.push(el);
+    });
+    if (unrendered.length > 0) {
+      await mermaid.run({ nodes: unrendered });
+    }
+    // Small delay to let the browser paint the final SVGs
+    await new Promise(function(r) { setTimeout(r, 500); });
+    window.print();
+  };
 </script>
 <script>
   // Open rendered Mermaid diagram as full-size SVG in a new browser tab.
@@ -374,7 +394,7 @@ strong { color: #00285a; }
 
 </head>
 <body>
-<button class="pdf-download-btn" onclick="window.print()" title="Print / Save as PDF">&#128196; Download PDF</button>
+<button class="pdf-download-btn" onclick="window._printPDF()" title="Print / Save as PDF">&#128196; Download PDF</button>
 <div class="page-section">
 <div style="text-align:center; padding-top:20px;">
   <img src="../../../../../../../templates/assets/cover_banner.svg" alt="IAO Architecture" style="width:100%; border-radius:8px;" />

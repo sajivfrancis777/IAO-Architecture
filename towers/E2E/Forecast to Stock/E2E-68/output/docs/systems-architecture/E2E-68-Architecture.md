@@ -16,6 +16,7 @@
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
+  p { orphans: 3; widows: 3; }
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
@@ -1479,18 +1480,9 @@ flowchart TB
 | e.g. MES 300 | - | N/A |
 | e.g. XEUS | - | N/A |
 
-
-<div class="page-footer"><span>Page 25</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-68 — -Intel Foundry   NPI planning and execution processes</span></div>
-<div style="page-break-before: always;"></div>
-
-
 ### 5.5 RICEFW Inventory
 
 *RICEFW inventory will be auto-populated from the Smartsheet S/4 Object Tracker when matched to this capability.*
-
-
-<div class="page-footer"><span>Page 26</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-68 — -Intel Foundry   NPI planning and execution processes</span></div>
-<div style="page-break-before: always;"></div>
 
 
 ### 5.6 Integration Patterns
@@ -1500,7 +1492,7 @@ flowchart TB
 | 1 | e.g. Pub-Sub / P2P / ETL | e.g. MES Route to ICOST | e.g. Azure Service Bus | e.g. REST / RFC / SFTP | e.g. OAuth / NTLM / Cert |
 
 
-<div class="page-footer"><span>Page 27</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-68 — -Intel Foundry   NPI planning and execution processes</span></div>
+<div class="page-footer"><span>Page 25</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-68 — -Intel Foundry   NPI planning and execution processes</span></div>
 <div style="page-break-before: always;"></div>
 
 
@@ -1558,7 +1550,7 @@ flowchart TB
 
 
 
-<div class="page-footer"><span>Page 28</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-68 — -Intel Foundry   NPI planning and execution processes</span></div>
+<div class="page-footer"><span>Page 26</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-68 — -Intel Foundry   NPI planning and execution processes</span></div>
 <div style="page-break-before: always;"></div>
 
 
@@ -1616,7 +1608,7 @@ flowchart TB
 | 2 | e.g. S/4 HANA 2023 | On-Premise | e.g. MES 300 | DEV,QAS,PRD |
 
 
-<div class="page-footer"><span>Page 29</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-68 — -Intel Foundry   NPI planning and execution processes</span></div>
+<div class="page-footer"><span>Page 27</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-68 — -Intel Foundry   NPI planning and execution processes</span></div>
 <div style="page-break-before: always;"></div>
 
 
@@ -1658,7 +1650,7 @@ flowchart TB
 | Compliance | SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR) | Intel Corporate Compliance Framework | Compliance Office |
 
 
-<div class="page-footer"><span>Page 30</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-68 — -Intel Foundry   NPI planning and execution processes</span></div>
+<div class="page-footer"><span>Page 28</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-68 — -Intel Foundry   NPI planning and execution processes</span></div>
 <div style="page-break-before: always;"></div>
 
 
@@ -1667,10 +1659,6 @@ flowchart TB
 ### 7.1 Project Roadmap & Go-Live Plan
 
 *Project roadmap and RICEFW timelines will be auto-populated from the Smartsheet Object Tracker when matched to this capability.*
-
-
-<div class="page-footer"><span>Page 31</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-68 — -Intel Foundry   NPI planning and execution processes</span></div>
-<div style="page-break-before: always;"></div>
 
 
 ### 7.2 RAID Log
@@ -1690,4 +1678,4 @@ flowchart TB
 ---
 *E2E-68 — Architecture Document (TOGAF BDAT) · End-to-End Integrated Processes · Generated: April 2026*
 
-<div class="page-footer"><span>Page 32</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-68 — -Intel Foundry   NPI planning and execution processes</span></div>
+<div class="page-footer"><span>Page 29</span><span><a href="#toc">↑ Back to TOC</a></span><span>E2E-68 — -Intel Foundry   NPI planning and execution processes</span></div>

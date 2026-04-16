@@ -16,6 +16,7 @@
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
+  p { orphans: 3; widows: 3; }
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
@@ -177,19 +178,11 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 *Business roles and responsibilities will be derived from BPMN swim lane assignments when process models are available.*
 
 
-<div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>MDM-020 — Create and Maintain Vendors</span></div>
-<div style="page-break-before: always;"></div>
-
-
 ## 4. Data Architecture (TOGAF "D")
 
 ### 4.1 Data Flows — Source to Target
 
 *Data flows with DB platform details will be populated when tower architects complete the extended flow template columns (42-47) via the Input Portal.*
-
-
-<div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>MDM-020 — Create and Maintain Vendors</span></div>
-<div style="page-break-before: always;"></div>
 
 
 ### 4.2 Data Flow Diagrams
@@ -269,7 +262,7 @@ Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
 | Data Quality | Validated at source; reconciliation at target |
 
 
-<div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>MDM-020 — Create and Maintain Vendors</span></div>
+<div class="page-footer"><span>Page 6</span><span><a href="#toc">↑ Back to TOC</a></span><span>MDM-020 — Create and Maintain Vendors</span></div>
 <div style="page-break-before: always;"></div>
 
 
@@ -284,11 +277,6 @@ Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
 
 | System | IAPM ID | Status |
 |--------|---------|--------|
-
-
-<div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>MDM-020 — Create and Maintain Vendors</span></div>
-<div style="page-break-before: always;"></div>
-
 
 ### 5.5 RICEFW Inventory
 
@@ -478,17 +466,13 @@ The following RICEFW objects integrate with **boundary applications** (external 
 | DATC0118_IP | Convert the Customer Master In House Cash view from ECC system to MDG system_IP. | ECC |  | ECC → MDG |
 
 
-<div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>MDM-020 — Create and Maintain Vendors</span></div>
+<div class="page-footer"><span>Page 7</span><span><a href="#toc">↑ Back to TOC</a></span><span>MDM-020 — Create and Maintain Vendors</span></div>
 <div style="page-break-before: always;"></div>
 
 
 ### 5.6 Integration Patterns
 
 *Integration patterns will be populated when tower architects provide validated middleware and protocol details via the extended flow template.*
-
-
-<div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>MDM-020 — Create and Maintain Vendors</span></div>
-<div style="page-break-before: always;"></div>
 
 
 
@@ -504,10 +488,6 @@ The following RICEFW objects integrate with **boundary applications** (external 
 #### Platform Inventory
 
 *Platform inventory will be populated when tower architects provide validated technology platform details via the extended flow template.*
-
-
-<div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>MDM-020 — Create and Maintain Vendors</span></div>
-<div style="page-break-before: always;"></div>
 
 
 ### 6.2 SAP Development Object Status
@@ -548,7 +528,7 @@ The following RICEFW objects integrate with **boundary applications** (external 
 | Compliance | SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR) | Intel Corporate Compliance Framework | Compliance Office |
 
 
-<div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>MDM-020 — Create and Maintain Vendors</span></div>
+<div class="page-footer"><span>Page 8</span><span><a href="#toc">↑ Back to TOC</a></span><span>MDM-020 — Create and Maintain Vendors</span></div>
 <div style="page-break-before: always;"></div>
 
 
@@ -582,7 +562,7 @@ The following RICEFW objects integrate with **boundary applications** (external 
 *... and 129 more objects (see full Object Tracker)*
 
 
-<div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>MDM-020 — Create and Maintain Vendors</span></div>
+<div class="page-footer"><span>Page 9</span><span><a href="#toc">↑ Back to TOC</a></span><span>MDM-020 — Create and Maintain Vendors</span></div>
 <div style="page-break-before: always;"></div>
 
 
@@ -603,4 +583,4 @@ The following RICEFW objects integrate with **boundary applications** (external 
 ---
 *MDM-020 — Architecture Document (TOGAF BDAT) · Master Data · Generated: April 2026*
 
-<div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>MDM-020 — Create and Maintain Vendors</span></div>
+<div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>MDM-020 — Create and Maintain Vendors</span></div>

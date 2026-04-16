@@ -16,6 +16,7 @@
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
+  p { orphans: 3; widows: 3; }
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
@@ -346,10 +347,6 @@ flowchart TD
 *Data flows with DB platform details will be populated when tower architects complete the extended flow template columns (42-47) via the Input Portal.*
 
 
-<div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>PLB-050 — Responsive Demand and Supply Matching (RDSM) (IP)</span></div>
-<div style="page-break-before: always;"></div>
-
-
 ### 4.2 Data Flow Diagrams
 
 > **DATA ARCHITECTURE** — Database-to-database data flows. Applications (blue) sit above their hosting databases (green cylinders). Thick arrows show data movement between databases.
@@ -401,7 +398,7 @@ Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
 | Data Quality | Validated at source; reconciliation at target |
 
 
-<div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>PLB-050 — Responsive Demand and Supply Matching (RDSM) (IP)</span></div>
+<div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>PLB-050 — Responsive Demand and Supply Matching (RDSM) (IP)</span></div>
 <div style="page-break-before: always;"></div>
 
 
@@ -416,11 +413,6 @@ Data-centric RICEFW objects (Reports and Conversions) from the Object Tracker:
 
 | System | IAPM ID | Status |
 |--------|---------|--------|
-
-
-<div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>PLB-050 — Responsive Demand and Supply Matching (RDSM) (IP)</span></div>
-<div style="page-break-before: always;"></div>
-
 
 ### 5.5 RICEFW Inventory
 
@@ -567,17 +559,13 @@ The following RICEFW objects integrate with **boundary applications** (external 
 | FTSC0052_IP | Conversion of Reference Operation Sets to S/4 | ECC |  | ECC → S4 |
 
 
-<div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>PLB-050 — Responsive Demand and Supply Matching (RDSM) (IP)</span></div>
+<div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>PLB-050 — Responsive Demand and Supply Matching (RDSM) (IP)</span></div>
 <div style="page-break-before: always;"></div>
 
 
 ### 5.6 Integration Patterns
 
 *Integration patterns will be populated when tower architects provide validated middleware and protocol details via the extended flow template.*
-
-
-<div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>PLB-050 — Responsive Demand and Supply Matching (RDSM) (IP)</span></div>
-<div style="page-break-before: always;"></div>
 
 
 
@@ -593,10 +581,6 @@ The following RICEFW objects integrate with **boundary applications** (external 
 #### Platform Inventory
 
 *Platform inventory will be populated when tower architects provide validated technology platform details via the extended flow template.*
-
-
-<div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>PLB-050 — Responsive Demand and Supply Matching (RDSM) (IP)</span></div>
-<div style="page-break-before: always;"></div>
 
 
 ### 6.2 SAP Development Object Status
@@ -637,7 +621,7 @@ The following RICEFW objects integrate with **boundary applications** (external 
 | Compliance | SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR) | Intel Corporate Compliance Framework | Compliance Office |
 
 
-<div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>PLB-050 — Responsive Demand and Supply Matching (RDSM) (IP)</span></div>
+<div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>PLB-050 — Responsive Demand and Supply Matching (RDSM) (IP)</span></div>
 <div style="page-break-before: always;"></div>
 
 
@@ -671,7 +655,7 @@ The following RICEFW objects integrate with **boundary applications** (external 
 *... and 81 more objects (see full Object Tracker)*
 
 
-<div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>PLB-050 — Responsive Demand and Supply Matching (RDSM) (IP)</span></div>
+<div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>PLB-050 — Responsive Demand and Supply Matching (RDSM) (IP)</span></div>
 <div style="page-break-before: always;"></div>
 
 
@@ -692,4 +676,4 @@ The following RICEFW objects integrate with **boundary applications** (external 
 ---
 *PLB-050 — Architecture Document (TOGAF BDAT) · Forecast to Stock (IP) · Generated: April 2026*
 
-<div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>PLB-050 — Responsive Demand and Supply Matching (RDSM) (IP)</span></div>
+<div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>PLB-050 — Responsive Demand and Supply Matching (RDSM) (IP)</span></div>

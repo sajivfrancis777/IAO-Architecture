@@ -16,6 +16,7 @@
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
+  p { orphans: 3; widows: 3; }
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
@@ -150,7 +151,9 @@ This Architecture Document defines the **Business, Data, Application, and Techno
 *Business drivers for {{ cap_id }} {{ cap_name }} will be populated from the Input Portal when tower architects complete the Business Drivers tab.*
 {% endif %}
 
+{% if ctx and ctx.has_drivers %}
 <div style="page-break-before: always;"></div>
+{% endif %}
 
 ### 2.3 Success Criteria
 
@@ -239,7 +242,9 @@ This capability includes **{{ bpmn_processes|length }} business process(es)** mo
 *Business roles and responsibilities will be derived from BPMN swim lane assignments when process models are available.*
 {% endif %}
 
+{% if bpmn_processes %}
 <div style="page-break-before: always;"></div>
+{% endif %}
 
 ## 4. Data Architecture (TOGAF "D")
 
@@ -255,7 +260,9 @@ This capability includes **{{ bpmn_processes|length }} business process(es)** mo
 *Data flows with DB platform details will be populated when tower architects complete the extended flow template columns (42-47) via the Input Portal.*
 {% endif %}
 
+{% if data_flows %}
 <div style="page-break-before: always;"></div>
+{% endif %}
 
 ### 4.2 Data Flow Diagrams
 
@@ -459,8 +466,6 @@ This view is generated from `{{ future_csv_name }}` ({{ future_flows.total_hops 
 | {{ sys.name }} | {{ sys.iapm_id }} | {{ sys.status }} |
 {% endfor %}
 
-<div style="page-break-before: always;"></div>
-
 ### 5.5 RICEFW Inventory
 
 {% if ricefw and ricefw.ricefw %}
@@ -507,7 +512,9 @@ The following RICEFW objects integrate with **boundary applications** (external 
 *RICEFW inventory will be auto-populated from the Smartsheet S/4 Object Tracker when matched to this capability.*
 {% endif %}
 
+{% if ricefw and ricefw.ricefw %}
 <div style="page-break-before: always;"></div>
+{% endif %}
 
 ### 5.6 Integration Patterns
 
@@ -521,7 +528,9 @@ The following RICEFW objects integrate with **boundary applications** (external 
 *Integration patterns will be populated when tower architects provide validated middleware and protocol details via the extended flow template.*
 {% endif %}
 
+{% if integration_patterns or has_release_flows %}
 <div style="page-break-before: always;"></div>
+{% endif %}
 
 {% if has_release_flows %}
 ## 5.7 Release-Specific Architecture ({{ release_id }})
@@ -553,7 +562,9 @@ This section presents the **{{ release_id }}-scoped** current and future state f
 *(No {{ release_id }}-specific current-state flows defined.)*
 {% endif %}
 
+{% if rel_current_mermaid %}
 <div style="page-break-before: always;"></div>
+{% endif %}
 
 ### 5.7.2 {{ release_id }} Future-State Flows
 
@@ -641,7 +652,9 @@ This section presents the **{{ release_id }}-scoped** current and future state f
 *Platform inventory will be populated when tower architects provide validated technology platform details via the extended flow template.*
 {% endif %}
 
+{% if current_platform_mermaid or future_platform_mermaid or tech_platforms %}
 <div style="page-break-before: always;"></div>
+{% endif %}
 
 ### 6.2 SAP Development Object Status
 
@@ -680,7 +693,9 @@ This section presents the **{{ release_id }}-scoped** current and future state f
 *Security and governance controls will be populated from the Input Portal when tower architects complete the Security Controls tab.*
 {% endif %}
 
+{% if (ctx and (ctx.has_sap_status or ctx.has_nfrs or ctx.has_security)) or tech_platforms or current_platform_mermaid or future_platform_mermaid %}
 <div style="page-break-before: always;"></div>
+{% endif %}
 
 ## 7. Project Context
 
@@ -699,7 +714,9 @@ This section presents the **{{ release_id }}-scoped** current and future state f
 *Project roadmap and RICEFW timelines will be auto-populated from the Smartsheet Object Tracker when matched to this capability.*
 {% endif %}
 
+{% if ricefw and ricefw.timeline %}
 <div style="page-break-before: always;"></div>
+{% endif %}
 
 ### 7.2 RAID Log
 

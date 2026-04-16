@@ -16,6 +16,7 @@
   .mermaid { page-break-inside: avoid; overflow: visible; }
   pre, table { page-break-inside: avoid; }
   h2, h3, h4 { page-break-after: avoid; }
+  p { orphans: 3; widows: 3; }
 }
 .mermaid { overflow: visible; }
 .mermaid svg { max-width: 100%; height: auto !important; }
@@ -323,10 +324,6 @@ flowchart TD
 *Data flows with DB platform details will be populated when tower architects complete the extended flow template columns (42-47) via the Input Portal.*
 
 
-<div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - OTC (IF)</span></div>
-<div style="page-break-before: always;"></div>
-
-
 ### 4.2 Data Flow Diagrams
 
 > **DATA ARCHITECTURE** — Database-to-database data flows. Applications (blue) sit above their hosting databases (green cylinders). Thick arrows show data movement between databases.
@@ -353,7 +350,7 @@ flowchart TD
 | Data Quality | Validated at source; reconciliation at target |
 
 
-<div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - OTC (IF)</span></div>
+<div class="page-footer"><span>Page 10</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - OTC (IF)</span></div>
 <div style="page-break-before: always;"></div>
 
 
@@ -368,11 +365,6 @@ flowchart TD
 
 | System | IAPM ID | Status |
 |--------|---------|--------|
-
-
-<div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - OTC (IF)</span></div>
-<div style="page-break-before: always;"></div>
-
 
 ### 5.5 RICEFW Inventory
 
@@ -406,17 +398,13 @@ The following RICEFW objects integrate with **boundary applications** (external 
 | LOGI0800_IF | Interface to send shipment information to custom broker | OpenText | 12842.0 | S/4 → OpenText |
 
 
-<div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - OTC (IF)</span></div>
+<div class="page-footer"><span>Page 11</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - OTC (IF)</span></div>
 <div style="page-break-before: always;"></div>
 
 
 ### 5.6 Integration Patterns
 
 *Integration patterns will be populated when tower architects provide validated middleware and protocol details via the extended flow template.*
-
-
-<div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - OTC (IF)</span></div>
-<div style="page-break-before: always;"></div>
 
 
 
@@ -432,10 +420,6 @@ The following RICEFW objects integrate with **boundary applications** (external 
 #### Platform Inventory
 
 *Platform inventory will be populated when tower architects provide validated technology platform details via the extended flow template.*
-
-
-<div class="page-footer"><span>Page 15</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - OTC (IF)</span></div>
-<div style="page-break-before: always;"></div>
 
 
 ### 6.2 SAP Development Object Status
@@ -476,7 +460,7 @@ The following RICEFW objects integrate with **boundary applications** (external 
 | Compliance | SOX controls, export control (EAR/ITAR) screening, data privacy (GDPR) | Intel Corporate Compliance Framework | Compliance Office |
 
 
-<div class="page-footer"><span>Page 16</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - OTC (IF)</span></div>
+<div class="page-footer"><span>Page 12</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - OTC (IF)</span></div>
 <div style="page-break-before: always;"></div>
 
 
@@ -502,7 +486,7 @@ The following RICEFW objects integrate with **boundary applications** (external 
 | LOGE0772_IF | Develop Fiori app to View/Edit/Add SOP data(CMDB). | 2025-05-16 00:00:00 (100%) | 2025-09-05 00:00:00 (100%) | 2025-09-05 00:00:00 (100%) | 2026-01-30 00:00:00 (100%) | 1. On Track |
 
 
-<div class="page-footer"><span>Page 17</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - OTC (IF)</span></div>
+<div class="page-footer"><span>Page 13</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - OTC (IF)</span></div>
 <div style="page-break-before: always;"></div>
 
 
@@ -523,4 +507,4 @@ The following RICEFW objects integrate with **boundary applications** (external 
 ---
 *LO-180 — Architecture Document (TOGAF BDAT) · Order To Cash (IF) · Generated: April 2026*
 
-<div class="page-footer"><span>Page 18</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - OTC (IF)</span></div>
+<div class="page-footer"><span>Page 14</span><span><a href="#toc">↑ Back to TOC</a></span><span>LO-180 — Manage Outbound Transportation - OTC (IF)</span></div>
