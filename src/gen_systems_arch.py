@@ -45,7 +45,12 @@ from src.context_loader import load_capability_context, CapabilityContext
 from src.bpmn_parser import load_capability_bpmns, bpmn_to_mermaid, build_process_inventory_table, BPMNProcess
 from src.xlsx_loader import load_workbook as load_xlsx_workbook, find_workbook as find_xlsx_workbook
 from src.cap_name_resolver import CapNameResolver
-from src.process_readiness import ProcessReadinessLoader, ProcessReadiness
+
+try:
+    from src.process_readiness import ProcessReadinessLoader, ProcessReadiness
+except ImportError:
+    ProcessReadinessLoader = None  # type: ignore[assignment,misc]
+    ProcessReadiness = None  # type: ignore[assignment,misc]
 
 
 # ---------------------------------------------------------------------------
@@ -878,14 +883,16 @@ def generate_capability(
         print(f"    BPMN: {len(bpmn_processes)} processes loaded from {bpmn_dir.name}/")
 
     # Load process readiness data (§3.4)
-    try:
-        pr_loader = ProcessReadinessLoader(tower_short=tower_cfg.shortcode)
-        pr = pr_loader.load()
-        if pr.has_data:
-            print(f"    PR: {len(pr.active_capabilities)} L2 caps, {pr.total_flags} flags")
-    except Exception as exc:
-        print(f"    PR: skipped ({exc})")
-        pr = ProcessReadiness(tower_short=tower_cfg.shortcode)
+    pr = None
+    if ProcessReadinessLoader is not None:
+        try:
+            pr_loader = ProcessReadinessLoader(tower_short=tower_cfg.shortcode)
+            pr = pr_loader.load()
+            if pr.has_data:
+                print(f"    PR: {len(pr.active_capabilities)} L2 caps, {pr.total_flags} flags")
+        except Exception as exc:
+            print(f"    PR: skipped ({exc})")
+            pr = None
 
     # Render template (TOGAF BDAT)
     template = jinja_env.get_template(BDAT_TEMPLATE)
@@ -987,7 +994,7 @@ def generate_capability(
     print(f"  DONE {cap_id}: {output_path} ({len(rendered):,} chars)")
 
     # Render companion Process Readiness detail page
-    if pr.has_data:
+    if pr and pr.has_data:
         try:
             pr_template = jinja_env.get_template(PR_DETAIL_TEMPLATE)
             pr_rendered = pr_template.render(
