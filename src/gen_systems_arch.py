@@ -45,6 +45,7 @@ from src.context_loader import load_capability_context, CapabilityContext
 from src.bpmn_parser import load_capability_bpmns, bpmn_to_mermaid, build_process_inventory_table, BPMNProcess
 from src.xlsx_loader import load_workbook as load_xlsx_workbook, find_workbook as find_xlsx_workbook
 from src.cap_name_resolver import CapNameResolver
+from src.process_readiness import ProcessReadinessLoader, ProcessReadiness
 
 
 # ---------------------------------------------------------------------------
@@ -211,6 +212,8 @@ if _BANNER_SVG_PATH.exists():
 
 # New template (TOGAF D+A+T)
 BDAT_TEMPLATE = "systems_architecture.md.j2"
+# Companion detail template — Process Readiness
+PR_DETAIL_TEMPLATE = "process_readiness_detail.md.j2"
 # Legacy template (application-only, kept for backward compat)
 LEGACY_TEMPLATE = "capability_architecture.md.j2"
 
@@ -874,6 +877,16 @@ def generate_capability(
     if bpmn_processes and bpmn_dir.is_dir():
         print(f"    BPMN: {len(bpmn_processes)} processes loaded from {bpmn_dir.name}/")
 
+    # Load process readiness data (§3.4)
+    try:
+        pr_loader = ProcessReadinessLoader(tower_short=tower_cfg.shortcode)
+        pr = pr_loader.load()
+        if pr.has_data:
+            print(f"    PR: {len(pr.active_capabilities)} L2 caps, {pr.total_flags} flags")
+    except Exception as exc:
+        print(f"    PR: skipped ({exc})")
+        pr = ProcessReadiness(tower_short=tower_cfg.shortcode)
+
     # Render template (TOGAF BDAT)
     template = jinja_env.get_template(BDAT_TEMPLATE)
     rendered = template.render(
@@ -941,6 +954,8 @@ def generate_capability(
         rel_current_archimate=rel_current_archimate,
         rel_future_archimate=rel_future_archimate,
         rel_diff=rel_diff,
+        # Process Readiness (§3.4)
+        pr=pr,
     )
 
     if dry_run:
@@ -970,6 +985,26 @@ def generate_capability(
     output_path = output_dir / f"{cap_id}-Architecture.md"
     output_path.write_text(rendered, encoding="utf-8")
     print(f"  DONE {cap_id}: {output_path} ({len(rendered):,} chars)")
+
+    # Render companion Process Readiness detail page
+    if pr.has_data:
+        try:
+            pr_template = jinja_env.get_template(PR_DETAIL_TEMPLATE)
+            pr_rendered = pr_template.render(
+                cap_id=cap_id,
+                cap_name=cap_cfg.name,
+                tower_name=tower_cfg.name,
+                tower_short=tower_cfg.shortcode,
+                gen_date=date.today().strftime("%B %Y"),
+                pr=pr,
+            )
+            pr_rendered = _ensure_blank_line_before_tables(pr_rendered)
+            pr_path = output_dir / f"{cap_id}-Process-Readiness.md"
+            pr_path.write_text(pr_rendered, encoding="utf-8")
+            print(f"  DONE {cap_id}: {pr_path.name} ({len(pr_rendered):,} chars)")
+        except Exception as exc:
+            print(f"  WARN {cap_id}: Process Readiness detail skipped ({exc})")
+
     return str(output_path)
 
 

@@ -1,0 +1,168 @@
+<div style="text-align:center; padding-top:20px;">
+  <h1 style="font-size:32px; margin-top:24px;">{{ cap_id }} — Process Readiness Detail</h1>
+  <h2 style="font-size:20px;">{{ cap_name }}</h2>
+  <p style="font-size:16px; color:#555;">{{ tower_name }} ({{ tower_short }}) Tower<br/>
+  Generated: {{ gen_date }}</p>
+  <p style="font-size:12px; color:#aaa;">Companion to {{ cap_id }}-Architecture.md — IAO Architecture Pipeline</p>
+</div>
+
+<style>
+@media print {
+  @page { size: A4; margin: 10mm 15mm; }
+  table { table-layout: fixed; word-wrap: break-word; font-size: 8pt; page-break-inside: avoid; }
+  td, th { overflow: hidden; text-overflow: ellipsis; padding: 3px 4px; }
+  h2, h3 { page-break-after: avoid; }
+}
+</style>
+
+---
+
+**← [Back to Architecture Document]({{ cap_id }}-Architecture.md)**
+
+---
+
+## Table of Contents
+
+1. [Capability Readiness Summary](#1-capability-readiness-summary)
+2. [Configuration Status](#2-configuration-status)
+3. [User Story Coverage](#3-user-story-coverage)
+4. [RICEFW Object Status](#4-ricefw-object-status)
+{% if pr.has_transports %}5. [Transport & Build Status](#5-transport--build-status){% endif %}
+{% if pr.has_qa %}6. [QA Cross-Verification](#6-qa-cross-verification){% endif %}
+7. [Risk Flag Register](#7-risk-flag-register)
+
+---
+
+## 1. Capability Readiness Summary
+
+| L2 Code | Description | L3 (scope/total) | L4 (scope/total) | Config % | Fit-to-Std % | RICEFW % | Status |
+|---------|-------------|:-----------------:|:-----------------:|:--------:|:------------:|:--------:|:------:|
+{% for cap in pr.active_capabilities -%}
+| {{ cap.l2_code }} | {{ cap.l2_desc }} | {{ cap.l3_in_scope }}/{{ cap.l3_total }} | {{ cap.l4_in_scope }}/{{ cap.l4_total }} | {% if cap.config_required %}{{ cap.config_pct|round(0)|int }}%{% else %}—{% endif %} | {% if cap.us_total %}{{ cap.fit_pct|round(0)|int }}%{% else %}—{% endif %} | {% if cap.ricefw_total %}{{ cap.ricefw_pct|round(0)|int }}%{% else %}—{% endif %} | {{ cap.overall_icon }} {{ cap.overall_status }} |
+{% endfor %}
+
+{% set totals_l3 = pr.active_capabilities|sum(attribute='l3_in_scope') %}
+{% set totals_l3_all = pr.active_capabilities|sum(attribute='l3_total') %}
+{% set totals_cfg = pr.active_capabilities|sum(attribute='config_required') %}
+{% set totals_cfg_done = pr.active_capabilities|sum(attribute='config_complete') %}
+{% set totals_us = pr.active_capabilities|sum(attribute='us_total') %}
+{% set totals_fit = pr.active_capabilities|sum(attribute='us_fit') %}
+{% set totals_ricefw = pr.active_capabilities|sum(attribute='ricefw_total') %}
+{% set totals_ricefw_done = pr.active_capabilities|sum(attribute='ricefw_complete') %}
+
+**Tower Totals**: {{ totals_l3 }}/{{ totals_l3_all }} L3 in-scope · {{ totals_cfg_done }}/{{ totals_cfg }} config complete · {{ totals_fit }}/{{ totals_us }} Fit · {{ totals_ricefw_done }}/{{ totals_ricefw }} RICEFW complete
+
+<div style="page-break-before: always;"></div>
+
+## 2. Configuration Status
+
+Per-L2 configuration tracker detail showing CDD completion against required items.
+
+{% for cap in pr.active_capabilities %}
+{% if cap.config_required > 0 %}
+### {{ cap.l2_code }} — {{ cap.l2_desc }}
+
+| Metric | Value |
+|--------|-------|
+| Config Items Required | {{ cap.config_required }} |
+| Config CDD Complete | {{ cap.config_complete }} |
+| Average Completion | {{ cap.config_pct|round(0)|int }}% |
+
+{% endif %}
+{% endfor %}
+
+{% if totals_cfg == 0 %}
+*No configuration items tracked for this tower's L2 capabilities.*
+{% endif %}
+
+<div style="page-break-before: always;"></div>
+
+## 3. User Story Coverage
+
+Fit/Gap analysis from the User Story Tracker, grouped by L2 capability.
+
+| L2 Code | Description | Total | Fit | Gap | Fit % | Gaps w/o RICEFW |
+|---------|-------------|:-----:|:---:|:---:|:-----:|:---------------:|
+{% for cap in pr.active_capabilities -%}
+{% if cap.us_total > 0 -%}
+| {{ cap.l2_code }} | {{ cap.l2_desc|truncate(30) }} | {{ cap.us_total }} | {{ cap.us_fit }} | {{ cap.us_gap }} | {{ cap.fit_pct|round(0)|int }}% | {% if cap.us_gap > 0 and cap.ricefw_total == 0 %}⚠️ {{ cap.us_gap }}{% else %}—{% endif %} |
+{% endif -%}
+{% endfor %}
+
+**Tower**: {{ totals_fit }}/{{ totals_us }} Fit-to-Standard ({{ (totals_fit / [totals_us, 1]|max * 100)|round(0)|int }}%)
+
+<div style="page-break-before: always;"></div>
+
+## 4. RICEFW Object Status
+
+Development object completion by L2 capability.
+
+| L2 Code | Description | Total | Complete | In Progress | Not Started |
+|---------|-------------|:-----:|:--------:|:-----------:|:-----------:|
+{% for cap in pr.active_capabilities -%}
+{% if cap.ricefw_total > 0 -%}
+{% set in_prog = cap.ricefw_total - cap.ricefw_complete %}
+| {{ cap.l2_code }} | {{ cap.l2_desc|truncate(30) }} | {{ cap.ricefw_total }} | {{ cap.ricefw_complete }} | {{ in_prog }} | — | 
+{% endif -%}
+{% endfor %}
+
+**Tower**: {{ totals_ricefw_done }}/{{ totals_ricefw }} complete ({{ (totals_ricefw_done / [totals_ricefw, 1]|max * 100)|round(0)|int }}%)
+
+{% if pr.has_transports %}
+<div style="page-break-before: always;"></div>
+
+## 5. Transport & Build Status
+
+SAP transport analysis from ADT Data Preview (TMSBUFFER, E070, E071).
+
+| System | Queued | Released | Unreleased | Customizing | Workbench | Z-Objects |
+|--------|:------:|:--------:|:----------:|:-----------:|:---------:|:---------:|
+{% for ts in pr.transports -%}
+| {{ ts.system }} | {{ ts.queued }} | {{ ts.released }} | {{ ts.unreleased }} | {{ ts.customizing }} | {{ ts.workbench }} | {{ ts.z_objects }} |
+{% endfor %}
+
+> Transport data extracted via SAP ADT Data Preview API (freestyle SQL on E070, E071, TMSBUFFER tables).
+> "Queued" = transports in TMSBUFFER awaiting import to sandbox/QA virtual target (BV0/DV0).
+{% endif %}
+
+{% if pr.has_qa %}
+<div style="page-break-before: always;"></div>
+
+## 6. QA Cross-Verification
+
+Cross-reference of dev TMSBUFFER queue against QA system E070 exports (via SE16N).
+
+| Path | Dev Buffered | QA Imported | Landed | Missing | Promotion % |
+|------|:----------:|:---------:|:------:|:-------:|:-----------:|
+{% for qv in pr.qa_verifications -%}
+| {{ qv.label }} | {{ qv.dev_buffered }} | {{ qv.qa_imported }} | {{ qv.landed }} | {{ qv.missing }} | {{ qv.promotion_pct|round(0)|int }}% |
+{% endfor %}
+
+> **Landed**: Transports appearing in both dev TMSBUFFER and QA E070.
+> **Missing**: In dev buffer but not yet imported to QA — may indicate stalled promotion.
+{% endif %}
+
+<div style="page-break-before: always;"></div>
+
+## 7. Risk Flag Register
+
+All automated risk flags detected across data sources.
+
+{% if pr.total_flags > 0 %}
+| # | L2 | Flag | Detail | Severity |
+|---|-----|------|--------|:--------:|
+{% for flag in pr.flags -%}
+| {{ loop.index }} | {{ flag.l2 }} | {{ flag.flag }} | {{ flag.detail }} | {% if flag.severity == 'HIGH' %}🔴{% elif flag.severity == 'MEDIUM' %}🟡{% else %}🔵{% endif %} {{ flag.severity }} |
+{% endfor %}
+
+**Summary**: 🔴 {{ pr.high_flags }} HIGH · 🟡 {{ pr.medium_flags }} MEDIUM · 🔵 {{ pr.low_flags }} LOW
+{% else %}
+✅ No risk flags detected — all capabilities within expected thresholds.
+{% endif %}
+
+---
+
+**← [Back to Architecture Document]({{ cap_id }}-Architecture.md)**
+
+---
+*{{ cap_id }} — Process Readiness Detail · {{ tower_name }} · Generated: {{ gen_date }}*

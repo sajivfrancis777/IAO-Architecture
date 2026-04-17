@@ -53,6 +53,7 @@ nav.toc a:hover { text-decoration: underline; }
       <li><a href="#31-business-process-overview">3.1 Business Process Overview</a></li>
       <li><a href="#32-business-process-diagrams">3.2 Business Process Diagrams</a></li>
       <li><a href="#33-business-roles-responsibilities">3.3 Business Roles &amp; Responsibilities</a></li>
+      <li><a href="#34-process-readiness">3.4 Process Readiness</a></li>
     </ul>
   </li>
   <li><a href="#4-data-architecture-togaf-d">4. Data Architecture (TOGAF &ldquo;D&rdquo;)</a>
@@ -252,6 +253,43 @@ This capability includes **{{ bpmn_processes|length }} business process(es)** mo
 {% if bpmn_processes %}
 <div style="page-break-before: always;"></div>
 {% endif %}
+
+### 3.4 Process Readiness
+
+{% if pr and pr.has_data %}
+Process readiness assessment across **{{ pr.active_capabilities|length }} active L2 capabilities** with automated risk flags from Config Tracker, User Story Tracker, RICEFW Object Tracker{% if pr.has_transports %}, and SAP transport analysis{% endif %}.
+
+| L2 | Description | L3 In-Scope | Config | User Stories | RICEFW | Status |
+|----|-------------|:-----------:|:------:|:------------:|:------:|:------:|
+{% for cap in pr.active_capabilities -%}
+| {{ cap.l2_code }} | {{ cap.l2_desc|truncate(35) }} | {{ cap.l3_in_scope }}/{{ cap.l3_total }} | {% if cap.config_required %}{{ cap.config_pct|round(0)|int }}% ({{ cap.config_complete }}/{{ cap.config_required }}){% else %}—{% endif %} | {{ cap.us_fit }}F/{{ cap.us_gap }}G/{{ cap.us_total }} | {{ cap.ricefw_complete }}/{{ cap.ricefw_total }} | {{ cap.overall_icon }} |
+{% endfor %}
+
+{% if pr.has_transports %}
+**Transport Status**:
+{% for ts in pr.transports -%}
+{{ ts.system }}: {{ ts.queued }} queued, {{ ts.released }} released, {{ ts.z_objects }} Z-objects |
+{% endfor %}
+{% endif %}
+
+{% if pr.has_qa %}
+**QA Promotion**:
+{% for qv in pr.qa_verifications -%}
+{{ qv.label }}: {{ qv.landed }}/{{ qv.dev_buffered }} promoted ({{ qv.promotion_pct|round(0)|int }}%) |
+{% endfor %}
+{% endif %}
+
+{% if pr.total_flags > 0 %}
+**Risk Flags**: {% if pr.high_flags %}🔴 {{ pr.high_flags }} HIGH{% endif %}{% if pr.medium_flags %} · 🟡 {{ pr.medium_flags }} MEDIUM{% endif %}{% if pr.low_flags %} · 🔵 {{ pr.low_flags }} LOW{% endif %}
+{% endif %}
+
+> 📄 **[Full Process Readiness Detail →]({{ cap_id }}-Process-Readiness.md)** — per-capability breakdown with config items, RICEFW objects, transport analysis, and QA verification.
+
+{% else %}
+*Process readiness data will be auto-populated when Config Tracker, User Story Tracker, and Object Tracker data are available for this tower.*
+{% endif %}
+
+<div style="page-break-before: always;"></div>
 
 ## 4. Data Architecture (TOGAF "D")
 
